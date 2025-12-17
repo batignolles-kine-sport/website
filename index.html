@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/images/logo.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Batignolles Kiné Sport</title>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+    :root {
+      --navbar-height: 5rem;
+    }
+
+    body {
+      margin: 0;
+      background: #ffffff;
+      min-height: 100vh;
+    }
+
+    .header-navbar {
+      height: var(--navbar-height);
+      max-height: var(--navbar-height);
+    }
+
+    .navbar-logo {
+      height: 100%;
+      gap: 0.25rem;
+    }
+
+    .navbar-logo img {
+      height: 70%;
+      max-height: calc(var(--navbar-height) * 0.7);
+      width: auto;
+    }
+
+    .header-navbar nav {
+      gap: 1.25rem;
+      font-size: 0.95rem;
+      letter-spacing: 0.02em;
+    }
+
+    .header-navbar nav button,
+    .header-navbar nav a {
+      white-space: nowrap;
+    }
+
+    .section-card {
+      background-color: rgba(255, 255, 255, 0.92);
+      border-radius: 24px;
+      box-shadow: 0 20px 45px rgba(13, 41, 24, 0.12);
+      padding: 3rem;
+      border: 1px solid rgba(255, 255, 255, 0.6);
+    }
+
+    .section-card.no-border {
+      border-color: transparent;
+    }
+
+    .hero-image-wrapper {
+      max-width: 440px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero-image-wrapper .card {
+      padding: 0;
+    }
+  </style>
+</head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/index.tsx"></script>
+  </body>
+</html>

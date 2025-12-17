@@ -1,0 +1,27 @@
+/* Component-level utility classes and overrides live here. */
+
+@layer components {
+	.btn {
+		@apply inline-flex items-center justify-center font-semibold tracking-tight transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed gap-2 rounded-md md:rounded-lg;
+	}
+
+	.btn-primary {
+		@apply bg-slate-900 text-white hover:bg-slate-800 focus-visible:ring-slate-900 focus-visible:ring-offset-white shadow-[0_12px_30px_rgba(15,23,42,0.12)] border border-slate-900;
+	}
+
+	.btn-secondary {
+		@apply bg-white text-text-main border border-slate-200 hover:border-slate-300 hover:shadow-md shadow-soft focus-visible:ring-slate-900 focus-visible:ring-offset-white;
+	}
+
+	.btn-tertiary {
+		@apply bg-transparent text-text-main hover:text-primary underline underline-offset-4 decoration-2 px-0 py-0 font-semibold;
+	}
+
+	.badge-pill {
+		@apply inline-flex items-center justify-center rounded-pill font-semibold text-2xs leading-none px-3 py-1;
+	}
+
+	.section-title {
+		@apply text-3xl md:text-4xl font-bold tracking-tight text-text-base;
+	}
+}

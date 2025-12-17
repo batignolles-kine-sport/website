@@ -1,0 +1,25 @@
+backend:
+  name: github
+  repo: batignolles-kine-sport/batignolles-kine-sport
+  branch: main
+  auth_endpoint: api/auth
+
+media_folder: "public/images/blog"
+public_folder: "/images/blog"
+
+collections:
+  - name: "pathologies"
+    label: "Pathologies & Articles"
+    folder: "src/posts/pathologies"
+    create: true
+    slug: "{{slug}}"
+    preview_path: "/pathologies/{{slug}}"
+    fields:
+      - { label: "Titre", name: "title", widget: "string", required: true }
+      - { label: "Catégorie", name: "category", widget: "select", options: ["Dos", "Genou", "Cheville", "Épaule", "Pelvis", "Coude", "Main", "Cabinet"], required: true }
+      - { label: "Type", name: "type", widget: "select", options: ["Rachis", "Membre Inférieur", "Membre Supérieur", "Méthodologie", "Autres"], required: true }
+      - { label: "Image", name: "image", widget: "image", required: true }
+      - { label: "Temps de lecture", name: "readTime", widget: "string", default: "5 min" }
+      - { label: "Extrait (résumé)", name: "excerpt", widget: "text", required: true }
+      - { label: "Date de publication", name: "publishedAt", widget: "string", pattern: ["^\\d{2} [A-Za-z]+ \\d{4}$", "Format: 17 Décembre 2025"] }
+      - { label: "Contenu", name: "body", widget: "markdown", required: true }

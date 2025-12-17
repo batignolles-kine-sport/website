@@ -1,0 +1,310 @@
+{
+  "etablissement": "Batignolles Kiné Sport | Paris 17",
+  "note_moyenne": 5,
+  "nombre_avis_total": 36,
+  "avis": [
+    {
+      "auteur": "Cecilia Chort",
+      "nombre_avis": 5,
+      "note": 5,
+      "date": "il y a 4 jours",
+      "date_visite": "décembre",
+      "commentaire": "Rééducation de la cheville suite à une grosse entorse... j'avais peur que cela impact ma prépa marathon et finalement Justine m'a énormément rassuré ! Nous avons fait un super travail de stabilité, renforcement, pliométrie légère et même sur d'autres blessures qui me préoccupaient! Cabinet super bien équipé, les filles sont tellement gentille et à l'écoute ! Merci pour le soutien et les conseils ! Je recommande très fortement !"
+    },
+    {
+      "auteur": "Guillaume Guiral",
+      "nombre_avis": 9,
+      "photos": 1,
+      "note": 5,
+      "date": "il y a un mois",
+      "date_visite": "octobre",
+      "commentaire": "Tendinopathie au tendon d'Achille guérie très rapidement grâce au travail et conseils pro bien avisés de Léonie qui a su cibler en un coup d'oeil mes problématiques. Petit plus...l'excellente ambiance qui règne dans ce cabinet...vous pouvez y aller les yeux fermés. Je recommande vivement."
+    },
+    {
+      "auteur": "Inès Duboc Neuville",
+      "nombre_avis": 9,
+      "note": 5,
+      "date": "il y a 3 semaines",
+      "date_visite": "novembre",
+      "commentaire": "Rééducation des 2 pieds et chevilles avec Justine que je remercie ! Je recommande vivement, elle a été parfaite et très efficace. Mention spéciale pour la disponibilité : rdv possible de 8h le matin à 20h30 le soir !"
+    },
+    {
+      "auteur": "Lucille Blois",
+      "nombre_avis": 12,
+      "photos": 1,
+      "note": 5,
+      "date": "il y a une semaine",
+      "date_visite": "décembre",
+      "commentaire": "J'ai été accompagnée par Justine sur de la rééducation de genoux et chevilles, et je ne peux que la recommander ! Justine est à l'écoute et efficace (en plus d'être super sympa)"
+    },
+    {
+      "auteur": "Lena Michelet",
+      "nombre_avis": 10,
+      "photos": 4,
+      "note": 5,
+      "date": "il y a 3 mois",
+      "date_visite": "août",
+      "commentaire": "J'ai fait ma rééducation après une opération du ligament croisé et je recommande vivement ! Léonie est à l'écoute, professionnelle et toujours motivante. Les séances sont adaptées et vraiment axées sur le retour au sport ! Merci encore à l'équipe pour votre accompagnement !"
+    },
+    {
+      "auteur": "Nicole Kardous",
+      "nombre_avis": 5,
+      "photos": 3,
+      "note": 5,
+      "date": "il y a 3 mois",
+      "date_visite": "août",
+      "commentaire": "Justine est une kiné au top ! J'y suis allée pour la rééducation de mes coudes et de ma cheville et je ne pouvais pas espérer mieux. Très professionnel, à l'écoute et toujours de bons conseils. Les séances sont à la fois efficaces et..."
+    },
+    {
+      "auteur": "Maxime Meurice",
+      "nombre_avis": 3,
+      "note": 5,
+      "date": "il y a 3 mois",
+      "date_visite": "août",
+      "commentaire": "Un grand merci à Justine qui m'a accompagné tout au long de ma préparation au marathon. Grâce à ses soins (notamment pour une périostite) et à ses conseils avisés, j'ai pu m'entraîner sereinement et atteindre mon objectif sans me blesser. Je recommande ce cabinet les yeux fermés !"
+    },
+    {
+      "auteur": "Alice Roussel",
+      "nombre_avis": 2,
+      "note": 5,
+      "date": "il y a 3 mois",
+      "date_visite": "décembre 2024",
+      "commentaire": "J'ai été suivie par Justine dans son ancien cabinet. Rééducation après une blessure au genou liée à la course à pied. Suivi très pro. Elle a analysé ma course et m'a aidé à corriger certains paramètres. J'ai pu reprendre sans douleur."
+    },
+    {
+      "auteur": "Joy Berthelemy",
+      "role": "Local Guide",
+      "nombre_avis": 25,
+      "photos": 1,
+      "note": 5,
+      "date": "il y a 3 mois",
+      "date_visite": "août",
+      "commentaire": "J'ai été suivie pendant 3 mois par Leonie dans son ancien cabinet pour une tendinopathie avant mon triathlon, je ne pensais pas pouvoir y arriver et elle a rendu les choses possibles par ses conseils, son dynamisme et sa bonne humeur!!"
+    },
+    {
+      "auteur": "Mégane Rosais",
+      "role": "Local Guide",
+      "nombre_avis": 9,
+      "photos": 10,
+      "note": 5,
+      "date": "il y a 3 mois",
+      "date_visite": "août",
+      "commentaire": "Mille merci pour votre accompagnement durant ma rééducation post opération des croisés. Justine est une professionnelle très à l'écoute, douce et proche de ses patients. Si vous voulez vite reprendre votre activité sportive après un traumatisme, allez-y les yeux fermés ! Je recommande+++"
+    },
+    {
+      "auteur": "Will H",
+      "role": "Local Guide",
+      "nombre_avis": 34,
+      "note": 5,
+      "date": "il y a 3 mois",
+      "date_visite": "septembre",
+      "commentaire": "Suite à un combat clandestin contre un ours de 3m de haut (que j'ai vaillamment gagné grâce à mes cours de self défense), je me suis malheureusement blessé au genou..."
+    },
+    {
+      "auteur": "Alexandre Guesne",
+      "role": "Local Guide",
+      "nombre_avis": 54,
+      "photos": 46,
+      "note": 5,
+      "date": "il y a 3 mois",
+      "date_visite": "août",
+      "commentaire": "J'ai été suivi par Léonie pour une tendinopathie. Elle a fait preuve d'une grande douceur et d'un vrai professionnalisme, ce qui m'a permis de reprendre la course à pied rapidement."
+    },
+    {
+      "auteur": "Clémence rne",
+      "nombre_avis": 9,
+      "note": 5,
+      "date": "il y a 3 mois",
+      "date_visite": "août",
+      "commentaire": "J'ai été suivie par Justine Josse dans le cadre de ma rééducation et tout s'est super bien passé. Elle est à l'écoute, professionnelle et très douce. Les séances ont été efficaces. Je la recommande vivement !"
+    },
+    {
+      "auteur": "ilan PARIENTE",
+      "nombre_avis": 6,
+      "note": 5,
+      "date": "il y a 3 mois",
+      "date_visite": "septembre",
+      "commentaire": "J'ai fais deux consultations une avec Léonie et l'autre avec Justine. Je ne peux que recommander ce cabinet Elles m'ont informé aiguillé et rassuré"
+    },
+    {
+      "auteur": "Marie Joerg",
+      "nombre_avis": 4,
+      "note": 5,
+      "date": "il y a 3 mois",
+      "date_visite": "juin 2024",
+      "commentaire": "Je remercie Léonie de m'avoir pris en charge rapidement l'été dernier suite à une double fracture de la cheville. Les séances ont été efficaces et ciblées selon les activités sportives que je pratique au quotidien. Merci pour ton professionnalisme et tes conseils avisés."
+    },
+    {
+      "auteur": "Lucie Brun",
+      "role": "Local Guide",
+      "nombre_avis": 7,
+      "photos": 11,
+      "note": 5,
+      "date": "il y a 3 mois",
+      "date_visite": "juillet",
+      "commentaire": "Merci à Justine et Léonie qui m'ont suivie tout au long de ma rééducation dans leur précédent cabinet et grâce à qui j'ai pu reprendre mes activités sportives sans douleur ! Bonne installation dans votre nouveau cab !"
+    },
+    {
+      "auteur": "Léa Rocher",
+      "nombre_avis": 3,
+      "note": 5,
+      "date": "il y a 3 mois",
+      "date_visite": "août",
+      "commentaire": "J'ai consulté Justine pour une douleur persistante au genou à la course à pied. Après une analyse de course, des conseils sur la charge d'entraînement et des exercices ciblés, ma douleur a disparue et ma confiance retrouvée. Le cabinet est..."
+    },
+    {
+      "auteur": "Cédrine Herivault",
+      "nombre_avis": 9,
+      "photos": 15,
+      "note": 5,
+      "date": "il y a 3 mois",
+      "date_visite": "août",
+      "commentaire": "Je remercie Léonie pour sa gentillesse et son professionnalisme au cours de ma rééducation ! Elle a toujours su être à l'écoute et de très bons conseils. Je referais appel à elle les yeux fermés.",
+      "reponse_proprietaire": {
+        "date": "il y a un jour",
+        "texte": "Merci Cédrine pour ton commentaire. Au plaisir de te recroiser ! L'équipe Batignolles Kiné Sport"
+      }
+    },
+    {
+      "auteur": "Olivier BOUVRANDE",
+      "role": "Local Guide",
+      "nombre_avis": 129,
+      "photos": 180,
+      "note": 5,
+      "date": "il y a 3 mois",
+      "date_visite": "août",
+      "commentaire": "J'ai été suivi par Léonie qui est à l'écoute de ses patients, ponctuelle et bienveillante."
+    },
+    {
+      "auteur": "Quentin Bsl",
+      "role": "Local Guide",
+      "nombre_avis": 30,
+      "photos": 40,
+      "note": 5,
+      "date": "il y a 3 mois",
+      "date_visite": "août",
+      "commentaire": "Super ! Très bonne prise en charge par Léonie qui m'a suivie dans son ancien cabinet ! J'ai enfin pu reprendre la course sans douleur suite à une blessure au genou, je recommande !"
+    },
+    {
+      "auteur": "Theodore Depieds",
+      "role": "Local Guide",
+      "nombre_avis": 17,
+      "photos": 1,
+      "note": 5,
+      "date": "il y a 3 mois",
+      "date_visite": "août",
+      "commentaire": "Super cabinet, je recommande vivement ! Léonie et Justine sont deux thérapeutes compétentes et à l'écoute, elles sauront parfaitement vous rééduquer et vous accompagner jusqu'à la reprise de l'activité sportive"
+    },
+    {
+      "auteur": "Arthur Chassin",
+      "nombre_avis": 5,
+      "note": 5,
+      "date": "il y a 2 mois",
+      "date_visite": "septembre",
+      "commentaire": "Merci Justine et Léonie pour leurs soins dans leur ancien cabinet. Elles m'ont accompagné dans ma rééducation avec professionnalisme, et dans la bonne humeur. Je recommande"
+    },
+    {
+      "auteur": "PAUL TELLAM",
+      "nombre_avis": 7,
+      "note": 5,
+      "date": "il y a 3 mois",
+      "date_visite": "août",
+      "commentaire": "Je viens de découvrir l'espace BKS. J'ai poussé la porte par curiosité (intérêt de cette discipline et amoureux du quartier)."
+    },
+    {
+      "auteur": "Margot Dej",
+      "nombre_avis": 16,
+      "note": 5,
+      "date": "il y a 3 mois",
+      "date_visite": "août",
+      "commentaire": "Léonie et Justine sont à l'écoute et très professionnelles. Je n'ai pas hésité une seconde à les suivre dans leur nouveau local, c'était évident! Encore merci pour votre suivi et votre sérieux!"
+    },
+    {
+      "auteur": "Gonzague Moreau de la Ronde",
+      "nombre_avis": 18,
+      "note": 5,
+      "date": "il y a 3 mois",
+      "date_visite": "août",
+      "commentaire": "Très bonne prise en charge de mon entorse de cheville. Justine Josse a su trouver les bonnes techniques pour résoudre un problème de perte de mobilité qui traînait depuis des années. J'espère ne plus revenir pour moi mais en tout cas je garde l'adresse pour mes futurs amis blessés"
+    },
+    {
+      "auteur": "Clarisse Bonnet",
+      "nombre_avis": 2,
+      "note": 5,
+      "date": "il y a 3 mois",
+      "date_visite": "août",
+      "commentaire": "Un cabinet au top ! Les deux kinés sont vraiment à l'écoute, bienveillantes et très professionnelles. Un grand merci tout particulièrement à Léonie Taton pour la qualité de ses soins et son accompagnement. Je recommande sans hésiter !",
+      "reponse_proprietaire": {
+        "date": "il y a un jour",
+        "texte": "Merci Clarisse pour ce commentaire ! L'équipe Batignolles Kiné Sport"
+      }
+    },
+    {
+      "auteur": "Léo",
+      "nombre_avis": 1,
+      "note": 5,
+      "date": "il y a un mois",
+      "date_visite": "octobre",
+      "commentaire": "Super cabinet, très professionnel et accueillant. Justine est toujours à l'écoute, bienveillante et efficace. Je recommande vivement !"
+    },
+    {
+      "auteur": "Charlotte Viard",
+      "nombre_avis": 4,
+      "note": 5,
+      "date": "il y a 3 mois",
+      "date_visite": "août",
+      "commentaire": "Professionnelles et sympathiques, je recommande ces deux Kinés qui ont assuré un suivi sérieux et efficace de ma blessure (dans leur précédent cabinet), le tout dans la bonne humeur !"
+    },
+    {
+      "auteur": "eva rubio",
+      "nombre_avis": 5,
+      "note": 5,
+      "date": "il y a 3 mois",
+      "date_visite": "juillet",
+      "commentaire": "Merci à cette super équipe de m'avoir accompagnée tout au long de ma rééducation. Des progrès rapide avec un suivi personnalisé et rigoureux."
+    },
+    {
+      "auteur": "romain bellefoix",
+      "nombre_avis": 3,
+      "note": 5,
+      "date": "il y a un mois",
+      "date_visite": "octobre",
+      "commentaire": "Merci à cette super équipe et leur accompagnement sans faille. Très professionnel !!"
+    },
+    {
+      "auteur": "Ilyes Zegrari",
+      "nombre_avis": 10,
+      "note": 5,
+      "date": "il y a 3 mois",
+      "date_visite": "août",
+      "commentaire": "Un grand merci à Léonie pour son professionnalisme et sa gentillesse tout au long de ma rééducation de la cheville"
+    },
+    {
+      "auteur": "Paul Aguado",
+      "nombre_avis": 1,
+      "note": 5,
+      "date": "il y a 3 mois",
+      "date_visite": "août 2023",
+      "commentaire": "Je mets cinq étoiles parce que je peux pas mettre plus"
+    },
+    {
+      "auteur": "Sylvie Mallet",
+      "note": 5,
+      "date": "il y a 2 jours",
+      "date_visite": "décembre",
+      "commentaire": "Un grand merci à l'équipe pour l accompagnement dans la durée pour la rééducation de mon tendon d achille, votre professionnalisme, votre patience et votre gentillesse dans ces moments pas faciles :)",
+      "reponse_proprietaire": {
+        "date": "il y a un jour",
+        "texte": "Merci Sylvie pour votre confiance. Très bonne continuation ! L'équipe Batignolles Kiné Sport"
+      }
+    },
+    {
+      "auteur": "Julie de Saint Albin",
+      "nombre_avis": 1,
+      "note": 5,
+      "date": "il y a 6 jours",
+      "date_visite": "novembre",
+      "commentaire": "Cabinet tout neuf et super moderne ! Justine m'a accompagné pendant deux mois, elle s'adaptait toujours au mieux et faisait en sorte d'être le plus disponible possible. Les deux kinés sont professionnelles, agréables et vraiment top. Je recommande à 100 % !"
+    }
+  ]
+}
