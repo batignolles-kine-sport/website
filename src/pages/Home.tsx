@@ -12,6 +12,7 @@ import {
   Star,
 } from 'lucide-react';
 import { SEO } from '../components/layout/SEO';
+import { StructuredData } from '../components/layout/StructuredData';
 import { Button, DoctolibMark } from '../components/ui/Button';
 import { DOCTOLIB_URL, SERVICES, ADDRESS, HERO_IMAGE_URL } from '../utils/constants';
 import reviewsData from '../data/avis.json';
@@ -94,7 +95,9 @@ export const Home: React.FC = () => {
       <SEO
         title="Cabinet de Kiné à Paris 17e (Batignolles)"
         description="Kinésithérapie spécialisée en kiné du sport et rééducation aux Batignolles (75017). Équipe expérimentée. Prise de RDV Doctolib."
+        keywords={['kiné du sport Paris', 'rééducation post-opératoire', 'kinésithérapie Batignolles', 'kiné Paris 17', 'traumatologie sportive']}
       />
+      <StructuredData type="MedicalBusiness" />
 
       <style>{`
         @keyframes scroll {
@@ -310,11 +313,11 @@ export const Home: React.FC = () => {
 
           
           {/* Location */}
-          <section>
+          <section aria-labelledby="location-heading">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
               <div className="bg-white rounded-4xl p-8 md:p-10 shadow-card border border-slate-100 flex flex-col justify-between h-full">
                 <div>
-                  <h2 className="text-3xl font-semibold text-slate-900 mb-6">Nous trouver</h2>
+                  <h2 id="location-heading" className="text-3xl font-semibold text-slate-900 mb-6">Nous trouver</h2>
                   <div className="space-y-6">
                     <div className="flex items-start">
                       <MapPin className="text-primary mt-1 mr-4 flex-shrink-0" />

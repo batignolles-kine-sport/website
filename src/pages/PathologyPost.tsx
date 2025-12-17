@@ -3,6 +3,7 @@ import { Link, Navigate, useParams } from 'react-router-dom';
 import { AlertCircle, ArrowLeft, BookOpen, Calendar, CheckCircle, Clock, Tag } from 'lucide-react';
 import { marked } from 'marked';
 import { SEO } from '../components/layout/SEO';
+import { StructuredData } from '../components/layout/StructuredData';
 import { DOCTOLIB_URL, PHONE } from '../utils/constants';
 import { toTelHref } from '../utils/helpers';
 
@@ -86,7 +87,33 @@ export const PathologyPost: React.FC = () => {
 
   return (
     <div className="bg-surface min-h-screen text-slate-900 selection:bg-primary selection:text-white">
-      <SEO title={post.title} description={post.excerpt} />
+      <SEO 
+        title={post.title} 
+        description={post.excerpt}
+        type="article"
+        author="Équipe BKS"
+        publishedTime={post.publishedAt}
+        image={post.image}
+        keywords={[post.category, post.type, 'kinésithérapie', 'rééducation', 'traitement']}
+      />
+      <StructuredData 
+        type="Article" 
+        article={{
+          headline: post.title,
+          description: post.excerpt,
+          author: "Équipe Batignolles Kiné Sport",
+          datePublished: post.publishedAt || new Date().toISOString(),
+          image: post.image
+        }}
+      />
+      <StructuredData 
+        type="BreadcrumbList" 
+        breadcrumbs={[
+          { name: 'Accueil', url: '/' },
+          { name: 'Pathologies', url: '/pathologies' },
+          { name: post.title, url: `/pathologies/${post.slug}` }
+        ]}
+      />
 
       <style>{`
         /* Typography & Colors */

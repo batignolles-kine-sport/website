@@ -1,5 +1,6 @@
 import React from 'react';
 import { SEO } from '../components/layout/SEO';
+import { StructuredData } from '../components/layout/StructuredData';
 import { TEAM } from '../utils/constants';
 import { Button, DoctolibMark } from '../components/ui/Button';
 import DoctolibWhite from '../assets/icons/doctolib-blanc.png';
@@ -10,7 +11,9 @@ export const Team: React.FC = () => {
       <SEO
         title="Notre Équipe - Kinésithérapeutes Paris 17"
         description="Découvrez Batignolles Kiné Sport : une équipe pluridisciplinaire spécialisée en kinésithérapie du sport et rééducation personnalisée à Paris 17."
+        keywords={['kinésithérapeutes Paris 17', 'équipe kiné du sport', 'thérapeutes Batignolles', 'kinés sportifs']}
       />
+      <StructuredData type="MedicalBusiness" />
 
       <section className="bg-surface border-b border-slate-100">
         <div className="mx-auto max-w-6xl px-4 py-16 sm:py-20">
