@@ -3,7 +3,12 @@
   publish = "dist"
 
 [functions]
-  directory = "functions"
+  directory = "netlify/functions"
+
+[[redirects]]
+  from = "/api/auth"
+  to = "/.netlify/functions/auth"
+  status = 200
 
 [[redirects]]
   from = "/*"
