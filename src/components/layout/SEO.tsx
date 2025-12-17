@@ -13,6 +13,8 @@ interface SEOProps {
   noindex?: boolean;
 }
 
+const BASE_URL = "https://batignolleskinesport.fr";
+
 export const SEO: React.FC<SEOProps> = ({ 
   title, 
   description, 
@@ -26,10 +28,13 @@ export const SEO: React.FC<SEOProps> = ({
 }) => {
   const siteName = "Batignolles Kiné Sport";
   const fullTitle = title.includes(siteName) ? title : `${title} | ${siteName}`;
-  const baseUrl = "https://batignolleskinesport.fr";
-  const defaultImage = `${baseUrl}/images/hero/hero.webp`;
+  const defaultImage = `${BASE_URL}/images/hero/hero.webp`;
   const ogImage = image || defaultImage;
-  const canonicalUrl = canonical || (typeof window !== 'undefined' ? window.location.href : baseUrl);
+  
+  // Build canonical URL properly without query params
+  const canonicalUrl = canonical || (typeof window !== 'undefined' 
+    ? `${window.location.origin}${window.location.pathname}` 
+    : BASE_URL);
 
   // Default keywords for medical/kine site
   const defaultKeywords = [

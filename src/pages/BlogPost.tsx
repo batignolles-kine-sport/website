@@ -118,7 +118,7 @@ export const BlogPost: React.FC = () => {
                 <h3 className="text-lg font-bold text-slate-900 mb-3">Articles connexes</h3>
                 <ul className="space-y-2">
                   <li>
-                    <Link to="/blog/entorse-cheville" className="text-primary hover:underline font-medium">
+                    <Link to="/pathologies/entorse-cheville" className="text-primary hover:underline font-medium">
                       → Entorse de cheville : guide complet de rééducation
                     </Link>
                   </li>

@@ -1,5 +1,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
+
+const BASE_URL = 'https://batignolleskinesport.fr';
 import { ADDRESS, PHONE, EMAIL, DOCTOLIB_URL } from '../../utils/constants';
 
 interface StructuredDataProps {
@@ -18,7 +20,7 @@ interface StructuredDataProps {
 }
 
 export const StructuredData: React.FC<StructuredDataProps> = ({ type = 'MedicalBusiness', article, breadcrumbs }) => {
-  const baseUrl = 'https://batignolleskinesport.fr';
+  const baseUrl = BASE_URL;
 
   // LocalBusiness / MedicalBusiness Schema for Homepage and Service pages
   const medicalBusinessSchema = {
