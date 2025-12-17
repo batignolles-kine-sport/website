@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { MapPin, Phone, Mail, Clock, Train, Car } from 'lucide-react';
 import { SEO } from '../components/layout/SEO';
+import { StructuredData } from '../components/layout/StructuredData';
 import { Button, DoctolibMark } from '../components/ui/Button';
 import { ADDRESS, EMAIL, DOCTOLIB_URL, PHONE } from '../utils/constants';
+import { toTelHref } from '../utils/helpers';
 
 export const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -56,15 +58,25 @@ export const Contact: React.FC = () => {
     <>
       <SEO 
         title="Contactez-nous - Batignolles Kiné Sport" 
-        description="Prendre rendez-vous ou nous contacter. Cabinet situé au 6 rue des Batignolles, Paris 17e." 
+        description="Prendre rendez-vous ou nous contacter. Cabinet situé au 6 rue des Batignolles, Paris 17e. Disponibilités rapides."
+        keywords={['contact kiné Paris 17', 'rendez-vous kinésithérapeute', 'cabinet Batignolles']}
       />
+      <StructuredData type="MedicalBusiness" />
 
       <div className="bg-secondary py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl font-bold text-text-main mb-4">Contact</h1>
-          <p className="text-xl text-text-light">
+          <p className="text-xl text-text-light mb-6">
             Une question ? Besoin d'informations ? Nous sommes à votre écoute.
           </p>
+          {/* Urgency CTA */}
+          <div className="inline-flex items-center gap-2 bg-primary/10 border border-primary/20 rounded-full px-4 py-2 text-sm font-semibold text-primary">
+            <span className="relative flex h-3 w-3">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-3 w-3 bg-primary"></span>
+            </span>
+            Disponibilités sous 48h
+          </div>
         </div>
       </div>
 

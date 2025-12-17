@@ -2,6 +2,7 @@ import React from 'react';
 import { Navigate, useParams } from 'react-router-dom';
 import { CheckCircle, Clock, Calendar } from 'lucide-react';
 import { SEO } from '../components/layout/SEO';
+import { StructuredData } from '../components/layout/StructuredData';
 import { Button, DoctolibMark } from '../components/ui/Button';
 import { SERVICES, DOCTOLIB_URL } from '../utils/constants';
 
@@ -35,7 +36,17 @@ export const ServicePage: React.FC<ServicePageProps> = ({ serviceId }) => {
     <>
       <SEO 
         title={`${service.title} - Batignolles Kiné Sport`} 
-        description={service.shortDescription} 
+        description={service.shortDescription}
+        keywords={[service.title, 'kinésithérapie', 'Paris 17', 'rééducation']}
+      />
+      <StructuredData type="MedicalBusiness" />
+      <StructuredData 
+        type="BreadcrumbList" 
+        breadcrumbs={[
+          { name: 'Accueil', url: '/' },
+          { name: 'Services', url: '/services' },
+          { name: service.title, url: service.path }
+        ]}
       />
 
       {/* Header */}
@@ -58,7 +69,7 @@ export const ServicePage: React.FC<ServicePageProps> = ({ serviceId }) => {
             <div className="flex-1 w-full">
               <img 
                 src={service.image} 
-                alt={service.title} 
+                alt={`Service de ${service.title} à Batignolles Kiné Sport`} 
                 className="rounded-lg shadow-lg w-full h-auto object-cover aspect-video"
               />
             </div>

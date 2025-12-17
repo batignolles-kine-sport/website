@@ -2,6 +2,7 @@ import React from 'react';
 import { useParams, Navigate, Link } from 'react-router-dom';
 import { Calendar, User, ArrowLeft, Share2 } from 'lucide-react';
 import { SEO } from '../components/layout/SEO';
+import { StructuredData } from '../components/layout/StructuredData';
 import { Button, DoctolibMark } from '../components/ui/Button';
 import { BLOG_POSTS, DOCTOLIB_URL } from '../utils/constants';
 
@@ -19,6 +20,20 @@ export const BlogPost: React.FC = () => {
         title={post.title} 
         description={post.excerpt} 
         type="article"
+        author={post.author}
+        publishedTime={post.date}
+        image={post.image}
+        keywords={[post.category, 'kinésithérapie', 'rééducation']}
+      />
+      <StructuredData 
+        type="Article" 
+        article={{
+          headline: post.title,
+          description: post.excerpt,
+          author: post.author,
+          datePublished: post.date,
+          image: post.image
+        }}
       />
 
       <article className="bg-white pb-20">
@@ -74,6 +89,18 @@ export const BlogPost: React.FC = () => {
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
               </p>
               
+              {/* CTA in content */}
+              <div className="my-8 p-6 bg-primary/5 rounded-lg border-l-4 border-primary">
+                <h3 className="text-xl font-bold text-slate-900 mb-2">Besoin d'un suivi personnalisé ?</h3>
+                <p className="text-slate-600 mb-4">
+                  Notre équipe de kinésithérapeutes du sport est là pour vous accompagner dans votre rééducation.
+                </p>
+                <Button href={DOCTOLIB_URL} variant="primary">
+                  <DoctolibMark className="mr-2" inverted />
+                  Prendre rendez-vous maintenant
+                </Button>
+              </div>
+              
               <h3>Les étapes de la rééducation</h3>
               <ul>
                 <li>Phase 1 : Contrôle de la douleur</li>
@@ -85,6 +112,28 @@ export const BlogPost: React.FC = () => {
               <p>
                 Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
               </p>
+
+              {/* Related articles section - Internal Linking */}
+              <div className="mt-8 p-6 bg-slate-50 rounded-lg">
+                <h3 className="text-lg font-bold text-slate-900 mb-3">Articles connexes</h3>
+                <ul className="space-y-2">
+                  <li>
+                    <Link to="/pathologies/entorse-cheville" className="text-primary hover:underline font-medium">
+                      → Entorse de cheville : guide complet de rééducation
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/pathologies" className="text-primary hover:underline font-medium">
+                      → Découvrir toutes nos pathologies prises en charge
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/equipe" className="text-primary hover:underline font-medium">
+                      → Rencontrer nos kinésithérapeutes spécialisés
+                    </Link>
+                  </li>
+                </ul>
+              </div>
             </div>
 
             {/* Share & CTA */}
