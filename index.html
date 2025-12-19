@@ -2,13 +2,97 @@
 <html lang="fr">
   <head>
     <meta charset="UTF-8" />
+    
+    <!-- Favicons -->
     <link rel="icon" type="image/svg+xml" href="/images/logo.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Batignolles Kiné Sport</title>
+    
+    <!-- Primary Meta Tags -->
+    <title>Kiné du Sport Batignolles | Paris 17 | Batignolles Kiné Sport</title>
+    <meta name="title" content="Kiné du Sport Batignolles | Paris 17 | Batignolles Kiné Sport" />
+    <meta name="description" content="Rééducation du coureur & kiné du sport aux Batignolles. Bilan complet, suivi personnalisé. 6 rue des Batignolles, 75017. RDV Doctolib." />
+    <meta name="keywords" content="kiné sport, kinésithérapie, Batignolles, Paris 17, rééducation, coureur, physiothérapie" />
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://batignolleskinesport.fr/" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://batignolleskinesport.fr/" />
+    <meta property="og:title" content="Kiné du Sport Batignolles | Paris 17" />
+    <meta property="og:description" content="Rééducation du coureur & kiné du sport aux Batignolles. Bilan complet, suivi personnalisé. 6 rue des Batignolles, 75017." />
+    <meta property="og:image" content="https://batignolleskinesport.fr/images/og-image.jpg" />
+    <meta property="og:site_name" content="Batignolles Kiné Sport" />
+    <meta property="og:locale" content="fr_FR" />
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://batignolleskinesport.fr/" />
+    <meta name="twitter:title" content="Kiné du Sport Batignolles | Paris 17" />
+    <meta name="twitter:description" content="Rééducation du coureur & kiné du sport aux Batignolles. Bilan complet, suivi personnalisé. 6 rue des Batignolles, 75017." />
+    <meta name="twitter:image" content="https://batignolleskinesport.fr/images/og-image.jpg" />
+    
+    <!-- Language -->
+    <meta http-equiv="content-language" content="fr" />
+    
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#0D2918" />
+    
     <!-- Google Fonts: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Basic JSON-LD for SSR/crawlers -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": ["LocalBusiness", "MedicalBusiness", "Physiotherapy"],
+      "name": "BKS - Batignolles Kiné Sport",
+      "description": "Cabinet de kinésithérapie du sport à Paris 17e. Rééducation, kiné du sport et préparation physique.",
+      "url": "https://batignolleskinesport.fr",
+      "telephone": "+33962434961",
+      "email": "contact@batignolleskinesport.fr",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "6 rue des Batignolles",
+        "addressLocality": "Paris",
+        "addressRegion": "Île-de-France",
+        "postalCode": "75017",
+        "addressCountry": "FR"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 48.8822,
+        "longitude": 2.3244
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "08:00",
+          "closes": "19:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Saturday",
+          "opens": "09:00",
+          "closes": "13:00"
+        }
+      ],
+      "priceRange": "€€",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5.0",
+        "reviewCount": "36"
+      }
+    }
+    </script>
+    
     <style>
     :root {
       --navbar-height: 5rem;
@@ -68,9 +152,27 @@
     .hero-image-wrapper .card {
       padding: 0;
     }
+    
+    /* Fallback content for SEO crawlers */
+    #root:empty::before {
+      content: "Batignolles Kiné Sport - Cabinet de kinésithérapie du sport à Paris 17e (Batignolles). Rééducation du coureur, kiné du sport et préparation physique. 6 rue des Batignolles, 75017 Paris. Tél: 09 62 43 49 61";
+      display: block;
+      padding: 2rem;
+      font-family: system-ui, -apple-system, sans-serif;
+      line-height: 1.6;
+    }
   </style>
 </head>
   <body>
+    <noscript>
+      <h1>Batignolles Kiné Sport</h1>
+      <h2>Cabinet de kinésithérapie du sport à Paris 17e</h2>
+      <p>Rééducation du coureur & Performance. Protocoles de réathlétisation, thérapie manuelle et bilan complet au cœur des Batignolles.</p>
+      <p><strong>Adresse:</strong> 6 rue des Batignolles, 75017 Paris</p>
+      <p><strong>Téléphone:</strong> 09 62 43 49 61</p>
+      <p><strong>Email:</strong> contact@batignolleskinesport.fr</p>
+      <p>Ce site nécessite JavaScript pour fonctionner correctement.</p>
+    </noscript>
     <div id="root"></div>
     <script type="module" src="/src/index.tsx"></script>
   </body>
