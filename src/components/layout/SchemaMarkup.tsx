@@ -10,6 +10,13 @@ import {
   GOOGLE_MAPS_URL,
   HERO_IMAGE_URL,
 } from '../../utils/constants';
+import { formatPhoneForSchema } from '../../utils/helpers';
+
+// Minimum number of reviews required to display aggregate rating
+const MIN_REVIEWS_FOR_AGGREGATE_RATING = 10;
+
+// Production domain for schema markup
+const PRODUCTION_DOMAIN = 'https://batignolleskinesport.fr';
 
 interface PractitionerData {
   name: string;
@@ -29,6 +36,56 @@ interface ClinicSchemaOptions {
   };
 }
 
+// Schema types
+interface AggregateRating {
+  '@type': 'AggregateRating';
+  ratingValue: number;
+  reviewCount: number;
+  bestRating: number;
+  worstRating: number;
+}
+
+interface ClinicSchema {
+  '@context': string;
+  '@type': string[];
+  '@id': string;
+  name: string;
+  alternateName: string;
+  description: string;
+  medicalSpecialty: string[];
+  address: {
+    '@type': string;
+    streetAddress: string;
+    addressLocality: string;
+    addressRegion: string;
+    postalCode: string;
+    addressCountry: string;
+  };
+  geo: {
+    '@type': string;
+    latitude: number;
+    longitude: number;
+  };
+  areaServed: {
+    '@type': string;
+    name: string;
+  };
+  url: string;
+  telephone: string;
+  email: string;
+  image: string;
+  priceRange: string;
+  openingHoursSpecification: Array<{
+    '@type': string;
+    dayOfWeek: string | string[];
+    opens: string;
+    closes: string;
+  }>;
+  sameAs: string[];
+  knowsAbout: string[];
+  aggregateRating?: AggregateRating;
+}
+
 /**
  * Generates a comprehensive JSON-LD schema for a medical/physiotherapy clinic
  * Combines LocalBusiness and MedicalBusiness types for maximum SEO impact
@@ -37,7 +94,7 @@ export function generateClinicSchema(options: ClinicSchemaOptions) {
   const { domain, practitioners = [], aggregateRating } = options;
 
   // Main organization/clinic schema
-  const clinicSchema = {
+  const clinicSchema: ClinicSchema = {
     '@context': 'https://schema.org',
     '@type': ['LocalBusiness', 'MedicalBusiness', 'Physiotherapy'],
     '@id': `${domain}/#organization`,
@@ -70,7 +127,7 @@ export function generateClinicSchema(options: ClinicSchemaOptions) {
       name: 'Batignolles, Paris 17',
     },
     url: domain,
-    telephone: `+33${PHONE.replace(/\s/g, '').substring(1)}`,
+    telephone: formatPhoneForSchema(PHONE),
     email: EMAIL,
     image: `${domain}${HERO_IMAGE_URL}`,
     priceRange: '€€',
@@ -101,9 +158,9 @@ export function generateClinicSchema(options: ClinicSchemaOptions) {
     ],
   };
 
-  // Add aggregate rating if available
-  if (aggregateRating && aggregateRating.reviewCount >= 10) {
-    (clinicSchema as any).aggregateRating = {
+  // Add aggregate rating if available and meets minimum threshold
+  if (aggregateRating && aggregateRating.reviewCount >= MIN_REVIEWS_FOR_AGGREGATE_RATING) {
+    clinicSchema.aggregateRating = {
       '@type': 'AggregateRating',
       ratingValue: aggregateRating.ratingValue,
       reviewCount: aggregateRating.reviewCount,
@@ -155,11 +212,11 @@ export const SchemaMarkup: React.FC<SchemaMarkupProps> = ({
   practitioners = [],
   aggregateRating,
 }) => {
-  // Get the production domain from window.location or use a fallback
+  // Get the production domain from window.location or use the production fallback
   const domain =
     typeof window !== 'undefined'
       ? window.location.origin
-      : 'https://batignolleskinesport.fr';
+      : PRODUCTION_DOMAIN;
 
   // Transform team members to practitioner data format
   const practitionerData: PractitionerData[] = practitioners.map((member) => ({
