@@ -2,7 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import { ArrowRight, Instagram, Mail, MapPin, Menu, Phone, X } from 'lucide-react';
 import { toTelHref } from '../../utils/helpers';
-import { ADDRESS, DOCTOLIB_URL, EMAIL, INSTAGRAM_URL, LOGO_URL, PHONE } from '../../utils/constants';
+import { ADDRESS, DOCTOLIB_URL, EMAIL, INSTAGRAM_URL, LOGO_URL, PHONE, TEAM } from '../../utils/constants';
+import { SchemaMarkup } from './SchemaMarkup';
+import reviewsData from '../../data/avis.json';
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -37,6 +39,14 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
 
   return (
     <div className="flex min-h-screen flex-col font-sans text-text-main">
+      {/* JSON-LD Schema Markup for SEO */}
+      <SchemaMarkup
+        practitioners={TEAM}
+        aggregateRating={{
+          ratingValue: reviewsData.note_moyenne,
+          reviewCount: reviewsData.nombre_avis_total,
+        }}
+      />
       <style>{`
         .glass-nav {
           background: rgba(255, 255, 255, 0.90);

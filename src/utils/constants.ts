@@ -6,6 +6,7 @@ export const ADDRESS = "6 rue des Batignolles, 75017 Paris";
 export const PHONE = "09 62 43 49 61";
 export const EMAIL = "contact@batignolleskinesport.fr";
 export const INSTAGRAM_URL = "https://www.instagram.com/batignolleskinesport/";
+export const GOOGLE_MAPS_URL = "https://www.google.com/maps/place/Batignolles+Kin%C3%A9+Sport/@48.8822,2.3244,17z";
 
 // Asset paths served from /public/images
 export const LOGO_URL = "/images/logo.svg";
