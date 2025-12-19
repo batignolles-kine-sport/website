@@ -92,8 +92,8 @@ export const Home: React.FC = () => {
   return (
     <>
       <SEO
-        title="Cabinet de Kiné à Paris 17e (Batignolles)"
-        description="Kinésithérapie spécialisée en kiné du sport et rééducation aux Batignolles (75017). Équipe expérimentée. Prise de RDV Doctolib."
+        title="Kiné du Sport Batignolles | Paris 17"
+        description="Rééducation du coureur & kiné du sport aux Batignolles. Bilan complet, suivi personnalisé. 6 rue des Batignolles, 75017. RDV Doctolib."
       />
 
       <style>{`
@@ -146,7 +146,7 @@ export const Home: React.FC = () => {
 
                 <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 lg:gap-12 mt-4">
                   <p className="text-gray-200 text-sm sm:text-base md:text-xl max-w-xl font-light leading-relaxed">
-                    Cabinet de kinésithérapie du sport à Paris 17e. Rééducation post-opératoire, kiné du sport et préparation physique sur-mesure.
+                    Rééducation du coureur & Performance. Protocoles de réathlétisation, thérapie manuelle et bilan complet au cœur des Batignolles.
                   </p>
                   <div className="hidden lg:flex flex-col items-center gap-2 opacity-80 scroll-bounce">
                     <span className="text-white text-xs uppercase tracking-widest">Scroll</span>
@@ -159,6 +159,45 @@ export const Home: React.FC = () => {
         </section>
 
         <div className="max-w-content w-full mx-auto px-4 md:px-6 py-12 md:py-20 space-y-20 lg:space-y-28">
+          {/* Pourquoi BKS */}
+          <section>
+            <div className="text-center max-w-3xl mx-auto mb-10 md:mb-14">
+              <h2 className="text-3xl md:text-5xl font-medium tracking-tight mb-4 text-slate-900">Pourquoi BKS ?</h2>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+              <div className="bg-white rounded-3xl md:rounded-4xl p-6 md:p-8 border border-slate-100 hover:border-primary/20 transition-all hover:shadow-card">
+                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
+                  <ClipboardList className="w-6 h-6 text-primary" />
+                </div>
+                <h3 className="text-xl md:text-2xl font-semibold text-slate-900 mb-3">Expertise Technique</h3>
+                <p className="text-slate-600 text-sm md:text-base leading-relaxed">
+                  Équipe de 3 kinés spécialistes du sport. Maîtrise des protocoles de réathlétisation et thérapie manuelle orthopédique pour votre retour au terrain.
+                </p>
+              </div>
+
+              <div className="bg-white rounded-3xl md:rounded-4xl p-6 md:p-8 border border-slate-100 hover:border-primary/20 transition-all hover:shadow-card">
+                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
+                  <Target className="w-6 h-6 text-primary" />
+                </div>
+                <h3 className="text-xl md:text-2xl font-semibold text-slate-900 mb-3">Suivi Personnalisé</h3>
+                <p className="text-slate-600 text-sm md:text-base leading-relaxed">
+                  Bilan initial complet, rééducation sur-mesure, tests fonctionnels. Pas de travail à la chaîne. Chaque séance adaptée à vos objectifs.
+                </p>
+              </div>
+
+              <div className="bg-white rounded-3xl md:rounded-4xl p-6 md:p-8 border border-slate-100 hover:border-primary/20 transition-all hover:shadow-card">
+                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
+                  <MapPin className="w-6 h-6 text-primary" />
+                </div>
+                <h3 className="text-xl md:text-2xl font-semibold text-slate-900 mb-3">Emplacement Idéal</h3>
+                <p className="text-slate-600 text-sm md:text-base leading-relaxed">
+                  Au cœur des Batignolles, 6 rue des Batignolles. Accès direct Métro Rome (L2) et Place de Clichy. Cabinet moderne et équipé.
+                </p>
+              </div>
+            </div>
+          </section>
+
           {/* Expertise Bento */}
           <section>
             <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-6 mb-8 md:mb-12">
@@ -309,6 +348,18 @@ export const Home: React.FC = () => {
           </section>
 
           
+          {/* Ancrage Local */}
+          <section className="bg-gradient-to-br from-primary/5 to-white rounded-4xl p-8 md:p-12 border border-primary/10">
+            <div className="max-w-3xl mx-auto text-center">
+              <h2 className="text-2xl md:text-3xl font-semibold text-slate-900 mb-4">
+                Votre cabinet au cœur des Batignolles
+              </h2>
+              <p className="text-slate-700 text-base md:text-lg leading-relaxed">
+                Situé à deux pas du Parc Martin Luther King et de la Place de Clichy, notre cabinet de kinésithérapie du sport vous accueille au 6 rue des Batignolles, 75017 Paris. Facilement accessible depuis le Métro Rome (ligne 2), nous accompagnons quotidiennement coureurs, sportifs et actifs du quartier vers leurs objectifs de performance et de récupération.
+              </p>
+            </div>
+          </section>
+
           {/* Location */}
           <section>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
