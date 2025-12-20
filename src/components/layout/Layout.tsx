@@ -206,89 +206,177 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
 
       <main className="grow">{children}</main>
 
-      <footer className="bg-secondary border-t border-gray-200 pb-8 pt-12">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-4">
-            <div className="col-span-1 md:col-span-1">
-              <span className="mb-4 block text-xl font-bold text-primary">BKS</span>
-              <p className="mb-4 text-sm text-text-light">
-                Votre partenaire santé et performance au cœur des Batignolles. Une équipe de passionnés à votre écoute.
+      <footer className="bg-slate-900 border-t border-slate-800">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+          {/* CTA Banner */}
+          <div className="mb-12 md:mb-16 bg-gradient-to-r from-primary/20 to-primary/10 border border-primary/30 rounded-2xl p-6 md:p-8 backdrop-blur-sm">
+            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+              <div>
+                <h3 className="text-xl md:text-2xl font-serif font-bold text-white mb-2">Prêt à reprendre l'activité ?</h3>
+                <p className="text-slate-300 text-sm md:text-base">Prenez rendez-vous avec notre équipe pour un bilan personnalisé.</p>
+              </div>
+              <a 
+                href={DOCTOLIB_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="shrink-0 bg-primary hover:bg-primary/90 text-white rounded-lg px-6 py-3 font-medium text-sm transition-all hover:shadow-lg hover:shadow-primary/20 flex items-center gap-2 group justify-center"
+              >
+                Doctolib
+                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+              </a>
+            </div>
+          </div>
+
+          {/* Main Footer Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10 mb-12">
+            {/* Brand Column */}
+            <div className="sm:col-span-2 lg:col-span-2">
+              <span className="mb-4 block text-2xl font-bold text-white">BKS</span>
+              <p className="mb-6 text-sm text-slate-300 leading-relaxed">
+                Votre partenaire santé et performance au cœur des Batignolles. Une équipe de kiné passionnés, experts en rééducation du coureur et préparation physique.
               </p>
-              <div className="flex items-center space-x-2">
-                <a href={INSTAGRAM_URL} className="flex items-center text-text-light transition-colors hover:text-primary" target="_blank" rel="noreferrer">
-                  <Instagram size={20} />
+              
+              {/* Social Links */}
+              <div className="flex items-center gap-4">
+                <a 
+                  href={INSTAGRAM_URL} 
+                  target="_blank"
+                  rel="noreferrer"
+                  className="p-2.5 bg-white/10 hover:bg-primary/20 rounded-lg text-slate-300 hover:text-primary transition-all group"
+                  aria-label="Instagram"
+                >
+                  <Instagram size={18} className="group-hover:scale-110 transition-transform" />
                 </a>
-                <span className="text-xs uppercase tracking-[0.3em] text-text-light">batignolleskinesport</span>
+                <a 
+                  href={`mailto:${EMAIL}`}
+                  className="p-2.5 bg-white/10 hover:bg-primary/20 rounded-lg text-slate-300 hover:text-primary transition-all group"
+                  aria-label="Email"
+                >
+                  <Mail size={18} className="group-hover:scale-110 transition-transform" />
+                </a>
+                <a 
+                  href={toTelHref(PHONE)}
+                  className="p-2.5 bg-white/10 hover:bg-primary/20 rounded-lg text-slate-300 hover:text-primary transition-all group"
+                  aria-label="Téléphone"
+                >
+                  <Phone size={18} className="group-hover:scale-110 transition-transform" />
+                </a>
+              </div>
+
+              {/* Rating Badge */}
+              <div className="mt-6 pt-6 border-t border-slate-700">
+                <p className="text-xs text-slate-400 mb-2">Noté par nos patients</p>
+                <div className="flex items-center gap-2">
+                  <div className="flex gap-0.5">
+                    {[...Array(5)].map((_, i) => (
+                      <span key={i} className="text-primary">★</span>
+                    ))}
+                  </div>
+                  <span className="text-sm font-semibold text-white">{reviewsData.note_moyenne?.toFixed(1)}</span>
+                  <span className="text-xs text-slate-400">({reviewsData.nombre_avis_total} avis)</span>
+                </div>
               </div>
             </div>
 
+            {/* Quick Links */}
             <div>
-              <h3 className="text-sm font-semibold uppercase tracking-wider text-text-main">Navigation</h3>
-              <ul className="mt-4 space-y-2">
+              <h3 className="text-sm font-semibold uppercase tracking-wider text-white mb-4">Navigation</h3>
+              <ul className="space-y-3">
                 <li>
-                  <Link to="/equipe" className="text-sm text-text-light hover:text-primary">
+                  <Link to="/" className="text-sm text-slate-400 hover:text-primary transition-colors font-medium">
+                    Accueil
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/equipe" className="text-sm text-slate-400 hover:text-primary transition-colors font-medium">
                     L'Équipe
                   </Link>
                 </li>
                 <li>
-                  <Link to="/contact" className="text-sm text-text-light hover:text-primary">
-                    Contact & Accès
+                  <Link to="/pathologies" className="text-sm text-slate-400 hover:text-primary transition-colors font-medium">
+                    Pathologies
                   </Link>
                 </li>
                 <li>
-                  <Link to="/mentions-legales" className="text-sm text-text-light hover:text-primary">
+                  <Link to="/contact" className="text-sm text-slate-400 hover:text-primary transition-colors font-medium">
+                    Contact & Accès
+                  </Link>
+                </li>
+              </ul>
+            </div>
+
+            {/* Services */}
+            <div>
+              <h3 className="text-sm font-semibold uppercase tracking-wider text-white mb-4">Services</h3>
+              <ul className="space-y-3">
+                <li>
+                  <Link to="/pathologies" className="text-sm text-slate-400 hover:text-primary transition-colors font-medium">
+                    Kiné du Sport
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/pathologies" className="text-sm text-slate-400 hover:text-primary transition-colors font-medium">
+                    Rééducation Post-Op
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/pathologies" className="text-sm text-slate-400 hover:text-primary transition-colors font-medium">
+                    Prévention
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/mentions-legales" className="text-sm text-slate-400 hover:text-primary transition-colors font-medium">
                     Mentions Légales
                   </Link>
                 </li>
               </ul>
             </div>
 
+            {/* Contact Info */}
             <div>
-              <h3 className="text-sm font-semibold uppercase tracking-wider text-text-main">Pathologies</h3>
-              <ul className="mt-4 space-y-2">
-                <li>
-                  <Link to="/services/kine-sport" className="text-sm text-text-light hover:text-primary">
-                    Kiné du Sport
-                  </Link>
+              <h3 className="text-sm font-semibold uppercase tracking-wider text-white mb-4">Contact</h3>
+              <ul className="space-y-4">
+                <li className="flex items-start gap-3">
+                  <MapPin size={16} className="shrink-0 text-primary mt-0.5" />
+                  <div className="text-sm text-slate-300 leading-relaxed">{ADDRESS}</div>
                 </li>
                 <li>
-                  <Link to="/services/reeducation-post-traumatique" className="text-sm text-text-light hover:text-primary">
-                    Rééducation Post-Op
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/services/prevention-preparation-physique" className="text-sm text-text-light hover:text-primary">
-                    Prévention & Préparation
-                  </Link>
-                </li>
-              </ul>
-            </div>
-
-            <div>
-              <h3 className="text-sm font-semibold uppercase tracking-wider text-text-main">Infos Pratiques</h3>
-              <ul className="mt-4 space-y-3">
-                <li className="flex items-start text-sm text-text-light">
-                  <MapPin size={18} className="mr-2 shrink-0 text-primary" />
-                  <span>{ADDRESS}</span>
-                </li>
-                <li className="flex items-center text-sm text-text-light">
-                  <Phone size={18} className="mr-2 shrink-0 text-primary" />
-                  <a href={toTelHref(PHONE)} className="hover:text-primary">
-                    {PHONE}
+                  <a 
+                    href={toTelHref(PHONE)} 
+                    className="flex items-center gap-3 text-sm text-slate-300 hover:text-primary transition-colors group"
+                  >
+                    <Phone size={16} className="shrink-0 text-primary group-hover:scale-110 transition-transform" />
+                    <span className="font-medium">{PHONE}</span>
                   </a>
                 </li>
-                <li className="flex items-center text-sm text-text-light">
-                  <Mail size={18} className="mr-2 shrink-0 text-primary" />
-                  <a href={`mailto:${EMAIL}`} className="hover:text-primary">
-                    {EMAIL}
+                <li>
+                  <a 
+                    href={`mailto:${EMAIL}`}
+                    className="flex items-center gap-3 text-sm text-slate-300 hover:text-primary transition-colors group"
+                  >
+                    <Mail size={16} className="shrink-0 text-primary group-hover:scale-110 transition-transform" />
+                    <span className="font-medium text-sm break-all">{EMAIL}</span>
                   </a>
                 </li>
               </ul>
             </div>
           </div>
 
-          <div className="mt-12 border-t border-gray-200 pt-8 text-center">
-            <p className="text-sm text-text-light">&copy; {new Date().getFullYear()} Batignolles Kiné Sport. Tous droits réservés.</p>
+          {/* Divider */}
+          <div className="border-t border-slate-700 pt-8">
+            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+              <p className="text-sm text-slate-400">
+                &copy; {new Date().getFullYear()} Batignolles Kiné Sport. Tous droits réservés.
+              </p>
+              <div className="flex items-center gap-6">
+                <a href={INSTAGRAM_URL} target="_blank" rel="noreferrer" className="text-xs text-slate-400 hover:text-primary transition-colors">
+                  Instagram
+                </a>
+                <Link to="/mentions-legales" className="text-xs text-slate-400 hover:text-primary transition-colors">
+                  Mentions Légales
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
       </footer>

@@ -10,41 +10,69 @@ export const Legal: React.FC = () => {
         description="Mentions légales, politique de confidentialité et conditions d'utilisation du site Batignolles Kiné Sport." 
       />
 
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <h1 className="text-3xl font-bold text-text-main mb-8">Mentions Légales</h1>
-        
-        <div className="prose prose-sm md:prose-base text-text-light max-w-none">
-          <h3>1. Éditeur du site</h3>
-          <p>
-            Le site <strong>Batignolles Kiné Sport</strong> est édité par la société BKS, Société Civile de Moyens (SCM) au capital de 1000€.<br/>
-            Siège social : {ADDRESS}<br/>
-            SIRET : 123 456 789 00012<br/>
-            Directeur de la publication : Thomas Dubois
-          </p>
+      <div className="bg-white">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20">
+          <div className="mb-12">
+            <p className="text-[11px] uppercase tracking-[0.24em] text-slate-400 mb-3">Mentions légales</p>
+            <h1 className="text-3xl md:text-4xl font-semibold text-slate-900 tracking-tight">Mentions Légales</h1>
+            <p className="mt-4 text-slate-500 text-base leading-relaxed max-w-3xl">
+              Informations légales relatives au site www.batignolleskinesport.fr. Une présentation sobre, lisible, pensée comme une page de référence.
+            </p>
+          </div>
 
-          <h3>2. Hébergement</h3>
-          <p>
-            Ce site est hébergé par Vercel Inc.<br/>
-            Adresse : 340 S Lemon Ave #4133 Walnut, CA 91789, USA.
-          </p>
+          <div className="space-y-8">
+            <section className="rounded-2xl border border-slate-100 bg-white/80 shadow-sm p-6 md:p-8">
+              <p className="text-[11px] uppercase tracking-[0.2em] text-slate-400 mb-2">1. Éditeur du site</p>
+              <div className="text-slate-700 text-base leading-relaxed space-y-2">
+                <p>Le site internet accessible à l’adresse www.batignolleskinesport.fr est édité par la société Batignolles Kiné Sport :</p>
+                <ul className="space-y-1 text-slate-700">
+                  <li><span className="text-slate-500">Forme sociale :</span> SELASU au capital de 120 €.</li>
+                  <li><span className="text-slate-500">Siège social :</span> {ADDRESS}.</li>
+                  <li><span className="text-slate-500">Immatriculation :</span> RCS Paris n° 944 266 253.</li>
+                  <li><span className="text-slate-500">SIRET :</span> 944 266 253 00011.</li>
+                  <li><span className="text-slate-500">Contact :</span> 09 62 43 49 61 — contact@batignolleskinesport.fr.</li>
+                </ul>
+              </div>
+            </section>
 
-          <h3>3. Propriété Intellectuelle</h3>
-          <p>
-            L'ensemble de ce site relève de la législation française et internationale sur le droit d'auteur et la propriété intellectuelle. Tous les droits de reproduction sont réservés, y compris pour les documents téléchargeables et les représentations iconographiques et photographiques.
-          </p>
+            <section className="rounded-2xl border border-slate-100 bg-white/80 shadow-sm p-6 md:p-8">
+              <p className="text-[11px] uppercase tracking-[0.2em] text-slate-400 mb-2">2. Direction de la publication</p>
+              <p className="text-slate-700 text-base leading-relaxed">
+                La directrice de la publication est Justine Josse, en sa qualité de présidente de la société Batignolles Kiné Sport.
+              </p>
+            </section>
 
-          <h3>4. Données Personnelles (RGPD)</h3>
-          <p>
-            Les informations recueillies via le formulaire de contact sont enregistrées dans un fichier informatisé par BKS pour la gestion de la clientèle. Elles sont conservées pendant 3 ans et sont destinées uniquement à l'équipe du cabinet.
-          </p>
-          <p>
-            Conformément à la loi « informatique et libertés », vous pouvez exercer votre droit d'accès aux données vous concernant et les faire rectifier en contactant : contact@batignolles-kine-sport.fr
-          </p>
+            <section className="rounded-2xl border border-slate-100 bg-white/80 shadow-sm p-6 md:p-8">
+              <p className="text-[11px] uppercase tracking-[0.2em] text-slate-400 mb-2">3. Profession réglementée</p>
+              <div className="text-slate-700 text-base leading-relaxed space-y-1.5">
+                <p>L'activité de masseur-kinésithérapeute est une profession de santé réglementée.</p>
+                <p><span className="text-slate-500">Titre professionnel :</span> Masseur-Kinésithérapeute Diplômé d'État (France).</p>
+                <p><span className="text-slate-500">Numéro RPPS :</span> 10102313755.</p>
+                <p><span className="text-slate-500">Instance ordinale :</span> Inscrit au Conseil National de l’Ordre des Masseurs-Kinésithérapeutes (CNOMK).</p>
+                <p><span className="text-slate-500">Règles déontologiques :</span> L'exercice de la profession est régi par le Code de Déontologie, intégré au Code de la Santé Publique.</p>
+              </div>
+            </section>
 
-          <h3>5. Cookies</h3>
-          <p>
-            Ce site utilise des cookies techniques nécessaires à son bon fonctionnement et des cookies de mesure d'audience (Google Analytics) anonymisés.
-          </p>
+            <section className="rounded-2xl border border-slate-100 bg-white/80 shadow-sm p-6 md:p-8">
+              <p className="text-[11px] uppercase tracking-[0.2em] text-slate-400 mb-2">4. Hébergement</p>
+              <div className="text-slate-700 text-base leading-relaxed space-y-1.5">
+                <p>Le site est hébergé par la société Netlify, Inc. :</p>
+                <p><span className="text-slate-500">Adresse :</span> 44 Montgomery Street, Suite 300, San Francisco, California 94104, USA.</p>
+                <p><span className="text-slate-500">Contact :</span> support@netlify.com.</p>
+              </div>
+            </section>
+
+            <section className="rounded-2xl border border-slate-100 bg-white/80 shadow-sm p-6 md:p-8">
+              <p className="text-[11px] uppercase tracking-[0.2em] text-slate-400 mb-2">5. Propriété intellectuelle</p>
+              <p className="text-slate-700 text-base leading-relaxed">
+                L'ensemble des éléments constituant ce site (structure, textes, photographies, logos) est la propriété exclusive de Batignolles Kiné Sport. Toute reproduction, représentation ou diffusion, en tout ou partie, du contenu de ce site sur quelque support ou par tout procédé que ce soit est interdite sans autorisation expresse.
+              </p>
+            </section>
+          </div>
+
+          <div className="pt-10 text-center text-sm text-slate-400">
+            © 2025 Batignolles Kiné Sport — Santé & Performance.
+          </div>
         </div>
       </div>
     </>
