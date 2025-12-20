@@ -1,190 +1,198 @@
 import React, { useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import {
   Activity,
   ClipboardList,
   Target,
-  ArrowRight,
   MoveUpRight,
   MapPin,
   Train,
   Car,
   Star,
-  ChevronLeft,
-  ChevronRight,
+  ChevronDown,
 } from 'lucide-react';
 import { SEO } from '../components/layout/SEO';
 import { Button, DoctolibMark } from '../components/ui/Button';
-import { DOCTOLIB_URL, SERVICES, ADDRESS, HERO_IMAGE_URL } from '../utils/constants';
-import reviewsData from '../data/avis.json';
+import { DOCTOLIB_URL, ADDRESS, HERO_IMAGE_URL } from '../utils/constants';
 
-type ReviewCard = {
-  author: string;
-  firstName: string;
-  rating: number;
-  text: string;
-  date?: string;
-  period?: string;
-};
+// 5 témoignages : 4 avis réels + 1 avis (Matthieu) ajouté à la demande utilisateur
+const TOP_TESTIMONIALS = [
+  {
+    id: 1,
+    author: 'Matthieu',
+    role: 'Coureur, prévention blessures',
+    rating: 5,
+    highlight: 'Tendinopathie guérie + prépa et prévention',
+    text: "Coureur avec une tendinopathie, j'ai fait toute ma rééducation au cabinet. On a progressivement repris la course puis enchaîné sur des séances de préparation physique et de prévention des blessures. Je cours à nouveau sans douleur et avec un plan clair pour rester solide.",
+    period: 'Décembre 2025',
+    gridArea: 'matthieu',
+  },
+  {
+    id: 2,
+    author: 'Cecilia',
+    role: 'Marathonienne',
+    rating: 5,
+    highlight: 'Entorse cheville + prépa marathon rassurée',
+    text: "Rééducation de la cheville suite à une grosse entorse... j'avais peur que cela impact ma prépa marathon et finalement Justine m'a énormément rassuré ! Nous avons fait un super travail de stabilité, renforcement, pliométrie légère et même sur d'autres blessures qui me préoccupaient! Cabinet super bien équipé, les filles sont tellement gentille et à l'écoute ! Merci pour le soutien et les conseils ! Je recommande très fortement !",
+    period: 'Décembre 2025',
+    gridArea: 'cecilia',
+  },
+  {
+    id: 3,
+    author: 'Guillaume',
+    role: 'Coureur',
+    rating: 5,
+    highlight: "Tendinopathie d'Achille résolue rapidement",
+    text: "Tendinopathie au tendon d'Achille guérie très rapidement grâce au travail et conseils pro bien avisés de Léonie qui a su cibler en un coup d'oeil mes problématiques. Petit plus...l'excellente ambiance qui règne dans ce cabinet...vous pouvez y aller les yeux fermés. Je recommande vivement.",
+    period: 'Octobre 2025',
+    gridArea: 'guillaume',
+  },
+  {
+    id: 4,
+    author: 'Lena',
+    role: 'Retour sport post-op',
+    rating: 5,
+    highlight: 'Post-op LCA : retour au sport',
+    text: "J'ai fait ma rééducation après une opération du ligament croisé et je recommande vivement ! Léonie est à l'écoute, professionnelle et toujours motivante. Les séances sont adaptées et vraiment axées sur le retour au sport ! Merci encore à l'équipe pour votre accompagnement !",
+    period: 'Août 2025',
+    gridArea: 'lena',
+  },
+  {
+    id: 5,
+    author: 'Maxime',
+    role: 'Prépa marathon',
+    rating: 5,
+    highlight: 'Prépa marathon sans blessure',
+    text: "Un grand merci à Justine qui m'a accompagné tout au long de ma préparation au marathon. Grâce à ses soins (notamment pour une périostite) et à ses conseils avisés, j'ai pu m'entraîner sereinement et atteindre mon objectif sans me blesser. Je recommande ce cabinet les yeux fermés !",
+    period: 'Août 2025',
+    gridArea: 'maxime',
+  },
+];
 
-const REVIEW_CARDS: ReviewCard[] = (reviewsData?.avis ?? []).map((review) => ({
-  author: review.auteur,
-  firstName: (review.auteur ?? '').split(' ')[0] || review.auteur,
-  rating: review.note ?? 5,
-  text: review.commentaire,
-  date: review.date,
-  period: review.date_visite,
-}));
+const PATHOLOGY_GROUPS = [
+  {
+    title: 'Sport & performance',
+    desc: 'Coureur, terrain, reprise sans douleur et charge maîtrisée.',
+    category: 'sport',
+    items: ['Prise en charge du coureur', 'Kiné du sport', 'Réathlétisation'],
+    tags: ['Running', 'Retour terrain', 'Prépa physique'],
+  },
+  {
+    title: 'Rééducation & post-op',
+    desc: 'Post-trauma et post-op : mobilité, force et confiance.',
+    category: 'reeducation',
+    items: ['Rééducation globale', 'Suivi post-op / traumato', 'Progressions sécurisées'],
+    tags: ['Post-op', 'Mobilité', 'Force'],
+  },
+  {
+    title: 'Prévention & spécifique',
+    desc: 'Prévention des récidives, plancher pelvien, reprise progressive.',
+    category: 'sante',
+    items: ['Prévention et contrôle moteur', 'Kiné de la femme (partum / post-partum)'],
+    tags: ['Prévention', 'Plancher pelvien', 'Charge progressive'],
+  },
+  {
+    title: 'Kiné de la femme',
+    desc: 'Grossesse, post-partum, périnée, reprise sportive en douceur.',
+    category: 'sante',
+    categorySlug: 'sante',
+    items: ['Rééducation périnéale', 'Pré / post-partum', 'Reprise sport sécurisée'],
+    tags: ['Femmes', 'Périnée', 'Retour au sport'],
+  },
+];
 
-// Sélection des 8 meilleurs avis représentatifs
-const FEATURED_REVIEWS = [
-  REVIEW_CARDS[0],  // Cecilia - Marathon + entorse cheville
-  REVIEW_CARDS[1],  // Guillaume - Tendon d'Achille + ambiance
-  REVIEW_CARDS[4],  // Lena - LCA (ligament croisé)
-  REVIEW_CARDS[2],  // Inès - Disponibilité + 2 pieds/chevilles
-  REVIEW_CARDS[3],  // Lucille - Genoux et chevilles
-  REVIEW_CARDS[5],  // Avis suivant
-  REVIEW_CARDS[6],  // Avis suivant
-  REVIEW_CARDS[7],  // Avis suivant
-].filter(Boolean).slice(0, 8);
+const FAQ_ENTRIES = [
+  {
+    question: 'Acceptez-vous de nouveaux patients ?',
+    answer: 'Oui, nous accueillons de nouveaux patients avec ou sans profil sportif, sur rendez-vous Doctolib.',
+  },
+  {
+    question: 'Êtes-vous conventionnés ?',
+    answer: 'Oui, le cabinet est conventionné. Les soins peuvent être pris en charge selon votre parcours et ordonnance.',
+  },
+  {
+    question: 'Spécifique coureur : que proposez-vous ?',
+    answer: 'Bilan course, analyse de foulée, plan de réathlétisation, prévention des tendinopathies et des entorses.',
+  },
+  {
+    question: 'Accompagnez-vous le post-partum ?',
+    answer: 'Oui, rééducation périnéale et fonctionnelle, reprise progressive des activités et du sport.',
+  },
+  {
+    question: 'Délais et prise de rendez-vous ?',
+    answer: 'Rendez-vous via Doctolib ; plages étendues en semaine pour réduire les délais.',
+  },
+];
 
-const ReviewsCarousel: React.FC = () => {
-  const itemsPerPage = 3;
-  const pageCount = Math.ceil(FEATURED_REVIEWS.length / itemsPerPage);
-  const [pageIndex, setPageIndex] = useState(0);
-  
-  const handlePrev = () => {
-    setPageIndex((prev) => (prev === 0 ? pageCount - 1 : prev - 1));
-  };
-  
-  const handleNext = () => {
-    setPageIndex((prev) => (prev === pageCount - 1 ? 0 : prev + 1));
-  };
-
-  const start = pageIndex * itemsPerPage;
-  const visibleReviews = FEATURED_REVIEWS.slice(start, start + itemsPerPage);
-
-  const [expanded, setExpanded] = useState<Record<string, boolean>>({});
-  const toggleExpand = (key: string) => {
-    setExpanded((prev) => ({ ...prev, [key]: !prev[key] }));
-  };
-
+const TestimonialsGrid: React.FC = () => {
   return (
-    <section className="relative py-16 md:py-20">
-      {/* Header */}
-      <div className="text-center mb-12 md:mb-16">
-        <span className="inline-flex items-center justify-center gap-2 rounded-full border border-primary/15 bg-white px-3 py-1 text-xs font-semibold uppercase tracking-widest text-primary mb-4">
-          Témoignages
-        </span>
-        <h2 className="text-3xl md:text-4xl font-serif text-slate-900 mb-4">
-          Ce que nos clients disent
-        </h2>
-        <p className="text-slate-500 max-w-2xl mx-auto">
-          36 avis clients. Les meilleurs résultats viennent d'une prise en charge adaptée et d'une véritable relation de confiance.
+    <section className="relative py-12 md:py-24">
+      <div className="text-center mb-10 md:mb-14">
+        <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-slate-900 mb-4">Ce que nos patients disent</h2>
+        <p className="text-slate-600 text-base md:text-xl leading-relaxed max-w-2xl mx-auto">
+          Retours réels de patients accompagnés au cabinet.
         </p>
       </div>
 
-      {/* Carrousel */}
-      <div className="max-w-7xl mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 items-start">
-          {visibleReviews.map((review, idx) => {
-            const cardKey = `${review.author}-${pageIndex}-${idx}`;
-            const isExpanded = expanded[cardKey];
-
-            return (
-              <div
-                key={cardKey}
-                className="bg-white rounded-3xl md:rounded-5xl p-6 md:p-8 border border-slate-100 hover:border-slate-200 hover:shadow-lg transition-all duration-300 flex flex-col animate-fade-in"
-              >
-                {/* Stars */}
-                <div className="flex gap-1 mb-4">
-                  {[...Array(5)].map((_, starIndex) => (
-                    <Star
-                      key={starIndex}
-                      className={`w-4 h-4 ${starIndex < review.rating ? 'fill-warning text-warning' : 'text-slate-200'}`}
-                    />
-                  ))}
-                </div>
-
-                {/* Review Text with clamp + expand */}
-                <div className="relative mb-0 space-y-2">
-                  <p
-                    className={`text-slate-700 text-sm md:text-base leading-relaxed italic ${
-                      isExpanded ? '' : 'line-clamp-6'
-                    }`}
-                  >
-                    "{review.text}"
+      <div className="max-w-7xl mx-auto px-4 md:px-6">
+        <div className="-mx-4 px-4 md:mx-0 md:px-0 flex md:grid gap-4 md:gap-6 overflow-x-auto md:overflow-visible snap-x snap-mandatory md:snap-none pb-8 md:pb-0 testimonials-grid">
+          {TOP_TESTIMONIALS.map((testimonial, idx) => (
+            <article
+              key={testimonial.id}
+              className={`min-w-[85vw] sm:min-w-[60vw] md:min-w-0 snap-center rounded-3xl md:rounded-4xl p-6 md:p-8 flex flex-col gap-4 border shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl ${
+                idx === 0 ? 'bg-primary text-white border-primary/80' : 'bg-white text-slate-900 border-slate-100'
+              }`}
+              style={{ gridArea: testimonial.gridArea }}
+            >
+              <div className="flex flex-col gap-2">
+                <div className="flex items-start justify-between gap-3">
+                  <p className={`font-semibold text-sm md:text-base ${idx === 0 ? 'text-white' : 'text-slate-900'}`}>
+                    {testimonial.author}
                   </p>
-                  {!isExpanded && (
-                    <div className="pointer-events-none absolute inset-x-0 bottom-6 h-6 bg-gradient-to-t from-white via-white/80 to-transparent" />
-                  )}
-                  <button
-                    onClick={() => toggleExpand(cardKey)}
-                    className="mt-2 text-xs font-semibold uppercase tracking-wide text-primary hover:text-primary/80 transition-colors"
-                  >
-                    {isExpanded ? 'Voir moins' : 'Lire la suite'}
-                  </button>
+                  <div className="flex items-center gap-0.5">
+                    {[...Array(5)].map((_, starIndex) => (
+                      <Star
+                        key={starIndex}
+                        className={`w-4 h-4 ${idx === 0 ? 'fill-amber-300 text-amber-300' : 'fill-amber-400 text-amber-400'}`}
+                      />
+                    ))}
+                  </div>
                 </div>
-
-                {/* Author */}
-                <div className="flex items-center gap-3 pt-4 border-t border-slate-100">
-                  <div className="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center font-serif text-base shrink-0">
-                    {review.firstName.charAt(0)}
-                  </div>
-                  <div>
-                    <p className="text-sm font-bold text-slate-900">{review.firstName}</p>
-                    <p className="text-xs text-slate-400 uppercase tracking-wide">
-                      {review.period ? `${review.period} 2025` : '2025'}
-                    </p>
-                  </div>
+                <div className="flex items-center justify-between gap-2 text-[11px] md:text-xs">
+                  <span className={idx === 0 ? 'text-white/70' : 'text-slate-500'}>{testimonial.role}</span>
+                  <span className={idx === 0 ? 'text-white/70' : 'text-slate-500'}>{testimonial.period}</span>
                 </div>
               </div>
-            );
-          })}
-        </div>
 
-        {/* Navigation */}
-        <div className="flex justify-center items-center gap-4 mt-12">
-          <button
-            onClick={handlePrev}
-            className="p-2 rounded-full border border-slate-200 text-slate-600 hover:bg-slate-50 hover:border-slate-300 transition-all"
-            aria-label="Avis précédent"
-          >
-            <ChevronLeft size={20} />
-          </button>
+              <h3 className={`text-base md:text-lg font-semibold leading-snug ${idx === 0 ? 'text-white' : 'text-slate-900'}`}>
+                {testimonial.highlight}
+              </h3>
 
-          <div className="flex gap-1">
-            {Array.from({ length: pageCount }).map((_, idx) => (
-              <button
-                key={idx}
-                onClick={() => setPageIndex(idx)}
-                className={`h-2 rounded-full transition-all ${
-                  idx === pageIndex 
-                    ? 'w-8 bg-primary' 
-                    : 'w-2 bg-slate-300 hover:bg-slate-400'
-                }`}
-                aria-label={`Page ${idx + 1}`}
-              />
-            ))}
-          </div>
-
-          <button
-            onClick={handleNext}
-            className="p-2 rounded-full border border-slate-200 text-slate-600 hover:bg-slate-50 hover:border-slate-300 transition-all"
-            aria-label="Avis suivant"
-          >
-            <ChevronRight size={20} />
-          </button>
+              <p className={`text-[13px] md:text-sm leading-relaxed ${idx === 0 ? 'text-green-50/90' : 'text-slate-600'}`}>
+                {testimonial.text}
+              </p>
+            </article>
+          ))}
         </div>
       </div>
 
       <style>{`
-        @keyframes fadeInUp {
-          from { opacity: 0; transform: translateY(10px); }
-          to { opacity: 1; transform: translateY(0); }
+        @media (min-width: 1024px) {
+          .testimonials-grid {
+            grid-template-areas:
+              "matthieu matthieu cecilia lena"
+              "guillaume maxime maxime lena";
+          }
         }
-        .animate-fade-in {
-          animation: fadeInUp 0.4s ease-out forwards;
+        @media (min-width: 768px) and (max-width: 1023px) {
+          .testimonials-grid {
+            grid-template-areas:
+              "matthieu matthieu"
+              "cecilia guillaume"
+              "maxime maxime"
+              "lena lena";
+          }
         }
       `}</style>
     </section>
@@ -192,12 +200,30 @@ const ReviewsCarousel: React.FC = () => {
 };
 
 export const Home: React.FC = () => {
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: FAQ_ENTRIES.map((item) => ({
+      '@type': 'Question',
+      name: item.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: item.answer,
+      },
+    })),
+  };
+
+  const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0);
+
   return (
     <>
       <SEO
         title="Kiné du Sport Batignolles | Paris 17"
-        description="Rééducation du coureur & kiné du sport aux Batignolles. Bilan complet, suivi personnalisé. 6 rue des Batignolles, 75017. RDV Doctolib."
+        description="Cabinet de kinésithérapie du sport à Paris 17 (Batignolles) : rééducation globale, prise en charge du coureur, prévention et réathlétisation. Rendez-vous rapides sur Doctolib."
       />
+      <Helmet>
+        <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
+      </Helmet>
 
       <style>{`
         @keyframes scroll {
@@ -214,12 +240,12 @@ export const Home: React.FC = () => {
 
       <div className="bg-surface min-h-screen text-slate-900">
         {/* Hero */}
-        <section className="px-3 sm:px-4 md:px-6 pb-6 flex flex-col pt-6 md:pt-8">
+        <section className="px-3 sm:px-4 md:px-6 pb-3 md:pb-4 flex flex-col pt-6 md:pt-8">
           <div className="relative w-full h-[70vh] min-h-[520px] md:h-[80vh] rounded-3xl md:rounded-4xl lg:rounded-5xl overflow-hidden shadow-2xl shadow-slate-200 bg-slate-900 group border border-white">
             <div className="absolute inset-0">
               <img
                 src={HERO_IMAGE_URL}
-                alt="Devanture Batignolles Kiné Sport"
+                alt="Cabinet de kinésithérapie du sport à Paris 17 Batignolles"
                 className="w-full h-full object-cover opacity-90 transition-transform duration-[20s] group-hover:scale-105"
                 onError={(e) => {
                   e.currentTarget.src = '/images/hero/hero.jpeg';
@@ -249,7 +275,7 @@ export const Home: React.FC = () => {
 
                 <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 lg:gap-12 mt-4">
                   <p className="text-gray-200 text-sm sm:text-base md:text-xl max-w-xl font-light leading-relaxed">
-                    Rééducation du coureur & Performance. Protocoles de réathlétisation, thérapie manuelle et bilan complet au cœur des Batignolles.
+                    Cabinet de kinésithérapie du sport qui allie santé et performance. Sportifs ou non, nous vous accompagnons avec une approche individuelle et fondée sur les preuves.
                   </p>
                   <div className="hidden lg:flex flex-col items-center gap-2 opacity-80 scroll-bounce">
                     <span className="text-white text-xs uppercase tracking-widest">Scroll</span>
@@ -261,211 +287,180 @@ export const Home: React.FC = () => {
           </div>
         </section>
 
-        <div className="max-w-content w-full mx-auto px-4 md:px-6 py-12 md:py-20 space-y-20 lg:space-y-28">
-          {/* Pourquoi BKS */}
+        <div className="max-w-content w-full mx-auto px-4 md:px-6 pt-10 md:pt-12 pb-0 md:pb-0 space-y-12 md:space-y-16">
+          {/* Offre & méthode unifiées */}
           <section>
-            <div className="text-center max-w-3xl mx-auto mb-10 md:mb-14">
-              <h2 className="text-3xl md:text-5xl font-medium tracking-tight mb-4 text-slate-900">Pourquoi BKS ?</h2>
+            <div className="text-center max-w-3xl mx-auto mb-10 md:mb-14 px-4">
+              <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-slate-900 mb-6">
+                Reprenez le sport.
+              </h2>
+              <p className="text-slate-600 text-lg md:text-2xl font-medium leading-relaxed max-w-2xl mx-auto">
+                Diagnostic précis. Soins experts. Résultats durables.
+              </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
-              <div className="bg-white rounded-3xl md:rounded-4xl p-6 md:p-8 border border-slate-100 hover:border-primary/20 transition-all hover:shadow-card">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+              {/* Expertise */}
+              <div className="bg-white rounded-3xl md:rounded-4xl p-6 md:p-8 border border-slate-100 hover:border-primary/20 transition-all hover:shadow-card flex flex-col items-start text-left">
                 <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
                   <ClipboardList className="w-6 h-6 text-primary" />
                 </div>
-                <h3 className="text-xl md:text-2xl font-semibold text-slate-900 mb-3">Expertise Technique</h3>
-                <p className="text-slate-600 text-sm md:text-base leading-relaxed">
-                  Équipe de 3 kinés spécialistes du sport. Maîtrise des protocoles de réathlétisation et thérapie manuelle orthopédique pour votre retour au terrain.
+                <h3 className="text-2xl font-semibold text-slate-900 mb-2">Expertise</h3>
+                <p className="text-slate-600 text-lg leading-relaxed">
+                  Spécialistes du sport. Protocoles avancés.
                 </p>
               </div>
 
-              <div className="bg-white rounded-3xl md:rounded-4xl p-6 md:p-8 border border-slate-100 hover:border-primary/20 transition-all hover:shadow-card">
+              {/* Suivi */}
+              <div className="bg-white rounded-3xl md:rounded-4xl p-6 md:p-8 border border-slate-100 hover:border-primary/20 transition-all hover:shadow-card flex flex-col items-start text-left">
                 <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
                   <Target className="w-6 h-6 text-primary" />
                 </div>
-                <h3 className="text-xl md:text-2xl font-semibold text-slate-900 mb-3">Suivi Personnalisé</h3>
-                <p className="text-slate-600 text-sm md:text-base leading-relaxed">
-                  Bilan initial complet, rééducation sur-mesure, tests fonctionnels. Pas de travail à la chaîne. Chaque séance adaptée à vos objectifs.
+                <h3 className="text-2xl font-semibold text-slate-900 mb-2">Sur-mesure</h3>
+                <p className="text-slate-600 text-lg leading-relaxed">
+                  Un patient. Un kiné. Une stratégie unique.
                 </p>
               </div>
 
-              <div className="bg-white rounded-3xl md:rounded-4xl p-6 md:p-8 border border-slate-100 hover:border-primary/20 transition-all hover:shadow-card">
-                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
-                  <MapPin className="w-6 h-6 text-primary" />
-                </div>
-                <h3 className="text-xl md:text-2xl font-semibold text-slate-900 mb-3">Emplacement Idéal</h3>
-                <p className="text-slate-600 text-sm md:text-base leading-relaxed">
-                  Au cœur des Batignolles, 6 rue des Batignolles. Accès direct Métro Rome (L2) et Place de Clichy. Cabinet moderne et équipé.
-                </p>
-              </div>
-            </div>
-          </section>
-
-          {/* Expertise Bento */}
-          <section>
-            <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-6 mb-8 md:mb-12">
-              <div className="max-w-2xl">
-                <h2 className="text-3xl sm:text-4xl md:text-5xl font-medium tracking-tight leading-[1.1] text-slate-900 mb-4">
-                  Votre santé en mouvement.
-                  <br />
-                  <span className="text-primary">L'expertise au service du geste.</span>
-                </h2>
-                <p className="text-lg md:text-xl text-slate-600 leading-relaxed">
-                  Reprendre la course, le foot ou le crossfit sans douleur après blessure.
-                </p>
-              </div>
-              <div className="lg:max-w-xs">
-                <p className="text-slate-500 text-sm md:text-base leading-relaxed">
-                  Une prise en charge fondée sur les preuves pour comprendre votre pathologie et pérenniser vos résultats.
-                </p>
-              </div>
-            </div>
-
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 md:gap-6">
-              <div className="lg:col-span-2 bg-white rounded-3xl md:rounded-5xl p-6 md:p-10 relative overflow-hidden group transition-all duration-500 hover:shadow-card border border-slate-100">
-                <div className="absolute top-0 right-0 w-48 h-48 md:w-80 md:h-80 bg-gradient-to-br from-primary/10 to-transparent rounded-full blur-3xl -mr-10 -mt-10 md:-mr-20 md:-mt-20 pointer-events-none"></div>
-                <div className="relative z-10 flex flex-col h-full justify-between min-h-[240px] md:min-h-[300px]">
-                  <div className="flex justify-between items-start">
-                    <div className="bg-surface-muted w-10 h-10 md:w-14 md:h-14 rounded-xl md:rounded-2xl flex items-center justify-center mb-4 md:mb-6 border border-primary/10">
-                      <Activity className="w-5 h-5 md:w-7 md:h-7 text-primary" />
+              {/* Bilan Diagnostic */}
+              <div className="bg-primary rounded-3xl md:rounded-4xl p-6 md:p-8 flex flex-col justify-center group hover:scale-[1.02] transition-all duration-300 shadow-elevated relative overflow-hidden min-h-[200px]">
+                <div className="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')]"></div>
+                <div className="relative z-10">
+                  <div className="flex items-center gap-3 md:gap-4 mb-2 md:mb-4">
+                    <div className="bg-white/10 w-10 h-10 md:w-12 md:h-12 rounded-xl flex items-center justify-center text-white shrink-0 backdrop-blur-md">
+                      <ClipboardList className="w-5 h-5 md:w-6 md:h-6" />
                     </div>
-                    <div className="relative w-16 h-16 md:w-20 md:h-20 opacity-0 group-hover:opacity-100 transition-all duration-700 transform translate-y-4 group-hover:translate-y-0 hidden sm:block">
-                      <svg className="w-full h-full -rotate-90" viewBox="0 0 100 100">
-                        <circle cx="50" cy="50" r="45" fill="none" stroke="currentColor" strokeWidth="2" className="text-primary/10" />
-                        <circle
-                          cx="50"
-                          cy="50"
-                          r="45"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="4"
-                          strokeDasharray="283"
-                          strokeDashoffset="70"
-                          className="text-primary"
-                        />
-                      </svg>
-                      <div className="absolute inset-0 flex items-center justify-center">
-                        <MoveUpRight className="w-6 h-6 text-primary" />
-                      </div>
-                    </div>
+                    <h3 className="text-xl md:text-2xl text-white font-medium leading-tight">Diagnostic</h3>
                   </div>
-                  <div>
-                    <h3 className="text-2xl md:text-3xl font-medium mb-3 text-slate-900">Kinésithérapie du Sport</h3>
-                    <p className="text-slate-600 text-sm md:text-base max-w-lg leading-relaxed mb-4 md:mb-6">
-                      De la phase aiguë au retour terrain. Réathlétisation et performance sans douleur.
-                    </p>
-                    <div className="flex flex-wrap gap-2">
-                      {['Traumatologie', 'Prévention', 'Performance'].map((tag) => (
-                        <span
-                          key={tag}
-                          className="bg-surface px-3 py-1.5 md:px-4 md:py-2 rounded-full text-primary text-2xs md:text-xs font-semibold border border-slate-100 uppercase tracking-wide"
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
+                  <p className="text-green-100/90 text-base md:text-lg leading-relaxed font-medium">
+                    Identifier la cause. Pas juste le symptôme.
+                  </p>
                 </div>
               </div>
 
-              <div className="flex flex-col sm:flex-row lg:flex-col gap-4 md:gap-6 lg:col-span-1">
-                <div className="bg-primary rounded-3xl md:rounded-5xl p-6 md:p-8 flex-1 flex flex-col justify-center group hover:scale-[1.02] transition-all duration-300 shadow-elevated relative overflow-hidden min-h-[160px]">
-                  <div className="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')]"></div>
-                  <div className="relative z-10">
-                    <div className="flex items-center gap-3 md:gap-4 mb-2 md:mb-4">
-                      <div className="bg-white/10 w-10 h-10 md:w-12 md:h-12 rounded-xl flex items-center justify-center text-white shrink-0 backdrop-blur-md">
-                        <ClipboardList className="w-5 h-5 md:w-6 md:h-6" />
-                      </div>
-                      <h3 className="text-lg md:text-xl text-white font-medium leading-tight">Bilan
-                        <br />Diagnostic
-                      </h3>
+              {/* Suivi Objectif */}
+              <div className="bg-primary-950 rounded-3xl md:rounded-4xl p-6 md:p-8 flex flex-col justify-center group hover:scale-[1.02] transition-all duration-300 shadow-elevated relative overflow-hidden min-h-[200px]">
+                <div className="relative z-10">
+                  <div className="flex items-center gap-3 md:gap-4 mb-2 md:mb-4">
+                    <div className="bg-white/10 w-10 h-10 md:w-12 md:h-12 rounded-xl flex items-center justify-center text-white shrink-0 backdrop-blur-md">
+                      <Target className="w-5 h-5 md:w-6 md:h-6" />
                     </div>
-                    <p className="text-green-100/80 text-xs md:text-sm leading-relaxed">
-                      Analyse précise de la motricité pour identifier la cause réelle de vos symptômes.
-                    </p>
+                    <h3 className="text-xl md:text-2xl text-white font-medium leading-tight">Data</h3>
                   </div>
-                </div>
-
-                <div className="bg-primary-950 rounded-3xl md:rounded-5xl p-6 md:p-8 flex-1 flex flex-col justify-center group hover:scale-[1.02] transition-all duration-300 shadow-elevated relative overflow-hidden min-h-[160px]">
-                  <div className="relative z-10">
-                    <div className="flex items-center gap-3 md:gap-4 mb-2 md:mb-4">
-                      <div className="bg-white/10 w-10 h-10 md:w-12 md:h-12 rounded-xl flex items-center justify-center text-white shrink-0 backdrop-blur-md">
-                        <Target className="w-5 h-5 md:w-6 md:h-6" />
-                      </div>
-                      <h3 className="text-lg md:text-xl text-white font-medium leading-tight">Suivi
-                        <br />Objectif
-                      </h3>
-                    </div>
-                    <p className="text-gray-400 text-xs md:text-sm leading-relaxed">
-                      Tests fonctionnels et mesures data pour valider chaque étape.
-                    </p>
-                  </div>
+                  <p className="text-gray-300 text-base md:text-lg leading-relaxed font-medium">
+                    Mesurer pour progresser. Validé par la science.
+                  </p>
                 </div>
               </div>
             </div>
           </section>
 
-          {/* Pathologies */}
+          {/* Pathologies (groupées + liens blog) */}
           <section>
-            <div className="text-center max-w-3xl mx-auto mb-10 md:mb-12 px-4">
-              <span className="text-primary font-semibold text-xs md:text-sm tracking-widest uppercase mb-3 block">Nos domaines</span>
-              <h2 className="text-3xl md:text-5xl font-medium tracking-tight mb-4 text-slate-900">Pathologies prises en charge</h2>
-              <p className="text-slate-500 text-sm md:text-lg">
-                Du soin post-opératoire à la préparation physique, nous couvrons l'ensemble de vos besoins.
+            <div className="text-center max-w-3xl mx-auto mb-10 md:mb-14 px-4">
+              <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-slate-900 mb-4">Pathologies prises en charge</h2>
+              <p className="text-slate-600 text-base md:text-xl leading-relaxed max-w-2xl mx-auto">
+                Du coureur au post-op : nos expertises.
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
-              {SERVICES.slice(0, 3).map((service, index) => (
-                <div
-                  key={service.id}
-                  className={`rounded-3xl md:rounded-5xl p-6 md:p-8 flex flex-col justify-between transition-all duration-300 min-h-[280px] md:min-h-[320px] border ${
-                    index === 0
-                      ? 'bg-primary text-white border-primary hover:shadow-elevated'
-                      : 'bg-white border-slate-100 hover:border-primary/20 hover:shadow-card'
+            <div className="-mx-4 px-4 md:mx-0 md:px-0 flex md:grid md:grid-cols-2 xl:grid-cols-4 gap-4 md:gap-6 overflow-x-auto md:overflow-visible snap-x snap-mandatory md:snap-none pb-2">
+              {PATHOLOGY_GROUPS.map((item, index) => (
+                <Link
+                  key={item.title}
+                  to={`/blog?category=${(item as any).categorySlug ?? item.category}`}
+                  className={`group flex flex-col rounded-3xl md:rounded-4xl p-5 md:p-6 gap-4 transition-all duration-300 min-h-[200px] border shadow-sm hover:-translate-y-1 snap-start w-[82vw] sm:w-[60vw] md:w-auto ${
+                    index === 0 ? 'bg-primary text-white border-primary/80 hover:shadow-lg' : 'bg-white border-slate-100 hover:border-primary/30 hover:shadow-md'
                   }`}
                 >
-                  <div>
-                    <div
-                      className={`w-12 h-12 md:w-14 md:h-14 rounded-xl md:rounded-2xl flex items-center justify-center mb-4 md:mb-6 ${
-                        index === 0 ? 'bg-white/10 text-white' : 'bg-surface-muted text-primary'
-                      }`}
-                    >
-                      <service.icon className="w-6 h-6 md:w-7 md:h-7" />
-                    </div>
-                    <h3 className={`text-xl md:text-2xl font-medium mb-2 md:mb-3 ${index === 0 ? 'text-white' : 'text-slate-900'}`}>
-                      {service.title}
-                    </h3>
-                    <p className={`${index === 0 ? 'text-green-100/80' : 'text-slate-500'} text-sm md:text-base leading-relaxed mb-4`}>
-                      {service.shortDescription}
-                    </p>
+                  <div className="flex items-center justify-between gap-3">
+                    <h3 className={`text-xl md:text-2xl font-medium ${index === 0 ? 'text-white' : 'text-slate-900'}`}>{item.title}</h3>
+                    <span className={`text-[11px] font-semibold uppercase tracking-widest ${index === 0 ? 'text-white/80' : 'text-primary'}`}>Blog</span>
                   </div>
-                  <Link
-                    to={service.path}
-                    className={`inline-flex items-center text-xs md:text-sm font-semibold tracking-wide gap-2 group-hover:gap-4 transition-all uppercase ${
-                      index === 0 ? 'text-white' : 'text-primary'
-                    }`}
-                  >
-                    En savoir plus <ArrowRight className="w-3 h-3 md:w-4 md:h-4" />
-                  </Link>
-                </div>
+                  <p className={`${index === 0 ? 'text-green-100/90' : 'text-slate-600'} text-sm md:text-base leading-relaxed`}>{item.desc}</p>
+
+                  <div className={`flex flex-wrap gap-2 ${index === 0 ? 'text-white' : 'text-primary'}`}>
+                    {item.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className={`px-2.5 py-1 rounded-full text-[11px] font-semibold uppercase tracking-wide border ${
+                          index === 0 ? 'border-white/25 bg-white/10 text-white' : 'border-primary/20 bg-primary/5 text-primary'
+                        }`}
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+
+                  <ul className={`${index === 0 ? 'text-white/85' : 'text-slate-600'} text-sm md:text-base space-y-2`}>
+                    {item.items.map((entry) => (
+                      <li key={entry} className="flex items-start gap-2">
+                        <span className={`mt-1 block h-1.5 w-1.5 rounded-full ${index === 0 ? 'bg-white/80' : 'bg-primary/70'}`}></span>
+                        <span>{entry}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </Link>
               ))}
             </div>
-          </section>
 
-          
-          {/* Ancrage Local */}
-          <section className="bg-gradient-to-br from-primary/5 to-white rounded-4xl p-8 md:p-12 border border-primary/10">
-            <div className="max-w-3xl mx-auto text-center">
-              <h2 className="text-2xl md:text-3xl font-semibold text-slate-900 mb-4">
-                Votre cabinet au cœur des Batignolles
-              </h2>
-              <p className="text-slate-700 text-base md:text-lg leading-relaxed">
-                Situé à deux pas du Parc Martin Luther King et de la Place de Clichy, notre cabinet de kinésithérapie du sport vous accueille au 6 rue des Batignolles, 75017 Paris. Facilement accessible depuis le Métro Rome (ligne 2), nous accompagnons quotidiennement coureurs, sportifs et actifs du quartier vers leurs objectifs de performance et de récupération.
-              </p>
+            <div className="text-center mt-8">
+              <Link
+                to="/pathologies"
+                className="inline-flex items-center justify-center px-4 py-2 rounded-full border border-primary/30 text-primary font-semibold text-sm md:text-base hover:bg-primary/5 transition-colors"
+              >
+                Voir toutes nos prises en charge
+              </Link>
             </div>
           </section>
 
+          {/* FAQ Accordéon */}
+          <section>
+            <div className="text-center max-w-3xl mx-auto mb-10 md:mb-14 px-4">
+              <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-slate-900 mb-4">Questions fréquentes</h2>
+              <p className="text-slate-600 text-base md:text-xl leading-relaxed max-w-2xl mx-auto">
+                Tout savoir sur vos rendez-vous et nos prises en charge.
+              </p>
+            </div>
+
+            <div className="max-w-4xl mx-auto space-y-3 md:space-y-4">
+              {FAQ_ENTRIES.map((item, idx) => {
+                const isOpen = openFaqIndex === idx;
+                return (
+                  <div key={item.question} className="bg-white border border-slate-100 rounded-2xl md:rounded-3xl shadow-sm overflow-hidden">
+                    <button
+                      className="w-full flex items-center justify-between text-left px-4 md:px-5 py-4 md:py-5 gap-4"
+                      onClick={() => setOpenFaqIndex(isOpen ? null : idx)}
+                      aria-expanded={isOpen}
+                      aria-controls={`faq-panel-${idx}`}
+                    >
+                      <div>
+                        <p className="text-base md:text-lg font-semibold text-slate-900">{item.question}</p>
+                      </div>
+                      <ChevronDown
+                        className={`w-5 h-5 text-slate-500 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`}
+                        aria-hidden
+                      />
+                    </button>
+                    <div
+                      id={`faq-panel-${idx}`}
+                      aria-hidden={!isOpen}
+                      className={`overflow-hidden transition-all duration-200 ease-out ${isOpen ? 'max-h-40 opacity-100' : 'max-h-0 opacity-0'}`}
+                    >
+                      <div className="px-4 md:px-5 pb-4 md:pb-5 text-slate-600 text-sm md:text-base leading-relaxed">
+                        {item.answer}
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </section>
+        </div>
+
+        <TestimonialsGrid />
+
+        <div className="max-w-content w-full mx-auto px-4 md:px-6 pt-12 md:pt-14 pb-12 md:pb-14 space-y-12 md:space-y-16">
           {/* Location */}
           <section>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
@@ -517,14 +512,10 @@ export const Home: React.FC = () => {
             </div>
           </section>
         </div>
-
-        {/* Avis plein écran */}
-        <div className="py-12 md:py-20">
-          <ReviewsCarousel />
-        </div>
       </div>
     </>
   );
 };
 
 export default Home;
+

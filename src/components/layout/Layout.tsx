@@ -206,6 +206,9 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
 
       <main className="grow">{children}</main>
 
+      {/* Spacer with site background to separate content from footer without exposing body color */}
+      <div className="h-10 md:h-12 bg-surface" />
+
       <footer className="bg-slate-900 border-t border-slate-800">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 md:py-16">
           {/* CTA Banner */}
@@ -266,15 +269,20 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
               {/* Rating Badge */}
               <div className="mt-6 pt-6 border-t border-slate-700">
                 <p className="text-xs text-slate-400 mb-2">Noté par nos patients</p>
-                <div className="flex items-center gap-2">
+                <a
+                  href="https://maps.app.goo.gl/xbo2peVMLRshCLys8"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="flex items-center gap-2 text-white hover:text-primary transition-colors"
+                >
                   <div className="flex gap-0.5">
                     {[...Array(5)].map((_, i) => (
                       <span key={i} className="text-primary">★</span>
                     ))}
                   </div>
-                  <span className="text-sm font-semibold text-white">{reviewsData.note_moyenne?.toFixed(1)}</span>
-                  <span className="text-xs text-slate-400">({reviewsData.nombre_avis_total} avis)</span>
-                </div>
+                  <span className="text-sm font-semibold">{reviewsData.note_moyenne?.toFixed(1)}</span>
+                  <span className="text-xs text-slate-300">({reviewsData.nombre_avis_total} avis)</span>
+                </a>
               </div>
             </div>
 

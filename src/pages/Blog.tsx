@@ -1,10 +1,38 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useMemo } from 'react';
+import { Link, useSearchParams } from 'react-router-dom';
 import { Calendar, User } from 'lucide-react';
 import { SEO } from '../components/layout/SEO';
 import { BLOG_POSTS } from '../utils/constants';
 
 export const Blog: React.FC = () => {
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  const slugifyCategory = (category: string) =>
+    (category || '')
+      .toLowerCase()
+      .normalize('NFD')
+      .replace(/\p{Diacritic}/gu, '')
+      .replace(/[^a-z0-9]+/g, '-');
+
+  const activeCategory = searchParams.get('category') || '';
+
+  const categories = useMemo(
+    () => Array.from(new Set(BLOG_POSTS.map((post) => post.category))),
+    []
+  );
+
+  const filteredPosts = useMemo(() => {
+    if (!activeCategory) return BLOG_POSTS;
+    return BLOG_POSTS.filter(
+      (post) => slugifyCategory(post.category) === activeCategory.toLowerCase()
+    );
+  }, [activeCategory]);
+
+  const handleCategoryClick = (category: string) => {
+    const slug = slugifyCategory(category);
+    setSearchParams(slug ? { category: slug } : {});
+  };
+
   return (
     <>
       <SEO 
@@ -23,8 +51,34 @@ export const Blog: React.FC = () => {
 
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-wrap gap-3 mb-8">
+            <button
+              onClick={() => handleCategoryClick('')}
+              className={`px-3 py-1.5 rounded-full text-sm font-semibold border transition-colors ${
+                !activeCategory ? 'bg-primary text-white border-primary' : 'border-slate-200 text-slate-700 hover:border-primary/40'
+              }`}
+            >
+              Tout
+            </button>
+            {categories.map((category) => {
+              const slug = slugifyCategory(category);
+              const isActive = activeCategory === slug;
+              return (
+                <button
+                  key={category}
+                  onClick={() => handleCategoryClick(category)}
+                  className={`px-3 py-1.5 rounded-full text-sm font-semibold border transition-colors ${
+                    isActive ? 'bg-primary text-white border-primary' : 'border-slate-200 text-slate-700 hover:border-primary/40'
+                  }`}
+                >
+                  {category}
+                </button>
+              );
+            })}
+          </div>
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {BLOG_POSTS.map((post) => (
+            {filteredPosts.map((post) => (
               <article key={post.slug} className="flex flex-col bg-white border border-gray-100 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
                 <Link to={`/blog/${post.slug}`} className="block h-48 overflow-hidden">
                   <img 
