@@ -220,7 +220,7 @@ export const Home: React.FC = () => {
     <>
       <SEO
         title="Batignolles Kiné Sport | Rééducation, Post-Op, Réathlétisation - Paris 17"
-        description={metaDescription}
+        description="Rééducation fonctionnelle, post-op, sport-santé. Cabinet spécialisé Paris 17. Équipe 3 kinés. Prise en charge globale, résultats durables. Prendre RDV."
       />
       <Helmet>
         <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
