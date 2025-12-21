@@ -234,7 +234,7 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10 mb-12">
             {/* Brand Column */}
             <div className="sm:col-span-2 lg:col-span-2">
-              <span className="mb-4 block text-2xl font-bold text-white">BKS</span>
+              <span className="mb-4 block text-2xl font-bold text-white">Batignolles Kiné Sport</span>
               <p className="mb-6 text-sm text-slate-300 leading-relaxed">
                 Votre partenaire santé et performance au cœur des Batignolles. Une équipe de kiné passionnés, experts en rééducation du coureur et préparation physique.
               </p>

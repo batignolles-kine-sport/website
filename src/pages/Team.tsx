@@ -1,7 +1,6 @@
 import React from 'react';
 import { SEO } from '../components/layout/SEO';
 import { TEAM } from '../utils/constants';
-import { Button, DoctolibMark } from '../components/ui/Button';
 import DoctolibWhite from '../assets/icons/doctolib-blanc.png';
 
 export const Team: React.FC = () => {
@@ -43,12 +42,10 @@ export const Team: React.FC = () => {
                   </div>
                 ))}
               </div>
-              <div className="flex flex-wrap items-center gap-3">
-                <Button href="https://www.doctolib.fr/" variant="primary" className="px-5 py-3 text-base">
-                  <DoctolibMark className="mr-2" />
-                  Prendre rendez-vous
-                </Button>
-                <span className="text-sm text-text-muted">Disponibilités rapides en présentiel et téléconsultation.</span>
+              <div className="flex items-center gap-3">
+                <p className="text-sm text-text-muted">
+                  Disponibilités rapides en présentiel seulement.
+                </p>
               </div>
             </div>
             <div className="rounded-5xl border border-slate-100 bg-white p-8 shadow-elevated">
@@ -79,10 +76,6 @@ export const Team: React.FC = () => {
                 Kinés du sport, thérapie manuelle, traumatologie, pédiatrie ou réathlétisation : chaque praticien apporte son expertise pour couvrir l'ensemble du parcours de soin.
               </p>
             </div>
-            <Button href="https://www.doctolib.fr/" variant="secondary" className="px-5 py-3 text-base">
-              <DoctolibMark className="mr-2" inverted />
-              Voir les disponibilités
-            </Button>
           </div>
 
           <div className="grid gap-8 md:grid-cols-2">

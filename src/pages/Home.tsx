@@ -74,30 +74,30 @@ const TOP_TESTIMONIALS = [
 const PATHOLOGY_GROUPS = [
   {
     title: 'Sport & performance',
-    desc: 'Coureur, terrain, reprise sans douleur et charge maîtrisée.',
-    category: 'sport',
+    desc: 'Reprise sans douleur, retour terrain, charge maîtrisée.',
+    slug: 'sport',
     items: ['Prise en charge du coureur', 'Kiné du sport', 'Réathlétisation'],
     tags: ['Running', 'Retour terrain', 'Prépa physique'],
+    accent: true,
   },
   {
     title: 'Rééducation & post-op',
-    desc: 'Post-trauma et post-op : mobilité, force et confiance.',
-    category: 'reeducation',
+    desc: 'Post-trauma et post-op : mobilité, force, confiance.',
+    slug: 'reeducation',
     items: ['Rééducation globale', 'Suivi post-op / traumato', 'Progressions sécurisées'],
     tags: ['Post-op', 'Mobilité', 'Force'],
   },
   {
-    title: 'Prévention & spécifique',
-    desc: 'Prévention des récidives, plancher pelvien, reprise progressive.',
-    category: 'sante',
-    items: ['Prévention et contrôle moteur', 'Kiné de la femme (partum / post-partum)'],
+    title: 'Prévention & contrôle',
+    desc: 'Prévention des récidives, contrôle moteur, charge progressive.',
+    slug: 'prevention',
+    items: ['Prévention et contrôle moteur', 'Programme anti-récidive', 'Reprise progressive'],
     tags: ['Prévention', 'Plancher pelvien', 'Charge progressive'],
   },
   {
     title: 'Kiné de la femme',
     desc: 'Grossesse, post-partum, périnée, reprise sportive en douceur.',
-    category: 'sante',
-    categorySlug: 'sante',
+    slug: 'femme',
     items: ['Rééducation périnéale', 'Pré / post-partum', 'Reprise sport sécurisée'],
     tags: ['Femmes', 'Périnée', 'Retour au sport'],
   },
@@ -256,32 +256,34 @@ export const Home: React.FC = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-black/10"></div>
             </div>
 
-            <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-8 md:p-12 lg:p-16 pb-8 md:pb-16 z-10">
-              <div className="max-w-content mx-auto w-full">
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {['Rééducation', 'Kiné du sport', 'Préparation physique'].map((badge) => (
-                    <span
-                      key={badge}
-                      className="bg-white/10 backdrop-blur-md border border-white/20 px-3 py-1.5 rounded-full text-white text-2xs sm:text-xs md:text-sm font-medium tracking-wide"
-                    >
-                      {badge}
-                    </span>
-                  ))}
-                </div>
+            <div className="absolute inset-0 flex items-end z-10">
+              <div className="w-full p-6 sm:p-8 md:p-12 lg:p-16 pb-8 md:pb-16">
+                <div className="max-w-content mx-auto w-full">
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {['Rééducation', 'Kiné du sport', 'Préparation physique'].map((badge) => (
+                      <span
+                        key={badge}
+                        className="bg-white/10 backdrop-blur-md border border-white/20 px-3 py-1.5 rounded-full text-white text-2xs sm:text-xs md:text-sm font-medium tracking-wide"
+                      >
+                        {badge}
+                      </span>
+                    ))}
+                  </div>
 
-                <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold text-white tracking-tight leading-[0.95] mb-6 drop-shadow-lg">
-                  Batignolles
-                  <br />
-                  Kiné Sport
-                </h1>
+                  <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold text-white tracking-tight leading-[0.95] mb-6 drop-shadow-lg">
+                    Batignolles
+                    <br />
+                    Kiné Sport
+                  </h1>
 
-                <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 lg:gap-12 mt-4">
-                  <p className="text-gray-200 text-sm sm:text-base md:text-xl max-w-xl font-light leading-relaxed">
-                    Cabinet de kinésithérapie du sport qui allie santé et performance. Sportifs ou non, nous vous accompagnons avec une approche individuelle et fondée sur les preuves.
-                  </p>
-                  <div className="hidden lg:flex flex-col items-center gap-2 opacity-80 scroll-bounce">
-                    <span className="text-white text-xs uppercase tracking-widest">Scroll</span>
-                    <div className="w-px h-8 bg-white"></div>
+                  <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 lg:gap-12 mt-4">
+                    <p className="text-gray-200 text-sm sm:text-base md:text-xl max-w-xl font-light leading-relaxed">
+                      Santé et performance. Une approche sur-mesure pour chaque corps.
+                    </p>
+                    <div className="hidden lg:flex flex-col items-center gap-2 opacity-80 scroll-bounce">
+                      <span className="text-white text-xs uppercase tracking-widest">Scroll</span>
+                      <div className="w-px h-8 bg-white"></div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -366,27 +368,27 @@ export const Home: React.FC = () => {
               </p>
             </div>
 
-            <div className="-mx-4 px-4 md:mx-0 md:px-0 flex md:grid md:grid-cols-2 xl:grid-cols-4 gap-4 md:gap-6 overflow-x-auto md:overflow-visible snap-x snap-mandatory md:snap-none pb-2">
-              {PATHOLOGY_GROUPS.map((item, index) => (
+            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4 md:gap-6 px-2 md:px-0">
+              {PATHOLOGY_GROUPS.map((item) => (
                 <Link
                   key={item.title}
-                  to={`/blog?category=${(item as any).categorySlug ?? item.category}`}
-                  className={`group flex flex-col rounded-3xl md:rounded-4xl p-5 md:p-6 gap-4 transition-all duration-300 min-h-[200px] border shadow-sm hover:-translate-y-1 snap-start w-[82vw] sm:w-[60vw] md:w-auto ${
-                    index === 0 ? 'bg-primary text-white border-primary/80 hover:shadow-lg' : 'bg-white border-slate-100 hover:border-primary/30 hover:shadow-md'
+                  to={`/blog?category=${item.slug}`}
+                  className={`group flex flex-col rounded-3xl md:rounded-4xl p-5 md:p-6 gap-4 transition-all duration-300 min-h-[200px] border shadow-sm hover:-translate-y-1 hover:shadow-lg ${
+                    item.accent ? 'bg-primary text-white border-primary/80' : 'bg-white border-slate-100 hover:border-primary/30'
                   }`}
                 >
                   <div className="flex items-center justify-between gap-3">
-                    <h3 className={`text-xl md:text-2xl font-medium ${index === 0 ? 'text-white' : 'text-slate-900'}`}>{item.title}</h3>
-                    <span className={`text-[11px] font-semibold uppercase tracking-widest ${index === 0 ? 'text-white/80' : 'text-primary'}`}>Blog</span>
+                    <h3 className={`text-xl md:text-2xl font-medium ${item.accent ? 'text-white' : 'text-slate-900'}`}>{item.title}</h3>
+                    <span className={`text-[11px] font-semibold uppercase tracking-widest ${item.accent ? 'text-white/80' : 'text-primary'}`}>Blog</span>
                   </div>
-                  <p className={`${index === 0 ? 'text-green-100/90' : 'text-slate-600'} text-sm md:text-base leading-relaxed`}>{item.desc}</p>
+                  <p className={`${item.accent ? 'text-green-100/90' : 'text-slate-600'} text-sm md:text-base leading-relaxed`}>{item.desc}</p>
 
-                  <div className={`flex flex-wrap gap-2 ${index === 0 ? 'text-white' : 'text-primary'}`}>
+                  <div className={`flex flex-wrap gap-2 ${item.accent ? 'text-white' : 'text-primary'}`}>
                     {item.tags.map((tag) => (
                       <span
                         key={tag}
                         className={`px-2.5 py-1 rounded-full text-[11px] font-semibold uppercase tracking-wide border ${
-                          index === 0 ? 'border-white/25 bg-white/10 text-white' : 'border-primary/20 bg-primary/5 text-primary'
+                          item.accent ? 'border-white/25 bg-white/10 text-white' : 'border-primary/20 bg-primary/5 text-primary'
                         }`}
                       >
                         {tag}
@@ -394,10 +396,10 @@ export const Home: React.FC = () => {
                     ))}
                   </div>
 
-                  <ul className={`${index === 0 ? 'text-white/85' : 'text-slate-600'} text-sm md:text-base space-y-2`}>
+                  <ul className={`${item.accent ? 'text-white/85' : 'text-slate-600'} text-sm md:text-base space-y-2`}>
                     {item.items.map((entry) => (
                       <li key={entry} className="flex items-start gap-2">
-                        <span className={`mt-1 block h-1.5 w-1.5 rounded-full ${index === 0 ? 'bg-white/80' : 'bg-primary/70'}`}></span>
+                        <span className={`mt-1 block h-1.5 w-1.5 rounded-full ${item.accent ? 'bg-white/80' : 'bg-primary/70'}`}></span>
                         <span>{entry}</span>
                       </li>
                     ))}
