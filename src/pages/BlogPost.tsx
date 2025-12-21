@@ -1,9 +1,12 @@
 import React from 'react';
 import { useParams, Navigate, Link } from 'react-router-dom';
 import { Calendar, User, ArrowLeft, Share2 } from 'lucide-react';
+import { Helmet } from 'react-helmet-async';
 import { SEO } from '../components/layout/SEO';
 import { Button, DoctolibMark } from '../components/ui/Button';
 import { BLOG_POSTS, DOCTOLIB_URL } from '../utils/constants';
+import { getBlogSEOTitle, getBlogSEODescription, getBlogSEOConfig } from '../utils/seoConfig';
+import { generateArticleSchema, generateBreadcrumbSchema } from '../utils/structuredData';
 
 export const BlogPost: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -13,13 +16,37 @@ export const BlogPost: React.FC = () => {
     return <Navigate to="/blog" />;
   }
 
+  // Récupérer la config SEO optimisée pour l'article
+  const seoConfig = getBlogSEOConfig(slug!);
+  const seoTitle = seoConfig ? seoConfig.title : getBlogSEOTitle(slug!, post.title);
+  const seoDescription = seoConfig ? seoConfig.metaDescription : getBlogSEODescription(slug!, post.excerpt);
+
+  // Générer les schemas structurés
+  const articleSchema = generateArticleSchema(
+    seoTitle,
+    seoDescription,
+    slug!,
+    post.date || new Date().toISOString().split('T')[0],
+    'Équipe Batignolles Kiné Sport'
+  );
+
+  const breadcrumbSchema = generateBreadcrumbSchema([
+    { name: 'Accueil', url: 'https://batignolles-kine-sport.fr' },
+    { name: 'Blog', url: 'https://batignolles-kine-sport.fr/blog' },
+    { name: seoTitle, url: `https://batignolles-kine-sport.fr/blog/${slug}` },
+  ]);
+
   return (
     <>
       <SEO 
-        title={post.title} 
-        description={post.excerpt} 
+        title={seoTitle}
+        description={seoDescription}
         type="article"
       />
+      <Helmet>
+        <script type="application/ld+json">{JSON.stringify(articleSchema)}</script>
+        <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
+      </Helmet>
 
       <article className="bg-white pb-20">
         {/* Header Image */}

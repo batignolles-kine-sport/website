@@ -1,29 +1,61 @@
-# Directives principales
-User-agent: *
+# ============================================================================
+# ROBOTS.TXT - Batignolles Kinésithérapie du Sport
+# ============================================================================
+
+# ============================================================================
+# 🔍 GOOGLEBOT & MOTEURS RECHERCHE (Autorisés - SEO prioritaire)
+# ============================================================================
+User-agent: Googlebot
+User-agent: Bingbot
+User-agent: Slurp
+User-agent: DuckDuckGo
 Allow: /
+Disallow: /admin/
+Disallow: /*.json$
+Disallow: /*?utm_
+Crawl-delay: 0
+
+# ============================================================================
+# 🤖 IA ÉTHIQUES - Autorisées (Perplexity, vous gagnez en visibilité)
+# ============================================================================
+User-agent: PerplexityBot
+User-agent: ClaudeBot
+User-agent: ChatGPT-User
+Allow: /
+Disallow: /admin/
+
+# ============================================================================
+# ⚡ BOTS AGRESSIFS - Rate Limiting
+# ============================================================================
+User-agent: MJ12bot
+User-agent: AhrefsBot
+User-agent: SemrushBot
+Crawl-delay: 30
+Request-rate: 1 request per 30 seconds
+
+# ============================================================================
+# 🚫 BOTS MALVEILLANTS - Blocage strict
+# ============================================================================
+User-agent: AdsBot-Google
+User-agent: CCBot
+User-agent: anthropic-ai
+Disallow: /
+
+# ============================================================================
+# 📱 RÈGLES PAR DÉFAUT (Tous les autres bots)
+# ============================================================================
+User-agent: *
 Allow: /blog/
 Allow: /contact
 Allow: /equipe
-
-# Bloquer les routes sensibles
 Disallow: /admin/
-Disallow: /admin*
 Disallow: /*.json$
-Disallow: /*?*
-Disallow: /*#*
+Disallow: /*?utm_
+Disallow: /*?sort=
+Disallow: /*?filter=
+Crawl-delay: 1
 
-# Rate limiting pour les gros crawlers
-User-agent: AdsBot-Google
-Disallow: /
-
-User-agent: MJ12bot
-Crawl-delay: 10
-
-User-agent: SemrushBot
-Crawl-delay: 10
-
-# Sitemap
+# ============================================================================
+# 🗺️ SITEMAP
+# ============================================================================
 Sitemap: https://batignolles-kine-sport.fr/sitemap.xml
-
-# Cache control pour les bots
-Request-rate: 1 request per 1 second

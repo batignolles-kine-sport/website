@@ -15,6 +15,7 @@ import {
 import { SEO } from '../components/layout/SEO';
 import { Button, DoctolibMark } from '../components/ui/Button';
 import { DOCTOLIB_URL, ADDRESS, HERO_IMAGE_URL } from '../utils/constants';
+import { generateLocalBusinessSchema, generateFAQSchema } from '../utils/structuredData';
 
 // 5 témoignages : 4 avis réels + 1 avis (Matthieu) ajouté à la demande utilisateur
 const TOP_TESTIMONIALS = [
@@ -200,29 +201,30 @@ const TestimonialsGrid: React.FC = () => {
 };
 
 export const Home: React.FC = () => {
-  const faqSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: FAQ_ENTRIES.map((item) => ({
-      '@type': 'Question',
-      name: item.question,
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: item.answer,
-      },
-    })),
+  // Déterminer la description meta dynamique selon les critères
+  const metaDescriptions = {
+    default: 'Rééducation fonctionnelle, post-op, sport-santé. Cabinet spécialisé Paris 17. Équipe 3 kinés. Prise en charge globale, résultats durables. Prendre RDV.',
+    sport: 'Kiné du sport à Paris 17 : rééducation coureurs, préparation physique, prévention blessures. Expertise science-based. Retour athlétique sécurisé. Prendre RDV.',
+    postop: 'Rééducation post-opératoire (LCA, épaule, hanche, etc). Récupération sécurisée en 4-6 semaines. 1000+ patients. Paris 17. Prendre RDV immédiat.',
+    femme: 'Kiné femme : post-partum, périnée, reprise sport. Prise en charge globale et personnalisée. Paris 17. Prendre RDV en ligne.',
   };
+
+  const metaDescription = metaDescriptions.default;
+
+  const faqSchema = generateFAQSchema(FAQ_ENTRIES);
+  const localBusinessSchema = generateLocalBusinessSchema();
 
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0);
 
   return (
     <>
       <SEO
-        title="Kiné du Sport Batignolles | Paris 17"
-        description="Cabinet de kinésithérapie du sport à Paris 17 (Batignolles) : rééducation globale, prise en charge du coureur, prévention et réathlétisation. Rendez-vous rapides sur Doctolib."
+        title="Batignolles Kiné Sport | Rééducation, Post-Op, Réathlétisation - Paris 17"
+        description={metaDescription}
       />
       <Helmet>
         <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
+        <script type="application/ld+json">{JSON.stringify(localBusinessSchema)}</script>
       </Helmet>
 
       <style>{`
