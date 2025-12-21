@@ -9,7 +9,7 @@ interface SitemapUrl {
 }
 
 const DOMAIN = 'https://batignolles-kine-sport.fr';
-const POSTS_DIR = path.join(process.cwd(), 'src/posts');
+const PATHOLOGIES_DIR = path.join(process.cwd(), 'src/posts/pathologies');
 
 /**
  * Récupère la date de modification d'un fichier
@@ -24,17 +24,23 @@ function getFileModDate(filePath: string): string {
 }
 
 /**
- * Génère les URLs pour les articles blog
+ * Génère les URLs pour les articles pathologies
  */
-function getBlogUrls(): SitemapUrl[] {
-  if (!fs.existsSync(POSTS_DIR)) return [];
+function getPathologyUrls(): SitemapUrl[] {
+  if (!fs.existsSync(PATHOLOGIES_DIR)) {
+    console.warn('⚠️ Dossier pathologies introuvable:', PATHOLOGIES_DIR);
+    return [];
+  }
 
-  return fs
-    .readdirSync(POSTS_DIR)
-    .filter(file => file.endsWith('.md') || file.endsWith('.mdx'))
+  const files = fs.readdirSync(PATHOLOGIES_DIR)
+    .filter(file => file.endsWith('.md') || file.endsWith('.mdx'));
+
+  console.log(`📄 ${files.length} articles pathologies détectés`);
+
+  return files
     .map(file => {
       const slug = file.replace(/\.(md|mdx)$/, '');
-      const filePath = path.join(POSTS_DIR, file);
+      const filePath = path.join(PATHOLOGIES_DIR, file);
 
       return {
         loc: `${DOMAIN}/blog/${slug}`,
@@ -101,7 +107,11 @@ function escapeXml(str: string): string {
  * Génère le sitemap XML complet
  */
 export function generateSitemap(): string {
-  const urls = [...getStaticUrls(), ...getBlogUrls()];
+  const staticUrls = getStaticUrls();
+  const pathologyUrls = getPathologyUrls();
+  const urls = [...staticUrls, ...pathologyUrls];
+
+  console.log(`✅ Sitemap total: ${urls.length} URLs`);
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
