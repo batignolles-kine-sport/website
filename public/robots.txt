@@ -1,0 +1,29 @@
+# Directives principales
+User-agent: *
+Allow: /
+Allow: /blog/
+Allow: /contact
+Allow: /equipe
+
+# Bloquer les routes sensibles
+Disallow: /admin/
+Disallow: /admin*
+Disallow: /*.json$
+Disallow: /*?*
+Disallow: /*#*
+
+# Rate limiting pour les gros crawlers
+User-agent: AdsBot-Google
+Disallow: /
+
+User-agent: MJ12bot
+Crawl-delay: 10
+
+User-agent: SemrushBot
+Crawl-delay: 10
+
+# Sitemap
+Sitemap: https://batignolles-kine-sport.fr/sitemap.xml
+
+# Cache control pour les bots
+Request-rate: 1 request per 1 second
