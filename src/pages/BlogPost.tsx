@@ -3,7 +3,7 @@ import { useParams, Navigate, Link } from 'react-router-dom';
 import { Calendar, User, ArrowLeft, Share2 } from 'lucide-react';
 import { Helmet } from 'react-helmet-async';
 import { SEO } from '../components/layout/SEO';
-import { Button, DoctolibMark } from '../components/ui/Button';
+import { Button } from '../components/ui/Button';
 import { BLOG_POSTS, DOCTOLIB_URL } from '../utils/constants';
 import { getBlogSEOTitle, getBlogSEODescription, getBlogSEOConfig } from '../utils/seoConfig';
 import { generateArticleSchema, generateBreadcrumbSchema } from '../utils/structuredData';
@@ -124,9 +124,8 @@ export const BlogPost: React.FC = () => {
                   </button>
                 </div>
                 <div className="w-full sm:w-auto">
-                  <Button href={DOCTOLIB_URL} fullWidth>
-                    <DoctolibMark className="mr-2" inverted />
-                    Prendre rendez-vous sur Doctolib
+                  <Button href={DOCTOLIB_URL} variant="booking" className="w-full sm:w-auto">
+                    Prendre rendez-vous
                   </Button>
                 </div>
               </div>

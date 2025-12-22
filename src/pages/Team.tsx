@@ -1,7 +1,7 @@
 import React from 'react';
 import { SEO } from '../components/layout/SEO';
 import { TEAM } from '../utils/constants';
-import DoctolibWhite from '../assets/icons/doctolib-blanc.png';
+import { Button } from '../components/ui/Button';
 
 export const Team: React.FC = () => {
   return (
@@ -111,15 +111,9 @@ export const Team: React.FC = () => {
                 <p className="text-sm leading-relaxed text-text-light">{member.bio}</p>
 
                 <div className="flex flex-wrap items-center gap-3">
-                  <a
-                    href={member.doctolibUrl}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="inline-flex items-center gap-2 rounded-full bg-[#0a7ad6] px-5 py-2 text-sm font-semibold uppercase tracking-tight text-white shadow-lg shadow-blue-500/20 transition-all hover:bg-[#086bbd] active:scale-95"
-                  >
-                    <img src={DoctolibWhite} alt="Doctolib" className="h-5" />
+                  <Button href={member.doctolibUrl} variant="booking" className="text-sm">
                     Prendre rendez-vous
-                  </a>
+                  </Button>
                 </div>
               </article>
             ))}

@@ -2,8 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import { ArrowRight, Instagram, Mail, MapPin, Menu, Phone, X } from 'lucide-react';
 import { toTelHref } from '../../utils/helpers';
-import { ADDRESS, DOCTOLIB_URL, EMAIL, INSTAGRAM_URL, LOGO_URL, PHONE, TEAM } from '../../utils/constants';
+import { ADDRESS, DOCTOLIB_URL, EMAIL, INSTAGRAM_URL, LOGO_URL, PHONE, TEAM, GOOGLE_MAPS_URL } from '../../utils/constants';
 import { SchemaMarkup } from './SchemaMarkup';
+import { Button } from '../ui/Button';
 import reviewsData from '../../data/avis.json';
 
 interface LayoutProps {
@@ -131,17 +132,14 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
 
           {/* CTA Tablette/Desktop */}
           <div className="hidden sm:block">
-            <a 
+            <Button
               href={DOCTOLIB_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`bg-slate-900 text-white rounded-md text-sm font-medium hover:bg-slate-800 transition-all flex items-center gap-2 group ${
-                isScrolled ? 'px-4 py-2' : 'px-5 py-2.5'
-              }`}
+              variant="booking"
+              className={`text-sm ${isScrolled ? 'px-4 py-2' : 'px-5 py-2.5'} rounded-full`}
             >
               Prendre rendez-vous
               <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-            </a>
+            </Button>
           </div>
 
           {/* Burger Mobile */}
@@ -212,21 +210,16 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
       <footer className="bg-slate-900 border-t border-slate-800">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 md:py-16">
           {/* CTA Banner */}
-          <div className="mb-12 md:mb-16 bg-gradient-to-r from-primary/20 to-primary/10 border border-primary/30 rounded-2xl p-6 md:p-8 backdrop-blur-sm">
+          <div className="mb-12 md:mb-16 bg-linear-to-r from-primary/20 to-primary/10 border border-primary/30 rounded-2xl p-6 md:p-8 backdrop-blur-sm">
             <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
               <div>
                 <h3 className="text-xl md:text-2xl font-serif font-bold text-white mb-2">Prêt à reprendre l'activité ?</h3>
                 <p className="text-slate-300 text-sm md:text-base">Prenez rendez-vous avec notre équipe pour un bilan personnalisé.</p>
               </div>
-              <a 
-                href={DOCTOLIB_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="shrink-0 bg-primary hover:bg-primary/90 text-white rounded-lg px-6 py-3 font-medium text-sm transition-all hover:shadow-lg hover:shadow-primary/20 flex items-center gap-2 group justify-center"
-              >
-                Doctolib
+              <Button href={DOCTOLIB_URL} variant="booking" className="shrink-0 text-sm flex items-center gap-2">
+                Prendre rendez-vous
                 <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-              </a>
+              </Button>
             </div>
           </div>
 
@@ -236,7 +229,7 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
             <div className="sm:col-span-2 lg:col-span-2">
               <span className="mb-4 block text-2xl font-bold text-white">Batignolles Kiné Sport</span>
               <p className="mb-6 text-sm text-slate-300 leading-relaxed">
-                Votre partenaire santé et performance au cœur des Batignolles. Une équipe de kiné passionnés, experts en rééducation du coureur et préparation physique.
+                Batignolles Kiné Sport – kinés du sport à Paris 17, quartier Batignolles.
               </p>
               
               {/* Social Links */}
@@ -270,7 +263,7 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
               <div className="mt-6 pt-6 border-t border-slate-700">
                 <p className="text-xs text-slate-400 mb-2">Noté par nos patients</p>
                 <a
-                  href="https://maps.app.goo.gl/xbo2peVMLRshCLys8"
+                  href={GOOGLE_MAPS_URL}
                   target="_blank"
                   rel="noreferrer"
                   className="flex items-center gap-2 text-white hover:text-primary transition-colors"
@@ -280,7 +273,11 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
                       <span key={i} className="text-primary">★</span>
                     ))}
                   </div>
-                  <span className="text-sm font-semibold">{reviewsData.note_moyenne?.toFixed(1)}</span>
+                  <span className="text-sm font-semibold">
+                    {Number.isInteger(reviewsData.note_moyenne)
+                      ? String(reviewsData.note_moyenne)
+                      : reviewsData.note_moyenne?.toFixed(1).replace('.', ',')}
+                  </span>
                   <span className="text-xs text-slate-300">({reviewsData.nombre_avis_total} avis)</span>
                 </a>
               </div>

@@ -2,7 +2,7 @@ import React from 'react';
 import { Navigate, useParams } from 'react-router-dom';
 import { CheckCircle, Clock, Calendar } from 'lucide-react';
 import { SEO } from '../components/layout/SEO';
-import { Button, DoctolibMark } from '../components/ui/Button';
+import { Button } from '../components/ui/Button';
 import { SERVICES, DOCTOLIB_URL } from '../utils/constants';
 
 export const ServiceDetail: React.FC = () => {
@@ -50,9 +50,8 @@ export const ServicePage: React.FC<ServicePageProps> = ({ serviceId }) => {
               <p className="text-xl text-text-light leading-relaxed mb-8">
                 {service.fullDescription}
               </p>
-              <Button href={DOCTOLIB_URL}>
-                <DoctolibMark className="mr-2" inverted />
-                Prendre rendez-vous sur Doctolib
+              <Button href={DOCTOLIB_URL} variant="booking">
+                Prendre rendez-vous
               </Button>
             </div>
             <div className="flex-1 w-full">
@@ -77,7 +76,7 @@ export const ServicePage: React.FC<ServicePageProps> = ({ serviceId }) => {
               <ul className="space-y-4">
                 {service.features.map((feature, idx) => (
                   <li key={idx} className="flex items-start">
-                    <CheckCircle className="text-accent mt-1 mr-3 flex-shrink-0" size={20} />
+                    <CheckCircle className="text-accent mt-1 mr-3 shrink-0" size={20} />
                     <span className="text-text-main">{feature}</span>
                   </li>
                 ))}
@@ -102,7 +101,7 @@ export const ServicePage: React.FC<ServicePageProps> = ({ serviceId }) => {
               {service.process ? (
                 <>
                   <h2 className="text-2xl font-bold text-text-main mb-6">Le Déroulement</h2>
-                  <div className="space-y-8 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-gray-300 before:to-transparent">
+                  <div className="space-y-8 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-linear-to-b before:from-transparent before:via-gray-300 before:to-transparent">
                     {service.process.map((step, idx) => (
                       <div key={idx} className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
                         <div className="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-slate-100 group-[.is-active]:bg-primary text-slate-500 group-[.is-active]:text-white shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">

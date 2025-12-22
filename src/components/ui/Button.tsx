@@ -7,7 +7,7 @@ export const DoctolibMark: React.FC<{ className?: string; inverted?: boolean }> 
 };
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: 'primary' | 'secondary' | 'tertiary';
+  variant?: 'primary' | 'secondary' | 'tertiary' | 'booking';
   fullWidth?: boolean;
   href?: string;
 }
@@ -25,6 +25,7 @@ export const Button: React.FC<ButtonProps> = ({
   const variants = {
     primary: "btn-primary",
     secondary: "btn-secondary",
+    booking: "btn-booking",
     tertiary: "btn-tertiary"
   };
 

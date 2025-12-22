@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { MapPin, Phone, Mail, Clock, Train, Car } from 'lucide-react';
 import { SEO } from '../components/layout/SEO';
-import { Button, DoctolibMark } from '../components/ui/Button';
+import { Button } from '../components/ui/Button';
 import { ADDRESS, EMAIL, DOCTOLIB_URL, PHONE } from '../utils/constants';
 
 export const Contact: React.FC = () => {
@@ -201,7 +201,7 @@ export const Contact: React.FC = () => {
                  <h3 className="text-xl font-bold text-text-main mb-6">Coordonnées</h3>
                  <ul className="space-y-6">
                    <li className="flex items-start">
-                     <MapPin className="text-primary mt-1 mr-4 flex-shrink-0" />
+                     <MapPin className="text-primary mt-1 mr-4 shrink-0" />
                      <div>
                        <span className="font-semibold block text-text-main">Adresse</span>
                        <span className="text-text-light">{ADDRESS}</span>
@@ -214,21 +214,21 @@ export const Contact: React.FC = () => {
                      </div>
                    </li>
                    <li className="flex items-start">
-                     <Phone className="text-primary mt-1 mr-4 flex-shrink-0" />
+                     <Phone className="text-primary mt-1 mr-4 shrink-0" />
                      <div>
                        <span className="font-semibold block text-text-main">Téléphone</span>
                        <a href={`tel:${PHONE.replace(/\s/g, '')}`} className="text-text-light hover:text-primary">{PHONE}</a>
                      </div>
                    </li>
                    <li className="flex items-start">
-                     <Mail className="text-primary mt-1 mr-4 flex-shrink-0" />
+                     <Mail className="text-primary mt-1 mr-4 shrink-0" />
                      <div>
                        <span className="font-semibold block text-text-main">Email</span>
                        <a href={`mailto:${EMAIL}`} className="text-text-light hover:text-primary">{EMAIL}</a>
                      </div>
                    </li>
                    <li className="flex items-start">
-                     <Clock className="text-primary mt-1 mr-4 flex-shrink-0" />
+                     <Clock className="text-primary mt-1 mr-4 shrink-0" />
                      <div>
                        <span className="font-semibold block text-text-main">Horaires</span>
                        <p className="text-text-light">Lundi - Vendredi : 8h00 - 21h00</p>
@@ -236,10 +236,9 @@ export const Contact: React.FC = () => {
                    </li>
                  </ul>
                  <div className="mt-8">
-                   <Button href={DOCTOLIB_URL} variant="secondary" fullWidth>
-                      <DoctolibMark className="mr-2" inverted />
-                      Prendre rendez-vous sur Doctolib
-                   </Button>
+                   <Button href={DOCTOLIB_URL} variant="booking" className="w-full sm:w-auto">
+                     Prendre rendez-vous
+                    </Button>
                  </div>
                </div>
                

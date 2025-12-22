@@ -3,6 +3,7 @@ import { Link, Navigate, useParams } from 'react-router-dom';
 import { AlertCircle, ArrowLeft, BookOpen, Calendar, CheckCircle, Clock, Tag } from 'lucide-react';
 import { marked } from 'marked';
 import { SEO } from '../components/layout/SEO';
+import { Button } from '../components/ui/Button';
 import { DOCTOLIB_URL, PHONE } from '../utils/constants';
 import { toTelHref } from '../utils/helpers';
 
@@ -211,7 +212,7 @@ export const PathologyPost: React.FC = () => {
 
       <header className="relative h-[60vh] min-h-[420px] w-full overflow-hidden">
         <img src={post.image} alt={post.title} className="absolute inset-0 h-full w-full object-cover" />
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/60 to-transparent" />
+        <div className="absolute inset-0 bg-linear-to-t from-slate-900 via-slate-900/60 to-transparent" />
 
         <div className="absolute top-8 left-4 md:left-8 z-20">
           <Link
@@ -274,14 +275,9 @@ export const PathologyPost: React.FC = () => {
                 <span>Plateau technique dédié</span>
               </li>
             </ul>
-            <a
-              href={DOCTOLIB_URL}
-              target="_blank"
-              rel="noreferrer"
-              className="block w-full rounded-xl bg-[#1a4d2e] py-4 text-center text-sm font-bold uppercase tracking-wide text-white transition-all hover:bg-[#143d24] hover:shadow-lg hover:shadow-green-900/20 active:scale-[0.98]"
-            >
-              Prendre Rendez-vous
-            </a>
+            <Button href={DOCTOLIB_URL} variant="booking" className="w-full sm:w-auto">
+              Prendre rendez-vous
+            </Button>
             <div className="mt-8 border-t border-white/10 pt-6 text-center">
               <p className="text-xs text-slate-400 mb-1">Questions ? Appelez-nous au</p>
               <a href={toTelHref(PHONE)} className="text-lg font-semibold text-white hover:text-[#4ade80] transition-colors">
