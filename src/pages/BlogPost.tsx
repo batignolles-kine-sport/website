@@ -82,11 +82,11 @@ export const BlogPost: React.FC = () => {
         {/* Content */}
         <div className="max-w-3xl mx-auto px-4 sm:px-6 -mt-10 relative z-10">
           <div className="bg-white rounded-lg shadow-lg p-8 md:p-12">
-            <Link to="/blog" className="inline-flex items-center text-sm text-text-light hover:text-primary mb-8">
+            <Link to="/blog" className="inline-flex items-center text-sm text-text-muted hover:text-primary mb-8">
               <ArrowLeft size={16} className="mr-1" /> Retour au blog
             </Link>
 
-            <div className="prose prose-lg prose-headings:text-text-main prose-p:text-text-light prose-a:text-primary hover:prose-a:text-primary-hover max-w-none">
+            <div className="prose prose-lg prose-headings:text-text-main prose-p:text-text-muted prose-a:text-primary hover:prose-a:text-primary-hover max-w-none">
               <p className="lead text-xl text-text-main font-medium mb-8">
                 {post.excerpt}
               </p>
@@ -119,7 +119,7 @@ export const BlogPost: React.FC = () => {
               <div className="flex flex-col sm:flex-row justify-between items-center gap-6">
                 <div className="flex items-center gap-4">
                   <span className="font-bold text-text-main">Partager :</span>
-                  <button className="p-2 rounded-full bg-secondary hover:bg-gray-200 transition-colors">
+                  <button className="p-2 rounded-full bg-surface hover:bg-gray-200 transition-colors">
                     <Share2 size={20} className="text-text-main" />
                   </button>
                 </div>
@@ -139,7 +139,7 @@ export const BlogPost: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
              {BLOG_POSTS.filter(p => p.slug !== slug).slice(0, 3).map(p => (
                <Link key={p.slug} to={`/blog/${p.slug}`} className="group">
-                 <div className="bg-secondary rounded-lg overflow-hidden h-full flex flex-col">
+                 <div className="bg-surface rounded-lg overflow-hidden h-full flex flex-col">
                    <img src={p.image} alt={p.title} className="h-40 w-full object-cover group-hover:opacity-90 transition-opacity" />
                    <div className="p-4">
                      <h4 className="font-bold text-text-main group-hover:text-primary mb-2 line-clamp-2">{p.title}</h4>

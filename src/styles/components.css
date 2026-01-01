@@ -2,60 +2,57 @@
 
 @layer components {
 	.step-card {
-		border-radius: 16px;
-		padding: 20px 24px;
+		border-radius: theme('borderRadius.lg');
+		padding: 32px;
 		display: flex;
 		flex-direction: column;
-		gap: 8px;
-		background: rgba(255, 255, 255, 0.04);
-		border: 1px solid rgba(255, 255, 255, 0.06);
-		backdrop-filter: blur(8px);
-		-webkit-backdrop-filter: blur(8px);
+		gap: 12px;
+		background: theme('colors.surface.card');
+		border: 1px solid theme('colors.border.subtle');
+		box-shadow: theme('boxShadow.soft');
+		transition: all 0.3s ease;
 	}
 
-	.step-card--1 {
-		background: linear-gradient(135deg, rgba(0, 160, 220, 0.1), rgba(0, 160, 220, 0.02));
+	.step-card:hover {
+		box-shadow: theme('boxShadow.hover');
+		transform: translateY(-2px);
+		border-color: rgba(26, 77, 46, 0.15);
 	}
 
-	.step-card--2 {
-		background: linear-gradient(135deg, rgba(0, 160, 220, 0.18), rgba(0, 200, 180, 0.06));
-	}
-
+	.step-card--1,
+	.step-card--2,
 	.step-card--3 {
-		background: linear-gradient(135deg, rgba(0, 200, 180, 0.22), rgba(0, 160, 220, 0.1));
-		border: 1px solid rgba(0, 200, 180, 0.6);
-		box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+		background: theme('colors.surface.card');
+		/* No more gradients */
 	}
 
 	.step-card__label {
-		font-size: 12px;
+		font-size: 11px;
 		text-transform: uppercase;
-		letter-spacing: 0.08em;
-		opacity: 0.7;
-	}
-
-	.step-card--3 .step-card__label {
-		opacity: 0.85;
+		letter-spacing: 0.1em;
+		color: theme('colors.primary.DEFAULT');
+		font-weight: 600;
+		opacity: 1;
 	}
 
 	.btn {
-		@apply inline-flex items-center justify-center font-semibold tracking-tight transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed gap-2 rounded-md md:rounded-lg;
+		@apply inline-flex items-center justify-center font-semibold tracking-wide transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed gap-2 rounded-sm md:rounded-sm;
 	}
 
 	.btn-primary {
-		@apply bg-slate-900 text-white hover:bg-slate-800 focus-visible:ring-slate-900 focus-visible:ring-offset-white shadow-[0_12px_30px_rgba(15,23,42,0.12)] border border-slate-900;
+		@apply bg-primary text-white hover:bg-primary-dark shadow-soft hover:shadow-hover border border-transparent;
 	}
 
 	.btn-secondary {
-		@apply bg-white text-text-main border border-slate-200 hover:border-slate-300 hover:shadow-md shadow-soft focus-visible:ring-slate-900 focus-visible:ring-offset-white;
+		@apply bg-surface-card text-text-main border border-slate-200 hover:border-slate-300 hover:shadow-soft shadow-none;
 	}
 
 	.btn-booking {
-		@apply shadow-xl text-base md:text-lg rounded-full px-6 md:px-7 py-3 bg-white/80 text-slate-900 backdrop-blur-[3px] hover:bg-white hover:backdrop-blur-none transition-all border border-white/20;
+		@apply shadow-soft text-base rounded-full px-6 py-3 bg-primary text-white hover:bg-primary-dark hover:shadow-hover transition-all border border-transparent;
 	}
 
 	.btn-tertiary {
-		@apply bg-transparent text-text-main hover:text-primary underline underline-offset-4 decoration-2 px-0 py-0 font-semibold;
+		@apply bg-transparent text-text-main hover:text-primary underline underline-offset-4 px-0 py-0 font-medium;
 	}
 
 	.badge-pill {
@@ -63,6 +60,6 @@
 	}
 
 	.section-title {
-		@apply text-3xl md:text-4xl font-bold tracking-tight text-text-base;
+		@apply text-3xl md:text-4xl font-bold tracking-tight text-text-main;
 	}
 }

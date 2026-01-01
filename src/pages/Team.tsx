@@ -22,7 +22,7 @@ export const Team: React.FC = () => {
               <h1 className="text-4xl font-bold leading-tight text-text-main sm:text-5xl">
                 Des kinés du sport engagés pour votre reprise rapide et durable
               </h1>
-              <p className="max-w-2xl text-lg text-text-light">
+              <p className="max-w-2xl text-lg text-text-muted">
                 Nous combinons expertise scientifique, suivi individualisé et pédagogie pour vous accompagner du diagnostic à la reprise, que vous soyez sportif amateur ou athlète confirmé.
               </p>
               <div className="grid gap-4 sm:grid-cols-3">
@@ -50,7 +50,7 @@ export const Team: React.FC = () => {
             </div>
             <div className="rounded-5xl border border-slate-100 bg-white p-8 shadow-elevated">
               <h2 className="mb-4 text-xl font-semibold text-text-main">Qui sommes-nous ?</h2>
-              <p className="mb-6 text-base leading-relaxed text-text-light">
+              <p className="mb-6 text-base leading-relaxed text-text-muted">
                 Batignolles Kiné Sport est un cabinet de kinésithérapie du sport situé à Paris 17. Nous réunissons des thérapeutes formés aux dernières techniques de rééducation, aux protocoles de retour au jeu et à la prévention des récidives.
               </p>
               <div className="space-y-4">
@@ -72,7 +72,7 @@ export const Team: React.FC = () => {
             <div>
               <p className="text-sm font-semibold uppercase tracking-wide text-primary">Rencontrez l'équipe</p>
               <h2 className="text-3xl font-bold text-text-main sm:text-4xl">Des profils complémentaires pour chaque besoin</h2>
-              <p className="max-w-3xl text-base text-text-light">
+              <p className="max-w-3xl text-base text-text-muted">
                 Kinés du sport, thérapie manuelle, traumatologie, pédiatrie ou réathlétisation : chaque praticien apporte son expertise pour couvrir l'ensemble du parcours de soin.
               </p>
             </div>
@@ -108,7 +108,7 @@ export const Team: React.FC = () => {
                   </div>
                 </div>
 
-                <p className="text-sm leading-relaxed text-text-light">{member.bio}</p>
+                <p className="text-sm leading-relaxed text-text-muted">{member.bio}</p>
 
                 <div className="flex flex-wrap items-center gap-3">
                   <Button href={member.doctolibUrl} variant="booking" className="text-sm">

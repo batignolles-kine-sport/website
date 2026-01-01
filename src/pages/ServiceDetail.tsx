@@ -39,7 +39,7 @@ export const ServicePage: React.FC<ServicePageProps> = ({ serviceId }) => {
       />
 
       {/* Header */}
-      <div className="bg-secondary py-16 md:py-24">
+      <div className="bg-surface py-16 md:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row items-center gap-12">
             <div className="flex-1">
@@ -47,7 +47,7 @@ export const ServicePage: React.FC<ServicePageProps> = ({ serviceId }) => {
                 <service.icon size={32} />
               </div>
               <h1 className="text-4xl md:text-5xl font-bold text-text-main mb-6">{service.title}</h1>
-              <p className="text-xl text-text-light leading-relaxed mb-8">
+              <p className="text-xl text-text-muted leading-relaxed mb-8">
                 {service.fullDescription}
               </p>
               <Button href={DOCTOLIB_URL} variant="booking">
@@ -76,7 +76,7 @@ export const ServicePage: React.FC<ServicePageProps> = ({ serviceId }) => {
               <ul className="space-y-4">
                 {service.features.map((feature, idx) => (
                   <li key={idx} className="flex items-start">
-                    <CheckCircle className="text-accent mt-1 mr-3 shrink-0" size={20} />
+                    <CheckCircle className="text-primary mt-1 mr-3 shrink-0" size={20} />
                     <span className="text-text-main">{feature}</span>
                   </li>
                 ))}
@@ -87,7 +87,7 @@ export const ServicePage: React.FC<ServicePageProps> = ({ serviceId }) => {
                   <h3 className="text-xl font-bold text-text-main mb-4">Pour qui ?</h3>
                   <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                      {service.indications.map((ind, idx) => (
-                       <li key={idx} className="bg-secondary px-3 py-2 rounded text-sm text-text-main border-l-4 border-primary">
+                       <li key={idx} className="bg-surface px-3 py-2 rounded text-sm text-text-main border-l-4 border-primary">
                          {ind}
                        </li>
                      ))}
@@ -109,16 +109,16 @@ export const ServicePage: React.FC<ServicePageProps> = ({ serviceId }) => {
                         </div>
                         <div className="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-white p-4 rounded border border-slate-200 shadow-sm">
                           <h3 className="font-bold text-text-main mb-1">{step.title}</h3>
-                          <p className="text-sm text-text-light">{step.description}</p>
+                          <p className="text-sm text-text-muted">{step.description}</p>
                         </div>
                       </div>
                     ))}
                   </div>
                 </>
               ) : (
-                <div className="bg-secondary p-8 rounded-lg">
+                <div className="bg-surface p-8 rounded-lg">
                   <h3 className="text-xl font-bold mb-4">Besoin d'informations ?</h3>
-                  <p className="text-text-light mb-6">
+                  <p className="text-text-muted mb-6">
                     Chaque patient est différent. Lors de votre première séance, nous établirons un bilan complet pour définir les objectifs de votre traitement.
                   </p>
                   <div className="flex items-center text-text-main mb-2">
@@ -137,7 +137,7 @@ export const ServicePage: React.FC<ServicePageProps> = ({ serviceId }) => {
       </section>
 
       {/* FAQ Placeholder */}
-      <section className="py-16 bg-secondary">
+      <section className="py-16 bg-surface">
         <div className="max-w-3xl mx-auto px-4">
           <h2 className="text-2xl font-bold text-center mb-8">Questions Fréquentes</h2>
           <div className="space-y-4">
@@ -148,7 +148,7 @@ export const ServicePage: React.FC<ServicePageProps> = ({ serviceId }) => {
                   <svg fill="none" height="24" shapeRendering="geometricPrecision" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
                 </span>
               </summary>
-              <p className="text-text-light mt-4 text-sm">
+              <p className="text-text-muted mt-4 text-sm">
                 Oui, pour bénéficier d'une prise en charge par la Sécurité Sociale et votre mutuelle, une prescription médicale est nécessaire. Vous pouvez cependant consulter sans ordonnance (hors parcours de soins).
               </p>
             </details>
@@ -159,7 +159,7 @@ export const ServicePage: React.FC<ServicePageProps> = ({ serviceId }) => {
                   <svg fill="none" height="24" shapeRendering="geometricPrecision" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
                 </span>
               </summary>
-              <p className="text-text-light mt-4 text-sm">
+              <p className="text-text-muted mt-4 text-sm">
                 Votre ordonnance, votre carte vitale, votre carte de mutuelle, ainsi que les éventuels examens complémentaires (radios, IRM, échographies). Prévoyez une tenue confortable.
               </p>
             </details>

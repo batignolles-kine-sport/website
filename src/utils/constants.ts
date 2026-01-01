@@ -9,7 +9,7 @@ export const ADDRESS = "6 rue des Batignolles, 75017 Paris";
 export const PHONE = "09 62 43 49 61";
 export const EMAIL = "contact@batignolleskinesport.fr";
 export const INSTAGRAM_URL = "https://www.instagram.com/batignolleskinesport/";
-export const GOOGLE_MAPS_URL = "https://www.google.com/maps/place/Batignolles+Kin%C3%A9+Sport/@48.8822,2.3244,17z";
+export const GOOGLE_MAPS_URL = "https://maps.app.goo.gl/RwLrproYncKrfP9t5";
 
 // Asset paths served from /public/images
 export const LOGO_URL = "/images/logo.svg";
@@ -145,4 +145,25 @@ export const REVIEWS: Review[] = [
   { id: 1, author: "Jean D.", rating: 5, text: "Équipe au top ! J'ai récupéré de mon LCA en 6 mois grâce au suivi personnalisé." },
   { id: 2, author: "Marie L.", rating: 5, text: "Cabinet très moderne et propre. Les séances sont individuelles et très sérieuses." },
   { id: 3, author: "Pierre S.", rating: 4, text: "Très bons kinés, cabinet bien situé aux Batignolles." }
+];export const FAQ_ENTRIES = [
+    {
+        question: 'Acceptez-vous de nouveaux patients ?',
+        answer: 'Oui, nous accueillons de nouveaux patients chaque semaine, avec des créneaux dédiés au premier bilan.',
+    },
+    {
+        question: 'Êtes-vous conventionnés ?',
+        answer: 'Oui, nous sommes conventionnés. Une partie des séances est remboursée par l’Assurance Maladie et votre mutuelle selon votre situation.',
+    },
+    {
+        question: 'Spécifique coureur : que proposez-vous ?',
+        answer: 'Bilan course, prise en charge des blessures (tendinopathies, périostite, entorses…), programmation de retour à la course, préparation à une échéance (10 km, semi, marathon).',
+    },
+    {
+        question: 'Accompagnez-vous le post-partum ?',
+        answer: 'Oui, rééducation périnéale, accompagnement global, et plan de reprise sportive progressif, en lien avec vos contraintes familiales et professionnelles.',
+    },
+    {
+        question: 'Délais et prise de rendez-vous ?',
+        answer: 'Les rendez-vous se prennent directement sur Doctolib. Nous faisons notre maximum pour proposer des créneaux rapides, notamment en cas de post-op ou de blessure aiguë.',
+    },
 ];

@@ -12,13 +12,13 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   href?: string;
 }
 
-export const Button: React.FC<ButtonProps> = ({ 
-  children, 
-  variant = 'primary', 
-  fullWidth = false, 
+export const Button: React.FC<ButtonProps> = ({
+  children,
+  variant = 'primary',
+  fullWidth = false,
   href,
   className = '',
-  ...props 
+  ...props
 }) => {
   const baseStyles = "btn px-5 py-2.5 md:px-6 md:py-3";
 

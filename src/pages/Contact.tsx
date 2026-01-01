@@ -59,10 +59,10 @@ export const Contact: React.FC = () => {
         description="Prendre rendez-vous ou nous contacter. Cabinet situé au 6 rue des Batignolles, Paris 17e." 
       />
 
-      <div className="bg-secondary py-16">
+      <div className="bg-surface py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl font-bold text-text-main mb-4">Contact</h1>
-          <p className="text-xl text-text-light">
+          <p className="text-xl text-text-muted">
             Une question ? Besoin d'informations ? Nous sommes à votre écoute.
           </p>
         </div>
@@ -183,7 +183,7 @@ export const Contact: React.FC = () => {
                       onChange={handleCheckbox}
                       className="h-4 w-4 text-primary focus:ring-primary border-gray-300 rounded mt-1"
                     />
-                    <label htmlFor="consent" className="ml-2 block text-sm text-text-light">
+                    <label htmlFor="consent" className="ml-2 block text-sm text-text-muted">
                       J'accepte que mes données soient traitées pour répondre à ma demande. Aucune donnée n'est transmise à des tiers.
                     </label>
                   </div>
@@ -197,15 +197,15 @@ export const Contact: React.FC = () => {
 
             {/* Info & Map */}
             <div>
-               <div className="bg-secondary p-8 rounded-lg mb-8">
+               <div className="bg-surface p-8 rounded-lg mb-8">
                  <h3 className="text-xl font-bold text-text-main mb-6">Coordonnées</h3>
                  <ul className="space-y-6">
                    <li className="flex items-start">
                      <MapPin className="text-primary mt-1 mr-4 shrink-0" />
                      <div>
                        <span className="font-semibold block text-text-main">Adresse</span>
-                       <span className="text-text-light">{ADDRESS}</span>
-                       <div className="mt-2 space-y-1 text-sm text-text-light">
+                       <span className="text-text-muted">{ADDRESS}</span>
+                       <div className="mt-2 space-y-1 text-sm text-text-muted">
                          <p className="flex items-center"><Train size={14} className="mr-2" /> Métro Rome (L2)</p>
                          <p className="flex items-center"><Train size={14} className="mr-2" /> Place de Clichy (L2, L13)</p>
                          <p className="flex items-center"><Train size={14} className="mr-2" /> Gare Haussmann St-Lazare (RER A, E)</p>
@@ -217,21 +217,21 @@ export const Contact: React.FC = () => {
                      <Phone className="text-primary mt-1 mr-4 shrink-0" />
                      <div>
                        <span className="font-semibold block text-text-main">Téléphone</span>
-                       <a href={`tel:${PHONE.replace(/\s/g, '')}`} className="text-text-light hover:text-primary">{PHONE}</a>
+                       <a href={`tel:${PHONE.replace(/\s/g, '')}`} className="text-text-muted hover:text-primary">{PHONE}</a>
                      </div>
                    </li>
                    <li className="flex items-start">
                      <Mail className="text-primary mt-1 mr-4 shrink-0" />
                      <div>
                        <span className="font-semibold block text-text-main">Email</span>
-                       <a href={`mailto:${EMAIL}`} className="text-text-light hover:text-primary">{EMAIL}</a>
+                       <a href={`mailto:${EMAIL}`} className="text-text-muted hover:text-primary">{EMAIL}</a>
                      </div>
                    </li>
                    <li className="flex items-start">
                      <Clock className="text-primary mt-1 mr-4 shrink-0" />
                      <div>
                        <span className="font-semibold block text-text-main">Horaires</span>
-                       <p className="text-text-light">Lundi - Vendredi : 8h00 - 21h00</p>
+                       <p className="text-text-muted">Lundi - Vendredi : 8h00 - 21h00</p>
                      </div>
                    </li>
                  </ul>

@@ -40,10 +40,10 @@ export const Blog: React.FC = () => {
         description="Conseils, exercices et actualités santé par les kinésithérapeutes de Batignolles Kiné Sport. Prévention, rééducation et performance." 
       />
 
-      <div className="bg-secondary py-16">
+      <div className="bg-surface py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-4xl font-bold text-text-main mb-4">Le Blog BKS</h1>
-          <p className="text-xl text-text-light">
+          <p className="text-xl text-text-muted">
             Conseils d'experts pour votre santé et votre performance.
           </p>
         </div>
@@ -88,8 +88,8 @@ export const Blog: React.FC = () => {
                   />
                 </Link>
                 <div className="p-6 flex flex-col flex-grow">
-                  <div className="flex items-center text-xs text-text-light mb-3 space-x-3">
-                    <span className="bg-accent-light text-primary px-2 py-1 rounded font-medium">
+                  <div className="flex items-center text-xs text-text-muted mb-3 space-x-3">
+                    <span className="bg-primary/10 text-primary px-2 py-1 rounded font-medium">
                       {post.category}
                     </span>
                     <span className="flex items-center">
@@ -102,11 +102,11 @@ export const Blog: React.FC = () => {
                       {post.title}
                     </h2>
                   </Link>
-                  <p className="text-text-light text-sm line-clamp-3 mb-4 flex-grow">
+                  <p className="text-text-muted text-sm line-clamp-3 mb-4 flex-grow">
                     {post.excerpt}
                   </p>
                   <div className="flex items-center justify-between pt-4 border-t border-gray-50 mt-auto">
-                    <div className="flex items-center text-xs text-text-light">
+                    <div className="flex items-center text-xs text-text-muted">
                       <User size={14} className="mr-1" />
                       {post.author}
                     </div>

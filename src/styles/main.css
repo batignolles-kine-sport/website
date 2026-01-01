@@ -1,6 +1,21 @@
 @import "tailwindcss";
-@import "./base.css";
 @import "./components.css";
 @config "../../tailwind.config.js";
 @source "../**/*.{js,ts,jsx,tsx}";
 @source "../../index.html";
+
+@theme {
+    --color-primary: #1A4D2E;
+    --color-surface: #F8F9FA;
+    --color-surface-card: #FFFFFF;
+    --color-text-main: #111111;
+    --color-text-muted: #666666;
+    --color-border-subtle: rgba(26, 77, 46, 0.08);
+
+    --shadow-soft: 0 4px 12px rgba(26, 77, 46, 0.06);
+    --shadow-hover: 0 12px 24px rgba(26, 77, 46, 0.08);
+
+    --radius-sm: 12px;
+    --radius-lg: 24px;
+    --radius-pill: 9999px;
+}
