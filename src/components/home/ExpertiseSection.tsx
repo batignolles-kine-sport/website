@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { SectionHeader } from '../ui/SectionHeader';
+import { staggerContainer, fadeUp, fadeRight, hoverScale } from '../../utils/animations';
 import {
     Activity,
     ClipboardList,
@@ -11,131 +12,163 @@ import {
 
 const EXPERTISE_DATA = [
     {
-        id: 'running',
-        icon: Activity,
-        badge: 'Course',
-        title: 'Vous courez (ou voulez recourir)',
-        lead: 'Reprendre progressivement, sans repartir à zéro.',
+        id: 'sport-perf',
+        badge: 'BLOG',
+        title: 'Sport & performance',
+        lead: 'Coureur, terrain, reprise sans douleur et charge maîtrisée.',
+        tags: ['RUNNING', 'RETOUR TERRAIN', 'PRÉPA PHYSIQUE'],
         highlights: [
-            'Bilan précis + repères simples (douleur, charge)',
-            'Plan de reprise compatible avec vos objectifs',
-            'Réduction du risque de rechute'
+            'Prise en charge du coureur',
+            'Kiné du sport',
+            'Réathlétisation'
         ]
     },
     {
-        id: 'post-op',
-        icon: ClipboardList,
-        badge: 'Post‑op / Trauma',
-        title: 'Après une opération ou un traumatisme',
-        lead: 'Retrouver mobilité, force et confiance — étape par étape.',
+        id: 'reeducation',
+        badge: 'BLOG',
+        title: 'Rééducation & post-op',
+        lead: 'Post-trauma et post-op : mobilité, force et confiance.',
+        tags: ['POST-OP', 'MOBILITÉ', 'FORCE'],
         highlights: [
-            'Objectifs clairs à chaque séance',
-            'Renforcement, contrôle moteur, réassurance',
-            'Retour au sport encadré et mesurable'
-        ]
-    },
-    {
-        id: 'post-partum',
-        icon: Baby,
-        badge: 'Post‑partum',
-        title: 'Post‑partum & plancher pelvien',
-        lead: 'Reprendre le sport en sécurité, en comprenant ce qui se passe.',
-        highlights: [
-            'Rééducation périnéale et prise en charge globale',
-            'Reprise progressive adaptée au quotidien',
-            'Renforcement pour éviter les symptômes'
+            'Rééducation globale',
+            'Suivi post-op / traumato',
+            'Progressions sécurisées'
         ]
     },
     {
         id: 'prevention',
-        icon: ShieldCheck,
-        badge: 'Prévention',
-        title: 'Prévention & préparation physique',
-        lead: 'Rester durablement sur le terrain, sans accumuler les alertes.',
+        badge: 'BLOG',
+        title: 'Prévention & spécifique',
+        lead: 'Prévention des récidives, plancher pelvien, reprise progressive.',
+        tags: ['PRÉVENTION', 'PLANCHER PELVIEN', 'CHARGE PROGRESSIVE'],
         highlights: [
-            'Renforcement ciblé et contrôle moteur',
-            'Travail technique et gestion de la charge',
-            'Préparer une saison ou une échéance'
+            'Prévention et contrôle moteur',
+            'Kiné de la femme (partum / post-partum)'
+        ]
+    },
+    {
+        id: 'women',
+        badge: 'BLOG',
+        title: 'Kiné de la femme',
+        lead: 'Grossesse, post-partum, périnée, reprise sportive en douceur.',
+        tags: ['FEMMES', 'PÉRINÉE', 'RETOUR AU SPORT'],
+        highlights: [
+            'Rééducation périnéale',
+            'Pré / post-partum',
+            'Reprise sport sécurisée'
         ]
     }
 ];
 
 export const ExpertiseSection: React.FC = () => {
-    return (
-        <section className="w-full relative">
-            <div className="w-full">
+    // Merge variants for the card (Entry + Hover)
+    const cardVariants = {
+        ...fadeUp,
+        ...hoverScale
+    };
 
+    return (
+        <section className="w-full relative py-12">
+            <div className="w-full">
                 {/* Header */}
                 <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
-                    <SectionHeader
-                        badge="EXPERTISE"
-                        title={
-                            <>
-                                Motifs de<br />
-                                <span className="text-primary">consultation.</span>
-                            </>
-                        }
-                        description="Notre prise en charge s'adresse aux sportifs de tous niveaux, du post-opératoire à la recherche de performance."
-                    />
-
                     <motion.div
-                        initial={{ opacity: 0, x: 20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
+                        className="flex-1"
+                        initial="hidden"
+                        whileInView="visible"
                         viewport={{ once: true, margin: "-100px" }}
-                        transition={{ delay: 0.3 }}
-                        className="hidden md:block pb-2"
+                        variants={fadeRight}
                     >
-                        <div className="w-12 h-12 rounded-full border border-slate-200 flex items-center justify-center text-primary">
-                            <ArrowRight className="w-6 h-6" />
-                        </div>
+                        <SectionHeader
+                            badge="EXPERTISE"
+                            title={
+                                <>
+                                    Motifs de<br />
+                                    <span className="bg-gradient-to-r from-[#3b402e] to-[#6d744d] bg-clip-text text-transparent">consultation.</span>
+                                </>
+                            }
+                            description="Notre prise en charge s'adresse aux sportifs de tous niveaux, du post-opératoire à la recherche de performance."
+                        />
                     </motion.div>
                 </div>
 
                 {/* Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    {EXPERTISE_DATA.map((card, index) => (
-                        <motion.div
-                            key={card.id}
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true, margin: "-50px" }}
-                            transition={{ delay: index * 0.1, duration: 0.5 }}
-                            whileHover={{ y: -5 }}
-                            className="group relative p-8 md:p-10 rounded-lg bg-white border border-slate-100 hover:border-border-subtle shadow-soft hover:shadow-hover transition-all duration-300 overflow-hidden"
-                        >
-                            {/* Hover Background Layer */}
-                            <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/[0.02] transition-colors duration-500" />
-
-                            {/* Content */}
-                            <div className="relative z-10">
-                                <div className="flex justify-between items-start mb-8">
-                                    <div className="inline-flex items-center gap-2 px-3 py-1 bg-surface border border-slate-200 rounded-full">
-                                        <span className="text-[10px] font-bold tracking-wider text-slate-500 uppercase">{card.badge}</span>
-                                    </div>
-                                    <div className="w-14 h-14 rounded-lg bg-surface flex items-center justify-center text-primary border border-transparent group-hover:border-primary/10 group-hover:scale-105 transition-all duration-300">
-                                        <card.icon className="w-7 h-7 stroke-[1.5]" />
-                                    </div>
+                <motion.div
+                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, margin: "-100px" }}
+                    variants={staggerContainer}
+                >
+                    {EXPERTISE_DATA.map((card, index) => {
+                        const isMain = index === 0;
+                        return (
+                            <motion.div
+                                key={card.id}
+                                variants={cardVariants}
+                                whileHover={{ y: -5 }}
+                                className={`
+                                    relative p-8 rounded-3xl flex flex-col h-full transition-all duration-300
+                                    ${isMain
+                                        ? 'bg-[#193F2B] text-white shadow-xl'
+                                        : 'bg-white text-slate-900 border border-slate-100 shadow-card hover:shadow-lg'
+                                    }
+                                `}
+                            >
+                                {/* Header: Title + Blog Badge */}
+                                <div className="flex justify-between items-start mb-6">
+                                    <h3 className={`text-2xl font-bold leading-tight ${isMain ? 'text-white' : 'text-slate-900'}`}>
+                                        {card.title}
+                                    </h3>
+                                    <span className={`text-[10px] font-bold tracking-widest uppercase mt-1 ${isMain ? 'text-white/60' : 'text-primary'}`}>
+                                        {card.badge}
+                                    </span>
                                 </div>
 
-                                <h3 className="text-2xl font-bold text-slate-900 mb-3 group-hover:text-primary transition-colors duration-300">
-                                    {card.title}
-                                </h3>
-
-                                <p className="text-slate-500 mb-8 leading-relaxed font-light">
+                                {/* Description */}
+                                <p className={`text-sm font-light leading-relaxed mb-6 ${isMain ? 'text-white/80' : 'text-slate-500'}`}>
                                     {card.lead}
                                 </p>
 
-                                <ul className="space-y-3">
+                                {/* Tags */}
+                                <div className="flex flex-wrap gap-2 mb-8">
+                                    {card.tags.map(tag => (
+                                        <span
+                                            key={tag}
+                                            className={`
+                                                px-3 py-1 rounded-full text-[10px] font-bold tracking-wider uppercase
+                                                ${isMain
+                                                    ? 'bg-white/10 text-white border border-white/10'
+                                                    : 'bg-slate-50 text-slate-600 border border-slate-100'
+                                                }
+                                            `}
+                                        >
+                                            {tag}
+                                        </span>
+                                    ))}
+                                </div>
+
+                                {/* Highlights */}
+                                <ul className="space-y-3 mt-auto">
                                     {card.highlights.map((item, i) => (
-                                        <li key={i} className="flex gap-3 text-sm text-slate-600">
-                                            <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-slate-300 group-hover:bg-primary transition-colors duration-300 shrink-0" />
+                                        <li key={i} className={`flex items-start gap-3 text-sm font-medium ${isMain ? 'text-white' : 'text-slate-600'}`}>
+                                            <div className={`mt-1.5 w-1.5 h-1.5 rounded-full shrink-0 ${isMain ? 'bg-white/80' : 'bg-primary'}`} />
                                             <span>{item}</span>
                                         </li>
                                     ))}
                                 </ul>
-                            </div>
-                        </motion.div>
-                    ))}
+                            </motion.div>
+                        );
+                    })}
+                </motion.div>
+
+                <div className="mt-16 flex justify-center">
+                    <a
+                        href="/pathologies"
+                        className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white border border-slate-200 text-slate-900 hover:border-primary hover:text-primary transition-colors duration-300 shadow-sm font-medium"
+                    >
+                        Voir toutes nos prises en charge
+                    </a>
                 </div>
             </div>
         </section>

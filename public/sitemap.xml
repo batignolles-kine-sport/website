@@ -7,31 +7,31 @@
         xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <url>
     <loc>https://batignolles-kine-sport.fr</loc>
-    <lastmod>2025-12-31</lastmod>
+    <lastmod>2026-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1</priority>
   </url>
   <url>
     <loc>https://batignolles-kine-sport.fr/blog</loc>
-    <lastmod>2025-12-31</lastmod>
+    <lastmod>2026-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://batignolles-kine-sport.fr/contact</loc>
-    <lastmod>2025-12-31</lastmod>
+    <lastmod>2026-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://batignolles-kine-sport.fr/equipe</loc>
-    <lastmod>2025-12-31</lastmod>
+    <lastmod>2026-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://batignolles-kine-sport.fr/mentions-legales</loc>
-    <lastmod>2025-12-31</lastmod>
+    <lastmod>2026-01-01</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>

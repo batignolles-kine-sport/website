@@ -107,11 +107,11 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
             href={DOCTOLIB_URL}
             target="_blank"
             rel="noopener noreferrer"
-            initial={{ scale: 0, opacity: 0, y: 20 }}
-            animate={{ scale: 1, opacity: 1, y: 0 }}
-            exit={{ scale: 0, opacity: 0, y: 20 }}
+            initial={{ x: 100, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            exit={{ x: 100, opacity: 0 }}
             transition={{ type: "spring", stiffness: 260, damping: 20 }}
-            className="fixed bottom-[90px] right-[10px] z-[9999] w-14 h-14 rounded-full shadow-xl flex items-center justify-center hover:scale-105 active:scale-95 transition-transform bg-brand-blue"
+            className="fixed bottom-[90px] right-3 z-[9999] w-14 h-14 rounded-full shadow-xl flex items-center justify-center hover:scale-105 active:scale-95 transition-transform bg-brand-blue"
             aria-label="Prendre rendez-vous sur Doctolib"
           >
             <img

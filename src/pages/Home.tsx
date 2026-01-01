@@ -4,7 +4,7 @@ import { Helmet } from 'react-helmet-async';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { SEO } from '../components/layout/SEO';
 import { Button } from '../components/ui/Button';
-import { DOCTOLIB_URL, ADDRESS, HERO_IMAGE_URL, GOOGLE_MAPS_URL } from '../utils/constants';
+import { DOCTOLIB_URL, HERO_IMAGE_URL } from '../utils/constants'; // Removing unused import if any
 import { generateLocalBusinessSchema, generateFAQSchema } from '../utils/structuredData';
 import { MethodSection } from '../components/home/MethodSection';
 import { TestimonialsSection } from '../components/home/TestimonialsSection';
@@ -12,34 +12,12 @@ import { ExpertiseSection } from '../components/home/ExpertiseSection';
 import { FaqSection } from '../components/home/FaqSection';
 import { AccessSection } from '../components/home/AccessSection';
 import { FAQ_ENTRIES } from '../utils/constants';
-
-
-
-
-
-
-
+import { staggerContainer, fadeUp, pulseLoop } from '../utils/animations';
 
 const formatGoogleRating = (value: number) => {
     if (Number.isInteger(value)) return String(value);
     return value.toFixed(1).replace('.', ',');
 };
-
-// Animation Variants
-const staggerContainer = {
-    hidden: { opacity: 0 },
-    show: {
-        opacity: 1,
-        transition: {
-            staggerChildren: 0.1
-        }
-    }
-};
-
-const fadeInUp = {
-    hidden: { opacity: 0, y: 30 },
-    show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
-} as const;
 
 export const Home: React.FC = () => {
     const metaDescription =
@@ -47,7 +25,6 @@ export const Home: React.FC = () => {
 
     const faqSchema = generateFAQSchema(FAQ_ENTRIES);
     const localBusinessSchema = generateLocalBusinessSchema();
-
 
     const { scrollY } = useScroll();
     const heroScale = useTransform(scrollY, [0, 500], [1, 0.95]);
@@ -86,32 +63,47 @@ export const Home: React.FC = () => {
                         <div className="absolute inset-0 flex items-end z-10">
                             <div className="w-full p-6 sm:p-8 md:p-12 lg:p-16 pb-8 md:pb-16">
                                 <motion.div
-                                    initial={{ opacity: 0, y: 20 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    transition={{ duration: 0.8, delay: 0.2 }}
+                                    initial="hidden"
+                                    animate="visible"
+                                    variants={staggerContainer}
                                     className="max-w-content mx-auto w-full"
                                 >
-                                    <div className="inline-flex items-center gap-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 px-3 py-1.5 text-white text-2xs sm:text-xs md:text-sm font-semibold tracking-wide mb-5">
+                                    <motion.div
+                                        variants={fadeUp}
+                                        className="inline-flex items-center gap-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 px-3 py-1.5 text-white text-2xs sm:text-xs md:text-sm font-semibold tracking-wide mb-5"
+                                    >
                                         <span className="inline-block h-1.5 w-1.5 rounded-full bg-primary" />
                                         Kinés du sport · Paris 17 – Batignolles
-                                    </div>
+                                    </motion.div>
 
-                                    <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold text-white tracking-tight leading-[0.95] mb-6 drop-shadow-lg">
+                                    <motion.h1
+                                        variants={fadeUp}
+                                        className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold text-white tracking-tight leading-[0.95] mb-6 drop-shadow-lg"
+                                    >
                                         Reprendre le sport
                                         <br />
                                         sans douleur.
-                                    </h1>
+                                    </motion.h1>
 
                                     <div className="mt-6 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-3 lg:gap-6">
-                                        <p className="text-gray-200 text-sm sm:text-base md:text-lg font-light leading-relaxed max-w-[65ch] truncate">
-                                            Bilan précis, plan sur mesure, retour au sport encadré.
-                                        </p>
-                                        <Button
-                                            href={DOCTOLIB_URL}
-                                            variant="booking"
+                                        <motion.p
+                                            variants={fadeUp}
+                                            className="text-gray-200 text-sm sm:text-base md:text-lg font-light leading-relaxed max-w-[65ch] truncate"
                                         >
-                                            Prendre rendez-vous
-                                        </Button>
+                                            Bilan précis, plan sur mesure, retour au sport encadré.
+                                        </motion.p>
+
+                                        <motion.div variants={fadeUp}>
+                                            <Button
+                                                href={DOCTOLIB_URL}
+                                                variant="booking"
+                                                variants={pulseLoop}
+                                            // We don't need animate="visible" here as it inherits from parent, 
+                                            // but passing it explicitly guards against any context issues if variants names differed
+                                            >
+                                                Prendre rendez-vous
+                                            </Button>
+                                        </motion.div>
                                     </div>
                                 </motion.div>
                             </div>

@@ -13,7 +13,7 @@ export const AccessSection: React.FC = () => {
                     title={
                         <>
                             Venir<br />
-                            <span className="bg-gradient-to-r from-teal-600 to-emerald-500 bg-clip-text text-transparent">au cabinet.</span>
+                            <span className="bg-gradient-to-r from-[#3b402e] to-[#6d744d] bg-clip-text text-transparent">au cabinet.</span>
                         </>
                     }
                     description="Nous vous accueillons du lundi au vendredi, avec des équipements de pointe pour votre rééducation."

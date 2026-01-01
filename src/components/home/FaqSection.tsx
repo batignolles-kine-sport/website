@@ -15,7 +15,7 @@ export const FaqSection: React.FC = () => {
                     title={
                         <>
                             Questions<br />
-                            <span className="bg-gradient-to-r from-teal-600 to-emerald-500 bg-clip-text text-transparent">fréquentes.</span>
+                            <span className="bg-gradient-to-r from-[#3b402e] to-[#6d744d] bg-clip-text text-transparent">fréquentes.</span>
                         </>
                     }
                     description="Retrouvez les réponses aux questions les plus courantes sur le fonctionnement du cabinet."

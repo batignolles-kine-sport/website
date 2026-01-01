@@ -155,7 +155,7 @@ export const TestimonialsSection: React.FC = () => {
                         title={
                             <>
                                 Ce que disent<br />
-                                <span className="bg-gradient-to-r from-teal-600 to-emerald-500 bg-clip-text text-transparent">nos patients.</span>
+                                <span className="bg-gradient-to-r from-[#3b402e] to-[#6d744d] bg-clip-text text-transparent">nos patients.</span>
                             </>
                         }
                         className="mb-6"
