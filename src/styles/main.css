@@ -19,3 +19,9 @@
     --radius-lg: 24px;
     --radius-pill: 9999px;
 }
+
+@layer base {
+    body {
+        background-color: var(--color-surface);
+    }
+}

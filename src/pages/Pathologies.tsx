@@ -71,14 +71,13 @@ export const Pathologies: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('');
 
   const categories = useMemo(() => {
-    const uniqueTypes = Array.from(new Set(PATHOLOGY_POSTS.map((p) => p.type || 'Autres')));
-    return ['Tout', ...uniqueTypes];
+    return ['Tout', 'Course à pied', 'Membres supérieurs', 'Kiné de la femme', 'Traumatologie', 'Sports de montagne'];
   }, []);
 
   const filteredPathos = useMemo(
     () =>
       PATHOLOGY_POSTS.filter(
-        (p) => (activeCategory === 'Tout' || p.type === activeCategory) && p.title.toLowerCase().includes(searchTerm.toLowerCase()),
+        (p) => (activeCategory === 'Tout' || p.category === activeCategory || p.type === activeCategory) && p.title.toLowerCase().includes(searchTerm.toLowerCase()),
       ),
     [activeCategory, searchTerm],
   );
@@ -109,7 +108,8 @@ export const Pathologies: React.FC = () => {
             Explorez nos guides complets pour mieux appréhender vos symptômes et découvrir nos protocoles de soin.
           </p>
 
-          <div className="relative mx-auto mt-8 max-w-2xl">
+          {/* Search Bar - Hidden as per request */}
+          {/* <div className="relative mx-auto mt-8 max-w-2xl">
             <div className="pointer-events-none absolute inset-y-0 left-4 flex items-center">
               <Search className="h-5 w-5 text-slate-400" />
             </div>
@@ -120,7 +120,7 @@ export const Pathologies: React.FC = () => {
               onChange={(e) => setSearchTerm(e.target.value)}
               value={searchTerm}
             />
-          </div>
+          </div> */}
         </div>
 
         <div className="animate-fade-in-up mb-12 flex flex-wrap justify-center gap-3" style={{ animationDelay: '0.1s' }}>
@@ -128,11 +128,10 @@ export const Pathologies: React.FC = () => {
             <button
               key={cat}
               onClick={() => setActiveCategory(cat)}
-              className={`rounded-full px-5 py-2.5 text-sm font-medium transition-all ${
-                activeCategory === cat
+              className={`rounded-full px-5 py-2.5 text-sm font-medium transition-all ${activeCategory === cat
                   ? 'bg-primary text-white shadow-lg shadow-green-900/20'
                   : 'border border-slate-200 bg-white text-slate-600 hover:bg-slate-50'
-              }`}
+                }`}
             >
               {cat}
             </button>
@@ -191,7 +190,7 @@ export const Pathologies: React.FC = () => {
           <p className="mb-8 text-lg leading-relaxed text-slate-600">
             Chez Batignolles Kiné Sport, nous ne nous basons pas sur des croyances, mais sur des preuves. Tous nos protocoles de soin sont issus de l'Evidence-Based Practice (EBP), la référence mondiale en kinésithérapie.
           </p>
-          
+
           <div className="mx-auto mb-10 max-w-2xl rounded-2xl bg-white/50 p-6 text-left md:p-8">
             <p className="mb-4 font-medium text-slate-900">Cela signifie que votre rééducation s'appuie sur :</p>
             <ul className="space-y-3 text-slate-600">
@@ -210,8 +209,8 @@ export const Pathologies: React.FC = () => {
             </ul>
           </div>
 
-          <Link 
-            to="/pathologies/methodologie-ebp" 
+          <Link
+            to="/pathologies/methodologie-ebp"
             className="inline-flex items-center gap-2 border-b-2 border-primary pb-0.5 text-lg font-medium text-primary transition-all hover:border-slate-900 hover:text-slate-900"
           >
             En savoir plus sur notre méthodologie EBP

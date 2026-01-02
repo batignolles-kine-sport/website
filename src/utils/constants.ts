@@ -84,6 +84,7 @@ export const TEAM: TeamMember[] = [
     name: "Léa HLUBINA",
     title: "Kiné du Sport",
     specialties: ["Traumatologie", "Réathlétisation", "Suivi Sportif"],
+    sport: "Gymnastique",
     bio: "Spécialisée dans la prise en charge des sportifs, Léa vous accompagne de la blessure jusqu'au retour sur le terrain.",
     image: "https://picsum.photos/seed/lea/400/400", // Placeholder
     doctolibUrl: "https://www.doctolib.fr/masseur-kinesitherapeute/paris/lea-hlubina"
@@ -93,6 +94,7 @@ export const TEAM: TeamMember[] = [
     name: "Justine JOSSE",
     title: "Kiné du Sport",
     specialties: ["Thérapie Manuelle", "Prévention", "Renforcement"],
+    sport: "Athlétisme",
     bio: "Justine met son expertise en kinésithérapie du sport au service de votre récupération et de votre performance.",
     image: "https://picsum.photos/seed/justine/400/400", // Placeholder
     doctolibUrl: "https://www.doctolib.fr/masseur-kinesitherapeute/paris/justine-josse"
@@ -102,9 +104,20 @@ export const TEAM: TeamMember[] = [
     name: "Leonie TATON",
     title: "Kinésithérapeute",
     specialties: ["Rééducation Fonctionnelle", "Posturologie"],
+    sport: "Danse",
     bio: "Leonie assure une prise en charge globale et personnalisée pour vous aider à retrouver votre mobilité.",
     image: "https://picsum.photos/seed/leonie/400/400", // Placeholder
     doctolibUrl: "https://www.doctolib.fr/masseur-kinesitherapeute/paris/leonie-taton-paris"
+  },
+  {
+    id: 4,
+    name: "Martin",
+    title: "Kiné du Sport",
+    specialties: ["Rugby", "Renforcement", "Terrain"],
+    sport: "Rugby",
+    bio: "Passionné de rugby, Martin vous accompagne dans la réathlétisation et la préparation physique spécifique aux sports de contact.",
+    image: "https://picsum.photos/seed/martin/400/400", // Placeholder
+    doctolibUrl: "https://www.doctolib.fr" // Placeholder
   }
 ];
 
@@ -145,25 +158,25 @@ export const REVIEWS: Review[] = [
   { id: 1, author: "Jean D.", rating: 5, text: "Équipe au top ! J'ai récupéré de mon LCA en 6 mois grâce au suivi personnalisé." },
   { id: 2, author: "Marie L.", rating: 5, text: "Cabinet très moderne et propre. Les séances sont individuelles et très sérieuses." },
   { id: 3, author: "Pierre S.", rating: 4, text: "Très bons kinés, cabinet bien situé aux Batignolles." }
-];export const FAQ_ENTRIES = [
-    {
-        question: 'Acceptez-vous de nouveaux patients ?',
-        answer: 'Oui, nous accueillons de nouveaux patients chaque semaine, avec des créneaux dédiés au premier bilan.',
-    },
-    {
-        question: 'Êtes-vous conventionnés ?',
-        answer: 'Oui, nous sommes conventionnés. Une partie des séances est remboursée par l’Assurance Maladie et votre mutuelle selon votre situation.',
-    },
-    {
-        question: 'Spécifique coureur : que proposez-vous ?',
-        answer: 'Bilan course, prise en charge des blessures (tendinopathies, périostite, entorses…), programmation de retour à la course, préparation à une échéance (10 km, semi, marathon).',
-    },
-    {
-        question: 'Accompagnez-vous le post-partum ?',
-        answer: 'Oui, rééducation périnéale, accompagnement global, et plan de reprise sportive progressif, en lien avec vos contraintes familiales et professionnelles.',
-    },
-    {
-        question: 'Délais et prise de rendez-vous ?',
-        answer: 'Les rendez-vous se prennent directement sur Doctolib. Nous faisons notre maximum pour proposer des créneaux rapides, notamment en cas de post-op ou de blessure aiguë.',
-    },
+]; export const FAQ_ENTRIES = [
+  {
+    question: 'Acceptez-vous de nouveaux patients ?',
+    answer: 'Oui, nous accueillons de nouveaux patients chaque semaine, avec des créneaux dédiés au premier bilan.',
+  },
+  {
+    question: 'Êtes-vous conventionnés ?',
+    answer: 'Oui, nous sommes conventionnés. Une partie des séances est remboursée par l’Assurance Maladie et votre mutuelle selon votre situation.',
+  },
+  {
+    question: 'Spécifique coureur : que proposez-vous ?',
+    answer: 'Bilan course, prise en charge des blessures (tendinopathies, périostite, entorses…), programmation de retour à la course, préparation à une échéance (10 km, semi, marathon).',
+  },
+  {
+    question: 'Accompagnez-vous le post-partum ?',
+    answer: 'Oui, rééducation périnéale, accompagnement global, et plan de reprise sportive progressif, en lien avec vos contraintes familiales et professionnelles.',
+  },
+  {
+    question: 'Délais et prise de rendez-vous ?',
+    answer: 'Les rendez-vous se prennent directement sur Doctolib. Nous faisons notre maximum pour proposer des créneaux rapides, notamment en cas de post-op ou de blessure aiguë.',
+  },
 ];

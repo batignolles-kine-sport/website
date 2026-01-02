@@ -12,108 +12,65 @@ export const Team: React.FC = () => {
       />
 
       <section className="bg-surface border-b border-slate-100">
-        <div className="mx-auto max-w-6xl px-4 py-16 sm:py-20">
-          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-primary/10 bg-white px-3 py-1 text-sm font-semibold text-primary shadow-soft">
-            <span className="inline-block h-2 w-2 rounded-full bg-primary" />
-            Notre équipe pluridisciplinaire
-          </div>
-          <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
-            <div className="space-y-6">
+        <div className="mx-auto max-w-7xl px-4 py-20 sm:py-24">
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
+            <div className="space-y-6 max-w-3xl">
+              <div className="inline-flex items-center gap-2 rounded-full border border-primary/10 bg-white px-3 py-1 text-sm font-semibold text-primary shadow-soft">
+                <span className="inline-block h-2 w-2 rounded-full bg-primary" />
+                Notre équipe pluridisciplinaire
+              </div>
               <h1 className="text-4xl font-bold leading-tight text-text-main sm:text-5xl">
-                Des kinés du sport engagés pour votre reprise rapide et durable
+                Des experts passionnés<br />
+                <span className="bg-gradient-to-r from-[#3b402e] to-[#6d744d] bg-clip-text text-transparent">pour votre santé.</span>
               </h1>
-              <p className="max-w-2xl text-lg text-text-muted">
-                Nous combinons expertise scientifique, suivi individualisé et pédagogie pour vous accompagner du diagnostic à la reprise, que vous soyez sportif amateur ou athlète confirmé.
-              </p>
-              <div className="grid gap-4 sm:grid-cols-3">
-                {[{
-                  label: 'Patients accompagnés/an',
-                  value: '2 500+',
-                }, {
-                  label: 'Sports couverts',
-                  value: '20+',
-                }, {
-                  label: 'Rendez-vous en urgence',
-                  value: '<48h',
-                }].map((item) => (
-                  <div key={item.label} className="rounded-4xl border border-slate-100 bg-white px-5 py-4 shadow-card">
-                    <p className="text-2xl font-semibold text-primary">{item.value}</p>
-                    <p className="text-sm text-text-muted">{item.label}</p>
-                  </div>
-                ))}
-              </div>
-              <div className="flex items-center gap-3">
-                <p className="text-sm text-text-muted">
-                  Disponibilités rapides en présentiel seulement.
-                </p>
-              </div>
-            </div>
-            <div className="rounded-5xl border border-slate-100 bg-white p-8 shadow-elevated">
-              <h2 className="mb-4 text-xl font-semibold text-text-main">Qui sommes-nous ?</h2>
-              <p className="mb-6 text-base leading-relaxed text-text-muted">
-                Batignolles Kiné Sport est un cabinet de kinésithérapie du sport situé à Paris 17. Nous réunissons des thérapeutes formés aux dernières techniques de rééducation, aux protocoles de retour au jeu et à la prévention des récidives.
-              </p>
-              <div className="space-y-4">
-                {["Programmes individualisés basés sur votre geste et votre charge d'entraînement.", 'Suivi coordonné avec médecins, chirurgiens et préparateurs physiques.', 'Éducation et auto-rééducation pour rendre chaque patient autonome.'].map((point) => (
-                  <div key={point} className="flex items-start gap-3">
-                    <span className="mt-1 inline-flex h-6 w-6 items-center justify-center rounded-full bg-primary/10 text-primary">✓</span>
-                    <p className="text-sm leading-relaxed text-text-main">{point}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-white py-16 sm:py-20">
-        <div className="mx-auto max-w-6xl px-4">
-          <div className="mb-10 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-            <div>
-              <p className="text-sm font-semibold uppercase tracking-wide text-primary">Rencontrez l'équipe</p>
-              <h2 className="text-3xl font-bold text-text-main sm:text-4xl">Des profils complémentaires pour chaque besoin</h2>
-              <p className="max-w-3xl text-base text-text-muted">
-                Kinés du sport, thérapie manuelle, traumatologie, pédiatrie ou réathlétisation : chaque praticien apporte son expertise pour couvrir l'ensemble du parcours de soin.
+              <p className="text-lg text-text-muted leading-relaxed">
+                Chaque praticien apporte son expertise spécifique, du rugby à la danse, pour une prise en charge adaptée à votre pratique.
               </p>
             </div>
           </div>
 
-          <div className="grid gap-8 md:grid-cols-2">
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {TEAM.map((member) => (
               <article
                 key={member.id}
-                className="flex flex-col gap-6 rounded-4xl border border-slate-100 bg-surface px-6 py-6 shadow-card transition-all duration-200 hover:-translate-y-1 hover:shadow-elevated"
+                className="group relative flex flex-col h-[520px] rounded-3xl overflow-hidden bg-white shadow-card hover:shadow-2xl transition-all duration-300 border border-slate-100"
               >
-                <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
-                  <div className="w-full max-w-[180px] shrink-0 overflow-hidden rounded-3xl border border-slate-100 bg-white shadow-soft">
-                    <img
-                      src={member.image}
-                      alt={member.name}
-                      className="aspect-square h-full w-full object-cover"
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <h3 className="text-2xl font-semibold text-text-main">{member.name}</h3>
-                    <p className="text-primary font-medium">{member.title}</p>
-                    <div className="flex flex-wrap gap-2">
-                      {member.specialties.map((spec) => (
-                        <span
-                          key={spec}
-                          className="rounded-full border border-primary/15 bg-white px-3 py-1 text-xs font-semibold text-text-main"
-                        >
-                          {spec}
-                        </span>
-                      ))}
-                    </div>
+                {/* Full Bleed Image - Top 60% */}
+                <div className="absolute top-0 inset-x-0 h-[60%] overflow-hidden">
+                  <img
+                    src={member.image}
+                    alt={member.name}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-60" />
+
+                  {/* Sport Badge */}
+                  <div className="absolute bottom-4 left-4">
+                    <span className="px-3 py-1 rounded-full bg-white/20 backdrop-blur-md border border-white/30 text-white text-xs font-bold uppercase tracking-wider">
+                      {member.sport}
+                    </span>
                   </div>
                 </div>
 
-                <p className="text-sm leading-relaxed text-text-muted">{member.bio}</p>
+                {/* Content - Bottom 40% */}
+                <div className="absolute bottom-0 inset-x-0 h-[42%] bg-white rounded-t-3xl p-6 flex flex-col items-start justify-between shadow-[0_-10px_40px_-15px_rgba(0,0,0,0.1)]">
+                  <div className="w-full">
+                    <h3 className="text-xl font-bold text-slate-900 mb-1">{member.name}</h3>
+                    <p className="text-primary font-medium text-sm mb-3">{member.title}</p>
+                    <p className="text-xs text-slate-500 line-clamp-3 leading-relaxed">
+                      {member.bio}
+                    </p>
+                  </div>
 
-                <div className="flex flex-wrap items-center gap-3">
-                  <Button href={member.doctolibUrl} variant="booking" className="text-sm">
+                  <a
+                    href={member.doctolibUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full mt-4 flex items-center justify-center gap-2 py-3 rounded-xl bg-[#107ACA] text-white font-semibold text-sm transition-transform active:scale-95 hover:bg-[#0e69ad]"
+                  >
+                    <img src="/images/doctolib/D_White.svg" alt="" className="w-5 h-5" />
                     Prendre rendez-vous
-                  </Button>
+                  </a>
                 </div>
               </article>
             ))}

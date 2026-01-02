@@ -24,7 +24,7 @@ export const Button: React.FC<ButtonProps & HTMLMotionProps<"button"> & HTMLMoti
   className = '',
   ...props
 }) => {
-  const baseStyles = "btn px-5 py-2.5 md:px-6 md:py-3";
+  const baseStyles = "btn px-5 py-2.5 md:px-6 md:py-3 font-medium";
 
   const variantsMap = {
     primary: "btn-primary",
