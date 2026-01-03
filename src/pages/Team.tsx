@@ -46,8 +46,9 @@ export const Team: React.FC = () => {
 
                   {/* Sport Badge */}
                   <div className="absolute bottom-4 left-4">
-                    <span className="px-3 py-1 rounded-full bg-white/20 backdrop-blur-md border border-white/30 text-white text-xs font-bold uppercase tracking-wider">
-                      {member.sport}
+                    <span className="inline-flex items-center gap-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 px-3 py-1.5 text-white text-xs font-semibold tracking-wide">
+                      <span className="inline-block h-1.5 w-1.5 rounded-full bg-primary" />
+                      Kiné du Sport · {member.sport}
                     </span>
                   </div>
                 </div>

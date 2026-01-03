@@ -5,9 +5,9 @@ import { ADDRESS } from '../utils/constants';
 export const Legal: React.FC = () => {
   return (
     <>
-      <SEO 
-        title="Mentions Légales" 
-        description="Mentions légales, politique de confidentialité et conditions d'utilisation du site Batignolles Kiné Sport." 
+      <SEO
+        title="Mentions Légales"
+        description="Mentions légales, politique de confidentialité et conditions d'utilisation du site Batignolles Kiné Sport."
       />
 
       <div className="bg-white">
@@ -63,7 +63,17 @@ export const Legal: React.FC = () => {
             </section>
 
             <section className="rounded-2xl border border-slate-100 bg-white/80 shadow-sm p-6 md:p-8">
-              <p className="text-[11px] uppercase tracking-[0.2em] text-slate-400 mb-2">5. Propriété intellectuelle</p>
+              <p className="text-[11px] uppercase tracking-[0.2em] text-slate-400 mb-2">5. Conception et développement</p>
+              <div className="text-slate-700 text-base leading-relaxed space-y-1.5">
+                <p>Ce site a été conçu et développé par l'agence <strong>UNMISSABL</strong>.</p>
+                <p><span className="text-slate-500">Raison sociale :</span> ZenNest.</p>
+                <p><span className="text-slate-500">RCS :</span> 928 130 848.</p>
+                <p><span className="text-slate-500">Contact :</span> <a href="mailto:hello@unmissabl.com" className="text-teal-600 hover:underline">hello@unmissabl.com</a>.</p>
+              </div>
+            </section>
+
+            <section className="rounded-2xl border border-slate-100 bg-white/80 shadow-sm p-6 md:p-8">
+              <p className="text-[11px] uppercase tracking-[0.2em] text-slate-400 mb-2">6. Propriété intellectuelle</p>
               <p className="text-slate-700 text-base leading-relaxed">
                 L'ensemble des éléments constituant ce site (structure, textes, photographies, logos) est la propriété exclusive de Batignolles Kiné Sport. Toute reproduction, représentation ou diffusion, en tout ou partie, du contenu de ce site sur quelque support ou par tout procédé que ce soit est interdite sans autorisation expresse.
               </p>

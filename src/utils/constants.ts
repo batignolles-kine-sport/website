@@ -94,7 +94,7 @@ export const TEAM: TeamMember[] = [
     name: "Justine JOSSE",
     title: "Kiné du Sport",
     specialties: ["Thérapie Manuelle", "Prévention", "Renforcement"],
-    sport: "Athlétisme",
+    sport: "Course à pied",
     bio: "Justine met son expertise en kinésithérapie du sport au service de votre récupération et de votre performance.",
     image: "https://picsum.photos/seed/justine/400/400", // Placeholder
     doctolibUrl: "https://www.doctolib.fr/masseur-kinesitherapeute/paris/justine-josse"
@@ -102,7 +102,7 @@ export const TEAM: TeamMember[] = [
   {
     id: 3,
     name: "Leonie TATON",
-    title: "Kinésithérapeute",
+    title: "Kiné du Sport",
     specialties: ["Rééducation Fonctionnelle", "Posturologie"],
     sport: "Danse",
     bio: "Leonie assure une prise en charge globale et personnalisée pour vous aider à retrouver votre mobilité.",
@@ -111,13 +111,13 @@ export const TEAM: TeamMember[] = [
   },
   {
     id: 4,
-    name: "Martin",
+    name: "Martin BONNIN",
     title: "Kiné du Sport",
-    specialties: ["Rugby", "Renforcement", "Terrain"],
+    specialties: ["Traumatologie", "Réathlétisation", "Rugby"],
     sport: "Rugby",
-    bio: "Passionné de rugby, Martin vous accompagne dans la réathlétisation et la préparation physique spécifique aux sports de contact.",
-    image: "https://picsum.photos/seed/martin/400/400", // Placeholder
-    doctolibUrl: "https://www.doctolib.fr" // Placeholder
+    bio: "Martin est kinésithérapeute spécialisé en traumatologie du sport, avec une expertise particulière dans la prise en charge des rugbymen.",
+    image: "https://picsum.photos/seed/martin/400/400",
+    doctolibUrl: "https://www.doctolib.fr/masseur-kinesitherapeute/bordeaux/martin-bonnin?pid=practice-696351#pricing"
   }
 ];
 

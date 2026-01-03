@@ -79,6 +79,7 @@ export const TEAM: TeamMember[] = [
     name: "Léa HLUBINA",
     title: "Kiné du Sport",
     specialties: ["Traumatologie", "Réathlétisation", "Suivi Sportif"],
+    sport: "Multisport",
     bio: "Spécialisée dans la prise en charge des sportifs, Léa vous accompagne de la blessure jusqu'au retour sur le terrain.",
     image: "https://picsum.photos/seed/lea/400/400", // Placeholder
     doctolibUrl: "https://www.doctolib.fr/masseur-kinesitherapeute/paris/lea-hlubina"
@@ -88,6 +89,7 @@ export const TEAM: TeamMember[] = [
     name: "Justine JOSSE",
     title: "Kiné du Sport",
     specialties: ["Thérapie Manuelle", "Prévention", "Renforcement"],
+    sport: "Fitness",
     bio: "Justine met son expertise en kinésithérapie du sport au service de votre récupération et de votre performance.",
     image: "https://picsum.photos/seed/justine/400/400", // Placeholder
     doctolibUrl: "https://www.doctolib.fr/masseur-kinesitherapeute/paris/justine-josse"
@@ -95,11 +97,22 @@ export const TEAM: TeamMember[] = [
   {
     id: 3,
     name: "Leonie TATON",
-    title: "Kinésithérapeute",
+    title: "Kiné du Sport",
     specialties: ["Rééducation Fonctionnelle", "Posturologie"],
+    sport: "Danse",
     bio: "Leonie assure une prise en charge globale et personnalisée pour vous aider à retrouver votre mobilité.",
     image: "https://picsum.photos/seed/leonie/400/400", // Placeholder
     doctolibUrl: "https://www.doctolib.fr/masseur-kinesitherapeute/paris/leonie-taton-paris"
+  },
+  {
+    id: 4,
+    name: "Martin BONNIN",
+    title: "Kiné du Sport",
+    specialties: ["Traumatologie", "Réathlétisation", "Rugby"],
+    sport: "Rugby",
+    bio: "Martin est kinésithérapeute spécialisé en traumatologie du sport, avec une expertise particulière dans la prise en charge des rugbymen.",
+    image: "https://picsum.photos/seed/martin/400/400",
+    doctolibUrl: "https://www.doctolib.fr/masseur-kinesitherapeute/bordeaux/martin-bonnin"
   }
 ];
 
