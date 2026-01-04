@@ -53,7 +53,7 @@ export const MethodSection: React.FC = () => {
             {/* L'Accordéon */}
             <motion.div
                 id="accordion-container"
-                className="flex flex-col md:flex-row gap-4 md:gap-3 items-center md:items-center min-h-0 md:min-h-[280px] overflow-hidden"
+                className="flex flex-col md:flex-row gap-4 md:gap-3 items-center md:items-center min-h-0 md:min-h-[280px] overflow-visible md:overflow-hidden"
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true, margin: "-100px" }}

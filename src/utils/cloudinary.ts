@@ -1,7 +1,8 @@
 import { Cloudinary } from '@cloudinary/url-gen';
-import { fill } from '@cloudinary/url-gen/actions/resize';
+import { fill, scale, crop, thumbnail } from '@cloudinary/url-gen/actions/resize';
 import { auto } from '@cloudinary/url-gen/qualifiers/quality';
 import { auto as autoFormat } from '@cloudinary/url-gen/qualifiers/format';
+import { autoGravity } from '@cloudinary/url-gen/qualifiers/gravity';
 
 // Initialize Cloudinary instance
 const cloudName = import.meta.env.VITE_CLOUDINARY_CLOUD_NAME;
@@ -25,6 +26,8 @@ export interface CloudinaryImageOptions {
     aspectRatio?: string;
     quality?: 'auto' | number;
     format?: 'auto' | 'webp' | 'jpg' | 'png';
+    gravity?: string;
+    resizeMode?: 'fill' | 'scale' | 'crop' | 'thumb';
 }
 
 /**
@@ -42,17 +45,35 @@ export const getCloudinaryImage = (
         aspectRatio,
         quality = 'auto',
         format = 'auto',
+        gravity,
+        resizeMode = 'fill'
     } = options;
 
     const image = cld.image(publicId);
 
+    // Select resize action
+    let resizeAction;
+    switch (resizeMode) {
+        case 'scale': resizeAction = scale(); break;
+        case 'crop': resizeAction = crop(); break;
+        case 'thumb': resizeAction = thumbnail(); break;
+        default: resizeAction = fill(); break;
+    }
+
     // Apply resize transformation
     if (aspectRatio) {
         const [w, h] = aspectRatio.split(':').map(Number);
-        image.resize(fill().width(width).aspectRatio(w / h));
+        resizeAction.width(width).aspectRatio(w / h);
     } else {
-        image.resize(fill().width(width));
+        resizeAction.width(width);
     }
+
+    // Apply gravity if provided and using fill/crop/thumb
+    if (gravity === 'auto' && resizeMode !== 'scale') {
+        resizeAction.gravity(autoGravity());
+    }
+
+    image.resize(resizeAction);
 
     // Apply quality optimization
     if (quality === 'auto') {

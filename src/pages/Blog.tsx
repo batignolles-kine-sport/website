@@ -226,6 +226,15 @@ export const Blog: React.FC = () => {
     const slug = slugifyCategory(category);
     setSearchParams(slug ? { category: slug, page: '1' } : { page: '1' });
     setFlippedCard(null);
+
+    // Scroll to articles grid with offset for header
+    setTimeout(() => {
+      const element = document.getElementById('articles-grid');
+      if (element) {
+        const y = element.getBoundingClientRect().top + window.scrollY - 100; // 100px offset
+        window.scrollTo({ top: y, behavior: 'smooth' });
+      }
+    }, 100);
   };
 
   const handleResetFilters = () => {
@@ -379,7 +388,7 @@ export const Blog: React.FC = () => {
           </div>
 
           {/* Articles Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div id="articles-grid" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {paginatedPosts.map((post) => (
               <BlogCard key={post.slug} post={post} />
             ))}

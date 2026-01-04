@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { AdvancedImage, responsive, placeholder } from '@cloudinary/react';
+// AdvancedImage removed as we use native picture tag for Hero
+// import { AdvancedImage, responsive, placeholder } from '@cloudinary/react';
 import { SEO } from '../components/layout/SEO';
 import { Button } from '../components/ui/Button';
 import { DOCTOLIB_URL, HERO_IMAGE_URL } from '../utils/constants'; // Removing unused import if any
@@ -15,7 +16,7 @@ import { AccessSection } from '../components/home/AccessSection';
 import { FAQ_ENTRIES } from '../utils/constants';
 import { staggerContainer, fadeUp, pulseLoop } from '../utils/animations';
 import { ChevronDown } from 'lucide-react';
-import { getResponsiveImage, pathToPublicId, isCloudinaryImage } from '../utils/cloudinary';
+import { getCloudinaryImage, pathToPublicId, isCloudinaryImage } from '../utils/cloudinary';
 import { Footer } from '../components/layout/Footer';
 
 const formatGoogleRating = (value: number) => {
@@ -34,7 +35,7 @@ export const Home: React.FC = () => {
     const [isMobile, setIsMobile] = useState(false);
 
     useEffect(() => {
-        const checkMobile = () => setIsMobile(window.innerWidth < 768);
+        const checkMobile = () => setIsMobile(window.innerWidth < 1024);
         checkMobile();
         window.addEventListener('resize', checkMobile);
         return () => window.removeEventListener('resize', checkMobile);
@@ -43,8 +44,11 @@ export const Home: React.FC = () => {
     const containerRef = React.useRef<HTMLDivElement>(null);
     const { scrollY } = useScroll({ container: containerRef });
     // Disable parallax on mobile for performance
-    const heroScale = isMobile ? 1 : useTransform(scrollY, [0, 500], [1, 0.95]);
-    const heroOpacity = isMobile ? 1 : useTransform(scrollY, [0, 300], [1, 0.8]);
+    const heroScaleTransform = useTransform(scrollY, [0, 500], [1, 0.95]);
+    const heroOpacityTransform = useTransform(scrollY, [0, 300], [1, 0.8]);
+
+    const heroScale = isMobile ? 1 : heroScaleTransform;
+    const heroOpacity = isMobile ? 1 : heroOpacityTransform;
 
     return (
         <>
@@ -57,7 +61,7 @@ export const Home: React.FC = () => {
                 <script type="application/ld+json">{JSON.stringify(localBusinessSchema)}</script>
             </Helmet>
 
-            <div ref={containerRef} className="h-screen text-slate-900 overflow-y-scroll snap-y snap-mandatory">
+            <div ref={containerRef} className="text-slate-900 lg:h-screen lg:overflow-y-scroll lg:snap-y lg:snap-mandatory">
                 {/* Hero w/ Parallax Scale */}
                 <section id="hero" className="px-3 sm:px-4 md:px-6 flex flex-col snap-start snap-always min-h-screen">
                     <motion.div
@@ -66,12 +70,43 @@ export const Home: React.FC = () => {
                     >
                         <div className="absolute inset-0">
                             {isCloudinaryImage(HERO_IMAGE_URL) ? (
-                                <AdvancedImage
-                                    cldImg={getResponsiveImage(pathToPublicId(HERO_IMAGE_URL), '16:9')}
-                                    plugins={[responsive({ steps: [640, 768, 1024, 1600, 1920] }), placeholder('blur')]}
-                                    className="w-full h-full object-cover opacity-90 transition-transform duration-[20s] group-hover:scale-105"
-                                    alt="Cabinet de kinésithérapie du sport à Paris 17 Batignolles"
-                                />
+                                <picture>
+                                    <source
+                                        media="(max-width: 768px)"
+                                        srcSet={`${getCloudinaryImage(pathToPublicId(HERO_IMAGE_URL), {
+                                            width: 800,
+                                            aspectRatio: '9:16',
+                                            gravity: 'auto'
+                                        }).toURL()} 1x, ${getCloudinaryImage(pathToPublicId(HERO_IMAGE_URL), {
+                                            width: 1600,
+                                            aspectRatio: '9:16',
+                                            gravity: 'auto'
+                                        }).toURL()} 2x`}
+                                    />
+                                    <source
+                                        media="(min-width: 769px)"
+                                        srcSet={`${getCloudinaryImage(pathToPublicId(HERO_IMAGE_URL), {
+                                            width: 1920,
+                                            aspectRatio: '16:9',
+                                            gravity: 'auto'
+                                        }).toURL()} 1x, ${getCloudinaryImage(pathToPublicId(HERO_IMAGE_URL), {
+                                            width: 2560,
+                                            aspectRatio: '16:9',
+                                            gravity: 'auto'
+                                        }).toURL()} 2x`}
+                                    />
+                                    <img
+                                        src={getCloudinaryImage(pathToPublicId(HERO_IMAGE_URL), {
+                                            width: 1920,
+                                            aspectRatio: '16:9',
+                                            gravity: 'auto'
+                                        }).toURL()}
+                                        alt="Cabinet de kinésithérapie du sport à Paris 17 Batignolles"
+                                        className="w-full h-full object-cover opacity-90 transition-transform duration-[20s] group-hover:scale-105"
+                                        fetchPriority="high"
+                                        loading="eager"
+                                    />
+                                </picture>
                             ) : (
                                 <img
                                     src={HERO_IMAGE_URL}
@@ -117,7 +152,7 @@ export const Home: React.FC = () => {
                                     <div className="mt-6 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-3 lg:gap-6">
                                         <motion.p
                                             variants={fadeUp}
-                                            className="text-gray-200 text-sm sm:text-base md:text-lg font-light leading-relaxed max-w-[65ch] truncate"
+                                            className="text-gray-200 text-sm sm:text-base md:text-lg font-light leading-relaxed max-w-[65ch]"
                                         >
                                             Bilan précis, plan sur mesure, retour au sport encadré.
                                         </motion.p>
@@ -145,11 +180,16 @@ export const Home: React.FC = () => {
                                     className="absolute bottom-6 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-2 text-white/60 hover:text-white transition-colors cursor-pointer z-20"
                                     onClick={(e) => {
                                         e.preventDefault();
-                                        if (containerRef.current) {
+                                        if (window.innerWidth >= 1024 && containerRef.current) {
+                                            // Desktop: Scroll container
                                             containerRef.current.scrollBy({
                                                 top: window.innerHeight,
                                                 behavior: 'smooth'
                                             });
+                                        } else {
+                                            // Mobile/Tablet: Scroll window
+                                            const parcoursSection = document.getElementById('parcours');
+                                            parcoursSection?.scrollIntoView({ behavior: 'smooth' });
                                         }
                                     }}
                                 >
@@ -167,42 +207,42 @@ export const Home: React.FC = () => {
                 </section>
 
                 {/* 1. PARCOURS DE SOIN */}
-                <section id="parcours" className="snap-start min-h-screen flex items-center py-16 md:py-20" style={{ scrollMarginTop: '-5vh' }}>
+                <section id="parcours" className="snap-start min-h-screen flex items-center py-10 md:py-20" style={{ scrollMarginTop: '-5vh' }}>
                     <div className="max-w-content w-full mx-auto px-4 md:px-6">
                         <MethodSection />
                     </div>
                 </section>
 
                 {/* 2. EXPERTISE */}
-                <section id="expertise" className="snap-start min-h-screen flex items-center py-16 md:py-20" style={{ scrollMarginTop: '-5vh' }}>
+                <section id="expertise" className="snap-start min-h-screen flex items-center py-10 md:py-20" style={{ scrollMarginTop: '-5vh' }}>
                     <div className="max-w-content w-full mx-auto px-4 md:px-6">
                         <ExpertiseSection />
                     </div>
                 </section>
 
                 {/* 3. AVIS PATIENTS */}
-                <section id="avis" className="snap-start min-h-screen flex items-center py-16 md:py-20" style={{ scrollMarginTop: '-5vh' }}>
+                <section id="avis" className="snap-start min-h-screen flex items-center py-10 md:py-20" style={{ scrollMarginTop: '-5vh' }}>
                     <div className="max-w-content w-full mx-auto px-4 md:px-6">
                         <TestimonialsSection />
                     </div>
                 </section>
 
                 {/* 4. FAQ */}
-                <section id="faq" className="snap-start min-h-screen flex items-center py-16 md:py-20" style={{ scrollMarginTop: '-5vh' }}>
+                <section id="faq" className="snap-start min-h-screen flex items-center py-10 md:py-20" style={{ scrollMarginTop: '-5vh' }}>
                     <div className="max-w-content w-full mx-auto px-4 md:px-6">
                         <FaqSection />
                     </div>
                 </section>
 
                 {/* 5. ACCÈS */}
-                <section id="acces" className="snap-start min-h-screen flex items-center py-16 md:py-20" style={{ scrollMarginTop: '-5vh' }}>
+                <section id="acces" className="snap-start min-h-screen flex items-center py-10 md:py-20" style={{ scrollMarginTop: '-5vh' }}>
                     <div className="max-w-content w-full mx-auto px-4 md:px-6">
                         <AccessSection />
                     </div>
                 </section>
 
                 {/* Footer integrated in scroll snap */}
-                <div className="snap-start">
+                <div className="snap-end">
                     <Footer />
                 </div>
             </div>

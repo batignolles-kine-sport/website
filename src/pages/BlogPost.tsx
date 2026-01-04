@@ -204,7 +204,7 @@ export const BlogPost: React.FC = () => {
         }
       `}</style>
 
-      <header className="relative h-[60vh] min-h-[420px] w-full overflow-hidden">
+      <header className="relative h-[60vh] min-h-[500px] w-full overflow-hidden">
         {isCloudinaryImage(post.image) ? (
           <AdvancedImage
             cldImg={getResponsiveImage(pathToPublicId(post.image), '16:9')}
@@ -224,17 +224,19 @@ export const BlogPost: React.FC = () => {
         )}
         <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/60 to-transparent" />
 
-        <div className="absolute top-8 left-4 md:left-8 z-20">
-          <Link
-            to="/blog"
-            className="flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-sm font-medium text-white/90 backdrop-blur-md transition-all hover:bg-white/20 hover:text-white"
-          >
-            <ArrowLeft className="h-4 w-4" /> Retour au blog
-          </Link>
+        <div className="absolute top-0 w-full p-4 md:p-8 z-20 flex justify-between items-start pointer-events-none">
+          <div className="pointer-events-auto hidden md:block">
+            <Link
+              to="/blog"
+              className="flex items-center gap-2 rounded-full bg-slate-900/40 border border-white/10 px-4 py-2 text-sm font-medium text-white backdrop-blur-md transition-all hover:bg-slate-900/60 hover:scale-105"
+            >
+              <ArrowLeft className="h-4 w-4" /> Retour au blog
+            </Link>
+          </div>
         </div>
 
-        <div className="absolute bottom-0 left-0 right-0 z-10 mx-auto max-w-5xl p-6 md:p-12">
-          <span className="mb-4 inline-block rounded-full bg-primary px-3 py-1 text-xs font-bold uppercase tracking-wider text-white">
+        <div className="absolute bottom-0 left-0 right-0 z-10 mx-auto max-w-5xl p-6 md:p-12 pt-32">
+          <span className="mb-4 hidden md:inline-block rounded-full bg-primary px-3 py-1 text-xs font-bold uppercase tracking-wider text-white">
             {post.category}
           </span>
           <h1 className="text-3xl font-serif leading-tight text-white md:text-5xl lg:text-6xl">{post.title}</h1>

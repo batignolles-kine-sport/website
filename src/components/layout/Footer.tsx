@@ -11,39 +11,11 @@ export const Footer: React.FC = () => {
 
             <div className="max-w-[1400px] mx-auto px-6 relative z-10">
                 {/* Trust Signals */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12 border-b border-slate-200 pb-8">
-                    <div className="flex items-center justify-center md:justify-start gap-3">
-                        <div className="w-10 h-10 rounded-full bg-green-50 flex items-center justify-center text-green-600">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
-                        </div>
-                        <div>
-                            <p className="font-semibold text-slate-800 text-sm">Conventionné</p>
-                            <p className="text-xs text-slate-500">Secteur 1</p>
-                        </div>
-                    </div>
-                    <div className="flex items-center justify-center md:justify-start gap-3">
-                        <div className="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center text-blue-600">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 10v6M2 10v6M12 22l-4-9 1.5-12h5l1.5 12-4 9z"></path></svg>
-                        </div>
-                        <div>
-                            <p className="font-semibold text-slate-800 text-sm">Diplômés d'État</p>
-                            <p className="text-xs text-slate-500">Expertise certifiée</p>
-                        </div>
-                    </div>
-                    <div className="flex items-center justify-center md:justify-start gap-3">
-                        <div className="w-10 h-10 rounded-full bg-purple-50 flex items-center justify-center text-purple-600">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-                        </div>
-                        <div>
-                            <p className="font-semibold text-slate-800 text-sm">Plateau Technique</p>
-                            <p className="text-xs text-slate-500">Équipement complet</p>
-                        </div>
-                    </div>
-                </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-10">
+
+                <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 mb-10">
                     {/* Brand */}
-                    <div className="space-y-4">
+                    <div className="col-span-2 lg:col-span-1 space-y-4">
                         <Link to="/" className="block">
                             <span className="text-2xl font-bold text-slate-800 tracking-tight">Batignolles Kiné Sport</span>
                         </Link>
@@ -62,7 +34,7 @@ export const Footer: React.FC = () => {
                     </div>
 
                     {/* Quick Links */}
-                    <div>
+                    <div className="col-span-1">
                         <h3 className="text-sm font-semibold uppercase tracking-wider text-slate-900 mb-4">Navigation</h3>
                         <ul className="space-y-3">
                             <li>
@@ -89,7 +61,7 @@ export const Footer: React.FC = () => {
                     </div>
 
                     {/* Pathologies */}
-                    <div>
+                    <div className="col-span-1">
                         <h3 className="text-sm font-semibold uppercase tracking-wider text-slate-900 mb-4">Expertise</h3>
                         <ul className="space-y-3">
                             <li>
@@ -116,7 +88,7 @@ export const Footer: React.FC = () => {
                     </div>
 
                     {/* Contact Info */}
-                    <div>
+                    <div className="col-span-2 lg:col-span-1">
                         <h3 className="text-sm font-semibold uppercase tracking-wider text-slate-900 mb-4">Contact</h3>
                         <ul className="space-y-4">
                             <li className="flex items-start gap-3">
