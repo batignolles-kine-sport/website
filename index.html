@@ -62,24 +62,20 @@
   <link rel="dns-prefetch" href="https://www.doctolib.fr">
   <link rel="dns-prefetch" href="https://cdn.openwidget.com">
 
-  <!-- Google Fonts Optimized Loading -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload"
-    href="https://fonts.gstatic.com/s/inter/v13/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hiA.woff2" as="font"
-    type="font/woff2" crossorigin>
-  <!-- Preload LCP Image (Hero) for Cloudinary - Mobile + Desktop -->
-  <link rel="preload" as="image"
-    href="https://res.cloudinary.com/dsesaneyj/image/upload/c_fill,w_600,ar_9:16,g_auto,q_auto,f_auto/hero/hero"
-    media="(max-width: 768px)"
-    imagesrcset="https://res.cloudinary.com/dsesaneyj/image/upload/c_fill,w_600,ar_9:16,g_auto,q_auto,f_auto/hero/hero 1x, https://res.cloudinary.com/dsesaneyj/image/upload/c_fill,w_1200,ar_9:16,g_auto,q_auto,f_auto/hero/hero 2x"
-    imagesizes="100vw">
-  <link rel="preload" as="image"
+  <!-- Preload LCP Image - SIMPLIFIED (no imagesrcset) -->
+  <link rel="preload" as="image" fetchpriority="high"
+    href="https://res.cloudinary.com/dsesaneyj/image/upload/c_fill,w_800,ar_9:16,g_auto,q_auto,f_auto/hero/hero"
+    media="(max-width: 768px)">
+  <link rel="preload" as="image" fetchpriority="high"
     href="https://res.cloudinary.com/dsesaneyj/image/upload/c_fill,w_1920,ar_16:9,g_auto,q_auto,f_auto/hero/hero"
-    media="(min-width: 769px)"
-    imagesrcset="https://res.cloudinary.com/dsesaneyj/image/upload/c_fill,w_1920,ar_16:9,g_auto,q_auto,f_auto/hero/hero 1x, https://res.cloudinary.com/dsesaneyj/image/upload/c_fill,w_2560,ar_16:9,g_auto,q_auto,f_auto/hero/hero 2x"
-    imagesizes="100vw">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    media="(min-width: 769px)">
+
+  <!-- System Fonts (no external load) -->
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Helvetica Neue', Arial, sans-serif;
+    }
+  </style>
 
   <!-- Basic JSON-LD for SSR/crawlers -->
   <script type="application/ld+json">

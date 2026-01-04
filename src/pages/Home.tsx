@@ -18,7 +18,6 @@ import { FAQ_ENTRIES } from '../utils/constants';
 import { ChevronDown } from 'lucide-react';
 import { getCloudinaryImage, pathToPublicId, isCloudinaryImage } from '../utils/cloudinary';
 import { Footer } from '../components/layout/Footer';
-import { LazyFramer } from '../components/LazyFramer';
 
 const formatGoogleRating = (value: number) => {
     if (Number.isInteger(value)) return String(value);
@@ -71,79 +70,45 @@ export const Home: React.FC = () => {
                     >
                         <div className="absolute inset-0">
                             {isCloudinaryImage(HERO_IMAGE_URL) ? (
-                                <>
-                                    <picture className="absolute inset-0 z-0">
-                                        <source
-                                            media="(max-width: 768px)"
-                                            srcSet={getCloudinaryImage(pathToPublicId(HERO_IMAGE_URL), {
-                                                width: 400,
-                                                aspectRatio: '9:16',
-                                                gravity: 'auto',
-                                                blur: 2000,
-                                                quality: 1
-                                            }).toURL()}
-                                        />
-                                        <source
-                                            media="(min-width: 769px)"
-                                            srcSet={getCloudinaryImage(pathToPublicId(HERO_IMAGE_URL), {
-                                                width: 800,
-                                                aspectRatio: '16:9',
-                                                gravity: 'auto',
-                                                blur: 2000,
-                                                quality: 1
-                                            }).toURL()}
-                                        />
-                                        <img
-                                            src={getCloudinaryImage(pathToPublicId(HERO_IMAGE_URL), {
-                                                width: 800,
-                                                aspectRatio: '16:9',
-                                                gravity: 'auto',
-                                                blur: 2000,
-                                                quality: 1
-                                            }).toURL()}
-                                            alt=""
-                                            aria-hidden="true"
-                                            className="w-full h-full object-cover"
-                                        />
-                                    </picture>
-                                    <picture className="relative z-10">
-                                        <source
-                                            media="(max-width: 768px)"
-                                            srcSet={`${getCloudinaryImage(pathToPublicId(HERO_IMAGE_URL), {
-                                                width: 600,
-                                                aspectRatio: '9:16',
-                                                gravity: 'auto'
-                                            }).toURL()} 1x, ${getCloudinaryImage(pathToPublicId(HERO_IMAGE_URL), {
-                                                width: 1200,
-                                                aspectRatio: '9:16',
-                                                gravity: 'auto'
-                                            }).toURL()} 2x`}
-                                        />
-                                        <source
-                                            media="(min-width: 769px)"
-                                            srcSet={`${getCloudinaryImage(pathToPublicId(HERO_IMAGE_URL), {
-                                                width: 1920,
-                                                aspectRatio: '16:9',
-                                                gravity: 'auto'
-                                            }).toURL()} 1x, ${getCloudinaryImage(pathToPublicId(HERO_IMAGE_URL), {
-                                                width: 2560,
-                                                aspectRatio: '16:9',
-                                                gravity: 'auto'
-                                            }).toURL()} 2x`}
-                                        />
-                                        <img
-                                            src={getCloudinaryImage(pathToPublicId(HERO_IMAGE_URL), {
-                                                width: 1920,
-                                                aspectRatio: '16:9',
-                                                gravity: 'auto'
-                                            }).toURL()}
-                                            alt="Cabinet de kinésithérapie du sport à Paris 17 Batignolles"
-                                            className="w-full h-full object-cover opacity-90 transition-transform duration-[20s] group-hover:scale-105"
-                                            fetchPriority="high"
-                                            loading="eager"
-                                        />
-                                    </picture>
-                                </>
+                                <picture>
+                                    <source
+                                        media="(max-width: 768px)"
+                                        srcSet={`${getCloudinaryImage(pathToPublicId(HERO_IMAGE_URL), {
+                                            width: 800,
+                                            aspectRatio: '9:16',
+                                            gravity: 'auto'
+                                        }).toURL()} 1x, ${getCloudinaryImage(pathToPublicId(HERO_IMAGE_URL), {
+                                            width: 1600,
+                                            aspectRatio: '9:16',
+                                            gravity: 'auto'
+                                        }).toURL()} 2x`}
+                                    />
+                                    <source
+                                        media="(min-width: 769px)"
+                                        srcSet={`${getCloudinaryImage(pathToPublicId(HERO_IMAGE_URL), {
+                                            width: 1920,
+                                            aspectRatio: '16:9',
+                                            gravity: 'auto'
+                                        }).toURL()} 1x, ${getCloudinaryImage(pathToPublicId(HERO_IMAGE_URL), {
+                                            width: 2560,
+                                            aspectRatio: '16:9',
+                                            gravity: 'auto'
+                                        }).toURL()} 2x`}
+                                    />
+                                    <img
+                                        src={getCloudinaryImage(pathToPublicId(HERO_IMAGE_URL), {
+                                            width: 1920,
+                                            aspectRatio: '16:9',
+                                            gravity: 'auto'
+                                        }).toURL()}
+                                        alt="Cabinet de kinésithérapie du sport à Paris 17 Batignolles"
+                                        className="w-full h-full object-cover opacity-90 transition-transform duration-[20s] group-hover:scale-105"
+                                        fetchPriority="high"
+                                        loading="eager"
+                                        width="1920"
+                                        height="1080"
+                                    />
+                                </picture>
                             ) : (
                                 <img
                                     src={HERO_IMAGE_URL}
@@ -229,18 +194,14 @@ export const Home: React.FC = () => {
                 {/* 1. PARCOURS DE SOIN */}
                 <section id="parcours" className="snap-start min-h-screen flex items-center py-10 md:py-20" style={{ scrollMarginTop: '-5vh' }}>
                     <div className="max-w-content w-full mx-auto px-4 md:px-6">
-                        <LazyFramer rootMargin="200px" minHeight="500px">
-                            <MethodSection />
-                        </LazyFramer>
+                        <MethodSection />
                     </div>
                 </section>
 
                 {/* 2. EXPERTISE */}
                 <section id="expertise" className="snap-start min-h-screen flex items-center py-10 md:py-20" style={{ scrollMarginTop: '-5vh' }}>
                     <div className="max-w-content w-full mx-auto px-4 md:px-6">
-                        <LazyFramer rootMargin="200px" minHeight="500px">
-                            <ExpertiseSection />
-                        </LazyFramer>
+                        <ExpertiseSection />
                     </div>
                 </section>
 
