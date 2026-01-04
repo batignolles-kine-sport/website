@@ -20,9 +20,12 @@ const PathologiesRedirect: React.FC = () => {
   return <Navigate to="/blog" replace />;
 };
 
+import OpenWidget from './components/OpenWidget';
+
 const App: React.FC = () => {
   return (
     <Router>
+      <OpenWidget />
       <Layout>
         <Suspense fallback={<div className="p-8 text-center text-text-muted">Chargement...</div>}>
           <Routes>

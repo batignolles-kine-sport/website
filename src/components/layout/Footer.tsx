@@ -122,14 +122,13 @@ export const Footer: React.FC = () => {
                             </li>
                         </ul>
                     </div>
-                </div>
-
-                {/* Divider */}
-                <div className="border-t border-slate-200 pt-6">
-                    <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-                        <p className="text-sm text-slate-600">
-                            &copy; {new Date().getFullYear()} Batignolles Kiné Sport. Tous droits réservés.
-                        </p>
+                    {/* Divider & Copyright - Integrated in Grid */}
+                    <div className="col-span-2 lg:col-span-4 border-t border-slate-200 pt-6">
+                        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+                            <p className="text-sm text-slate-600">
+                                &copy; {new Date().getFullYear()} Batignolles Kiné Sport. Tous droits réservés.
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>

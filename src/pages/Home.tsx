@@ -14,7 +14,7 @@ import { ExpertiseSection } from '../components/home/ExpertiseSection';
 import { FaqSection } from '../components/home/FaqSection';
 import { AccessSection } from '../components/home/AccessSection';
 import { FAQ_ENTRIES } from '../utils/constants';
-import { staggerContainer, fadeUp, pulseLoop } from '../utils/animations';
+
 import { ChevronDown } from 'lucide-react';
 import { getCloudinaryImage, pathToPublicId, isCloudinaryImage } from '../utils/cloudinary';
 import { Footer } from '../components/layout/Footer';
@@ -162,50 +162,33 @@ export const Home: React.FC = () => {
 
                         <div className="absolute inset-0 flex items-end z-10">
                             <div className="w-full p-6 sm:p-8 md:p-12 lg:p-16 pb-8 md:pb-16">
-                                <motion.div
-                                    initial="hidden"
-                                    animate="visible"
-                                    variants={staggerContainer}
-                                    className="max-w-content mx-auto w-full px-4 md:px-6"
-                                >
-                                    <motion.div
-                                        variants={fadeUp}
-                                        className="inline-flex items-center gap-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 px-3 py-1.5 text-white text-2xs sm:text-xs md:text-sm font-semibold tracking-wide mb-5"
-                                    >
+                                <div className="max-w-content mx-auto w-full px-4 md:px-6">
+                                    <div className="animate-fade-up inline-flex items-center gap-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 px-3 py-1.5 text-white text-2xs sm:text-xs md:text-sm font-semibold tracking-wide mb-5">
                                         <span className="inline-block h-1.5 w-1.5 rounded-full bg-primary" />
                                         Kinés du sport · Paris 17 – Batignolles
-                                    </motion.div>
+                                    </div>
 
-                                    <motion.h1
-                                        variants={fadeUp}
-                                        className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight leading-[0.95] mb-4 drop-shadow-lg"
-                                    >
+                                    <h1 className="animate-fade-up delay-100 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight leading-[0.95] mb-4 drop-shadow-lg">
                                         Reprendre le sport
                                         <br />
                                         sans douleur.
-                                    </motion.h1>
+                                    </h1>
 
                                     <div className="mt-6 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-3 lg:gap-6">
-                                        <motion.p
-                                            variants={fadeUp}
-                                            className="text-gray-200 text-sm sm:text-base md:text-lg font-light leading-relaxed max-w-[65ch]"
-                                        >
+                                        <p className="animate-fade-up delay-200 text-gray-200 text-sm sm:text-base md:text-lg font-light leading-relaxed max-w-[65ch]">
                                             Bilan précis, plan sur mesure, retour au sport encadré.
-                                        </motion.p>
+                                        </p>
 
-                                        <motion.div variants={fadeUp}>
+                                        <div className="animate-fade-up delay-300">
                                             <Button
                                                 href={DOCTOLIB_URL}
                                                 variant="booking"
-                                                variants={pulseLoop}
-                                            // We don't need animate="visible" here as it inherits from parent, 
-                                            // but passing it explicitly guards against any context issues if variants names differed
                                             >
                                                 Prendre rendez-vous
                                             </Button>
-                                        </motion.div>
+                                        </div>
                                     </div>
-                                </motion.div>
+                                </div>
 
                                 {/* Scroll Indicator */}
                                 <motion.a

@@ -14,7 +14,7 @@ export const GOOGLE_MAPS_URL = "https://maps.app.goo.gl/RwLrproYncKrfP9t5";
 // Asset paths served from /public/images
 export const LOGO_URL = "/images/logo.svg";
 export const HERO_IMAGE_URL = "/images/hero/hero.webp";
-export const OG_IMAGE_URL = `${SITE_URL}/images/og-image.jpg`;
+export const OG_IMAGE_URL = `https://res.cloudinary.com/dsesaneyj/image/upload/f_jpg,q_auto,w_1200,h_630,c_fill/og-image`;
 
 export const SERVICES: ServiceData[] = [
   {

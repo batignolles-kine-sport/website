@@ -15,6 +15,7 @@ interface LayoutProps {
 
 export const Layout: React.FC<LayoutProps> = ({ children }) => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [showFAB, setShowFAB] = useState(false);
   const [isNavVisible, setIsNavVisible] = useState(true);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isDesktop, setIsDesktop] = useState(() => typeof window !== 'undefined' ? window.innerWidth >= 768 : false);
@@ -31,6 +32,42 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
   // Scroll to top on route change
   useEffect(() => {
     window.scrollTo(0, 0);
+  }, [location.pathname]);
+
+  // Handle Floating Action Button visibility (Doctolib)
+  useEffect(() => {
+    // Apparition après 2 secondes (similaire à OpenWidget)
+    const timer = setTimeout(() => {
+      setShowFAB(true);
+    }, 2000);
+
+    // Ou apparition au premier scroll ou action
+    const triggerFAB = () => {
+      setShowFAB(true);
+    };
+
+    // On écoute le scroll sur window et sur le potentiel conteneur de la Home
+    window.addEventListener('scroll', triggerFAB, { passive: true });
+    window.addEventListener('mousedown', triggerFAB);
+    window.addEventListener('touchstart', triggerFAB);
+    window.addEventListener('keydown', triggerFAB);
+
+    // Check for home scroll container (for desktop performance/action)
+    const homeScroll = document.querySelector('.lg\\:overflow-y-scroll');
+    if (homeScroll) {
+      homeScroll.addEventListener('scroll', triggerFAB, { passive: true });
+    }
+
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener('scroll', triggerFAB);
+      window.removeEventListener('mousedown', triggerFAB);
+      window.removeEventListener('touchstart', triggerFAB);
+      window.removeEventListener('keydown', triggerFAB);
+      if (homeScroll) {
+        homeScroll.removeEventListener('scroll', triggerFAB);
+      }
+    };
   }, [location.pathname]);
 
   // Handle Scroll Logic
@@ -100,18 +137,18 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
       {/* Footer is disabled on Home page because Home manages its own scroll snap container with an internal Footer */}
       {location.pathname !== '/' && <Footer />}
 
-      {/* --- DOCTOLIB FLOATING ACTION BUTTON (MOBILE ONLY) --- */}
+      {/* --- DOCTOLIB FLOATING ACTION BUTTON --- */}
       <AnimatePresence>
-        {isScrolled && !mobileMenuOpen && (
+        {showFAB && !mobileMenuOpen && (
           <motion.a
             href={DOCTOLIB_URL}
             target="_blank"
             rel="noopener noreferrer"
-            initial={{ x: 100, opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            exit={{ x: 100, opacity: 0 }}
+            initial={{ scale: 0, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            exit={{ scale: 0, opacity: 0 }}
             transition={{ type: "spring", stiffness: 260, damping: 20 }}
-            className="fixed bottom-[90px] right-3 z-[9999] w-14 h-14 rounded-full shadow-xl flex items-center justify-center hover:scale-105 active:scale-95 transition-transform bg-brand-blue"
+            className="fixed bottom-[90px] right-3 z-[9999] w-14 h-14 rounded-full shadow-2xl flex items-center justify-center hover:scale-110 active:scale-95 transition-all bg-brand-blue border-2 border-white/20"
             aria-label="Prendre rendez-vous sur Doctolib"
           >
             <img

@@ -19,9 +19,18 @@ export const SEO: React.FC<SEOProps> = ({
 }) => {
   const siteName = "Batignolles Kiné Sport";
   const fullTitle = `${title} | ${siteName}`;
-  const ogImage = image
-    ? (image.startsWith('http') ? image : `${SITE_URL}${image}`)
-    : OG_IMAGE_URL;
+
+  // Process image URL
+  let ogImage = OG_IMAGE_URL;
+  if (image) {
+    if (image.startsWith('http')) {
+      ogImage = image;
+    } else {
+      // Use Cloudinary for local paths
+      const publicId = image.replace(/^\//, '').replace(/^images\//, '').replace(/\.(jpg|jpeg|png|webp)$/i, '');
+      ogImage = `https://res.cloudinary.com/dsesaneyj/image/upload/f_jpg,q_auto,w_1200,h_630,c_fill/${publicId}`;
+    }
+  }
 
   // Auto-generate canonical URL if not provided
   const canonicalUrl = canonical || (typeof window !== 'undefined' ? `${SITE_URL}${window.location.pathname}` : SITE_URL);
@@ -40,6 +49,11 @@ export const SEO: React.FC<SEOProps> = ({
       <meta property="og:title" content={fullTitle} />
       <meta property="og:description" content={description} />
       <meta property="og:image" content={ogImage} />
+      <meta property="og:image:secure_url" content={ogImage} />
+      <meta property="og:image:type" content="image/jpeg" />
+      <meta property="og:image:width" content="1200" />
+      <meta property="og:image:height" content="630" />
+      <meta property="og:image:alt" content={title} />
       <meta property="og:site_name" content={siteName} />
       <meta property="og:locale" content="fr_FR" />
 
