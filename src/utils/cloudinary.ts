@@ -3,6 +3,7 @@ import { fill, scale, crop, thumbnail } from '@cloudinary/url-gen/actions/resize
 import { auto } from '@cloudinary/url-gen/qualifiers/quality';
 import { auto as autoFormat } from '@cloudinary/url-gen/qualifiers/format';
 import { autoGravity } from '@cloudinary/url-gen/qualifiers/gravity';
+import { blur as blurEffect } from '@cloudinary/url-gen/actions/effect';
 
 // Initialize Cloudinary instance
 const cloudName = import.meta.env.VITE_CLOUDINARY_CLOUD_NAME;
@@ -28,6 +29,7 @@ export interface CloudinaryImageOptions {
     format?: 'auto' | 'webp' | 'jpg' | 'png';
     gravity?: string;
     resizeMode?: 'fill' | 'scale' | 'crop' | 'thumb';
+    blur?: boolean | number;
 }
 
 /**
@@ -46,7 +48,8 @@ export const getCloudinaryImage = (
         quality = 'auto',
         format = 'auto',
         gravity,
-        resizeMode = 'fill'
+        resizeMode = 'fill',
+        blur
     } = options;
 
     const image = cld.image(publicId);
@@ -74,6 +77,12 @@ export const getCloudinaryImage = (
     }
 
     image.resize(resizeAction);
+
+    // Apply blur effect if requested
+    if (blur) {
+        const blurStrength = typeof blur === 'number' ? blur : 1000;
+        image.effect(blurEffect(blurStrength));
+    }
 
     // Apply quality optimization
     if (quality === 'auto') {
