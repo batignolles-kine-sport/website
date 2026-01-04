@@ -53,6 +53,18 @@ export default defineConfig(({ mode }) => {
         '@styles': path.resolve(__dirname, './src/styles'),
         '@assets': path.resolve(__dirname, './src/assets'),
       }
+    },
+    build: {
+      rollupOptions: {
+        output: {
+          manualChunks: {
+            vendor: ['react', 'react-dom', 'react-router-dom', 'react-helmet-async'],
+            framer: ['framer-motion'],
+            cloudinary: ['@cloudinary/react', '@cloudinary/url-gen'],
+            ui: ['lucide-react']
+          }
+        }
+      }
     }
   };
 });
