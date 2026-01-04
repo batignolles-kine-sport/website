@@ -58,6 +58,7 @@ export const ServicePage: React.FC<ServicePageProps> = ({ serviceId }) => {
               <img
                 src={service.image}
                 alt={service.title}
+                loading="lazy"
                 className="rounded-lg shadow-lg w-full h-auto object-cover aspect-video"
               />
             </div>

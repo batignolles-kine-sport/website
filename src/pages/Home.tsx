@@ -18,6 +18,7 @@ import { FAQ_ENTRIES } from '../utils/constants';
 import { ChevronDown } from 'lucide-react';
 import { getCloudinaryImage, pathToPublicId, isCloudinaryImage } from '../utils/cloudinary';
 import { Footer } from '../components/layout/Footer';
+import { LazyFramer } from '../components/LazyFramer';
 
 const formatGoogleRating = (value: number) => {
     if (Number.isInteger(value)) return String(value);
@@ -109,11 +110,11 @@ export const Home: React.FC = () => {
                                         <source
                                             media="(max-width: 768px)"
                                             srcSet={`${getCloudinaryImage(pathToPublicId(HERO_IMAGE_URL), {
-                                                width: 800,
+                                                width: 600,
                                                 aspectRatio: '9:16',
                                                 gravity: 'auto'
                                             }).toURL()} 1x, ${getCloudinaryImage(pathToPublicId(HERO_IMAGE_URL), {
-                                                width: 1600,
+                                                width: 1200,
                                                 aspectRatio: '9:16',
                                                 gravity: 'auto'
                                             }).toURL()} 2x`}
@@ -228,14 +229,18 @@ export const Home: React.FC = () => {
                 {/* 1. PARCOURS DE SOIN */}
                 <section id="parcours" className="snap-start min-h-screen flex items-center py-10 md:py-20" style={{ scrollMarginTop: '-5vh' }}>
                     <div className="max-w-content w-full mx-auto px-4 md:px-6">
-                        <MethodSection />
+                        <LazyFramer rootMargin="200px" minHeight="500px">
+                            <MethodSection />
+                        </LazyFramer>
                     </div>
                 </section>
 
                 {/* 2. EXPERTISE */}
                 <section id="expertise" className="snap-start min-h-screen flex items-center py-10 md:py-20" style={{ scrollMarginTop: '-5vh' }}>
                     <div className="max-w-content w-full mx-auto px-4 md:px-6">
-                        <ExpertiseSection />
+                        <LazyFramer rootMargin="200px" minHeight="500px">
+                            <ExpertiseSection />
+                        </LazyFramer>
                     </div>
                 </section>
 

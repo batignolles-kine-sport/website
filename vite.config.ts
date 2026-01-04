@@ -55,7 +55,18 @@ export default defineConfig(({ mode }) => {
       }
     },
     build: {
+      minify: 'terser',
+      terserOptions: {
+        compress: {
+          drop_console: true, // Remove console.logs in production
+          passes: 2 // More aggressive compression
+        }
+      },
       rollupOptions: {
+        treeshake: {
+          preset: 'recommended',
+          moduleSideEffects: false
+        },
         output: {
           manualChunks: {
             vendor: ['react', 'react-dom', 'react-router-dom', 'react-helmet-async'],

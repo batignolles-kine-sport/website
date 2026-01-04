@@ -74,6 +74,7 @@ export const Team: React.FC = () => {
                   <img
                     src={member.image}
                     alt={member.name}
+                    loading="lazy"
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-60" />
@@ -106,7 +107,7 @@ export const Team: React.FC = () => {
                     rel="noopener noreferrer"
                     className="w-full mt-4 flex items-center justify-center gap-2 py-3 rounded-xl bg-[#107ACA] text-white font-semibold text-sm transition-transform active:scale-95 hover:bg-[#0e69ad]"
                   >
-                    <img src="/images/doctolib/D_White.svg" alt="" className="w-5 h-5" />
+                    <img src="/images/doctolib/D_White.svg" alt="" loading="lazy" className="w-5 h-5" />
                     Prendre rendez-vous
                   </a>
                 </div>
