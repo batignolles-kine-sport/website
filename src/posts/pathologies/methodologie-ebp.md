@@ -1,9 +1,11 @@
 ---
 title: "Notre méthodologie EBP : La science au service de votre guérison"
-category: "Cabinet"
+category: "Prévention"
+sport: "Méthodologie"
+sport: "Méthodologie"
 type: "Méthodologie"
 readTime: "5 min"
-image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80&w=1200"
+image: "/images/blog/methodologie-ebp.jpg"
 excerpt: "Comprendre l'Evidence Based Practice (EBP) : comment nous combinons recherche scientifique, expertise clinique et vos objectifs pour des soins optimaux."
 publishedAt: "10 Décembre 2025"
 ---

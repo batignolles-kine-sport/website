@@ -3,7 +3,7 @@ title: "Fasciite plantaire : En finir avec la douleur sous le talon"
 category: "Pied"
 type: "Membre Inférieur"
 readTime: "5 min"
-image: "https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&q=80&w=1200"
+image: "/images/blog/fasciite-plantaire.jpg"
 excerpt: "Cette douleur vive au réveil sous le pied vous gâche la vie ? Découvrez les solutions pour soigner votre aponévrose."
 publishedAt: "03 Décembre 2024"
 ---

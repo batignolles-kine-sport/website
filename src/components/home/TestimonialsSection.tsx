@@ -146,23 +146,23 @@ export const TestimonialsSection: React.FC = () => {
     // Using inline style for carousel transform for performance
 
     return (
-        <section>
+        <div className="w-full">
             {/* Header / Standard Section Layout */}
-            <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
+            <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
                 <div className="max-w-2xl">
                     <SectionHeader
                         badge="AVIS PATIENTS"
                         title={
                             <>
                                 Ce que disent<br />
-                                <span className="bg-gradient-to-r from-[#3b402e] to-[#6d744d] bg-clip-text text-transparent">nos patients.</span>
+                                <span className="text-gradient-primary">nos patients.</span>
                             </>
                         }
-                        className="mb-6"
+                        className="mb-4"
                     />
 
                     {/* Integrated Google Rating Badge */}
-                    <div className="flex items-center gap-4 bg-white/50 backdrop-blur-md p-3 rounded-lg border border-slate-100 shadow-sm w-fit">
+                    <div className="flex items-center gap-3 bg-white/50 backdrop-blur-md p-2.5 rounded-lg border border-slate-100 shadow-sm w-fit">
                         <div className="flex gap-0.5 text-rating text-sm">★★★★★</div>
                         <span className="font-semibold text-slate-900">{formatGoogleRating(reviewsData.note_moyenne)}/5</span>
                         <span className="text-slate-500 text-sm">sur {reviewsData.nombre_avis_total} avis Google</span>
@@ -174,7 +174,7 @@ export const TestimonialsSection: React.FC = () => {
                     <button
                         onClick={movePrev}
                         disabled={currentIndex === 0}
-                        className="w-12 h-12 rounded-full border border-gray-200 flex items-center justify-center hover:bg-gray-50 hover:scale-105 hover:border-primary transition-all disabled:opacity-20 disabled:cursor-default bg-white"
+                        className="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center hover:bg-gray-50 hover:scale-105 hover:border-primary transition-all disabled:opacity-20 disabled:cursor-default bg-white"
                         aria-label="Précédent"
                     >
                         <svg className="w-6 h-6 text-slate-800" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7"></path></svg>
@@ -182,7 +182,7 @@ export const TestimonialsSection: React.FC = () => {
                     <button
                         onClick={moveNext}
                         disabled={currentIndex >= maxIndex}
-                        className="w-12 h-12 rounded-full border border-gray-200 flex items-center justify-center hover:bg-gray-50 hover:scale-105 hover:border-primary transition-all disabled:opacity-20 disabled:cursor-default bg-white"
+                        className="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center hover:bg-gray-50 hover:scale-105 hover:border-primary transition-all disabled:opacity-20 disabled:cursor-default bg-white"
                         aria-label="Suivant"
                     >
                         <svg className="w-6 h-6 text-slate-800" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path></svg>
@@ -191,24 +191,24 @@ export const TestimonialsSection: React.FC = () => {
             </div>
 
             {/* Carousel Container */}
-            <div className="carousel-container relative">
+            <div className="carousel-container relative overflow-hidden">
                 {/* Fade overlay on right */}
                 <div className="absolute top-0 right-0 bottom-0 w-[40px] md:w-[60px] bg-gradient-to-l from-gray-200/0 via-gray-200/50 to-transparent z-10 pointer-events-none hidden"></div>
                 {/* Note: Background fade disabled or adjusted if needed, usually transparent needed if bg is gray */}
 
                 <div
                     ref={trackRef}
-                    className="flex transition-transform duration-700 ease-[cubic-bezier(0.4,0,0.2,1)] gap-5 py-4 touch-pan-y"
+                    className="flex transition-transform duration-700 ease-[cubic-bezier(0.4,0,0.2,1)] gap-4 py-3 touch-pan-y"
                     style={{ transform: `translateX(-${translateX}px)` }}
                     onTouchStart={onTouchStart}
                     onTouchMove={onTouchMove}
                     onTouchEnd={onTouchEnd}
                 >
                     {REVIEWS.map((review) => (
-                        <div key={review.id} className="flex-none w-full md:w-[calc(50%-0.625rem)] lg:w-[calc(33.333%-0.833rem)]">
+                        <div key={review.id} className="flex-none w-[85vw] md:w-[calc(50%-0.625rem)] lg:w-[calc(33.333%-0.833rem)]">
                             {review.type === 'ai-summary' && (
-                                <div className="p-8 rounded-3xl shadow-sm h-full flex flex-col transition-all duration-400 ease-[cubic-bezier(0.4,0,0.2,1)] hover:-translate-y-1 hover:shadow-hover border border-blue-100 bg-gradient-to-br from-white to-blue-50/50">
-                                    <div className="flex justify-between items-start mb-6">
+                                <div className="p-5 rounded-3xl shadow-sm h-full flex flex-col transition-all duration-400 ease-[cubic-bezier(0.4,0,0.2,1)] hover:-translate-y-1 hover:shadow-hover border border-blue-100 bg-gradient-to-br from-white to-blue-50/50">
+                                    <div className="flex justify-between items-start mb-4">
                                         <div className="space-y-1">
                                             <div className="flex items-center gap-2">
                                                 <div className="w-2 h-2 rounded-full bg-blue-600 animate-pulse"></div>
@@ -217,10 +217,15 @@ export const TestimonialsSection: React.FC = () => {
                                             <p className="text-[11px] font-medium text-blue-400">Analyse consolidée de la fiche BKS</p>
                                         </div>
                                         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Google_%22G%22_logo.svg/1200px-Google_%22G%22_logo.svg.png"
-                                            className="w-6 h-6 object-contain" alt="Google Logo" />
+                                            alt="Google Logo"
+                                            className="w-6 h-6 object-contain"
+                                            loading="lazy"
+                                            width="24"
+                                            height="24"
+                                        />
                                     </div>
 
-                                    <p className="text-sm text-slate-800 leading-relaxed mb-8 italic flex-grow">
+                                    <p className="text-sm text-slate-800 leading-relaxed mb-6 italic flex-grow">
                                         {review.summary}
                                     </p>
 
@@ -235,9 +240,9 @@ export const TestimonialsSection: React.FC = () => {
                             )}
 
                             {review.type === 'google' && (
-                                <div className="border border-white/50 bg-white p-8 rounded-3xl h-full flex flex-col transition-all duration-400 ease-[cubic-bezier(0.4,0,0.2,1)] hover:-translate-y-1 hover:shadow-hover hover:border-gray-200">
-                                    <div className="flex items-center gap-4 mb-6">
-                                        <div className={`w-12 h-12 rounded-full ${review.colorBg} flex items-center justify-center ${review.colorText} font-bold text-sm`}>
+                                <div className="border border-white/50 bg-white p-5 rounded-3xl h-full flex flex-col transition-all duration-400 ease-[cubic-bezier(0.4,0,0.2,1)] hover:-translate-y-1 hover:shadow-hover hover:border-gray-200">
+                                    <div className="flex items-center gap-3 mb-4">
+                                        <div className={`w-10 h-10 rounded-full ${review.colorBg} flex items-center justify-center ${review.colorText} font-bold text-xs`}>
                                             {review.initial}
                                         </div>
                                         <div>
@@ -253,12 +258,16 @@ export const TestimonialsSection: React.FC = () => {
                             )}
 
                             {review.type === 'cta' && (
-                                <a href="https://maps.app.goo.gl/evjY9vsdNhuFT4pb9" target="_blank" rel="noopener noreferrer" className="p-8 rounded-3xl flex flex-col items-center justify-center text-center group h-full border border-white/50 bg-white transition-all duration-400 ease-[cubic-bezier(0.4,0,0.2,1)] hover:-translate-y-1 hover:shadow-hover hover:border-gray-200">
+                                <a href="https://maps.app.goo.gl/evjY9vsdNhuFT4pb9" target="_blank" rel="noopener noreferrer" className="p-5 rounded-3xl flex flex-col items-center justify-center text-center group h-full border border-white/50 bg-white transition-all duration-400 ease-[cubic-bezier(0.4,0,0.2,1)] hover:-translate-y-1 hover:shadow-hover hover:border-gray-200">
                                     <img src="https://www.hedinghamhounds.co.uk/wp-content/uploads/2019/12/google-reviews-logo.png"
                                         alt="Google Reviews Logo"
-                                        className="h-16 w-auto object-contain mb-6 group-hover:scale-105 transition-transform" />
+                                        className="h-14 w-auto object-contain mb-4 group-hover:scale-105 transition-transform"
+                                        loading="lazy"
+                                        width="100"
+                                        height="32"
+                                    />
                                     <h4 className="text-lg font-bold mb-2 text-slate-900">Rejoignez-nous</h4>
-                                    <p className="text-sm text-slate-400 mb-8 px-4">Découvrez pourquoi nos patients nous recommandent.</p>
+                                    <p className="text-sm text-slate-400 mb-6 px-4">Découvrez pourquoi nos patients nous recommandent.</p>
                                     <span className="inline-flex items-center gap-2 px-8 py-3 bg-slate-900 text-white rounded-full text-xs font-bold hover:bg-black transition-colors">
                                         Ouvrir Google Maps
                                         <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
@@ -266,28 +275,29 @@ export const TestimonialsSection: React.FC = () => {
                                 </a>
                             )}
                         </div>
-                    ))}
+                    ))
+                    }
                 </div>
             </div>
 
             {/* Mobile Navigation */}
-            <div className="flex md:hidden items-center justify-between mt-8">
+            <div className="flex md:hidden items-center justify-between mt-6">
                 <span className="text-xs font-bold text-text-muted uppercase tracking-widest pl-1">Faites défiler</span>
                 <div className="flex gap-4">
                     <button
                         onClick={movePrev}
-                        className="w-12 h-12 rounded-full border border-slate-200 flex items-center justify-center active:scale-90 transition-all text-slate-800 bg-white"
+                        className="w-10 h-10 rounded-full border border-slate-200 flex items-center justify-center active:scale-90 transition-all text-slate-800 bg-white"
                     >
                         <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M15 19l-7-7 7-7"></path></svg>
                     </button>
                     <button
                         onClick={moveNext}
-                        className="w-12 h-12 rounded-full border border-slate-200 flex items-center justify-center active:scale-90 transition-all text-slate-800 bg-white"
+                        className="w-10 h-10 rounded-full border border-slate-200 flex items-center justify-center active:scale-90 transition-all text-slate-800 bg-white"
                     >
                         <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M9 5l7 7-7 7"></path></svg>
                     </button>
                 </div>
             </div>
-        </section>
+        </div>
     );
 };

@@ -3,7 +3,7 @@ title: "Commotion cérébrale : Le danger invisible du rugby et des sports de co
 category: "Tête"
 type: "Traumatologie"
 readTime: "6 min"
-image: "https://images.unsplash.com/photo-1552674605-46d526776b3f?auto=format&fit=crop&q=80&w=1200"
+image: "/images/blog/commotion-cerebrale-rugby.jpg"
 excerpt: "Maux de tête, vertiges après un choc ? La commotion cérébrale doit être prise très au sérieux. Voici le protocole de retour au jeu."
 publishedAt: "09 Décembre 2024"
 ---

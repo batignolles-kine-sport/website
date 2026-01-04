@@ -3,7 +3,7 @@ title: "Périostite tibiale : la douleur qui brûle le tibia"
 category: "Jambe"
 type: "Membre Inférieur"
 readTime: "5 min"
-image: "https://images.unsplash.com/photo-1552674605-469523170d9e?auto=format&fit=crop&q=80&w=1200"
+image: "/images/blog/periostite-tibiale.jpg"
 excerpt: "Une douleur sur le devant du tibia à chaque foulée ? La périostite est fréquente chez les débutants. Voici comment l'éteindre."
 publishedAt: "05 Septembre 2025"
 ---

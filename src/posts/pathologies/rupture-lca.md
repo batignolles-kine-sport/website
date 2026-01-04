@@ -3,7 +3,7 @@ title: "Rupture du ligament croisé antérieur (LCA) : le guide complet de la r�
 category: "Genou"
 type: "Membre Inférieur"
 readTime: "7 min"
-image: "https://images.unsplash.com/photo-1599447292180-45fd84092ef0?auto=format&fit=crop&q=80&w=1200"
+image: "/images/blog/rupture-lca.jpg"
 excerpt: "De la blessure au retour sur le terrain : découvrez les étapes clés pour récupérer un genou stable et performant, avec ou sans opération."
 publishedAt: "12 Octobre 2024"
 ---

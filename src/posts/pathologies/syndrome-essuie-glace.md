@@ -3,7 +3,7 @@ title: "Syndrome de l'essuie-glace (TFL) : le cauchemar du runner"
 category: "Genou"
 type: "Membre Inférieur"
 readTime: "6 min"
-image: "https://images.unsplash.com/photo-1552674605-469523170d9e?auto=format&fit=crop&q=80&w=1200"
+image: "/images/blog/syndrome-essuie-glace.jpg"
 excerpt: "Une douleur vive sur le côté externe du genou après 20 minutes de course ? C'est probablement le TFL. Voici comment s'en débarrasser."
 publishedAt: "18 Juillet 2025"
 ---

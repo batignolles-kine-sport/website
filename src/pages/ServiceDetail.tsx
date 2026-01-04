@@ -7,12 +7,12 @@ import { SERVICES, DOCTOLIB_URL } from '../utils/constants';
 
 export const ServiceDetail: React.FC = () => {
   const { id } = useParams<{ id: string }>();
-  
+
   // Find the service data based on the ID extracted from the URL path logic in App.tsx
   // We need to map the URL structure to the Service ID.
   // Actually, let's look up by comparing the path suffix or just ID if passed via props. 
   // To keep it simple, I'll pass the service object directly from App.tsx using a wrapper.
-  
+
   // But wait, App.tsx structure below uses this component as a generic.
   // Let's iterate SERVICES to find which one matches the current window location or pass it via prop.
   // Better: The caller in App.tsx will pass the `serviceId` prop.
@@ -33,13 +33,13 @@ export const ServicePage: React.FC<ServicePageProps> = ({ serviceId }) => {
 
   return (
     <>
-      <SEO 
-        title={`${service.title} - Batignolles Kiné Sport`} 
-        description={service.shortDescription} 
+      <SEO
+        title={`${service.title} - Batignolles Kiné Sport`}
+        description={service.shortDescription}
       />
 
       {/* Header */}
-      <div className="bg-surface py-16 md:py-24">
+      <div className="py-16 md:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row items-center gap-12">
             <div className="flex-1">
@@ -55,9 +55,9 @@ export const ServicePage: React.FC<ServicePageProps> = ({ serviceId }) => {
               </Button>
             </div>
             <div className="flex-1 w-full">
-              <img 
-                src={service.image} 
-                alt={service.title} 
+              <img
+                src={service.image}
+                alt={service.title}
                 className="rounded-lg shadow-lg w-full h-auto object-cover aspect-video"
               />
             </div>
@@ -66,9 +66,9 @@ export const ServicePage: React.FC<ServicePageProps> = ({ serviceId }) => {
       </div>
 
       {/* Features & Content */}
-      <section className="py-16 bg-white">
+      <section className="py-16 md:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
             {/* Left Column: Features */}
             <div>
@@ -86,11 +86,11 @@ export const ServicePage: React.FC<ServicePageProps> = ({ serviceId }) => {
                 <div className="mt-10">
                   <h3 className="text-xl font-bold text-text-main mb-4">Pour qui ?</h3>
                   <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                     {service.indications.map((ind, idx) => (
-                       <li key={idx} className="bg-surface px-3 py-2 rounded text-sm text-text-main border-l-4 border-primary">
-                         {ind}
-                       </li>
-                     ))}
+                    {service.indications.map((ind, idx) => (
+                      <li key={idx} className="bg-white px-3 py-2 rounded text-sm text-text-main border-l-4 border-primary">
+                        {ind}
+                      </li>
+                    ))}
                   </ul>
                 </div>
               )}
@@ -116,7 +116,7 @@ export const ServicePage: React.FC<ServicePageProps> = ({ serviceId }) => {
                   </div>
                 </>
               ) : (
-                <div className="bg-surface p-8 rounded-lg">
+                <div className="bg-white p-8 rounded-lg">
                   <h3 className="text-xl font-bold mb-4">Besoin d'informations ?</h3>
                   <p className="text-text-muted mb-6">
                     Chaque patient est différent. Lors de votre première séance, nous établirons un bilan complet pour définir les objectifs de votre traitement.
@@ -137,7 +137,7 @@ export const ServicePage: React.FC<ServicePageProps> = ({ serviceId }) => {
       </section>
 
       {/* FAQ Placeholder */}
-      <section className="py-16 bg-surface">
+      <section className="py-16 md:py-20">
         <div className="max-w-3xl mx-auto px-4">
           <h2 className="text-2xl font-bold text-center mb-8">Questions Fréquentes</h2>
           <div className="space-y-4">

@@ -3,7 +3,7 @@ title: "Conflit sous-acromial : quand l'épaule coince"
 category: "Épaule"
 type: "Membre Supérieur"
 readTime: "5 min"
-image: "https://images.unsplash.com/photo-1599447421405-0c325d26d77e?auto=format&fit=crop&q=80&w=1200"
+image: "/images/blog/epaule-conflit.jpg"
 excerpt: "Douleur en levant le bras ou en dormant dessus ? Le conflit sous-acromial est fréquent. Découvrez comment libérer votre épaule."
 publishedAt: "28 Août 2025"
 ---

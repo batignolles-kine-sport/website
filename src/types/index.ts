@@ -35,6 +35,7 @@ export interface BlogPost {
   excerpt: string;
   content: string; // Simplified for this demo
   category: string;
+  type?: string; // Zone corporelle (ex: Membre Inférieur, Tronc, etc.)
   date: string;
   author: string;
   image: string;

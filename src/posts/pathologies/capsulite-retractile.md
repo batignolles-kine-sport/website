@@ -3,7 +3,7 @@ title: "Capsulite rétractile : Quand l'épaule se gèle"
 category: "Épaule"
 type: "Membre Supérieur"
 readTime: "6 min"
-image: "https://images.unsplash.com/photo-1574680096145-d05b474e2155?auto=format&fit=crop&q=80&w=1200"
+image: "/images/blog/capsulite-retractile.jpg"
 excerpt: "L'épaule gelée est une pathologie longue et frustrante. Comprendre ses phases pour mieux gérer la récupération."
 publishedAt: "28 Novembre 2024"
 ---

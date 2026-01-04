@@ -3,7 +3,7 @@ title: "Tendinopathie rotulienne : Le genou du sauteur"
 category: "Genou"
 type: "Membre Inférieur"
 readTime: "5 min"
-image: "https://images.unsplash.com/photo-1599058945522-28d584b6f0ff?auto=format&fit=crop&q=80&w=1200"
+image: "/images/blog/tendinopathie-rotulienne.jpg"
 excerpt: "Douleur sous la rotule ? C'est peut-être une tendinopathie rotulienne. Apprenez à gérer la charge pour guérir vos tendons."
 publishedAt: "20 Novembre 2024"
 ---

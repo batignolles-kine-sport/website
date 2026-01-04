@@ -22,9 +22,9 @@ export const Navbar: React.FC<NavbarProps> = ({
     return (
         <>
             {/* --- FLOATING NAVBAR WRAPPER --- */}
-            <div className={`fixed top-0 left-0 w-full z-50 flex justify-center items-start pointer-events-none transition-transform duration-300 h-20 md:h-28 ${!isNavVisible && !mobileMenuOpen ? '-translate-y-full md:translate-y-0' : 'translate-y-0'}`}>
+            <div className={`fixed top-0 left-0 w-full z-50 flex justify-center items-start pointer-events-none transition-transform duration-300 h-14 md:h-16 ${!isNavVisible && !mobileMenuOpen ? '-translate-y-full md:translate-y-0' : 'translate-y-0'}`}>
                 <motion.header
-                    className="pointer-events-auto flex items-center justify-between w-full max-w-[1400px]"
+                    className="pointer-events-auto flex items-center justify-between w-full max-w-[1400px] px-4 md:px-6 py-2 md:py-3"
                     initial="top"
                     animate={isScrolled ? "scrolled" : "top"}
                     variants={{
@@ -36,26 +36,18 @@ export const Navbar: React.FC<NavbarProps> = ({
                             borderRadius: "0px",
                             border: "1px solid rgba(255, 255, 255, 0)",
                             boxShadow: "none",
-                            paddingLeft: "1.5rem",
-                            paddingRight: "1.5rem",
-                            paddingTop: isDesktop ? "1.75rem" : "1rem",
-                            paddingBottom: isDesktop ? "1.75rem" : "1rem",
                         },
                         scrolled: {
                             width: "95%",
                             marginTop: isDesktop ? "20px" : "10px",
-                            backgroundColor: "rgba(255, 255, 255, 0.70)",
+                            backgroundColor: "rgba(255, 255, 255, 0.90)", // increased opacity
                             backdropFilter: "blur(20px) saturate(180%)",
                             borderRadius: "9999px",
                             border: "1px solid rgba(255, 255, 255, 0.5)",
                             boxShadow: "0 8px 32px rgba(0, 0, 0, 0.12), 0 2px 8px rgba(0, 0, 0, 0.04)",
-                            paddingLeft: "2rem",
-                            paddingRight: "2rem",
-                            paddingTop: "0.75rem",
-                            paddingBottom: "0.75rem",
                         }
                     }}
-                    transition={{ duration: 0.3, ease: "easeOut" }}
+                    transition={{ duration: 0.2, ease: "easeInOut" }} // Faster, more responsive
                 >
                     <div className="w-full flex justify-between items-center">
                         {/* Logo */}
@@ -69,8 +61,8 @@ export const Navbar: React.FC<NavbarProps> = ({
                                 alt="BKS - Batignolles Kiné Sport"
                                 className="w-auto object-contain"
                                 variants={{
-                                    top: { height: isDesktop ? "3.5rem" : "3rem" },
-                                    scrolled: { height: "2.5rem" }
+                                    top: { height: isDesktop ? "2rem" : "1.75rem" },
+                                    scrolled: { height: "1.75rem" }
                                 }}
                                 transition={{ duration: 0.3, ease: "easeOut" }}
                                 onError={(e) => {
@@ -80,7 +72,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                         </Link>
 
                         {/* Menu Desktop */}
-                        <nav className="hidden lg:flex items-center gap-8">
+                        <nav className="hidden lg:flex items-center gap-6">
                             <NavLink
                                 to="/"
                                 className={({ isActive }) =>
@@ -96,7 +88,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                                     `text-sm font-medium transition-colors relative group ${isActive ? 'text-primary' : 'text-slate-600 hover:text-primary'}`
                                 }
                             >
-                                Pathologies
+                                Pratiques
                                 <span className="absolute -bottom-1 left-0 w-0 h-px bg-primary transition-all duration-300 group-hover:w-full" />
                             </NavLink>
                             <NavLink
@@ -146,7 +138,7 @@ export const Navbar: React.FC<NavbarProps> = ({
 
             {/* Mobile Menu Fullscreen */}
             {mobileMenuOpen && (
-                <div className="fixed inset-0 bg-surface z-40 flex flex-col items-center justify-center gap-8 animate-fade-in lg:hidden px-6 text-center">
+                <div className="fixed inset-0 bg-white/95 backdrop-blur-md z-40 flex flex-col items-center justify-center gap-8 animate-fade-in lg:hidden px-6 text-center">
                     <NavLink
                         to="/"
                         className={({ isActive }) =>
@@ -164,7 +156,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                         }
                         onClick={() => setMobileMenuOpen(false)}
                     >
-                        Pathologies
+                        Pratiques
                         <span className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-0 h-px bg-primary transition-all duration-300 group-hover:w-16" />
                     </NavLink>
                     <NavLink

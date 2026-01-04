@@ -27,9 +27,9 @@ export const MethodSection: React.FC = () => {
     };
 
     return (
-        <section id="parcours" className="w-full">
+        <div className="w-full">
             {/* Header de Section */}
-            <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
+            <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
                 <motion.div
                     initial="hidden"
                     whileInView="visible"
@@ -42,7 +42,7 @@ export const MethodSection: React.FC = () => {
                         title={
                             <>
                                 Votre parcours<br />
-                                <span className="bg-gradient-to-r from-[#3b402e] to-[#6d744d] bg-clip-text text-transparent">de soin.</span>
+                                <span className="text-gradient-primary">de soin.</span>
                             </>
                         }
                         description="Un protocole clair et structuré. Du diagnostic initial jusqu'au retour terrain, chaque étape est validée."
@@ -53,7 +53,7 @@ export const MethodSection: React.FC = () => {
             {/* L'Accordéon */}
             <motion.div
                 id="accordion-container"
-                className="flex flex-col md:flex-row gap-6 md:gap-4 items-center md:items-center min-h-0 md:min-h-[460px]"
+                className="flex flex-col md:flex-row gap-4 md:gap-3 items-center md:items-center min-h-0 md:min-h-[280px] overflow-hidden"
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true, margin: "-100px" }}
@@ -70,7 +70,7 @@ export const MethodSection: React.FC = () => {
                     />
                 ))}
             </motion.div>
-        </section>
+        </div>
     );
 };
 
@@ -91,7 +91,7 @@ const MethodCard = ({
         {
             title: "Bilan diagnostic",
             desc: "Analyse approfondie : tests de mobilité, force et contrôle moteur. Nous identifions la cause racine de la pathologie.",
-            img: "/images/landing/method1.png",
+            img: "/images/landing/method1.webp",
             iconMobile: "M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2",
             iconDesktop: "M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2",
             label: "Diagnostic"
@@ -99,7 +99,7 @@ const MethodCard = ({
         {
             title: "Protocole de soins",
             desc: "Séances de thérapie manuelle et exercices correctifs. Programmation individualisée adaptée à vos contraintes.",
-            img: "/images/landing/method2.png",
+            img: "/images/landing/method2.webp",
             iconMobile: "M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z",
             iconDesktop: "M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z",
             label: "Soins"
@@ -107,7 +107,7 @@ const MethodCard = ({
         {
             title: "Réathlétisation",
             desc: "Validation des critères de retour au sport. Gestion de la charge et prévention des récidives.",
-            img: "/images/landing/method3.png",
+            img: "/images/landing/method3.webp",
             iconMobile: "M13 10V3L4 14h7v7l9-11h-7z",
             iconDesktop: "M13 10V3L4 14h7v7l9-11h-7z",
             label: "Sport"
@@ -149,11 +149,11 @@ const MethodCard = ({
                 relative flex flex-col rounded-2xl transition-all duration-500
                 ${isDesktop
                     ? (isActive
-                        ? 'h-[440px] shadow-2xl border border-transparent bg-slate-900 text-white z-10 overflow-hidden'
-                        : `h-[440px] cursor-pointer shadow-inner border hover:border-border-subtle z-0 bg-slate-50 ${colors.border} overflow-hidden`)
+                        ? 'h-[340px] shadow-2xl border border-transparent bg-slate-900 text-white z-10 overflow-hidden'
+                        : `h-[340px] cursor-pointer shadow-inner border hover:border-border-subtle z-0 bg-slate-50 ${colors.border} overflow-hidden`)
                     : 'w-full h-auto bg-white border-slate-100 px-8 pb-8 pt-16 shadow-soft overflow-visible'
                 }
-                ${isDesktop && isActive ? 'p-0' : 'p-8'}
+                ${isDesktop && isActive ? 'p-0' : 'p-6'}
             `}
             style={{
                 flex: isDesktop ? (isActive ? 7 : 1) : 'none' // Increased expansion ratio
@@ -190,8 +190,8 @@ const MethodCard = ({
                     absolute font-black z-20 pointer-events-none transition-all duration-500 select-none
                     ${isDesktop
                         ? (isActive
-                            ? 'top-8 left-8 text-[5rem] leading-[0.8] opacity-10 text-white'
-                            : `top-[-10px] left-[-10px] text-[10rem] leading-none opacity-[0.05] text-[#3b402e]`) // Larger, green-tinted #
+                            ? 'top-6 left-6 text-[4rem] leading-[0.8] opacity-10 text-white'
+                            : `top-[-10px] left-[-10px] text-[8rem] leading-none opacity-[0.05] text-[#3b402e]`)
                         : 'top-4 right-2 text-[3.25rem] text-slate-100 opacity-100'
                     }
                 `}
@@ -212,7 +212,7 @@ const MethodCard = ({
             <div className={`flex flex-col flex-1 relative z-20 ${isDesktop && !isActive ? 'hidden' : 'flex'}`}>
                 {/* Using AnimatePresence for content fade in/out on desktop switch */}
                 <motion.div
-                    className={`flex flex-col gap-6 mt-auto ${isDesktop && isActive ? 'p-12 w-full max-w-2xl' : ''}`}
+                    className={`flex flex-col gap-4 mt-auto ${isDesktop && isActive ? 'p-8 w-full max-w-xl' : ''}`}
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.1, duration: 0.4 }}
@@ -220,7 +220,7 @@ const MethodCard = ({
                     <div className="flex flex-row items-center gap-4 md:justify-between w-full">
                         <motion.h3
                             layout="position"
-                            className={`font-bold tracking-tight ${isDesktop && isActive ? 'text-5xl md:text-7xl text-white mb-2' : 'text-2xl md:text-2xl text-slate-900'}`} // Increased Title Size
+                            className={`font-bold tracking-tight ${isDesktop && isActive ? 'text-3xl md:text-4xl text-white mb-1' : 'text-xl md:text-xl text-slate-900'}`}
                         >
                             {data.title}
                         </motion.h3>
@@ -228,7 +228,7 @@ const MethodCard = ({
 
                     <motion.p
                         layout="position"
-                        className={`font-light leading-relaxed ${isDesktop && isActive ? 'text-2xl text-white/80' : 'text-sm text-slate-500'}`} // Increased Desc Size
+                        className={`font-light leading-relaxed ${isDesktop && isActive ? 'text-base md:text-lg text-white/80' : 'text-sm text-slate-500'}`}
                     >
                         {data.desc}
                     </motion.p>

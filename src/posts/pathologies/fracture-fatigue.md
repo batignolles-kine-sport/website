@@ -3,7 +3,7 @@ title: "Fracture de fatigue : Quand l'os dit stop"
 category: "Os"
 type: "Traumatologie"
 readTime: "5 min"
-image: "https://images.unsplash.com/photo-1599058945522-28d584b6f0ff?auto=format&fit=crop&q=80&w=1200"
+image: "/images/blog/fracture-fatigue.jpg"
 excerpt: "Une douleur osseuse qui persiste à l'effort ? Attention à la fracture de fatigue. Le repos relatif est la clé de la guérison."
 publishedAt: "02 Décembre 2024"
 ---

@@ -10,7 +10,7 @@ export const Legal: React.FC = () => {
         description="Mentions légales, politique de confidentialité et conditions d'utilisation du site Batignolles Kiné Sport."
       />
 
-      <div className="bg-white">
+      <div>
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20">
           <div className="mb-12">
             <p className="text-[11px] uppercase tracking-[0.24em] text-slate-400 mb-3">Mentions légales</p>

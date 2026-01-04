@@ -3,7 +3,7 @@ title: "Douleur de hanche chez le sportif : Le conflit fémoro-acétabulaire"
 category: "Hanche"
 type: "Membre Inférieur"
 readTime: "5 min"
-image: "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&q=80&w=1200"
+image: "/images/blog/douleur-hanche-sportif.jpg"
 excerpt: "Une douleur dans le pli de l'aine en faisant du sport ? C'est peut-être un conflit de hanche. Explications et solutions."
 publishedAt: "08 Décembre 2024"
 ---

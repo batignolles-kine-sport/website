@@ -3,7 +3,7 @@ title: "Épicondylite (Tennis Elbow) : Pas que pour les tennismen"
 category: "Coude"
 type: "Membre Supérieur"
 readTime: "5 min"
-image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=1200"
+image: "/images/blog/epicondylite-coude.jpg"
 excerpt: "Douleur sur le côté du coude ? Le travail sur ordinateur ou le bricolage sont souvent responsables de cette tendinopathie."
 publishedAt: "01 Décembre 2024"
 ---

@@ -10,16 +10,22 @@ export default {
           DEFAULT: '#1A4D2E', // Deep Forest
           dark: '#102E1B', // Obsidian Green
         },
+        accent: {
+          slate: '#64748b',        // Slate - neutre élégant
+          teal: '#0d9488',         // Teal sombre - médical moderne
+          'slate-dark': '#334155', // Slate dark - contraste premium
+        },
         surface: {
           DEFAULT: '#F8F9FA', // Off-White
           card: '#FFFFFF', // Pure White
+          subtle: '#fafbfc', // Gris très clair pour contraste
         },
         text: {
           main: '#111111', // Carbon
           muted: '#666666', // Graphite
         },
         border: {
-          subtle: 'rgba(26, 77, 46, 0.08)',
+          subtle: 'rgba(59, 64, 46, 0.08)', // #3b402e with opacity
         },
         // Legacy/Utility mappings if needed ensuring we don't break everything instantly but guiding towards new system
         warning: '#D32F2F', // Red for errors/warnings
@@ -53,7 +59,7 @@ export default {
         card: '400px',
       },
       minHeight: {
-        map: '420px',
+        map: '360px',
       },
       keyframes: {
         fadeIn: {
@@ -66,5 +72,16 @@ export default {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    function ({ addUtilities }) {
+      addUtilities({
+        '.text-gradient-primary': {
+          'background-image': 'linear-gradient(to right, #3b402e, #6d744d)',
+          '-webkit-background-clip': 'text',
+          'background-clip': 'text',
+          'color': 'transparent',
+        }
+      })
+    }
+  ],
 };

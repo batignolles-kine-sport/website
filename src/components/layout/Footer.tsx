@@ -6,13 +6,44 @@ import { ADDRESS, DOCTOLIB_URL, EMAIL, INSTAGRAM_URL, PHONE, GOOGLE_MAPS_URL } f
 
 export const Footer: React.FC = () => {
     return (
-        <footer className="bg-gray-50 border-t border-slate-200 pb-12 pt-16 relative overflow-hidden">
+        <footer className="bg-gray-50 border-t border-slate-200 pb-6 pt-10 relative overflow-hidden">
             <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary/50 to-transparent opacity-30" />
 
             <div className="max-w-[1400px] mx-auto px-6 relative z-10">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+                {/* Trust Signals */}
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12 border-b border-slate-200 pb-8">
+                    <div className="flex items-center justify-center md:justify-start gap-3">
+                        <div className="w-10 h-10 rounded-full bg-green-50 flex items-center justify-center text-green-600">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                        </div>
+                        <div>
+                            <p className="font-semibold text-slate-800 text-sm">Conventionné</p>
+                            <p className="text-xs text-slate-500">Secteur 1</p>
+                        </div>
+                    </div>
+                    <div className="flex items-center justify-center md:justify-start gap-3">
+                        <div className="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center text-blue-600">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 10v6M2 10v6M12 22l-4-9 1.5-12h5l1.5 12-4 9z"></path></svg>
+                        </div>
+                        <div>
+                            <p className="font-semibold text-slate-800 text-sm">Diplômés d'État</p>
+                            <p className="text-xs text-slate-500">Expertise certifiée</p>
+                        </div>
+                    </div>
+                    <div className="flex items-center justify-center md:justify-start gap-3">
+                        <div className="w-10 h-10 rounded-full bg-purple-50 flex items-center justify-center text-purple-600">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                        </div>
+                        <div>
+                            <p className="font-semibold text-slate-800 text-sm">Plateau Technique</p>
+                            <p className="text-xs text-slate-500">Équipement complet</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-10">
                     {/* Brand */}
-                    <div className="space-y-6">
+                    <div className="space-y-4">
                         <Link to="/" className="block">
                             <span className="text-2xl font-bold text-slate-800 tracking-tight">Batignolles Kiné Sport</span>
                         </Link>
@@ -122,7 +153,7 @@ export const Footer: React.FC = () => {
                 </div>
 
                 {/* Divider */}
-                <div className="border-t border-slate-200 pt-8">
+                <div className="border-t border-slate-200 pt-6">
                     <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
                         <p className="text-sm text-slate-600">
                             &copy; {new Date().getFullYear()} Batignolles Kiné Sport. Tous droits réservés.

@@ -46,10 +46,17 @@
     
     <!-- Theme Color -->
     <meta name="theme-color" content="#0D2918" />
+
+    <!-- DNS Prefetch for external resources -->
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://www.doctolib.fr">
+    <link rel="dns-prefetch" href="https://cdn.openwidget.com">
     
-    <!-- Google Fonts: Inter -->
+    <!-- Google Fonts Optimized Loading -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" href="https://fonts.gstatic.com/s/inter/v13/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hiA.woff2" as="font" type="font/woff2" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Basic JSON-LD for SSR/crawlers -->
@@ -109,71 +116,32 @@
       min-height: 100vh;
     }
 
+    /* CSS critique minimal pour éviter layout shift */
     .header-navbar {
       height: var(--navbar-height);
       max-height: var(--navbar-height);
     }
-
-    .navbar-logo {
-      height: 100%;
-      gap: 0.25rem;
-    }
-
-    .navbar-logo img {
-      height: 70%;
-      max-height: calc(var(--navbar-height) * 0.7);
-      width: auto;
-    }
-
-    .header-navbar nav {
-      gap: 1.25rem;
-      font-size: 0.95rem;
-      letter-spacing: 0.02em;
-    }
-
-    .header-navbar nav button,
-    .header-navbar nav a {
-      white-space: nowrap;
-    }
-
-    .section-card {
-      background-color: rgba(255, 255, 255, 0.92);
-      border-radius: 24px;
-      box-shadow: 0 20px 45px rgba(13, 41, 24, 0.12);
-      padding: 3rem;
-      border: 1px solid rgba(255, 255, 255, 0.6);
-    }
-
-    .section-card.no-border {
-      border-color: transparent;
-    }
-
-    .hero-image-wrapper {
-      max-width: 440px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .hero-image-wrapper .card {
-      padding: 0;
-    }
-  </style>
+    </style>
 </head>
   <body>
     <noscript>
       <h1>Batignolles Kiné Sport</h1>
       <h2>Cabinet de kinésithérapie du sport à Paris 17e</h2>
       <p>Rééducation du coureur & Performance. Protocoles de réathlétisation, thérapie manuelle et bilan complet au cœur des Batignolles.</p>
+      <ul>
+        <li><a href="/services/kine-sport">Kiné du Sport</a></li>
+        <li><a href="/services/reeducation-post-traumatique">Rééducation Post-Opératoire</a></li>
+        <li><a href="/blog">Blog & Conseils</a></li>
+        <li><a href="/contact">Prendre Rendez-vous</a></li>
+      </ul>
       <p><strong>Adresse:</strong> 6 rue des Batignolles, 75017 Paris</p>
       <p><strong>Téléphone:</strong> 09 62 43 49 61</p>
-      <p><strong>Email:</strong> contact@batignolleskinesport.fr</p>
-      <p>Ce site nécessite JavaScript pour fonctionner correctement.</p>
     </noscript>
     <div id="root"></div>
     <script type="module" src="/src/index.tsx"></script>
 
-    <!-- Start of OpenWidget (www.openwidget.com) code -->
-    <script>
+    <!-- Start of OpenWidget (www.openwidget.com) code - LOADED ASYNC to update performance -->
+    <script async>
       window.__ow = window.__ow || {};
       window.__ow.organizationId = "3b13b121-285d-4042-9aaf-f655721415e8";
       window.__ow.integration_name = "manual_settings";

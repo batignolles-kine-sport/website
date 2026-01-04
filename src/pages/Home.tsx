@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 
 import { motion, useScroll, useTransform } from 'framer-motion';
+import { AdvancedImage, responsive, placeholder } from '@cloudinary/react';
 import { SEO } from '../components/layout/SEO';
 import { Button } from '../components/ui/Button';
 import { DOCTOLIB_URL, HERO_IMAGE_URL } from '../utils/constants'; // Removing unused import if any
@@ -13,6 +14,9 @@ import { FaqSection } from '../components/home/FaqSection';
 import { AccessSection } from '../components/home/AccessSection';
 import { FAQ_ENTRIES } from '../utils/constants';
 import { staggerContainer, fadeUp, pulseLoop } from '../utils/animations';
+import { ChevronDown } from 'lucide-react';
+import { getResponsiveImage, pathToPublicId, isCloudinaryImage } from '../utils/cloudinary';
+import { Footer } from '../components/layout/Footer';
 
 const formatGoogleRating = (value: number) => {
     if (Number.isInteger(value)) return String(value);
@@ -26,37 +30,62 @@ export const Home: React.FC = () => {
     const faqSchema = generateFAQSchema(FAQ_ENTRIES);
     const localBusinessSchema = generateLocalBusinessSchema();
 
-    const { scrollY } = useScroll();
-    const heroScale = useTransform(scrollY, [0, 500], [1, 0.95]);
-    const heroOpacity = useTransform(scrollY, [0, 300], [1, 0.8]);
+    // Detect mobile to disable parallax
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        const checkMobile = () => setIsMobile(window.innerWidth < 768);
+        checkMobile();
+        window.addEventListener('resize', checkMobile);
+        return () => window.removeEventListener('resize', checkMobile);
+    }, []);
+
+    const containerRef = React.useRef<HTMLDivElement>(null);
+    const { scrollY } = useScroll({ container: containerRef });
+    // Disable parallax on mobile for performance
+    const heroScale = isMobile ? 1 : useTransform(scrollY, [0, 500], [1, 0.95]);
+    const heroOpacity = isMobile ? 1 : useTransform(scrollY, [0, 300], [1, 0.8]);
 
     return (
         <>
             <SEO
-                title="Batignolles Kiné Sport | Rééducation, Post-Op, Réathlétisation - Paris 17"
-                description={metaDescription}
+                title="Kiné du Sport Paris 17 | Batignolles Kiné Sport"
+                description="Cabinet de kinésithérapie du sport à Paris 17 Batignolles. Spécialistes course, post-op, périnée. Bilan précis, protocole validé, retour terrain encadré."
             />
             <Helmet>
                 <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
                 <script type="application/ld+json">{JSON.stringify(localBusinessSchema)}</script>
             </Helmet>
 
-            <div className="min-h-screen text-slate-900 overflow-hidden">
+            <div ref={containerRef} className="h-screen text-slate-900 overflow-y-scroll snap-y snap-mandatory">
                 {/* Hero w/ Parallax Scale */}
-                <section className="px-3 sm:px-4 md:px-6 pb-3 md:pb-4 flex flex-col">
+                <section id="hero" className="px-3 sm:px-4 md:px-6 flex flex-col snap-start snap-always min-h-screen">
                     <motion.div
                         style={{ scale: heroScale, opacity: heroOpacity }}
-                        className="relative w-full h-[calc(100dvh-5rem-0.75rem)] md:h-[calc(100vh-7rem-1.5rem)] min-h-[500px] rounded-3xl md:rounded-4xl lg:rounded-5xl overflow-hidden shadow-2xl shadow-slate-200 bg-slate-900 group border border-white"
+                        className="relative w-full h-[90dvh] md:h-[90vh] min-h-[450px] max-h-[95vh] rounded-3xl md:rounded-4xl lg:rounded-5xl overflow-hidden shadow-2xl shadow-slate-200 bg-slate-900 group border border-white"
                     >
                         <div className="absolute inset-0">
-                            <img
-                                src={HERO_IMAGE_URL}
-                                alt="Cabinet de kinésithérapie du sport à Paris 17 Batignolles"
-                                className="w-full h-full object-cover opacity-90 transition-transform duration-[20s] group-hover:scale-105"
-                                onError={(e) => {
-                                    e.currentTarget.src = '/images/hero/hero.jpeg';
-                                }}
-                            />
+                            {isCloudinaryImage(HERO_IMAGE_URL) ? (
+                                <AdvancedImage
+                                    cldImg={getResponsiveImage(pathToPublicId(HERO_IMAGE_URL), '16:9')}
+                                    plugins={[responsive({ steps: [640, 768, 1024, 1600, 1920] }), placeholder('blur')]}
+                                    className="w-full h-full object-cover opacity-90 transition-transform duration-[20s] group-hover:scale-105"
+                                    alt="Cabinet de kinésithérapie du sport à Paris 17 Batignolles"
+                                />
+                            ) : (
+                                <img
+                                    src={HERO_IMAGE_URL}
+                                    alt="Cabinet de kinésithérapie du sport à Paris 17 Batignolles"
+                                    className="w-full h-full object-cover opacity-90 transition-transform duration-[20s] group-hover:scale-105"
+                                    fetchPriority="high"
+                                    loading="eager"
+                                    width="1920"
+                                    height="1080"
+                                    onError={(e) => {
+                                        e.currentTarget.src = '/images/hero/hero.jpeg';
+                                    }}
+                                />
+                            )}
                             <div className="absolute inset-0 bg-linear-to-t from-black/90 via-black/30 to-black/10" />
                         </div>
 
@@ -66,7 +95,7 @@ export const Home: React.FC = () => {
                                     initial="hidden"
                                     animate="visible"
                                     variants={staggerContainer}
-                                    className="max-w-content mx-auto w-full"
+                                    className="max-w-content mx-auto w-full px-4 md:px-6"
                                 >
                                     <motion.div
                                         variants={fadeUp}
@@ -78,7 +107,7 @@ export const Home: React.FC = () => {
 
                                     <motion.h1
                                         variants={fadeUp}
-                                        className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold text-white tracking-tight leading-[0.95] mb-6 drop-shadow-lg"
+                                        className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight leading-[0.95] mb-4 drop-shadow-lg"
                                     >
                                         Reprendre le sport
                                         <br />
@@ -106,35 +135,75 @@ export const Home: React.FC = () => {
                                         </motion.div>
                                     </div>
                                 </motion.div>
+
+                                {/* Scroll Indicator */}
+                                <motion.a
+                                    href="#parcours"
+                                    initial={{ opacity: 0, y: -10 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ delay: 1.2, duration: 0.6 }}
+                                    className="absolute bottom-6 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-2 text-white/60 hover:text-white transition-colors cursor-pointer z-20"
+                                    onClick={(e) => {
+                                        e.preventDefault();
+                                        if (containerRef.current) {
+                                            containerRef.current.scrollBy({
+                                                top: window.innerHeight,
+                                                behavior: 'smooth'
+                                            });
+                                        }
+                                    }}
+                                >
+                                    <span className="text-xs uppercase tracking-widest font-medium">Découvrir</span>
+                                    <motion.div
+                                        animate={{ y: [0, 6, 0] }}
+                                        transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
+                                    >
+                                        <ChevronDown size={20} />
+                                    </motion.div>
+                                </motion.a>
                             </div>
                         </div>
                     </motion.div>
                 </section>
 
-                <div className="max-w-content w-full mx-auto px-4 md:px-6 space-y-12 md:space-y-32 pt-8 pb-8 md:pt-24 md:pb-24">
+                {/* 1. PARCOURS DE SOIN */}
+                <section id="parcours" className="snap-start min-h-screen flex items-center py-16 md:py-20" style={{ scrollMarginTop: '-5vh' }}>
+                    <div className="max-w-content w-full mx-auto px-4 md:px-6">
+                        <MethodSection />
+                    </div>
+                </section>
 
-                    {/* 1. PARCOURS DE SOIN (New Method Section) */}
-                    <MethodSection />
+                {/* 2. EXPERTISE */}
+                <section id="expertise" className="snap-start min-h-screen flex items-center py-16 md:py-20" style={{ scrollMarginTop: '-5vh' }}>
+                    <div className="max-w-content w-full mx-auto px-4 md:px-6">
+                        <ExpertiseSection />
+                    </div>
+                </section>
 
-                    {/* 2. PROFILS (Bento Grid Animated) */}
-                    {/* 2. EXPERTISE (Now separated) */}
-                    <ExpertiseSection />
+                {/* 3. AVIS PATIENTS */}
+                <section id="avis" className="snap-start min-h-screen flex items-center py-16 md:py-20" style={{ scrollMarginTop: '-5vh' }}>
+                    <div className="max-w-content w-full mx-auto px-4 md:px-6">
+                        <TestimonialsSection />
+                    </div>
+                </section>
 
-                    {/* 3. AVIS PATIENTS (Staggered) */}
-                    {/* 3. AVIS PATIENTS (New Testimonials Section) */}
-                    <TestimonialsSection />
+                {/* 4. FAQ */}
+                <section id="faq" className="snap-start min-h-screen flex items-center py-16 md:py-20" style={{ scrollMarginTop: '-5vh' }}>
+                    <div className="max-w-content w-full mx-auto px-4 md:px-6">
+                        <FaqSection />
+                    </div>
+                </section>
 
-                    {/* 4. FAQ (Fluid Accordion) */}
-                    {/* 4. FAQ (Fluid Accordion) */}
-                    {/* 4. FAQ (Fluid Accordion) */}
-                    {/* 4. FAQ (Fluid Accordion) */}
-                    <FaqSection />
-                </div>
+                {/* 5. ACCÈS */}
+                <section id="acces" className="snap-start min-h-screen flex items-center py-16 md:py-20" style={{ scrollMarginTop: '-5vh' }}>
+                    <div className="max-w-content w-full mx-auto px-4 md:px-6">
+                        <AccessSection />
+                    </div>
+                </section>
 
-                <div className="max-w-content w-full mx-auto px-4 md:px-6 pt-8 pb-8 md:pt-24 md:pb-24">
-                    {/* Accès */}
-                    {/* Accès */}
-                    <AccessSection />
+                {/* Footer integrated in scroll snap */}
+                <div className="snap-start">
+                    <Footer />
                 </div>
             </div>
         </>

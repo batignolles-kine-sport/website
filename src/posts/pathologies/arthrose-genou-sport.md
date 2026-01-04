@@ -3,7 +3,7 @@ title: "Arthrose du genou et sport : faut-il vraiment arrêter ?"
 category: "Genou"
 type: "Membre Inférieur"
 readTime: "6 min"
-image: "https://images.unsplash.com/photo-1552674605-469523170d9e?auto=format&fit=crop&q=80&w=1200"
+image: "/images/blog/arthrose-genou-sport.jpg"
 excerpt: "On vous a diagnostiqué de l'arthrose et on vous a dit d'arrêter de courir ? C'est peut-être une erreur. Le mouvement est le meilleur médicament."
 publishedAt: "15 Septembre 2025"
 ---

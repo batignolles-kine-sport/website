@@ -10,17 +10,19 @@ interface SEOProps {
   image?: string;
 }
 
-export const SEO: React.FC<SEOProps> = ({ 
-  title, 
-  description, 
+export const SEO: React.FC<SEOProps> = ({
+  title,
+  description,
   canonical,
   type = 'website',
-  image 
+  image
 }) => {
   const siteName = "Batignolles Kiné Sport";
   const fullTitle = `${title} | ${siteName}`;
-  const ogImage = image || OG_IMAGE_URL;
-  
+  const ogImage = image
+    ? (image.startsWith('http') ? image : `${SITE_URL}${image}`)
+    : OG_IMAGE_URL;
+
   // Auto-generate canonical URL if not provided
   const canonicalUrl = canonical || (typeof window !== 'undefined' ? `${SITE_URL}${window.location.pathname}` : SITE_URL);
 
@@ -28,10 +30,10 @@ export const SEO: React.FC<SEOProps> = ({
     <Helmet>
       <title>{fullTitle}</title>
       <meta name="description" content={description} />
-      
+
       {/* Canonical URL */}
       <link rel="canonical" href={canonicalUrl} />
-      
+
       {/* Open Graph / Facebook */}
       <meta property="og:type" content={type} />
       <meta property="og:url" content={canonicalUrl} />
@@ -40,7 +42,7 @@ export const SEO: React.FC<SEOProps> = ({
       <meta property="og:image" content={ogImage} />
       <meta property="og:site_name" content={siteName} />
       <meta property="og:locale" content="fr_FR" />
-      
+
       {/* Twitter Cards */}
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:url" content={canonicalUrl} />

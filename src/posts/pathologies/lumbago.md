@@ -3,7 +3,7 @@ title: "Lumbago : que faire quand le dos se bloque ?"
 category: "Dos"
 type: "Rachis"
 readTime: "5 min"
-image: "https://images.unsplash.com/photo-1530026405186-ed1f139313f8?auto=format&fit=crop&q=80&w=1200"
+image: "/images/blog/lumbago.jpg"
 excerpt: "Le dos bloqué, impossible de bouger... Le lumbago est effrayant mais souvent bénin. Voici les bons réflexes pour soulager la douleur rapidement."
 publishedAt: "05 Juillet 2025"
 ---

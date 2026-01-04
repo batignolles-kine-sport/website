@@ -3,7 +3,7 @@ title: "Rééducation abdominale post-partum : retrouver un ventre fonctionnel"
 category: "Post-partum"
 type: "Kiné de la femme"
 readTime: "6 min"
-image: "https://images.unsplash.com/photo-1518310383802-640c2de311b2?auto=format&fit=crop&q=80&w=1200"
+image: "/images/blog/reeducation-abdominale.jpg"
 excerpt: "Après l'accouchement, la rééducation abdominale est une étape clé. Découvrez comment renforcer votre sangle abdominale en toute sécurité."
 publishedAt: "22 Juin 2025"
 ---

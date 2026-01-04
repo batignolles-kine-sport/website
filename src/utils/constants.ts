@@ -85,8 +85,8 @@ export const TEAM: TeamMember[] = [
     title: "Kiné du Sport",
     specialties: ["Traumatologie", "Réathlétisation", "Suivi Sportif"],
     sport: "Gymnastique",
-    bio: "Spécialisée dans la prise en charge des sportifs, Léa vous accompagne de la blessure jusqu'au retour sur le terrain.",
-    image: "https://picsum.photos/seed/lea/400/400", // Placeholder
+    bio: "Léa HLUBINA, kinésithérapeute du sport et ancienne gymnaste. Elle accompagne les gymnastes et sportifs artistiques dans la gestion des hyperlaxités, des douleurs de dos et la prévention des blessures spécifiques.",
+    image: "https://media.doctolib.com/image/upload/q_auto:eco,f_auto,w_400,h_400,c_fill,g_face/gttfrwkqsjxtiiwi4ts5.jpg",
     doctolibUrl: "https://www.doctolib.fr/masseur-kinesitherapeute/paris/lea-hlubina"
   },
   {
@@ -95,8 +95,8 @@ export const TEAM: TeamMember[] = [
     title: "Kiné du Sport",
     specialties: ["Thérapie Manuelle", "Prévention", "Renforcement"],
     sport: "Course à pied",
-    bio: "Justine met son expertise en kinésithérapie du sport au service de votre récupération et de votre performance.",
-    image: "https://picsum.photos/seed/justine/400/400", // Placeholder
+    bio: "Justine JOSSE, kinésithérapeute spécialisée course à pied. Diplômée d'État, elle accompagne les coureurs de tous niveaux dans leur prévention et récupération, du 10km au marathon.",
+    image: "https://media.doctolib.com/image/upload/q_auto:eco,f_auto,w_400,h_400,c_fill,g_face/r8etpv9h9jp9r6nbfien.jpg",
     doctolibUrl: "https://www.doctolib.fr/masseur-kinesitherapeute/paris/justine-josse"
   },
   {
@@ -105,8 +105,8 @@ export const TEAM: TeamMember[] = [
     title: "Kiné du Sport",
     specialties: ["Rééducation Fonctionnelle", "Posturologie"],
     sport: "Danse",
-    bio: "Leonie assure une prise en charge globale et personnalisée pour vous aider à retrouver votre mobilité.",
-    image: "https://picsum.photos/seed/leonie/400/400", // Placeholder
+    bio: "Leonie TATON, experte en rééducation de la danseuse. Elle intervient sur les pathologies de la cheville, du pied et assure un suivi spécifique pour le retour à la scène.",
+    image: "https://media.doctolib.com/image/upload/q_auto:eco,f_auto,w_400,h_400,c_fill,g_face/lzfstgptflq1nznaftfr.jpg",
     doctolibUrl: "https://www.doctolib.fr/masseur-kinesitherapeute/paris/leonie-taton-paris"
   },
   {
@@ -115,8 +115,8 @@ export const TEAM: TeamMember[] = [
     title: "Kiné du Sport",
     specialties: ["Traumatologie", "Réathlétisation", "Rugby"],
     sport: "Rugby",
-    bio: "Martin est kinésithérapeute spécialisé en traumatologie du sport, avec une expertise particulière dans la prise en charge des rugbymen.",
-    image: "https://picsum.photos/seed/martin/400/400",
+    bio: "Martin BONNIN, kinésithérapeute du sport spécialisé rugby et sports de contact. Expertise en traumatologie (épaule, genou), commotions et retour au terrain après blessure.",
+    image: "https://media.doctolib.com/image/upload/q_auto:eco,f_auto,w_400,h_400,c_fill,g_face/default_doctor_avatar_m.jpg",
     doctolibUrl: "https://www.doctolib.fr/masseur-kinesitherapeute/bordeaux/martin-bonnin?pid=practice-696351#pricing"
   }
 ];
@@ -126,7 +126,8 @@ export const BLOG_POSTS: BlogPost[] = [
     slug: "entorse-cheville",
     title: "Entorse Cheville : Rééducation & Retour au Sport",
     excerpt: "L'entorse de cheville est la blessure la plus fréquente chez le sportif. Découvrez les étapes clés d'une rééducation réussie pour éviter les récidives.",
-    category: "Rééducation",
+    category: "Cheville",
+    type: "Membre Inférieur",
     date: "12 Déc 2024",
     author: "Léa Hlubina",
     image: "https://picsum.photos/id/1059/800/400",
@@ -136,7 +137,8 @@ export const BLOG_POSTS: BlogPost[] = [
     slug: "mal-de-dos-complet",
     title: "Guide Complet : Douleur Lombaire",
     excerpt: "Lumbago, sciatique, hernie... Comprendre les causes de votre mal de dos et comment la kinésithérapie active peut vous soulager durablement.",
-    category: "Santé",
+    category: "Dos",
+    type: "Tronc",
     date: "05 Déc 2024",
     author: "Justine Josse",
     image: "https://picsum.photos/id/1083/800/400",
@@ -147,6 +149,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "Kiné du Coureur : Prévention & Traitement",
     excerpt: "Syndrome de l'essuie-glace, périostite, tendinite d'Achille. Analyse de la foulée et renforcement spécifique pour courir sans douleur.",
     category: "Sport",
+    type: "Membre Inférieur",
     date: "28 Nov 2024",
     author: "Leonie Taton",
     image: "https://picsum.photos/id/1075/800/400",
@@ -164,19 +167,20 @@ export const REVIEWS: Review[] = [
     answer: 'Oui, nous accueillons de nouveaux patients chaque semaine, avec des créneaux dédiés au premier bilan.',
   },
   {
-    question: 'Êtes-vous conventionnés ?',
-    answer: 'Oui, nous sommes conventionnés. Une partie des séances est remboursée par l’Assurance Maladie et votre mutuelle selon votre situation.',
+    question: 'Êtes-vous conventionnés et quel est le prix d\'une séance ?',
+    answer: 'Oui, nous sommes conventionnés secteur 1. Le tarif sécurité sociale est appliqué (16,13€ à 20,43€ selon l\'acte). La part complémentaire est remboursée par votre mutuelle. Nous pratiquons un dépassement d\'honoraires pour l\'analyse et le suivi personnalisé.',
   },
   {
-    question: 'Spécifique coureur : que proposez-vous ?',
-    answer: 'Bilan course, prise en charge des blessures (tendinopathies, périostite, entorses…), programmation de retour à la course, préparation à une échéance (10 km, semi, marathon).',
+    question: 'Où se trouve le cabinet exactement ?',
+    answer: 'Nous sommes situés au 6 rue des Batignolles, 75017 Paris. Métros proches : Rome (L2) et Brochant (L13). Le cabinet est en rez-de-chaussée, accessible facilement.',
   },
   {
     question: 'Accompagnez-vous le post-partum ?',
-    answer: 'Oui, rééducation périnéale, accompagnement global, et plan de reprise sportive progressif, en lien avec vos contraintes familiales et professionnelles.',
+    answer: 'Oui, nous avons une expertise spécifique en kinésithérapie de la femme : rééducation périnéale, abdominale et reprise sportive sécurisée (post-partum, diastasis, douleurs pelviennes).',
   },
   {
-    question: 'Délais et prise de rendez-vous ?',
-    answer: 'Les rendez-vous se prennent directement sur Doctolib. Nous faisons notre maximum pour proposer des créneaux rapides, notamment en cas de post-op ou de blessure aiguë.',
+    question: 'Vous êtes coureur ? Que proposez-vous ?',
+    answer: 'Nous sommes spécialisés en course à pied : analyse de la foulée sur tapis, prévention des blessures, plans d\'entraînement et soins spécifiques (périostite, syndrome de l\'essuie-glace, TFL).',
   },
 ];
+

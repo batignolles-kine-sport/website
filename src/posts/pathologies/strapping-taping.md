@@ -1,9 +1,11 @@
 ---
 title: "Strapping vs K-Taping : Quelle différence et quand les utiliser ?"
-category: "Soins"
+category: "Prévention"
+sport: "Technique"
+sport: "Technique"
 type: "Technique"
 readTime: "5 min"
-image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80&w=1200"
+image: "/images/blog/strapping-taping.jpg"
 excerpt: "Bandes rigides ou bandes colorées élastiques ? On vous explique tout sur ces contentions pour choisir la bonne méthode."
 publishedAt: "09 Décembre 2024"
 ---

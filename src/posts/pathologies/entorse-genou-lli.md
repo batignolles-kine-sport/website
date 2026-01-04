@@ -3,7 +3,7 @@ title: "Entorse du genou (LLI) : Moins grave que le croisé, mais à ne pas nég
 category: "Genou"
 type: "Membre Inférieur"
 readTime: "5 min"
-image: "https://images.unsplash.com/photo-1552674605-46d526776b3f?auto=format&fit=crop&q=80&w=1200"
+image: "/images/blog/entorse-genou-lli.jpg"
 excerpt: "L'atteinte du Ligament Latéral Interne est fréquente au ski ou au foot. Voici comment bien cicatriser pour éviter les séquelles."
 publishedAt: "25 Novembre 2024"
 ---

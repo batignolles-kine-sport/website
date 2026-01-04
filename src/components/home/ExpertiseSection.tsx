@@ -38,8 +38,8 @@ const EXPERTISE_DATA = [
     {
         id: 'prevention',
         badge: 'BLOG',
-        title: 'Prévention & spécifique',
-        lead: 'Prévention des récidives, plancher pelvien, reprise progressive.',
+        title: 'Prévention & kiné de la femme',
+        lead: 'Prévention des récidives. Plancher pelvien et reprise post-partum sécurisée.',
         tags: ['PRÉVENTION', 'PLANCHER PELVIEN', 'CHARGE PROGRESSIVE'],
         highlights: [
             'Prévention et contrôle moteur',
@@ -68,10 +68,10 @@ export const ExpertiseSection: React.FC = () => {
     };
 
     return (
-        <section className="w-full relative py-12">
+        <div className="w-full relative">
             <div className="w-full">
                 {/* Header */}
-                <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
+                <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
                     <motion.div
                         className="flex-1"
                         initial="hidden"
@@ -83,8 +83,8 @@ export const ExpertiseSection: React.FC = () => {
                             badge="EXPERTISE"
                             title={
                                 <>
-                                    Motifs de<br />
-                                    <span className="bg-gradient-to-r from-[#3b402e] to-[#6d744d] bg-clip-text text-transparent">consultation.</span>
+                                    Nos domaines<br />
+                                    <span className="text-gradient-primary">d'expertise.</span>
                                 </>
                             }
                             description="Notre prise en charge s'adresse aux sportifs de tous niveaux, du post-opératoire à la recherche de performance."
@@ -94,7 +94,7 @@ export const ExpertiseSection: React.FC = () => {
 
                 {/* Grid */}
                 <motion.div
-                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4"
                     initial="hidden"
                     whileInView="visible"
                     viewport={{ once: true, margin: "-100px" }}
@@ -108,7 +108,7 @@ export const ExpertiseSection: React.FC = () => {
                                 variants={cardVariants}
                                 whileHover={{ y: -5 }}
                                 className={`
-                                    relative p-8 rounded-3xl flex flex-col h-full transition-all duration-300
+                                    relative p-5 rounded-3xl flex flex-col h-full transition-all duration-300
                                     ${isMain
                                         ? 'bg-[#193F2B] text-white shadow-xl'
                                         : 'bg-white text-slate-900 border border-slate-100 shadow-card hover:shadow-lg'
@@ -116,8 +116,8 @@ export const ExpertiseSection: React.FC = () => {
                                 `}
                             >
                                 {/* Header: Title + Blog Badge */}
-                                <div className="flex justify-between items-start mb-6">
-                                    <h3 className={`text-2xl font-bold leading-tight ${isMain ? 'text-white' : 'text-slate-900'}`}>
+                                <div className="flex justify-between items-start mb-4">
+                                    <h3 className={`text-lg font-bold leading-tight ${isMain ? 'text-white' : 'text-slate-900'}`}>
                                         {card.title}
                                     </h3>
                                     <span className={`text-[10px] font-bold tracking-widest uppercase mt-1 ${isMain ? 'text-white/60' : 'text-primary'}`}>
@@ -126,12 +126,12 @@ export const ExpertiseSection: React.FC = () => {
                                 </div>
 
                                 {/* Description */}
-                                <p className={`text-sm font-light leading-relaxed mb-6 ${isMain ? 'text-white/80' : 'text-slate-500'}`}>
+                                <p className={`text-xs font-light leading-relaxed mb-4 ${isMain ? 'text-white/80' : 'text-slate-500'}`}>
                                     {card.lead}
                                 </p>
 
                                 {/* Tags */}
-                                <div className="flex flex-wrap gap-2 mb-8">
+                                <div className="flex flex-wrap gap-1.5 mb-6">
                                     {card.tags.map(tag => (
                                         <span
                                             key={tag}
@@ -151,7 +151,7 @@ export const ExpertiseSection: React.FC = () => {
                                 {/* Highlights */}
                                 <ul className="space-y-3 mt-auto">
                                     {card.highlights.map((item, i) => (
-                                        <li key={i} className={`flex items-start gap-3 text-sm font-medium ${isMain ? 'text-white' : 'text-slate-600'}`}>
+                                        <li key={i} className={`flex items-start gap-3 text-xs font-medium ${isMain ? 'text-white' : 'text-slate-600'}`}>
                                             <div className={`mt-1.5 w-1.5 h-1.5 rounded-full shrink-0 ${isMain ? 'bg-white/80' : 'bg-primary'}`} />
                                             <span>{item}</span>
                                         </li>
@@ -162,7 +162,7 @@ export const ExpertiseSection: React.FC = () => {
                     })}
                 </motion.div>
 
-                <div className="mt-16 flex justify-center">
+                <div className="mt-8 flex justify-center">
                     <a
                         href="/pathologies"
                         className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white border border-slate-200 text-slate-900 hover:border-primary hover:text-primary transition-colors duration-300 shadow-sm font-medium"
@@ -171,7 +171,7 @@ export const ExpertiseSection: React.FC = () => {
                     </a>
                 </div>
             </div>
-        </section>
+        </div>
     );
 };
 

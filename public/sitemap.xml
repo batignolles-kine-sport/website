@@ -7,211 +7,601 @@
         xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <url>
     <loc>https://batignolles-kine-sport.fr</loc>
-    <lastmod>2026-01-01</lastmod>
+    <lastmod>2026-01-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1</priority>
   </url>
   <url>
     <loc>https://batignolles-kine-sport.fr/blog</loc>
-    <lastmod>2026-01-01</lastmod>
+    <lastmod>2026-01-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://batignolles-kine-sport.fr/contact</loc>
-    <lastmod>2026-01-01</lastmod>
+    <lastmod>2026-01-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://batignolles-kine-sport.fr/equipe</loc>
-    <lastmod>2026-01-01</lastmod>
+    <lastmod>2026-01-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://batignolles-kine-sport.fr/mentions-legales</loc>
-    <lastmod>2026-01-01</lastmod>
+    <lastmod>2026-01-04</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://batignolles-kine-sport.fr/blog/allaitement-posture</loc>
+    <lastmod>2026-01-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://batignolles-kine-sport.fr/blog/analyse-foulee-coureur</loc>
+    <lastmod>2026-01-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://batignolles-kine-sport.fr/blog/arthrose-genou-sport</loc>
-    <lastmod>2025-12-28</lastmod>
+    <lastmod>2026-01-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://batignolles-kine-sport.fr/blog/blessure-doigt-escalade-poulie</loc>
+    <lastmod>2026-01-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://batignolles-kine-sport.fr/blog/blessures-padel-debutant</loc>
+    <lastmod>2026-01-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://batignolles-kine-sport.fr/blog/canal-carpien-tennis</loc>
+    <lastmod>2026-01-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://batignolles-kine-sport.fr/blog/capsulite-retractile</loc>
-    <lastmod>2025-12-28</lastmod>
+    <lastmod>2026-01-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://batignolles-kine-sport.fr/blog/cervicalgie-teletravail</loc>
-    <lastmod>2025-12-28</lastmod>
+    <lastmod>2026-01-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://batignolles-kine-sport.fr/blog/cesarienne-reeducation</loc>
+    <lastmod>2026-01-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://batignolles-kine-sport.fr/blog/changements-direction-football</loc>
+    <lastmod>2026-01-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://batignolles-kine-sport.fr/blog/cheville-instable-boxeur</loc>
+    <lastmod>2026-01-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://batignolles-kine-sport.fr/blog/claquage-mollet-tennis</loc>
+    <lastmod>2026-01-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://batignolles-kine-sport.fr/blog/commotion-cerebrale-rugby</loc>
-    <lastmod>2025-12-28</lastmod>
+    <lastmod>2026-01-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://batignolles-kine-sport.fr/blog/crampes-course-pied</loc>
+    <lastmod>2026-01-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://batignolles-kine-sport.fr/blog/dechirure-abdomen-gymnaste</loc>
+    <lastmod>2026-01-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://batignolles-kine-sport.fr/blog/dechirure-adducteurs-football</loc>
+    <lastmod>2026-01-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://batignolles-kine-sport.fr/blog/depression-post-partum-activite</loc>
+    <lastmod>2026-01-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://batignolles-kine-sport.fr/blog/diastasis-grossesse</loc>
+    <lastmod>2026-01-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://batignolles-kine-sport.fr/blog/douleur-epaule-crossfit</loc>
+    <lastmod>2026-01-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://batignolles-kine-sport.fr/blog/douleur-epaule-musculation</loc>
+    <lastmod>2026-01-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://batignolles-kine-sport.fr/blog/douleur-genou-course</loc>
+    <lastmod>2026-01-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://batignolles-kine-sport.fr/blog/douleur-hanche-coureur</loc>
+    <lastmod>2026-01-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://batignolles-kine-sport.fr/blog/douleur-hanche-course</loc>
+    <lastmod>2026-01-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://batignolles-kine-sport.fr/blog/douleur-hanche-sportif</loc>
-    <lastmod>2025-12-28</lastmod>
+    <lastmod>2026-01-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://batignolles-kine-sport.fr/blog/douleur-inter-scapulaire-teletravail</loc>
+    <lastmod>2026-01-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://batignolles-kine-sport.fr/blog/douleur-mollet-coureur</loc>
+    <lastmod>2026-01-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://batignolles-kine-sport.fr/blog/douleur-poignet-boxeur</loc>
+    <lastmod>2026-01-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://batignolles-kine-sport.fr/blog/douleur-poignet-yoga</loc>
+    <lastmod>2026-01-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://batignolles-kine-sport.fr/blog/douleurs-ligaments-ronds</loc>
+    <lastmod>2026-01-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://batignolles-kine-sport.fr/blog/douleurs-lombaires-grossesse</loc>
+    <lastmod>2026-01-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://batignolles-kine-sport.fr/blog/douleurs-symphyse-pubienne</loc>
+    <lastmod>2026-01-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://batignolles-kine-sport.fr/blog/echauffement-course-pied</loc>
+    <lastmod>2026-01-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://batignolles-kine-sport.fr/blog/echauffement-prevention</loc>
-    <lastmod>2025-12-28</lastmod>
+    <lastmod>2026-01-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://batignolles-kine-sport.fr/blog/engourdissement-mains-cycliste</loc>
+    <lastmod>2026-01-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://batignolles-kine-sport.fr/blog/entorse-cheville</loc>
-    <lastmod>2025-12-28</lastmod>
+    <lastmod>2026-01-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://batignolles-kine-sport.fr/blog/entorse-genou-gardien-football</loc>
+    <lastmod>2026-01-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://batignolles-kine-sport.fr/blog/entorse-genou-lli</loc>
-    <lastmod>2025-12-28</lastmod>
+    <lastmod>2026-01-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://batignolles-kine-sport.fr/blog/entorse-poignet</loc>
-    <lastmod>2025-12-28</lastmod>
+    <lastmod>2026-01-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://batignolles-kine-sport.fr/blog/epaule-conflit</loc>
-    <lastmod>2025-12-28</lastmod>
+    <lastmod>2026-01-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://batignolles-kine-sport.fr/blog/epicondylite-coude</loc>
-    <lastmod>2025-12-28</lastmod>
+    <lastmod>2026-01-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://batignolles-kine-sport.fr/blog/fasciite-plantaire</loc>
-    <lastmod>2025-12-28</lastmod>
+    <lastmod>2026-01-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://batignolles-kine-sport.fr/blog/fracture-fatigue-coureur</loc>
+    <lastmod>2026-01-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://batignolles-kine-sport.fr/blog/fracture-fatigue</loc>
-    <lastmod>2025-12-28</lastmod>
+    <lastmod>2026-01-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://batignolles-kine-sport.fr/blog/fracture-pouce-boxeur</loc>
+    <lastmod>2026-01-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://batignolles-kine-sport.fr/blog/fuites-urinaires-sport</loc>
-    <lastmod>2025-12-28</lastmod>
+    <lastmod>2026-01-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://batignolles-kine-sport.fr/blog/genou-nageur-brasse</loc>
+    <lastmod>2026-01-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://batignolles-kine-sport.fr/blog/golf-elbow-epicondylite-mediale</loc>
+    <lastmod>2026-01-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://batignolles-kine-sport.fr/blog/grand-dorsal-nageur</loc>
+    <lastmod>2026-01-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://batignolles-kine-sport.fr/blog/hallux-valgus-danseuse</loc>
+    <lastmod>2026-01-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://batignolles-kine-sport.fr/blog/hernie-discale-sport</loc>
-    <lastmod>2025-12-28</lastmod>
+    <lastmod>2026-01-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://batignolles-kine-sport.fr/blog/instabilite-cheville-danseuse</loc>
+    <lastmod>2026-01-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://batignolles-kine-sport.fr/blog/kine-perinee-paris-17</loc>
+    <lastmod>2026-01-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://batignolles-kine-sport.fr/blog/lesion-ischio-jambiers</loc>
-    <lastmod>2025-12-28</lastmod>
+    <lastmod>2026-01-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://batignolles-kine-sport.fr/blog/lombalgie-sportif</loc>
+    <lastmod>2026-01-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://batignolles-kine-sport.fr/blog/lombalgie-teletravail-routine</loc>
+    <lastmod>2026-01-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://batignolles-kine-sport.fr/blog/lumbago</loc>
-    <lastmod>2025-12-28</lastmod>
+    <lastmod>2026-01-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://batignolles-kine-sport.fr/blog/luxation-epaule</loc>
-    <lastmod>2025-12-28</lastmod>
+    <lastmod>2026-01-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://batignolles-kine-sport.fr/blog/luxation-rotule-tennis</loc>
+    <lastmod>2026-01-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://batignolles-kine-sport.fr/blog/melee-rugby-lombalgie-pilier</loc>
+    <lastmod>2026-01-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://batignolles-kine-sport.fr/blog/methodologie-ebp</loc>
-    <lastmod>2025-12-28</lastmod>
+    <lastmod>2026-01-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://batignolles-kine-sport.fr/blog/periostite-coureur-urbain-paris</loc>
+    <lastmod>2026-01-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://batignolles-kine-sport.fr/blog/periostite-tibiale-coureur</loc>
+    <lastmod>2026-01-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://batignolles-kine-sport.fr/blog/periostite-tibiale</loc>
-    <lastmod>2025-12-28</lastmod>
+    <lastmod>2026-01-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://batignolles-kine-sport.fr/blog/plaquage-rugby-epaule</loc>
+    <lastmod>2026-01-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://batignolles-kine-sport.fr/blog/premier-marathon-preparation</loc>
+    <lastmod>2026-01-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://batignolles-kine-sport.fr/blog/preparation-accouchement-perinee</loc>
+    <lastmod>2026-01-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://batignolles-kine-sport.fr/blog/preparation-physique-coureur</loc>
+    <lastmod>2026-01-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://batignolles-kine-sport.fr/blog/preparation-ski</loc>
+    <lastmod>2026-01-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://batignolles-kine-sport.fr/blog/prolapsus-prevention</loc>
+    <lastmod>2026-01-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://batignolles-kine-sport.fr/blog/pubalgie</loc>
-    <lastmod>2025-12-28</lastmod>
+    <lastmod>2026-01-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://batignolles-kine-sport.fr/blog/recuperation-coureur</loc>
+    <lastmod>2026-01-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://batignolles-kine-sport.fr/blog/recuperation-sportive</loc>
-    <lastmod>2025-12-28</lastmod>
+    <lastmod>2026-01-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://batignolles-kine-sport.fr/blog/reeducation-abdominale</loc>
-    <lastmod>2025-12-28</lastmod>
+    <lastmod>2026-01-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://batignolles-kine-sport.fr/blog/reeducation-lca-protocole</loc>
+    <lastmod>2026-01-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://batignolles-kine-sport.fr/blog/reeducation-perineale-methodes</loc>
+    <lastmod>2026-01-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://batignolles-kine-sport.fr/blog/reprise-sport-blessure</loc>
+    <lastmod>2026-01-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://batignolles-kine-sport.fr/blog/retour-football-fracture-jambe</loc>
+    <lastmod>2026-01-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://batignolles-kine-sport.fr/blog/retour-sport-post-partum</loc>
+    <lastmod>2026-01-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://batignolles-kine-sport.fr/blog/rupture-lca</loc>
-    <lastmod>2025-12-28</lastmod>
+    <lastmod>2026-01-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://batignolles-kine-sport.fr/blog/sciatique-grossesse</loc>
+    <lastmod>2026-01-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://batignolles-kine-sport.fr/blog/sciatique</loc>
-    <lastmod>2025-12-28</lastmod>
+    <lastmod>2026-01-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://batignolles-kine-sport.fr/blog/spondylolyse-gymnaste</loc>
+    <lastmod>2026-01-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://batignolles-kine-sport.fr/blog/sport-grossesse</loc>
-    <lastmod>2025-12-28</lastmod>
+    <lastmod>2026-01-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://batignolles-kine-sport.fr/blog/strapping-taping</loc>
-    <lastmod>2025-12-28</lastmod>
+    <lastmod>2026-01-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://batignolles-kine-sport.fr/blog/syndrome-essuie-glace</loc>
-    <lastmod>2025-12-28</lastmod>
+    <lastmod>2026-01-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://batignolles-kine-sport.fr/blog/syndrome-os-naviculaire-danse</loc>
+    <lastmod>2026-01-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://batignolles-kine-sport.fr/blog/syndrome-piriforme-cycliste</loc>
+    <lastmod>2026-01-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://batignolles-kine-sport.fr/blog/syndrome-rotulien-powerlifter</loc>
+    <lastmod>2026-01-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://batignolles-kine-sport.fr/blog/syndrome-traversee-thoraco-brachiale</loc>
+    <lastmod>2026-01-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://batignolles-kine-sport.fr/blog/tendinite-achille-traitement</loc>
+    <lastmod>2026-01-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://batignolles-kine-sport.fr/blog/tendinite-de-quervain-teletravail</loc>
+    <lastmod>2026-01-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://batignolles-kine-sport.fr/blog/tendinite-epaule-boxeur</loc>
+    <lastmod>2026-01-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://batignolles-kine-sport.fr/blog/tendinite-long-biceps-musculation</loc>
+    <lastmod>2026-01-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://batignolles-kine-sport.fr/blog/tendinopathie-achille</loc>
-    <lastmod>2025-12-28</lastmod>
+    <lastmod>2026-01-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://batignolles-kine-sport.fr/blog/tendinopathie-rotulienne</loc>
-    <lastmod>2025-12-28</lastmod>
+    <lastmod>2026-01-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>

@@ -64,12 +64,20 @@ export const hoverScale: Variants = {
 
 
 export const hoverButton: Variants = {
+    rest: {
+        y: 0,
+        scale: 1,
+        boxShadow: "0 4px 12px rgba(26, 77, 46, 0.06)",
+    },
     hover: {
-        scale: 1.05,
+        scale: 1.02,
+        y: -2,
+        boxShadow: "0 12px 24px rgba(26, 77, 46, 0.12)",
         transition: { ...TRANSITION_FAST },
     },
     tap: {
-        scale: 0.95,
+        scale: 0.97,
+        y: 0,
     },
 };
 

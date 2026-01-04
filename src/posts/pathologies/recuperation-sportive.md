@@ -1,9 +1,11 @@
 ---
 title: "Récupération sportive : Les méthodes qui marchent (et les autres)"
-category: "Récupération"
+category: "Prévention"
+sport: "Général"
+sport: "Général"
 type: "Performance"
 readTime: "6 min"
-image: "https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&q=80&w=1200"
+image: "/images/blog/recuperation-sportive.jpg"
 excerpt: "Cryothérapie, massage, étirements, sommeil... On fait le tri dans les techniques de récupération pour optimiser vos performances."
 publishedAt: "08 Décembre 2024"
 ---

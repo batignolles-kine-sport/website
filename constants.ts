@@ -1,5 +1,5 @@
 import { Activity, HeartPulse, ShieldCheck, Baby, UserCheck } from 'lucide-react';
-import { ServiceData, TeamMember, BlogPost, Review } from './types';
+import { ServiceData, TeamMember, BlogPost, Review } from './src/types';
 
 export const DOCTOLIB_URL = "https://www.doctolib.fr/cabinet-de-kinesitherapie/paris/batignolles-kine-sport";
 export const ADDRESS = "6 rue des Batignolles, 75017 Paris";
@@ -9,7 +9,7 @@ export const INSTAGRAM_URL = "https://www.instagram.com/batignolleskinesport/";
 
 // Asset paths - Please ensure these files exist in your public folder
 export const LOGO_URL = "/logo.svg";
-export const HERO_IMAGE_URL = "/hero.jpeg";
+export const HERO_IMAGE_URL = "/images/hero/hero.jpeg";
 
 export const SERVICES: ServiceData[] = [
   {

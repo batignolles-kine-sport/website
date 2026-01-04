@@ -3,7 +3,7 @@ title: "Sport et grossesse : bouger pour deux (en toute sécurité)"
 category: "Grossesse"
 type: "Kiné de la femme"
 readTime: "6 min"
-image: "https://images.unsplash.com/photo-1551847677-dc82d764e1eb?auto=format&fit=crop&q=80&w=1200"
+image: "/images/blog/sport-grossesse.jpg"
 excerpt: "Enceinte et sportive ? Fini le temps où on restait allongée 9 mois. Découvrez les bienfaits de l'activité physique pour vous et bébé."
 publishedAt: "22 Septembre 2025"
 ---

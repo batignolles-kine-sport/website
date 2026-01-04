@@ -91,14 +91,14 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
       />
 
       {/* Spacer pour compenser la navbar fixed */}
-      <div className="h-20 md:h-28" />
+      <div className="h-14 md:h-16" />
 
       <main className="grow relative z-10">{children}</main>
 
       {/* Spacer with site background to separate content from footer without exposing body color */}
 
-
-      <Footer />
+      {/* Footer is disabled on Home page because Home manages its own scroll snap container with an internal Footer */}
+      {location.pathname !== '/' && <Footer />}
 
       {/* --- DOCTOLIB FLOATING ACTION BUTTON (MOBILE ONLY) --- */}
       <AnimatePresence>

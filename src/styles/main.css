@@ -8,9 +8,15 @@
     --color-primary: #1A4D2E;
     --color-surface: #F8F9FA;
     --color-surface-card: #FFFFFF;
+    --color-surface-subtle: #fafbfc;
     --color-text-main: #111111;
     --color-text-muted: #666666;
     --color-border-subtle: rgba(26, 77, 46, 0.08);
+
+    /* Accent colors - Earth Premium */
+    --color-accent-slate: #64748b;
+    --color-accent-teal: #0d9488;
+    --color-accent-slate-dark: #334155;
 
     --shadow-soft: 0 4px 12px rgba(26, 77, 46, 0.06);
     --shadow-hover: 0 12px 24px rgba(26, 77, 46, 0.08);
@@ -21,7 +27,10 @@
 }
 
 @layer base {
+
+    html,
     body {
-        background-color: var(--color-surface);
+        background-color: white;
+        overflow-x: hidden;
     }
 }

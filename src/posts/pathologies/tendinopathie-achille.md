@@ -3,7 +3,7 @@ title: "Tendinopathie d'Achille : ne laissez pas traîner cette raideur"
 category: "Cheville"
 type: "Membre Inférieur"
 readTime: "5 min"
-image: "https://images.unsplash.com/photo-1552674605-469523170d9e?auto=format&fit=crop&q=80&w=1200"
+image: "/images/blog/tendinopathie-achille.jpg"
 excerpt: "Une raideur au talon le matin ? Une douleur qui chauffe à la course ? Attention à la tendinite d'Achille. Voici comment la soigner."
 publishedAt: "02 Août 2025"
 ---

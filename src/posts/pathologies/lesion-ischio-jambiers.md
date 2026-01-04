@@ -3,7 +3,7 @@ title: "Lésion des ischio-jambiers : le claquage du sprinter"
 category: "Cuisse"
 type: "Membre Inférieur"
 readTime: "6 min"
-image: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&q=80&w=1200"
+image: "/images/blog/lesion-ischio-jambiers.jpg"
 excerpt: "Une douleur brutale derrière la cuisse en plein sprint ? Le claquage des ischios est la hantise des footballeurs. Voici comment bien cicatriser."
 publishedAt: "20 Août 2025"
 ---

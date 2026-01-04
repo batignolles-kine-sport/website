@@ -3,7 +3,7 @@ title: "Hernie discale et sport : Est-ce la fin de ma carrière ?"
 category: "Dos"
 type: "Rachis"
 readTime: "7 min"
-image: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&q=80&w=1200"
+image: "/images/blog/hernie-discale-sport.jpg"
 excerpt: "Le diagnostic de hernie discale fait peur. Pourtant, la majorité se résorbe sans opération. Le mouvement est votre allié."
 publishedAt: "05 Décembre 2024"
 ---

@@ -3,7 +3,7 @@ title: "Pubalgie : Comprendre et soigner cette douleur de l'aine"
 category: "Hanche"
 type: "Membre Inférieur"
 readTime: "6 min"
-image: "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&q=80&w=1200"
+image: "/images/blog/pubalgie.jpg"
 excerpt: "Souvent redoutée par les footballeurs, la pubalgie est complexe. Découvrez comment la rééducation active permet de vaincre ces douleurs du bassin."
 publishedAt: "15 Novembre 2024"
 ---

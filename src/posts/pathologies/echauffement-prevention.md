@@ -1,9 +1,11 @@
 ---
 title: "L'échauffement efficace : Arrêtez de perdre votre temps"
 category: "Prévention"
+sport: "Général"
+sport: "Général"
 type: "Performance"
 readTime: "5 min"
-image: "https://images.unsplash.com/photo-1599058945522-28d584b6f0ff?auto=format&fit=crop&q=80&w=1200"
+image: "/images/blog/echauffement-prevention.jpg"
 excerpt: "5 minutes de footing ne suffisent pas. Découvrez comment construire une routine d'échauffement qui prévient vraiment les blessures."
 publishedAt: "07 Décembre 2024"
 ---

@@ -4,6 +4,13 @@ import { HelmetProvider } from 'react-helmet-async';
 import App from './App';
 import './styles/main.css';
 
+// Fix pour l'accès à l'admin Decap CMS en dev avec BrowserRouter
+if (window.location.pathname.startsWith('/admin')) {
+  if (!window.location.pathname.includes('index.html')) {
+    window.location.href = '/admin/index.html';
+  }
+}
+
 const rootElement = document.getElementById('root');
 if (!rootElement) {
   throw new Error("Could not find root element to mount to");

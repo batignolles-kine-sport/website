@@ -8,14 +8,14 @@ export const FaqSection: React.FC = () => {
     const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0);
 
     return (
-        <section id="faq">
-            <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
+        <div className="w-full">
+            <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
                 <SectionHeader
                     badge="FAQ"
                     title={
                         <>
                             Questions<br />
-                            <span className="bg-gradient-to-r from-[#3b402e] to-[#6d744d] bg-clip-text text-transparent">fréquentes.</span>
+                            <span className="text-gradient-primary">fréquentes.</span>
                         </>
                     }
                     description="Retrouvez les réponses aux questions les plus courantes sur le fonctionnement du cabinet."
@@ -28,11 +28,11 @@ export const FaqSection: React.FC = () => {
                     return (
                         <div key={item.question} className="border-b border-border-subtle group">
                             <button
-                                className="w-full flex items-center justify-between py-6 text-left focus-visible:outline-none"
+                                className="w-full flex items-center justify-between py-4 text-left focus-visible:outline-none"
                                 onClick={() => setOpenFaqIndex(isOpen ? null : idx)}
                                 aria-expanded={isOpen}
                             >
-                                <span className={`text-lg font-medium transition-colors ${isOpen ? 'text-primary' : 'text-text-main group-hover:text-primary'}`}>
+                                <span className={`text-base font-medium transition-colors ${isOpen ? 'text-primary' : 'text-text-main group-hover:text-primary'}`}>
                                     {item.question}
                                 </span>
                                 <span className={`ml-6 flex-shrink-0 flex items-center justify-center w-8 h-8 rounded-full border border-border-subtle transition-all duration-300 ${isOpen ? 'rotate-180 bg-primary border-primary text-white' : 'text-text-muted group-hover:border-primary group-hover:text-primary'}`}>
@@ -48,7 +48,7 @@ export const FaqSection: React.FC = () => {
                                         transition={{ duration: 0.3, ease: "easeInOut" }}
                                         className="overflow-hidden"
                                     >
-                                        <p className="text-text-muted text-base leading-relaxed max-w-2xl pb-8">
+                                        <p className="text-text-muted text-sm leading-relaxed max-w-2xl pb-4">
                                             {item.answer}
                                         </p>
                                     </motion.div>
@@ -58,6 +58,6 @@ export const FaqSection: React.FC = () => {
                     );
                 })}
             </div>
-        </section>
+        </div>
     );
 };

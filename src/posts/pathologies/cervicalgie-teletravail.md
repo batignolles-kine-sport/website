@@ -3,7 +3,7 @@ title: "Cervicalgie et télétravail : comment sauver votre cou ?"
 category: "Dos"
 type: "Rachis"
 readTime: "5 min"
-image: "https://images.unsplash.com/photo-1516534775068-ba3e7458af70?auto=format&fit=crop&q=80&w=1200"
+image: "/images/blog/cervicalgie-teletravail.jpg"
 excerpt: "Tensions dans la nuque, maux de tête en fin de journée ? Le télétravail met nos cervicales à rude épreuve. Voici nos solutions."
 publishedAt: "10 Juillet 2025"
 ---

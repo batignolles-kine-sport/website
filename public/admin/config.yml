@@ -16,8 +16,9 @@ collections:
     preview_path: "/pathologies/{{slug}}"
     fields:
       - { label: "Titre", name: "title", widget: "string", required: true }
-      - { label: "Catégorie", name: "category", widget: "select", options: ["Dos", "Genou", "Cheville", "Épaule", "Pelvis", "Coude", "Main", "Cabinet"], required: true }
-      - { label: "Type", name: "type", widget: "select", options: ["Rachis", "Membre Inférieur", "Membre Supérieur", "Méthodologie", "Autres"], required: true }
+      - { label: "Catégorie", name: "category", widget: "select", options: ["Genou", "Cheville", "Hanche", "Cuisse", "Jambe", "Pied", "Épaule", "Coude", "Poignet", "Dos", "Tête", "Grossesse", "Post-partum", "Périnée", "Prévention", "Os", "Cabinet", "Général"], required: true }
+      - { label: "Sport (Optionnel)", name: "sport", widget: "string", required: false }
+      - { label: "Type", name: "type", widget: "select", options: ["Rachis", "Membre Inférieur", "Membre Supérieur", "Kiné de la femme", "Méthodologie", "Autres"], required: true }
       - { label: "Image", name: "image", widget: "image", required: true }
       - { label: "Temps de lecture", name: "readTime", widget: "string", default: "5 min" }
       - { label: "Extrait (résumé)", name: "excerpt", widget: "text", required: true }

@@ -11,21 +11,55 @@ export const Team: React.FC = () => {
         description="Découvrez Batignolles Kiné Sport : une équipe pluridisciplinaire spécialisée en kinésithérapie du sport et rééducation personnalisée à Paris 17."
       />
 
-      <section className="bg-surface border-b border-slate-100">
-        <div className="mx-auto max-w-7xl px-4 py-20 sm:py-24">
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
-            <div className="space-y-6 max-w-3xl">
+      <section className="border-b border-slate-100">
+        <div className="mx-auto max-w-7xl px-4 py-16 md:py-20">
+          <div className="space-y-8 mb-16">
+            {/* Header Section */}
+            <div className="max-w-4xl space-y-6">
               <div className="inline-flex items-center gap-2 rounded-full border border-primary/10 bg-white px-3 py-1 text-sm font-semibold text-primary shadow-soft">
                 <span className="inline-block h-2 w-2 rounded-full bg-primary" />
                 Notre équipe pluridisciplinaire
               </div>
-              <h1 className="text-4xl font-bold leading-tight text-text-main sm:text-5xl">
-                Des experts passionnés<br />
-                <span className="bg-gradient-to-r from-[#3b402e] to-[#6d744d] bg-clip-text text-transparent">pour votre santé.</span>
+              <h1 className="text-4xl font-bold leading-tight text-text-main sm:text-5xl lg:text-6xl">
+                Des kinés du sport engagés pour votre{' '}
+                <span className="text-gradient-primary">reprise rapide et durable</span>
               </h1>
               <p className="text-lg text-text-muted leading-relaxed">
-                Chaque praticien apporte son expertise spécifique, du rugby à la danse, pour une prise en charge adaptée à votre pratique.
+                Nous combinons expertise scientifique, suivi individualisé et pédagogie pour vous accompagner du diagnostic à la reprise, que vous soyez sportif amateur ou athlète confirmé.
               </p>
+            </div>
+
+            {/* Stats + CTA Row */}
+            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-8">
+              {/* Stats */}
+              <div className="grid grid-cols-3 gap-6 flex-1">
+                <div className="space-y-1">
+                  <div className="text-3xl font-bold text-text-main">2 500+</div>
+                  <div className="text-sm text-text-muted">Patients accompagnés/an</div>
+                </div>
+                <div className="space-y-1">
+                  <div className="text-3xl font-bold text-text-main">20+</div>
+                  <div className="text-sm text-text-muted">Sports couverts</div>
+                </div>
+                <div className="space-y-1">
+                  <div className="text-3xl font-bold text-text-main">&lt;48h</div>
+                  <div className="text-sm text-text-muted">Rendez-vous en urgence</div>
+                </div>
+              </div>
+
+              {/* CTA Button */}
+              <a
+                href="https://www.doctolib.fr/cabinet-de-kinesitherapie/paris/batignolles-kine-sport"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-3 px-6 py-4 rounded-xl bg-[#107ACA] text-white font-semibold text-base transition-all duration-200 hover:bg-[#0e69ad] hover:shadow-lg active:scale-95 md:flex-shrink-0"
+              >
+                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2" />
+                  <path d="M12 6v6l4 2" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                </svg>
+                Prendre rendez-vous
+              </a>
             </div>
           </div>
 
@@ -44,17 +78,20 @@ export const Team: React.FC = () => {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-60" />
 
-                  {/* Sport Badge */}
-                  <div className="absolute bottom-4 left-4">
-                    <span className="inline-flex items-center gap-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 px-3 py-1.5 text-white text-xs font-semibold tracking-wide">
-                      <span className="inline-block h-1.5 w-1.5 rounded-full bg-primary" />
-                      Kiné du Sport · {member.sport}
+                  {/* Sport Badge - Top Right */}
+                  <div className="absolute top-4 right-4">
+                    <span className="inline-flex items-center gap-2 rounded-xl bg-white/95 backdrop-blur-md border border-slate-200 px-4 py-2 text-slate-900 text-sm font-bold tracking-wide shadow-lg">
+                      {member.sport === 'Gymnastique' && <span className="text-lg">🤸</span>}
+                      {member.sport === 'Course à pied' && <span className="text-lg">🏃</span>}
+                      {member.sport === 'Danse' && <span className="text-lg">💃</span>}
+                      {member.sport === 'Rugby' && <span className="text-lg">🏉</span>}
+                      {member.sport}
                     </span>
                   </div>
                 </div>
 
                 {/* Content - Bottom 40% */}
-                <div className="absolute bottom-0 inset-x-0 h-[42%] bg-white rounded-t-3xl p-6 flex flex-col items-start justify-between shadow-[0_-10px_40px_-15px_rgba(0,0,0,0.1)]">
+                <div className="absolute bottom-0 inset-x-0 h-[44%] bg-white rounded-t-3xl p-6 flex flex-col items-start justify-between shadow-[0_-10px_40px_-15px_rgba(0,0,0,0.1)]">
                   <div className="w-full">
                     <h3 className="text-xl font-bold text-slate-900 mb-1">{member.name}</h3>
                     <p className="text-primary font-medium text-sm mb-3">{member.title}</p>

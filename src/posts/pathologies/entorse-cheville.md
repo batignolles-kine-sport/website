@@ -3,7 +3,7 @@ title: "Entorse de cheville : comment bien récupérer pour éviter la récidive
 category: "Cheville"
 type: "Membre Inférieur"
 readTime: "5 min"
-image: "https://images.unsplash.com/photo-1552196563-55cd4e45efb3?auto=format&fit=crop&q=80&w=1200"
+image: "/images/blog/entorse-cheville.jpg"
 excerpt: "Une cheville qui tourne, ça arrive vite. Découvrez comment la soigner efficacement pour reprendre le sport sans appréhension."
 publishedAt: "15 Juin 2025"
 ---

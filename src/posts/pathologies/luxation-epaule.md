@@ -3,7 +3,7 @@ title: "Luxation d'épaule : Que faire après s'être déboîté l'épaule ?"
 category: "Épaule"
 type: "Traumatologie"
 readTime: "6 min"
-image: "https://images.unsplash.com/photo-1574680096145-d05b474e2155?auto=format&fit=crop&q=80&w=1200"
+image: "/images/blog/luxation-epaule.jpg"
 excerpt: "Une épaule qui se luxe est un traumatisme important. La rééducation est cruciale pour éviter que cela ne devienne chronique."
 publishedAt: "04 Décembre 2024"
 ---

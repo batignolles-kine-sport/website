@@ -3,7 +3,7 @@ title: "Sciatique : comprendre et soulager la douleur qui irradie"
 category: "Dos"
 type: "Rachis"
 readTime: "5 min"
-image: "https://images.unsplash.com/photo-1544367563-12123d8965cd?auto=format&fit=crop&q=80&w=1200"
+image: "/images/blog/sciatique.jpg"
 excerpt: "Une douleur électrique qui descend dans la fesse et la jambe ? C'est probablement une sciatique. Pas de panique, voici quoi faire."
 publishedAt: "25 Juillet 2025"
 ---

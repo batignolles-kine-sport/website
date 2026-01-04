@@ -3,7 +3,7 @@ title: "Entorse du poignet : Ne la laissez pas traîner"
 category: "Poignet"
 type: "Membre Supérieur"
 readTime: "4 min"
-image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=1200"
+image: "/images/blog/entorse-poignet.jpg"
 excerpt: "Une chute sur la main ? Une douleur au poignet ? Attention, le poignet est complexe et une entorse mal soignée peut gêner longtemps."
 publishedAt: "06 Décembre 2024"
 ---

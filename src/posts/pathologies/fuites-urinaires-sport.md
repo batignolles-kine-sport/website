@@ -3,7 +3,7 @@ title: "Fuites urinaires et sport : brisons le tabou"
 category: "Périnée"
 type: "Kiné de la femme"
 readTime: "5 min"
-image: "https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&q=80&w=1200"
+image: "/images/blog/fuites-urinaires-sport.jpg"
 excerpt: "Quelques gouttes en sautant à la corde ou en éternuant ? Ce n'est pas normal, même après une grossesse. Parlons solutions."
 publishedAt: "12 Août 2025"
 ---
