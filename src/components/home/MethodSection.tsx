@@ -176,6 +176,7 @@ const MethodCard = ({
                             initial={{ scale: 1 }}
                             animate={{ scale: 1.1 }}
                             transition={{ duration: 10, ease: "linear" }}
+                            loading="lazy"
                         />
                         {/* Immersive Gradient Overlay */}
                         <div className="absolute inset-x-0 bottom-0 h-3/4 bg-gradient-to-t from-black/90 via-black/40 to-transparent z-10" />

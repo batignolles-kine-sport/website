@@ -3,6 +3,7 @@ import { MapPin, Phone, Mail, Clock, Train, Car } from 'lucide-react';
 import { SEO } from '../components/layout/SEO';
 import { Button } from '../components/ui/Button';
 import { SectionHeader } from '../components/ui/SectionHeader';
+import { MapFacade } from '../components/ui/MapFacade';
 import { ADDRESS, EMAIL, DOCTOLIB_URL, PHONE } from '../utils/constants';
 
 export const Contact: React.FC = () => {
@@ -254,16 +255,11 @@ export const Contact: React.FC = () => {
 
               {/* Map */}
               <div className="h-96 rounded-lg overflow-hidden shadow-sm bg-gray-200">
-                <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2623.68397904634!2d2.321234876520314!3d48.88330069895298!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66fdd1fdf67bd%3A0x49cb2ecbd1bf21c1!2sBatignolles%20Kiné%20Sport%20%7C%20Paris%2017!5e0!3m2!1sfr!2sfr!4v1765299373175!5m2!1sfr!2sfr"
-                  width="100%"
-                  height="100%"
-                  style={{ border: 0 }}
-                  allowFullScreen={true}
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
+                <MapFacade
+                  mapSrc="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2623.68397904634!2d2.321234876520314!3d48.88330069895298!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66fdd1fdf67bd%3A0x49cb2ecbd1bf21c1!2sBatignolles%20Kiné%20Sport%20%7C%20Paris%2017!5e0!3m2!1sfr!2sfr!4v1765299373175!5m2!1sfr!2sfr"
                   title="Carte Google Maps Contact"
-                ></iframe>
+                  className="rounded-lg"
+                />
               </div>
             </div>
 

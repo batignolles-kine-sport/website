@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, useState, useEffect } from 'react';
 import { Link, Navigate, useParams } from 'react-router-dom';
 import { ArrowLeft, ArrowRight, Calendar, CheckCircle, Clock, Tag } from 'lucide-react';
 import { Helmet } from 'react-helmet-async';
@@ -14,25 +14,15 @@ import { toTelHref } from '../utils/helpers';
 import { getRelatedPosts } from '../utils/blogSuggestions';
 import { getResponsiveImage, pathToPublicId, isCloudinaryImage } from '../utils/cloudinary';
 import { generateArticleSchema } from '../utils/structuredData';
+import blogPostsData from '../data/blog-metadata.json';
 
-const parseFrontmatter = (raw: string) => {
+// Helper to extract content body (stripping frontmatter)
+const parseContent = (raw: string) => {
   const match = /^---\n([\s\S]*?)\n---\n?([\s\S]*)$/m.exec(raw);
-  if (!match) return { frontmatter: {}, content: raw };
-
-  const [, frontmatterBlock, content] = match;
-  const frontmatter: Record<string, string> = {};
-
-  frontmatterBlock.split('\n').forEach((line) => {
-    const [key, ...rest] = line.split(':');
-    if (!key) return;
-    const value = rest.join(':').trim().replace(/^"|"$/g, '').replace(/^'|'$/g, '');
-    if (value) frontmatter[key.trim()] = value;
-  });
-
-  return { frontmatter, content: content.trim() };
+  return match ? match[2].trim() : raw.trim();
 };
 
-type PathologyContent = {
+type BlogPostMetadata = {
   slug: string;
   title: string;
   category: string;
@@ -41,64 +31,59 @@ type PathologyContent = {
   image: string;
   excerpt: string;
   publishedAt?: string;
-  content: string;
 };
 
-const FALLBACK_IMAGE = 'https://images.unsplash.com/photo-1580281657521-6b9586f3015d?auto=format&fit=crop&q=80&w=1200';
-
-const POSTS: PathologyContent[] = (() => {
-  const modules = import.meta.glob('../posts/pathologies/*.md', { eager: true, query: '?raw', import: 'default' }) as Record<string, string>;
-
-  return Object.entries(modules)
-    .map(([path, raw]) => {
-      const { frontmatter, content } = parseFrontmatter(raw);
-      const slug = path.split('/').pop()?.replace(/\.md$/, '') || '';
-
-      const title = frontmatter.title || slug;
-      const category = frontmatter.category || 'Général';
-      const type = frontmatter.type || 'Autres';
-      const readTime = frontmatter.readTime || '5 min';
-      const image = frontmatter.image || FALLBACK_IMAGE;
-      const excerpt = frontmatter.excerpt || content.split(/\n\n+/)[0] || '';
-
-      return {
-        slug,
-        title,
-        category,
-        type,
-        readTime,
-        image,
-        excerpt,
-        publishedAt: frontmatter.publishedAt,
-        content,
-      } as PathologyContent;
-    })
-    .filter((post) => post.slug && post.title)
-    .sort((a, b) => (b.publishedAt || '').localeCompare(a.publishedAt || ''));
-})();
+// Lazy load markdown modules (eager: false creates code splitting)
+const markdownModules = import.meta.glob('../posts/pathologies/*.md', { query: '?raw', import: 'default' });
 
 export const BlogPost: React.FC = () => {
   const { slug = '' } = useParams();
+  const [content, setContent] = useState<string | null>(null);
+  const [loading, setLoading] = useState(true);
 
-  const post = useMemo(() => POSTS.find((p) => p.slug === slug), [slug]);
+  // Find metadata in the pre-loaded JSON
+  const post = useMemo(() =>
+    (blogPostsData as BlogPostMetadata[]).find((p) => p.slug === slug),
+    [slug]
+  );
 
-  const html = useMemo(() => (post ? renderMarkdown(post.content) : ''), [post]);
+  // Async load of the specific markdown chunk
+  useEffect(() => {
+    if (!slug) return;
 
-  // Afficher un loader pendant le chargement initial
-  if (!post) {
-    if (POSTS.length === 0) {
-      return <div className="min-h-screen flex items-center justify-center"><div className="text-slate-600">Chargement...</div></div>;
-    }
-    return <Navigate to="/blog" replace />;
-  }
+    setLoading(true);
+    const loadContent = async () => {
+      const path = `../posts/pathologies/${slug}.md`;
+      const importer = markdownModules[path];
 
-  // Calculer les articles similaires
+      if (importer) {
+        try {
+          const raw = await importer() as string;
+          setContent(parseContent(raw));
+        } catch (err) {
+          console.error("Failed to load markdown:", err);
+          setContent(null);
+        }
+      } else {
+        setContent(null);
+      }
+      setLoading(false);
+    };
+
+    loadContent();
+  }, [slug]);
+
+  const html = useMemo(() => (content ? renderMarkdown(content) : ''), [content]);
+
+  // Compute related posts using metadata
   const relatedPosts = useMemo(() => {
-    return getRelatedPosts(slug, post, POSTS);
+    if (!post) return [];
+    return getRelatedPosts(slug, post as any, blogPostsData as any);
   }, [slug, post]);
 
-  // Generate Article schema for SEO
+  // Generate Schema
   const articleSchema = useMemo(() => {
+    if (!post) return null;
     return generateArticleSchema(
       post.title,
       post.excerpt,
@@ -107,6 +92,16 @@ export const BlogPost: React.FC = () => {
       'Équipe BKS'
     );
   }, [post]);
+
+  // Loading State
+  if (loading) {
+    return <div className="min-h-screen flex items-center justify-center"><div className="text-slate-600">Chargement...</div></div>;
+  }
+
+  // Not Found
+  if (!post || !content) {
+    return <Navigate to="/blog" replace />;
+  }
 
   return (
     <div className="min-h-screen text-slate-900 selection:bg-primary selection:text-white">
@@ -218,7 +213,7 @@ export const BlogPost: React.FC = () => {
             alt={post.title}
             className="absolute inset-0 h-full w-full object-cover"
             itemProp="image"
-            fetchPriority="high"
+            fetchpriority="high"
             loading="eager"
           />
         )}
@@ -328,9 +323,9 @@ export const BlogPost: React.FC = () => {
                 className="group relative overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-slate-200 transition-all hover:shadow-lg hover:ring-slate-300"
               >
                 <div className="aspect-[16/10] overflow-hidden">
-                  {isCloudinaryImage(relatedPost.image) ? (
+                  {isCloudinaryImage(relatedPost.image || '') ? (
                     <AdvancedImage
-                      cldImg={getResponsiveImage(pathToPublicId(relatedPost.image), '16:10')}
+                      cldImg={getResponsiveImage(pathToPublicId(relatedPost.image || ''), '16:10')}
                       plugins={[lazyload(), responsive({ steps: [480, 640, 768] }), placeholder('blur')]}
                       className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
                       alt={relatedPost.title}

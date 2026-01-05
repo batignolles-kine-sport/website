@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { HelmetProvider } from 'react-helmet-async';
 import App from './App';
+import './styles/fonts.css';
 import './styles/main.css';
 
 // Fix pour l'accès à l'admin Decap CMS en dev avec BrowserRouter

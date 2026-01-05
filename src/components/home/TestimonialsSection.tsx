@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { SectionHeader } from '../ui/SectionHeader';
+import GoogleLogo from '../../assets/icons/google-g.svg';
 import reviewsData from '../../data/avis.json';
 
 // Helper for formatting rating
@@ -216,7 +217,7 @@ export const TestimonialsSection: React.FC = () => {
                                             </div>
                                             <p className="text-[11px] font-medium text-blue-400">Analyse consolidée de la fiche BKS</p>
                                         </div>
-                                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Google_%22G%22_logo.svg/1200px-Google_%22G%22_logo.svg.png"
+                                        <img src={GoogleLogo}
                                             alt="Google Logo"
                                             className="w-6 h-6 object-contain"
                                             loading="lazy"
@@ -246,7 +247,7 @@ export const TestimonialsSection: React.FC = () => {
                                             {review.initial}
                                         </div>
                                         <div>
-                                            <h4 className="text-sm font-bold text-slate-900">{review.author}</h4>
+                                            <h3 className="text-sm font-bold text-slate-900">{review.author}</h3>
                                             <p className="text-[11px] text-slate-400">{review.date}</p>
                                         </div>
                                     </div>
@@ -259,14 +260,14 @@ export const TestimonialsSection: React.FC = () => {
 
                             {review.type === 'cta' && (
                                 <a href="https://maps.app.goo.gl/evjY9vsdNhuFT4pb9" target="_blank" rel="noopener noreferrer" className="p-5 rounded-3xl flex flex-col items-center justify-center text-center group h-full border border-white/50 bg-white transition-all duration-400 ease-[cubic-bezier(0.4,0,0.2,1)] hover:-translate-y-1 hover:shadow-hover hover:border-gray-200">
-                                    <img src="https://www.hedinghamhounds.co.uk/wp-content/uploads/2019/12/google-reviews-logo.png"
+                                    <img src={GoogleLogo}
                                         alt="Google Reviews Logo"
                                         className="h-14 w-auto object-contain mb-4 group-hover:scale-105 transition-transform"
                                         loading="lazy"
-                                        width="100"
-                                        height="32"
+                                        width="56"
+                                        height="56"
                                     />
-                                    <h4 className="text-lg font-bold mb-2 text-slate-900">Rejoignez-nous</h4>
+                                    <h3 className="text-lg font-bold mb-2 text-slate-900">Rejoignez-nous</h3>
                                     <p className="text-sm text-slate-400 mb-6 px-4">Découvrez pourquoi nos patients nous recommandent.</p>
                                     <span className="inline-flex items-center gap-2 px-8 py-3 bg-slate-900 text-white rounded-full text-xs font-bold hover:bg-black transition-colors">
                                         Ouvrir Google Maps
@@ -287,12 +288,14 @@ export const TestimonialsSection: React.FC = () => {
                     <button
                         onClick={movePrev}
                         className="w-10 h-10 rounded-full border border-slate-200 flex items-center justify-center active:scale-90 transition-all text-slate-800 bg-white"
+                        aria-label="Avis précédent"
                     >
                         <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M15 19l-7-7 7-7"></path></svg>
                     </button>
                     <button
                         onClick={moveNext}
                         className="w-10 h-10 rounded-full border border-slate-200 flex items-center justify-center active:scale-90 transition-all text-slate-800 bg-white"
+                        aria-label="Avis suivant"
                     >
                         <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M9 5l7 7-7 7"></path></svg>
                     </button>

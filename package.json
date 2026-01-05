@@ -4,8 +4,8 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
+    "dev": "node scripts/generate-blog-metadata.js && vite",
+    "build": "node scripts/generate-blog-metadata.js && vite build",
     "preview": "vite preview",
     "sitemap": "node -r esbuild-register src/utils/sitemap.ts",
     "migrate-images": "node --loader ts-node/esm scripts/migrate-to-cloudinary.ts"

@@ -71,8 +71,7 @@ export default defineConfig(({ mode }) => {
           manualChunks: {
             vendor: ['react', 'react-dom', 'react-router-dom', 'react-helmet-async'],
             framer: ['framer-motion'],
-            cloudinary: ['@cloudinary/react', '@cloudinary/url-gen'],
-            ui: ['lucide-react']
+            cloudinary: ['@cloudinary/react', '@cloudinary/url-gen']
           }
         }
       }

@@ -41,40 +41,9 @@ type BlogPost = {
   date?: string;
 };
 
-// Load markdown posts at build time
-const BLOG_POSTS: BlogPost[] = (() => {
-  const modules = import.meta.glob('../posts/pathologies/*.md', { eager: true, query: '?raw', import: 'default' }) as Record<string, string>;
+import blogPostsData from '../data/blog-metadata.json';
 
-  return Object.entries(modules)
-    .map(([path, rawContent]) => {
-      const { frontmatter, content } = parseFrontmatter(rawContent);
-      const slug = path.split('/').pop()?.replace(/\.md$/, '') || '';
-
-      const title = frontmatter.title || slug;
-      const category = frontmatter.category || 'Général';
-      const type = frontmatter.type || 'Autres';
-      const readTime = frontmatter.readTime || '5 min';
-      const image = frontmatter.image || FALLBACK_IMAGE;
-      const excerptFromFrontmatter = frontmatter.excerpt || '';
-      const bodyExcerpt = content.split(/\n\n+/)[0] || '';
-      const excerpt = excerptFromFrontmatter || bodyExcerpt.slice(0, 220);
-
-      return {
-        slug,
-        title,
-        category,
-        type,
-        readTime,
-        image,
-        excerpt,
-        publishedAt: frontmatter.publishedAt,
-        author: 'Équipe BKS',
-        date: frontmatter.publishedAt || 'Récemment',
-      } as BlogPost;
-    })
-    .filter((post) => post.slug && post.title)
-    .sort((a, b) => (b.publishedAt || '').localeCompare(a.publishedAt || ''));
-})();
+const BLOG_POSTS: BlogPost[] = blogPostsData as BlogPost[];
 
 // Category groups configuration
 const CATEGORY_GROUPS = {

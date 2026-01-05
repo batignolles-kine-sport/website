@@ -24,10 +24,10 @@ export const Footer: React.FC = () => {
                             Rééducation, performance et prévention à Paris Batignolles.
                         </p>
                         <div className="flex gap-4">
-                            <a href={INSTAGRAM_URL} target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full bg-white border border-slate-200 shadow-sm flex items-center justify-center text-slate-600 hover:bg-primary hover:text-white hover:border-primary transition-all duration-300 group">
+                            <a href={INSTAGRAM_URL} target="_blank" rel="noreferrer" aria-label="Suivez-nous sur Instagram" className="w-10 h-10 rounded-full bg-white border border-slate-200 shadow-sm flex items-center justify-center text-slate-600 hover:bg-primary hover:text-white hover:border-primary transition-all duration-300 group">
                                 <Instagram size={18} className="group-hover:scale-110 transition-transform" />
                             </a>
-                            <a href={`mailto:${EMAIL}`} className="w-10 h-10 rounded-full bg-white border border-slate-200 shadow-sm flex items-center justify-center text-slate-600 hover:bg-primary hover:text-white hover:border-primary transition-all duration-300 group">
+                            <a href={`mailto:${EMAIL}`} aria-label="Envoyez-nous un email" className="w-10 h-10 rounded-full bg-white border border-slate-200 shadow-sm flex items-center justify-center text-slate-600 hover:bg-primary hover:text-white hover:border-primary transition-all duration-300 group">
                                 <Mail size={18} className="group-hover:scale-110 transition-transform" />
                             </a>
                         </div>

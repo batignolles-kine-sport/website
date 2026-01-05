@@ -138,12 +138,6 @@ export function generateClinicSchema(options: ClinicSchemaOptions) {
         opens: '08:00',
         closes: '19:00',
       },
-      {
-        '@type': 'OpeningHoursSpecification',
-        dayOfWeek: 'Saturday',
-        opens: '09:00',
-        closes: '13:00',
-      },
     ],
     sameAs: [DOCTOLIB_URL, INSTAGRAM_URL, GOOGLE_MAPS_URL],
     knowsAbout: [

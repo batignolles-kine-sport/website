@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <title>Comment obtenir un score de 100/100 sur Google Lighthouse ? Cas Nord Sud CTI | Blog | Codixis</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Au travers d'un cas concret, le développement d'un comparateur de prix pour la société Nord Sud CTI (groupe Bolloré Logistics), découvrez comment obtenir un score de 100/100 sur Google Lighthouse.">
+    <meta name="twitter:title" content="Comment obtenir un score de 100/100 sur Google Lighthouse ? Cas Nord Sud CTI | Blog | Codixis" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@codixisltd" />
+    <meta name="twitter:image" content="https://www.codixis.com/images/uploads/nscti-quality-export-2-.gif" />
+    <meta name="twitter:description" content="Au travers d'un cas concret, le développement d'un comparateur de prix pour la société Nord Sud CTI (groupe Bolloré Logistics), découvrez comment obtenir un score de 100/100 sur Google Lighthouse." />
+    <meta property="og:url" content="https://www.codixis.com/posts/comment-obtenir-un-score-de-100-100-sur-google-lighthouse/" />
+    <meta property="og:title" content="Comment obtenir un score de 100/100 sur Google Lighthouse ? Cas Nord Sud CTI | Blog | Codixis">
+    <meta property="og:description" content="Au travers d'un cas concret, le développement d'un comparateur de prix pour la société Nord Sud CTI (groupe Bolloré Logistics), découvrez comment obtenir un score de 100/100 sur Google Lighthouse.">
+    <meta property="og:image" content="https://www.codixis.com/images/uploads/nscti-quality-export-2-.gif">
+    <meta property="og:type" content="article" />
+    <script type="application/ld+json">
+    {   "@context":"http://schema.org",
+        "@type": "BlogPosting",
+        "image": "https://www.codixis.com/images/uploads/nscti-quality-export-2-.gif",
+        "url": "https://www.codixis.com/posts/comment-obtenir-un-score-de-100-100-sur-google-lighthouse/",
+        "headline": "Comment obtenir un score de 100/100 sur Google Lighthouse ? Cas Nord Sud CTI",
+        "description": "Au travers d'un cas concret, le développement d'un comparateur de prix pour la société Nord Sud CTI (groupe Bolloré Logistics), découvrez comment obtenir un score de 100/100 sur Google Lighthouse.",
+        "dateCreated": "Tue Apr 06 2021 22:00:00 GMT+0000 (Coordinated Universal Time)",
+        "datePublished": "Tue Apr 06 2021 22:00:00 GMT+0000 (Coordinated Universal Time)",
+        "dateModified": "Tue Apr 06 2021 22:00:00 GMT+0000 (Coordinated Universal Time)",
+        "inLanguage": "fr-FR",
+        "isFamilyFriendly": "true",
+        "copyrightYear": "2021",
+        "copyrightHolder": "",
+        "contentLocation": {
+          "@type": "Place",
+          "name": "33 Rue de la Federation, Montreuil, France"
+        },
+        "accountablePerson": {
+          "@type": "Person",
+          "name": "Guillaume Le Gales",
+          "url": "https://www.codixis.com/a-propos/"
+        },
+        "author": {
+          "@type": "Person",
+          "name": "Guillaume Le Gales",
+          "url": "https://www.codixis.com/a-propos/"
+        },
+        "creator": {
+          "@type": "Person",
+          "name": "Guillaume Le Gales",
+          "url": "https://www.codixis.com/a-propos/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Codixis",
+          "url": "https://www.codixis.com/a-propos/",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://www.codixis.com/images/codixis_logo.png",
+            "width":"308",
+            "height":"100"
+          }
+        },
+        "mainEntityOfPage": "True"
+      }     
+    </script>
+    <link rel="canonical" href="https://www.codixis.com/posts/comment-obtenir-un-score-de-100-100-sur-google-lighthouse/">    
+    <link inline rel="stylesheet" href="/css/tailwind.css">
+    <link rel="stylesheet" href="/css/markdown.css">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico">
+    <script>
+    /**
+     * Dropdown menu
+     */
+    document.addEventListener('DOMContentLoaded', function() {
+        const menus = document.querySelectorAll('.navbar-burger');
+        const dropdowns = document.querySelectorAll('.navbar-menu');
+
+        if (menus.length && dropdowns.length) {
+            for (var i = 0; i < menus.length; i++) {
+                menus[i].addEventListener('click', function() {
+                    for (var j = 0; j < dropdowns.length; j++) {
+                        dropdowns[j].classList.toggle('hidden');
+                    }
+                });
+            }
+        }
+    });
+    </script>
+  </head>
+  <body class="bg-body text-body font-body">    
+    <div class="container mx-auto px-4"> 
+          <nav class="flex flex-wrap items-center justify-between p-4">
+        <div class="flex flex-shrink-0 mr-6"><a class="text-xl font-semibold text-blue-500" href="/"><img inline src="/images/codixis_logo.png" alt="Logo Codixis" width="100"></a></div>
+        <div class="block lg:hidden">
+          <button class="flex items-center px-3 py-2 text-blue-500 border border-blue-500 rounded navbar-burger">
+            <svg class="w-3 h-3 fill-current" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+              <title>Menu</title>
+              <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
+            </svg>
+          </button>
+        </div>
+        <div class="hidden w-full navbar-menu lg:flex lg:flex-grow lg:items-center lg:w-auto">
+          <div class="lg:ml-auto"><a class="block mt-4 mr-10 text-blue-900 lg:inline-block lg:mt-0 hover:text-blue-700" href="/clients/">Clients</a><a class="block mt-4 mr-10 text-blue-900 lg:inline-block lg:mt-0 hover:text-blue-700" href="/technologies/">Technologies</a><a class="block mt-4 mr-10 text-blue-900 lg:inline-block lg:mt-0 hover:text-blue-700" href="/investissement/">Investissement</a><a class="block mt-4 mr-10 text-blue-900 lg:inline-block lg:mt-0 hover:text-blue-700" href="/a-propos/">A Propos</a><a class="block mt-4 mr-10 text-blue-900 lg:inline-block lg:mt-0 hover:text-blue-700" href="/blog/">Blog</a></div>
+          <div><a class="inline-block px-6 py-3 mt-4 leading-none text-white bg-blue-600 rounded shadow lg:mt-0 hover:bg-blue-500" href="/contact/">Contact</a></div>
+        </div>
+      </nav>             
+      <div class="text-center mt-12">
+        <span class="inline-block py-3 px-6 leading-none text-white bg-blue-700 rounded shadow">Blog</span>
+      </div>    
+      <article class="py-12 px-4">
+        <h1 class="text-4xl text-center font-heading font-semibold">Comment obtenir un score de 100/100 sur Google Lighthouse ? Cas Nord Sud CTI</h1>
+        <p class="text-center"><span>Le 2021-04-06, par &nbsp;</span> Guillaume Le Gales</p>
+        <div class="my-10"><img src="/images/uploads/nscti-quality-export-2-.gif" alt=""></div>
+        <div class="max-w-3xl mx-auto">
+          <p>Nous avons réalisé pour Nord Sud CTI un comparateur de prix pour le fret aérien et maritime. Les informations sur le cas client sont disponibles <a href="https://www.codixis.com/etude-de-cas/moteur-de-devis-en-ligne/">ici</a>.</p>
+<p>Comme il s’agit d’une plateforme grand public, nous la souhaitions la plus ergonomique et performante possible. Cela peut sembler évident, mais il apparaît que les comparateurs de prix ne sont pas toujours les leaders en matière de score qualité.</p>
+<p>Quelques exemples :</p>
+<p><img src="/images/uploads/image2.png" alt="Image du comparateur SEARATES" title="Comparateur SEARATES"></p>
+<hr>
+<p><img src="/images/uploads/image5.png" alt="Image du comparateur KAYAK" title="Comparateur KAYAK"></p>
+<p>Pour le comparateur Nord Sud SCTI, nous avons choisi comme indicateur de qualité Google Lighthouse et sommes parvenus à un score de 100/100.</p>
+<h2>Voici comment.</h2>
+<p><img src="/images/uploads/nscti.png" alt="Image du moteur cotation NSCTI" title="Moteur cotation NSCTI"></p>
+<p><strong>1/ Un stack minimaliste pour l’interface utilisateur, avec Tailwind CSS et Alpine.js</strong></p>
+<p>Tailwind CSS est le nouveau framework pour les interfaces graphiques, il est ergonomique et performant pour les utilisateurs et agréable à utiliser pour les développeurs. Sans trop rentrer dans la technique, le CSS pour l’ensemble de la plateforme ne pèse que 7.5kB. Le navigateur est naturellement très rapide dans le téléchargement et l'interprétation du design.</p>
+<p>Alpine.js est le compagnon recommandé de Tailwind CSS, orienté performance et simplicité d’utilisation pour les développeurs. La librairie Alpine ne pèse que 9.1kB, et le javascript est directement inclus dans le HTML. Ici aussi, téléchargement et interprétation sont hyper optimisés.</p>
+<p><strong>2/ Aucun tracker ni javascript de sites tiers (Google Analytics), la plateforme dispose de ses propres outils d’analytics ne nécessitant pas de consentement RGPD</strong></p>
+<p>Ici, aucun tracker Google Analytics ou autre, les analytics sont calculés par la plateforme et ne collectent aucune donnée personnelle.</p>
+<ul>
+<li>Le chargement des pages n’est pas ralenti par le chargement de javascript tiers, Google vous en remercie.</li>
+<li>Pour les utilisateurs, ils (re)découvrent le confort de naviguer sur un site ne nécessitant pas de bannière de consentement RGPD.</li>
+</ul>
+<p><strong>3/ La mise en place des bonnes pratiques en matière de performance sur le serveur, principalement Opcache et Gzip</strong></p>
+<p>Nous le rappelons si besoin, quelques lignes sur PHP.ini et Nginx.conf vous feront gagner considérablement sur vos temps de réponses.</p>
+<p>Ces réglages seront nécessaires si vous souhaitez un score de qualité de 100%</p>
+<h2>Bilan et comparaison avec la concurrence</h2>
+<p>Dans son baromètre des sites de comparateurs de solutions d'expéditions disponible <a href="https://www.supervisable.com/barometre/comparateurs-de-solutions-dexpeditions">ici</a>, <a href="https://www.supervisable.com">Supervisable</a> vous propose un comparatif plus large des sites de comparateurs de solutions d'expéditions en matière de score qualité Google Lighthouse.</p>
+<p>Le comparateur Nord Sud CTI y prend la première place :</p>
+<p><img src="/images/uploads/screenshot-2021-04-08-at-08.56.55.png" alt="Classement-supervisable" title="Classement supervisable"></p>
+<p>Nous ferons un suivi de cet article ultérieurement pour faire un bilan de l'impact de cette approche sur le SEO.</p>
+<p><strong>Vous avez des questions sur l'optimisation de vos performances ? <a href="https://www.codixis.com/contact/">Contactez nous</a> pour en discuter !</strong></p>
+
+        </div>
+      </article>    
+            <section class="px-4 py-8"><div class="flex flex-wrap items-center -mx-2 text-center md:text-left">
+          <div class="order-1 px-2 mt-10 lg:w-1/2 lg:pl-16 lg:mt-0 lg:order-none">
+            <h2 class="mb-6 text-4xl font-heading">Recevez nos actualit&eacute;s business et technologiques</h2>
+            <form class='w-full max-w-lg mx-auto sm:mx-0' method='POST' name='newsletter'><input type='hidden' name='form-name' value='newsletter' />
+              <div class="flex flex-wrap">
+                <div class="w-full mb-4 md:w-2/3">
+                  <label>
+                    Votre E-mail
+                    <input class="block w-full px-4 py-3 leading-snug text-gray-700 bg-gray-200 border border-gray-200 rounded appearance-none focus:bg-white focus:border-gray-500 md:rounded-r-none focus:outline-none" type="text" name="email" placeholder="michael@dundermifflin.com"></div>
+                  </label>                  
+                <div class="w-full mb-4 md:w-1/3">
+                  <br />
+                  <button type="submit" class="inline-block w-full px-8 py-4 leading-none text-white bg-blue-700 rounded hover:bg-blue-500 md:rounded-l-none">S'inscrire</button>
+                </div>
+                <p class="text-sm leading-relaxed text-gray-700">Inscrivez-vous pour recevoir notre newsletter et en savoir plus sur le lancement rapide d&rsquo;applications web</p>
+              </div>
+            </form>
+          </div>
+          <div class="px-2 lg:w-1/2"><img inline src="/placeholders/pictures/undraw_Newsletter_re_wrob.svg" alt="Newsletter"></div>
+        </div>
+      </section>     
+      	  <section class="px-4 py-8"><div class="max-w-3xl mx-auto">
+          <h2 class="text-3xl text-center">D&eacute;couvrez les succ&egrave;s de nos clients</h2>
+        </div>
+      </section>    
+      <section class="px-4">
+        <div class="flex flex-wrap -mx-4"><div class="px-4 py-8 mb-8 md:w-1/3 md:mb-0"><a href="/etude-de-cas/deafi/"><img inline class="rounded shadow-md hover:opacity-75" src="/images/codixis_cas-client_deafi.jpg" alt="Application Deafiline"></a></div><div class="px-4 py-8 mb-8 md:w-1/3 md:mb-0"><a href="/etude-de-cas/opcalia/"><img inline class="rounded shadow-md hover:opacity-75" src="/images/codixis_cas-client_opcalia.jpg" alt="Plateforme Banque de Profil"></a></div><div class="px-4 py-8 mb-8 md:w-1/3 md:mb-0"><a href="/etude-de-cas/opco-mobilites/"><img inline class="rounded shadow-md hover:opacity-75" src="/images/codixis_cas-client_opco_mobilites.jpg" alt="Extranet M-Gestion"></a></div></div>
+      </section>    
+      <div class="mb-10 text-center"><a class="inline-block px-6 py-3 leading-none text-white bg-blue-700 rounded shadow hover:bg-blue-500 " href="/clients/">Voir tous les cas client</a></div>     
+          <footer><div class="flex flex-wrap items-center px-4 py-4 border-b">
+        <div class="w-full text-center lg:w-1/5 lg:text-left">
+          <a class="text-xl font-semibold text-blue-500" href="/"><img inline src="/images/codixis_logo.png" alt="Logo Codixis" width="100"></a></div>
+        <div class="w-full mt-4 text-center lg:w-3/5 lg:mt-0"><a class="inline-block mx-4 mb-4 text-blue-900 lg:mb-0 hover:text-blue-700" href="/clients/">Clients</a><a class="inline-block mx-4 mb-4 text-blue-900 lg:mb-0 hover:text-blue-700" href="/technologies/">Technologies</a><a class="inline-block mx-4 mb-4 text-blue-900 lg:mb-0 hover:text-blue-700" href="/a-propos/">A Propos</a><a class="inline-block mx-4 mb-4 text-blue-900 lg:mb-0 hover:text-blue-700" href="/blog/">Blog</a><a class="inline-block mx-4 mb-4 text-blue-900 lg:mb-0 hover:text-blue-700" href="/contact/">Contact</a></div>
+        <div class="flex justify-center w-full my-2 lg:justify-end lg:w-1/5 lg:my-0">
+          <a rel="noopener" href="https://www.facebook.com/codixis" target="_blank"><img class="w-12 h-12 mr-6" src="/placeholders/icons/facebook_square.svg" alt="Facebook"></a>
+          <a rel="noopener" href="https://twitter.com/CodixisLtd" target="_blank"><img class="w-12 h-12 mr-6" src="/placeholders/icons/twitter.svg" alt="Twitter"></a>
+          <a rel="noopener" href="https://www.linkedin.com/company/10084228" target="_blank"><img class="w-12 h-12" src="/placeholders/icons/linkedin.svg" alt="Linkedin"></a>
+        </div>
+        </div>
+        <div class="py-4 text-center"><span class="block mx-3 mb-4 md:inline-block md:mb-0">© 2023 Codixis</span></div>
+      </footer>
+    </div>
+  </body>
+</html>
+

@@ -53,12 +53,11 @@ export const Home: React.FC = () => {
     return (
         <>
             <SEO
-                title="Kiné du Sport Paris 17 | Batignolles Kiné Sport"
+                title="Kinésithérapeute du Sport Paris 17 | Batignolles Kiné Sport"
                 description="Cabinet de kinésithérapie du sport à Paris 17 Batignolles. Spécialistes course, post-op, périnée. Bilan précis, protocole validé, retour terrain encadré."
             />
             <Helmet>
                 <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
-                <script type="application/ld+json">{JSON.stringify(localBusinessSchema)}</script>
             </Helmet>
 
             <div ref={containerRef} className="text-slate-900 lg:h-screen lg:overflow-y-scroll lg:snap-y lg:snap-mandatory">
@@ -103,7 +102,7 @@ export const Home: React.FC = () => {
                                         }).toURL()}
                                         alt="Cabinet de kinésithérapie du sport à Paris 17 Batignolles"
                                         className="w-full h-full object-cover opacity-90 transition-transform duration-[20s] group-hover:scale-105"
-                                        fetchPriority="high"
+                                        fetchpriority="high"
                                         loading="eager"
                                         width="1920"
                                         height="1080"
@@ -114,7 +113,7 @@ export const Home: React.FC = () => {
                                     src={HERO_IMAGE_URL}
                                     alt="Cabinet de kinésithérapie du sport à Paris 17 Batignolles"
                                     className="w-full h-full object-cover opacity-90 transition-transform duration-[20s] group-hover:scale-105"
-                                    fetchPriority="high"
+                                    fetchpriority="high"
                                     loading="eager"
                                     width="1920"
                                     height="1080"

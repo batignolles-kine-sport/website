@@ -2,6 +2,7 @@ import React from 'react';
 import { MapPin, Train, Car, Activity } from 'lucide-react';
 import { Button } from '../ui/Button';
 import { SectionHeader } from '../ui/SectionHeader';
+import { MapFacade } from '../ui/MapFacade';
 import { ADDRESS, DOCTOLIB_URL } from '../../utils/constants';
 
 export const AccessSection: React.FC = () => {
@@ -56,16 +57,11 @@ export const AccessSection: React.FC = () => {
 
                 <div>
                     <div className="h-full min-h-map w-full rounded-2xl overflow-hidden shadow-card bg-gray-200">
-                        <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2623.68397904634!2d2.321234876520314!3d48.88330069895298!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66fdd1fdf67bd%3A0x49cb2ecbd1bf21c1!2sBatignolles%20Kiné%20Sport%20%7C%20Paris%2017!5e0!3m2!1sfr!2sfr!4v1765299373175!5m2!1sfr!2sfr"
-                            width="100%"
-                            height="100%"
-                            className="border-0"
-                            allowFullScreen
-                            loading="lazy"
-                            referrerPolicy="no-referrer-when-downgrade"
+                        <MapFacade
+                            mapSrc="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2623.68397904634!2d2.321234876520314!3d48.88330069895298!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66fdd1fdf67bd%3A0x49cb2ecbd1bf21c1!2sBatignolles%20Kiné%20Sport%20%7C%20Paris%2017!5e0!3m2!1sfr!2sfr!4v1765299373175!5m2!1sfr!2sfr"
                             title="Carte Google Maps"
-                        ></iframe>
+                            className="rounded-2xl"
+                        />
                     </div>
                 </div>
             </div>

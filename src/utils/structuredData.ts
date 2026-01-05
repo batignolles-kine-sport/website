@@ -91,12 +91,6 @@ export function generateLocalBusinessSchema(): StructuredDataLocalBusiness {
         opens: '08:00',
         closes: '19:00',
       },
-      {
-        '@type': 'OpeningHoursSpecification',
-        dayOfWeek: 'Saturday',
-        opens: '09:00',
-        closes: '13:00',
-      },
     ],
   };
 }
