@@ -9,7 +9,7 @@ interface SitemapUrl {
   priority: number;
 }
 
-const DOMAIN = 'https://batignolles-kine-sport.fr';
+const DOMAIN = 'https://batignolleskinesport.fr';
 const PATHOLOGIES_DIR = path.join(process.cwd(), 'src/posts/pathologies');
 
 /**

@@ -4,7 +4,7 @@ import { ServiceData, TeamMember, BlogPost, Review } from './src/types';
 export const DOCTOLIB_URL = "https://www.doctolib.fr/cabinet-de-kinesitherapie/paris/batignolles-kine-sport";
 export const ADDRESS = "6 rue des Batignolles, 75017 Paris";
 export const PHONE = "09 62 43 49 61";
-export const EMAIL = "contact@batignolles-kine-sport.fr";
+export const EMAIL = "contact@batignolleskinesport.fr";
 export const INSTAGRAM_URL = "https://www.instagram.com/batignolleskinesport/";
 
 // Asset paths - Please ensure these files exist in your public folder

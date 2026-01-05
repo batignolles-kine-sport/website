@@ -1637,7 +1637,7 @@ Tools (Small Budget) :
 
 ```
 ┌─────────────────────────────────────────────────────┐
-│ DOMAIN (batignolles-kine-sport.fr)                 │
+│ DOMAIN (batignolleskinesport.fr)                    │
 │ ↓ HTTPS ↓                                           │
 ├─────────────────────────────────────────────────────┤
 │           NETLIFY (Hosting + CDN + HTTPS)          │
@@ -1883,7 +1883,7 @@ Backup Strategy :
 
 | Item | Cost/Month | Annual |
 |------|-----------|--------|
-| Domain (batignolles-kine-sport.fr) | 0.83€ | 10€ |
+| Domain (batignolleskinesport.fr) | 0.83€ | 10€ |
 | Netlify (Pro tier) | 20€ | 240€ |
 | SendGrid (transactional emails) | free–10€ | 0–120€ |
 | Mailchimp (email marketing) | free–30€ | 0–360€ |

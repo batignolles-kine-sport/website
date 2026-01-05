@@ -110,20 +110,20 @@ export function generateArticleSchema(
     '@type': 'BlogPosting',
     headline: title,
     description: description,
-    image: `https://batignolles-kine-sport.fr/images/blog/${slug}.jpg`,
+    image: `https://batignolleskinesport.fr/images/blog/${slug}.jpg`,
     datePublished: datePublished,
     author: {
       '@type': 'Organization',
       name: author,
-      url: 'https://batignolles-kine-sport.fr',
+      url: 'https://batignolleskinesport.fr',
     },
-    url: `https://batignolles-kine-sport.fr/blog/${slug}`,
+    url: `https://batignolleskinesport.fr/blog/${slug}`,
     publisher: {
       '@type': 'Organization',
       name: 'Batignolles Kiné Sport',
       logo: {
         '@type': 'ImageObject',
-        url: 'https://batignolles-kine-sport.fr/images/logo.svg',
+        url: 'https://batignolleskinesport.fr/images/logo.svg',
       },
     },
   };
