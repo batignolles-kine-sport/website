@@ -66,13 +66,11 @@
   <link rel="dns-prefetch" href="https://cdn.openwidget.com">
 
   <!-- Preload LCP Image - LOCAL OPTIMIZED -->
-  <!-- Mobile (< 768px) -->
-  <link rel="preload" as="image" fetchpriority="high" href="/images/hero/hero-mobile.webp" media="(max-width: 767px)" />
-  <!-- Tablet (768px - 1023px) -->
-  <link rel="preload" as="image" fetchpriority="high" href="/images/hero/hero-tablet.webp"
-    media="(min-width: 768px) and (max-width: 1023px)" />
+  <!-- Mobile & Tablet Portrait (< 1024px) -->
+  <link rel="preload" as="image" fetchpriority="high" href="/images/hero/hero-mobile.webp"
+    media="(max-width: 1023px)" />
   <!-- Desktop (>= 1024px) -->
-  <link rel="preload" as="image" fetchpriority="high" href="/images/hero/hero-desktop.webp"
+  <link rel="preload" as="image" fetchpriority="high" href="/images/hero/hero-horizontal.webp"
     media="(min-width: 1024px)" />
 
   <!-- Google Fonts - Self-hosted via CSS import -->

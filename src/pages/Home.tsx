@@ -70,21 +70,14 @@ export const Home: React.FC = () => {
                         <div className="absolute inset-0">
                             {/* Hero Optimized locally with 3 dedicated files for Perfect Art Direction & LCP */}
                             <picture>
-                                {/* Desktop > 1024px */}
+                                {/* Desktop & Landscape > 1024px */}
                                 <source
                                     media="(min-width: 1024px)"
-                                    srcSet="/images/hero/hero-desktop.webp"
+                                    srcSet="/images/hero/hero-horizontal.webp"
                                     width="1920"
                                     height="1080"
                                 />
-                                {/* Tablet 768px - 1023px */}
-                                <source
-                                    media="(min-width: 768px)"
-                                    srcSet="/images/hero/hero-tablet.webp"
-                                    width="1200"
-                                    height="800"
-                                />
-                                {/* Mobile (Default) < 768px */}
+                                {/* Mobile & Portrait < 1024px */}
                                 <img
                                     src="/images/hero/hero-mobile.webp"
                                     alt="Cabinet de kinésithérapie du sport à Paris 17 Batignolles"
