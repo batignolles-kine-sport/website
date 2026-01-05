@@ -43,17 +43,26 @@ export const MapFacade: React.FC<MapFacadeProps> = ({ mapSrc, title, className =
             role="button"
             aria-label="Charger la carte Google Maps"
         >
-            {/* Background/Placeholder - replaced with a static gradient */}
-            <div className="absolute inset-0 bg-cover bg-center opacity-60 group-hover:opacity-70 transition-opacity flex items-center justify-center bg-gradient-to-br from-slate-200 to-slate-300">
-                {/* Fallback pattern if image fails */}
-                <div className="absolute inset-0 bg-slate-200/50" />
+            {/* Map Preview Image - Optimized Implementation */}
+            <div className="absolute inset-0 transition-transform duration-700 group-hover:scale-105">
+                <img
+                    src="/images/landing/map-preview.webp"
+                    alt="Aperçu de l'emplacement du cabinet"
+                    className="w-full h-full object-cover opacity-80 group-hover:opacity-90 transition-opacity"
+                    loading="lazy"
+                    decoding="async"
+                    width="1200"
+                    height="600"
+                />
+                {/* Gradient overlay to ensure text/icon readability */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
             </div>
 
             <div className="absolute inset-0 flex flex-col items-center justify-center p-4">
-                <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-lg mb-3 transform group-hover:scale-110 transition-transform text-primary">
+                <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-lg mb-4 transform group-hover:scale-110 transition-transform text-primary ring-4 ring-white/20">
                     <MapPin size={32} />
                 </div>
-                <div className="bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full shadow-sm font-medium text-slate-900 border border-white/20">
+                <div className="bg-white/95 backdrop-blur-sm px-6 py-2.5 rounded-full shadow-xl font-semibold text-slate-900 border border-white/40 flex items-center gap-2 transform group-hover:translate-y-[-4px] transition-transform">
                     Afficher la carte
                 </div>
             </div>
