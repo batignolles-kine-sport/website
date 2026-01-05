@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { MapPin } from 'lucide-react';
+import { MapPin, Loader2 } from 'lucide-react';
 
 interface MapFacadeProps {
     mapSrc: string;
@@ -8,11 +8,18 @@ interface MapFacadeProps {
 }
 
 export const MapFacade: React.FC<MapFacadeProps> = ({ mapSrc, title, className = '' }) => {
-    const [isLoaded, setIsLoaded] = useState(false);
+    const [isActivated, setIsActivated] = useState(false);
+    const [isIframeLoading, setIsIframeLoading] = useState(true);
 
-    if (isLoaded) {
+    if (isActivated) {
         return (
-            <div className={`h-full w-full ${className}`}>
+            <div className={`relative h-full w-full bg-slate-100 ${className}`}>
+                {isIframeLoading && (
+                    <div className="absolute inset-0 flex flex-col items-center justify-center z-10 transition-opacity duration-300">
+                        <Loader2 className="w-10 h-10 text-primary animate-spin mb-3" />
+                        <span className="text-sm font-medium text-slate-500 animate-pulse">Chargement de la carte...</span>
+                    </div>
+                )}
                 <iframe
                     src={mapSrc}
                     width="100%"
@@ -22,6 +29,8 @@ export const MapFacade: React.FC<MapFacadeProps> = ({ mapSrc, title, className =
                     loading="lazy"
                     referrerPolicy="no-referrer-when-downgrade"
                     title={title}
+                    onLoad={() => setIsIframeLoading(false)}
+                    className={`transition-opacity duration-500 ${isIframeLoading ? 'opacity-0' : 'opacity-100'}`}
                 />
             </div>
         );
@@ -30,7 +39,7 @@ export const MapFacade: React.FC<MapFacadeProps> = ({ mapSrc, title, className =
     return (
         <div
             className={`relative h-full w-full bg-slate-200 cursor-pointer group overflow-hidden ${className}`}
-            onClick={() => setIsLoaded(true)}
+            onClick={() => setIsActivated(true)}
             role="button"
             aria-label="Charger la carte Google Maps"
         >
