@@ -68,60 +68,33 @@ export const Home: React.FC = () => {
                         className="relative w-full h-[90dvh] md:h-[90vh] min-h-[450px] max-h-[95vh] rounded-3xl md:rounded-4xl lg:rounded-5xl overflow-hidden shadow-2xl shadow-slate-200 bg-slate-900 group border border-white"
                     >
                         <div className="absolute inset-0">
-                            {isCloudinaryImage(HERO_IMAGE_URL) ? (
-                                <picture>
-                                    <source
-                                        media="(max-width: 768px)"
-                                        srcSet={`${getCloudinaryImage(pathToPublicId(HERO_IMAGE_URL), {
-                                            width: 800,
-                                            aspectRatio: '9:16',
-                                            gravity: 'auto'
-                                        }).toURL()} 1x, ${getCloudinaryImage(pathToPublicId(HERO_IMAGE_URL), {
-                                            width: 1600,
-                                            aspectRatio: '9:16',
-                                            gravity: 'auto'
-                                        }).toURL()} 2x`}
-                                    />
-                                    <source
-                                        media="(min-width: 769px)"
-                                        srcSet={`${getCloudinaryImage(pathToPublicId(HERO_IMAGE_URL), {
-                                            width: 1920,
-                                            aspectRatio: '16:9',
-                                            gravity: 'auto'
-                                        }).toURL()} 1x, ${getCloudinaryImage(pathToPublicId(HERO_IMAGE_URL), {
-                                            width: 2560,
-                                            aspectRatio: '16:9',
-                                            gravity: 'auto'
-                                        }).toURL()} 2x`}
-                                    />
-                                    <img
-                                        src={getCloudinaryImage(pathToPublicId(HERO_IMAGE_URL), {
-                                            width: 1920,
-                                            aspectRatio: '16:9',
-                                            gravity: 'auto'
-                                        }).toURL()}
-                                        alt="Cabinet de kinésithérapie du sport à Paris 17 Batignolles"
-                                        className="w-full h-full object-cover opacity-90 transition-transform duration-[20s] group-hover:scale-105"
-                                        fetchpriority="high"
-                                        loading="eager"
-                                        width="1920"
-                                        height="1080"
-                                    />
-                                </picture>
-                            ) : (
-                                <img
-                                    src={HERO_IMAGE_URL}
-                                    alt="Cabinet de kinésithérapie du sport à Paris 17 Batignolles"
-                                    className="w-full h-full object-cover opacity-90 transition-transform duration-[20s] group-hover:scale-105"
-                                    fetchpriority="high"
-                                    loading="eager"
+                            {/* Hero Optimized locally with 3 dedicated files for Perfect Art Direction & LCP */}
+                            <picture>
+                                {/* Desktop > 1024px */}
+                                <source
+                                    media="(min-width: 1024px)"
+                                    srcSet="/images/hero/hero-desktop.webp"
                                     width="1920"
                                     height="1080"
-                                    onError={(e) => {
-                                        e.currentTarget.src = '/images/hero/hero.jpeg';
-                                    }}
                                 />
-                            )}
+                                {/* Tablet 768px - 1023px */}
+                                <source
+                                    media="(min-width: 768px)"
+                                    srcSet="/images/hero/hero-tablet.webp"
+                                    width="1200"
+                                    height="800"
+                                />
+                                {/* Mobile (Default) < 768px */}
+                                <img
+                                    src="/images/hero/hero-mobile.webp"
+                                    alt="Cabinet de kinésithérapie du sport à Paris 17 Batignolles"
+                                    className="w-full h-full object-cover opacity-90 transition-transform duration-[20s] group-hover:scale-105"
+                                    fetchPriority="high"
+                                    loading="eager"
+                                    width="800"
+                                    height="1200"
+                                />
+                            </picture>
                             <div className="absolute inset-0 bg-linear-to-t from-black/90 via-black/30 to-black/10" />
                         </div>
 

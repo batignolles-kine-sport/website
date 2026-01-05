@@ -65,13 +65,15 @@
   <link rel="dns-prefetch" href="https://www.doctolib.fr">
   <link rel="dns-prefetch" href="https://cdn.openwidget.com">
 
-  <!-- Preload LCP Image - SIMPLIFIED -->
-  <link rel="preload" as="image" fetchpriority="high"
-    href="https://res.cloudinary.com/dsesaneyj/image/upload/c_fill,w_800,ar_9:16,g_auto,q_auto,f_auto/hero/hero"
-    media="(max-width: 768px)">
-  <link rel="preload" as="image" fetchpriority="high"
-    href="https://res.cloudinary.com/dsesaneyj/image/upload/c_fill,w_1920,ar_16:9,g_auto,q_auto,f_auto/hero/hero"
-    media="(min-width: 769px)">
+  <!-- Preload LCP Image - LOCAL OPTIMIZED -->
+  <!-- Mobile (< 768px) -->
+  <link rel="preload" as="image" fetchpriority="high" href="/images/hero/hero-mobile.webp" media="(max-width: 767px)" />
+  <!-- Tablet (768px - 1023px) -->
+  <link rel="preload" as="image" fetchpriority="high" href="/images/hero/hero-tablet.webp"
+    media="(min-width: 768px) and (max-width: 1023px)" />
+  <!-- Desktop (>= 1024px) -->
+  <link rel="preload" as="image" fetchpriority="high" href="/images/hero/hero-desktop.webp"
+    media="(min-width: 1024px)" />
 
   <!-- Google Fonts - Self-hosted via CSS import -->
   <!-- <link href="https://fonts.googleapis.com/css2..." rel="stylesheet"> removed -->
@@ -128,6 +130,10 @@
     }
 
     /* CSS critique minimal pour éviter layout shift */
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    }
+
     .header-navbar {
       height: var(--navbar-height);
       max-height: var(--navbar-height);
