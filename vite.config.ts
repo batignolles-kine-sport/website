@@ -2,6 +2,7 @@ import path from 'path';
 import { defineConfig, loadEnv } from 'vite';
 import react from '@vitejs/plugin-react';
 import viteCompression from 'vite-plugin-compression';
+import { VitePWA } from 'vite-plugin-pwa';
 
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, '.', '');
@@ -13,30 +14,97 @@ export default defineConfig(({ mode }) => {
     },
     plugins: [
       react(),
-      // Brotli compression (best compression)
-      viteCompression({
-        algorithm: 'brotliCompress',
-        ext: '.br',
-        threshold: 1024, // Only compress files > 1KB
-        deleteOriginFile: false,
-      }),
-      // Gzip compression (fallback for older browsers)
-      viteCompression({
-        algorithm: 'gzip',
-        ext: '.gz',
-        threshold: 1024,
-        deleteOriginFile: false,
-      }),
-      {
-        name: 'generate-sitemap',
-        apply: 'build',
-        enforce: 'post',
-        async closeBundle() {
-          const { writeSitemap } = await import('./src/utils/sitemap.js');
-          writeSitemap();
-          console.log('🚀 Sitemap généré avant déploiement');
+      VitePWA({
+        registerType: 'autoUpdate',
+        includeAssets: ['favicon.ico', 'robots.txt', 'apple-touch-icon.png'],
+        manifest: {
+          name: 'Batignolles Kiné Sport',
+          short_name: 'BKS Kiné',
+          description: 'Cabinet de kinésithérapie du sport à Paris 17 - Batignolles',
+          theme_color: '#0D2918',
+          background_color: '#ffffff',
+          display: 'standalone',
+          orientation: 'portrait',
+          icons: [
+            {
+              src: 'pwa-192x192.png',
+              sizes: '192x192',
+              type: 'image/png'
+            },
+            {
+              src: 'pwa-512x512.png',
+              sizes: '512x512',
+              type: 'image/png'
+            },
+            {
+              src: 'pwa-512x512.png',
+              sizes: '512x512',
+              type: 'image/png',
+              purpose: 'any maskable'
+            }
+          ]
         },
-      },
+        workbox: {
+          globPatterns: ['**/*.{js,css,html,ico,png,svg,woff2}'],
+          runtimeCaching: [
+            {
+              urlPattern: /^https:\/\/res\.cloudinary\.com\/.*/i,
+              handler: 'CacheFirst',
+              options: {
+                cacheName: 'cloudinary-images',
+                expiration: {
+                  maxEntries: 50,
+                  maxAgeSeconds: 60 * 60 * 24 * 30 // 30 Days
+                },
+                cacheableResponse: {
+                  statuses: [0, 200]
+                }
+              }
+            },
+            {
+              urlPattern: /^https:\/\/fonts\.googleapis\.com\/.*/i,
+              handler: 'CacheFirst',
+              options: {
+                cacheName: 'google-fonts-cache',
+                expiration: {
+                  maxEntries: 10,
+                  maxAgeSeconds: 60 * 60 * 24 * 365 // 1 Year
+                },
+                cacheableResponse: {
+                  statuses: [0, 200]
+                }
+              }
+            },
+            {
+              urlPattern: /^https:\/\/fonts\.gstatic\.com\/.*/i,
+              handler: 'CacheFirst',
+              options: {
+                cacheName: 'gstatic-fonts-cache',
+                expiration: {
+                  maxEntries: 10,
+                  maxAgeSeconds: 60 * 60 * 24 * 365 // 1 Year
+                },
+                cacheableResponse: {
+                  statuses: [0, 200]
+                }
+              }
+            },
+            // NetworkFirst for content pages to ensure fresh data
+            {
+              urlPattern: ({ request }) => request.mode === 'navigate',
+              handler: 'NetworkFirst',
+              options: {
+                cacheName: 'pages-cache',
+                expiration: {
+                  maxEntries: 10,
+                  maxAgeSeconds: 60 * 60 * 24 * 7 // 1 Week
+                },
+                networkTimeoutSeconds: 3 // Fallback to cache after 3s
+              }
+            }
+          ]
+        }
+      }),
     ],
     define: {
       'process.env.API_KEY': JSON.stringify(env.GEMINI_API_KEY),

@@ -33,6 +33,12 @@
         background-color: white;
         overflow-x: hidden;
     }
+
+    /* Accessibilité : Focus visible pour navigation clavier (Standard WCAG/Apple) */
+    :focus-visible {
+        outline: 2px solid var(--color-primary);
+        outline-offset: 2px;
+    }
 }
 
 /* Animations d'entrée CSS pour éviter le TBT/LCP delay de Framer Motion */
@@ -51,6 +57,7 @@
 .animate-fade-up {
     animation: fade-up 0.8s ease-out forwards;
     opacity: 0;
+    will-change: transform, opacity;
     /* État initial pour éviter le flash */
 }
 
@@ -88,6 +95,7 @@
 .animate-fade-in {
     animation: fade-in 0.6s ease-out forwards;
     opacity: 0;
+    will-change: opacity;
 }
 
 /* Hover scale effect (CSS only) */

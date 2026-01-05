@@ -1,5 +1,6 @@
 import fs from 'fs';
 import path from 'path';
+import { SERVICES } from './constants';
 
 interface SitemapUrl {
   loc: string;
@@ -49,6 +50,18 @@ function getPathologyUrls(): SitemapUrl[] {
         priority: 0.7,
       };
     });
+}
+
+/**
+ * Génère les URLs pour les services
+ */
+function getServiceUrls(): SitemapUrl[] {
+  return SERVICES.map(service => ({
+    loc: `${DOMAIN}${service.path}`,
+    lastmod: new Date().toISOString().split('T')[0],
+    changefreq: 'weekly' as const,
+    priority: 0.8,
+  }));
 }
 
 /**
@@ -108,8 +121,9 @@ function escapeXml(str: string): string {
  */
 export function generateSitemap(): string {
   const staticUrls = getStaticUrls();
+  const serviceUrls = getServiceUrls();
   const pathologyUrls = getPathologyUrls();
-  const urls = [...staticUrls, ...pathologyUrls];
+  const urls = [...staticUrls, ...serviceUrls, ...pathologyUrls];
 
   console.log(`✅ Sitemap total: ${urls.length} URLs`);
 
@@ -121,15 +135,15 @@ export function generateSitemap(): string {
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
         xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
 ${urls
-  .map(
-    url => `  <url>
+      .map(
+        url => `  <url>
     <loc>${escapeXml(url.loc)}</loc>
     <lastmod>${url.lastmod}</lastmod>
     <changefreq>${url.changefreq}</changefreq>
     <priority>${url.priority}</priority>
   </url>`
-  )
-  .join('\n')}
+      )
+      .join('\n')}
 </urlset>`;
 
   return xml.trim();
