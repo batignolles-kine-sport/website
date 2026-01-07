@@ -241,7 +241,7 @@ export const Pratiques: React.FC = () => {
                 </div>
             </section>
 
-            {/* Complementary Practices Section */}
+            {/* Complementary Practices Section - Hidden for now
             <section className="border-b border-slate-100 py-16 md:py-24 bg-slate-50">
                 <div className="mx-auto max-w-7xl px-4">
                     <motion.div
@@ -285,8 +285,9 @@ export const Pratiques: React.FC = () => {
                     </motion.div>
                 </div>
             </section>
+            */}
 
-            {/* Pathologies Section */}
+            {/* Pathologies Section - Hidden for now
             <section className="border-b border-slate-100 py-16 md:py-24">
                 <div className="mx-auto max-w-7xl px-4">
                     <motion.div
@@ -329,6 +330,7 @@ export const Pratiques: React.FC = () => {
                     </motion.div>
                 </div>
             </section>
+            */}
 
             {/* CTA Section */}
             <section className="py-20 md:py-28 bg-gradient-to-br from-slate-50 to-white">

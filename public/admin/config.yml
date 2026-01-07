@@ -23,4 +23,5 @@ collections:
       - { label: "Temps de lecture", name: "readTime", widget: "string", default: "5 min" }
       - { label: "Extrait (résumé)", name: "excerpt", widget: "text", required: true }
       - { label: "Date de publication", name: "publishedAt", widget: "string", pattern: ["^\\d{2} [A-Za-z]+ \\d{4}$", "Format: 17 Décembre 2025"] }
+      - { label: "Afficher sur le blog", name: "featured", widget: "boolean", default: true, required: false, hint: "Décocher pour masquer cet article de la liste principale du blog (il restera accessible via son URL directe)" }
       - { label: "Contenu", name: "body", widget: "markdown", required: true }

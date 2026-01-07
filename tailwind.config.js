@@ -221,7 +221,7 @@ export default {
     function ({ addUtilities }) {
       addUtilities({
         '.text-gradient-primary': {
-          'background-image': 'linear-gradient(to right, #3b402e, #6d744d)',
+          'background-image': 'linear-gradient(to right, #404134, #73755c)', /* Olive → Sage */
           '-webkit-background-clip': 'text',
           'background-clip': 'text',
           'color': 'transparent',

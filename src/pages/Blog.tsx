@@ -39,6 +39,7 @@ type BlogPost = {
   publishedAt?: string;
   author?: string;
   date?: string;
+  featured?: boolean;
 };
 
 import blogPostsData from '../data/blog-metadata.json';
@@ -178,12 +179,16 @@ export const Blog: React.FC = () => {
 
   // Filter posts
   const filteredPosts = useMemo(() => {
+    // First filter by featured status (only show featured articles)
+    let posts = BLOG_POSTS.filter((post) => post.featured !== false);
+
+    // Then filter by category if active
     if (activeCategory) {
-      return BLOG_POSTS.filter(
+      posts = posts.filter(
         (post) => slugifyCategory(post.category) === activeCategory.toLowerCase()
       );
     }
-    return BLOG_POSTS;
+    return posts;
   }, [activeCategory]);
 
   // Pagination calculations

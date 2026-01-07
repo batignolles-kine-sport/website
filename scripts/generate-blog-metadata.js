@@ -52,6 +52,11 @@ const generateMetadata = () => {
         const bodyExcerpt = content.split(/\n\n+/)[0] || '';
         const excerpt = excerptFromFrontmatter || bodyExcerpt.slice(0, 220);
 
+        // Parse featured field (defaults to true for backward compatibility)
+        const featured = frontmatter.featured !== undefined
+            ? (frontmatter.featured === 'true' || frontmatter.featured === true)
+            : true;
+
         return {
             slug,
             title,
@@ -63,6 +68,7 @@ const generateMetadata = () => {
             publishedAt: frontmatter.publishedAt,
             author: 'Équipe BKS',
             date: frontmatter.publishedAt || 'Récemment',
+            featured,
         };
     }).filter(post => post.title && post.slug.length > 0);
 

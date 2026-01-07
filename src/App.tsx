@@ -7,6 +7,7 @@ import { Home } from './pages/Home'; // Eager load for critical route
 const Team = lazy(() => import('./pages/Team').then((m) => ({ default: m.Team })));
 const Pratiques = lazy(() => import('./pages/Pratiques').then((m) => ({ default: m.Pratiques })));
 const Blog = lazy(() => import('./pages/Blog').then((m) => ({ default: m.Blog })));
+const BlogGenius = lazy(() => import('./pages/BlogGenius').then((m) => ({ default: m.BlogGenius })));
 const BlogPost = lazy(() => import('./pages/BlogPost').then((m) => ({ default: m.BlogPost })));
 const Contact = lazy(() => import('./pages/Contact').then((m) => ({ default: m.Contact })));
 const Legal = lazy(() => import('./pages/Legal').then((m) => ({ default: m.Legal })));
@@ -40,6 +41,9 @@ const App: React.FC = () => {
 
             {/* Redirect generic service root to first service or home */}
             <Route path="/services" element={<Navigate to="/services/kine-sport" replace />} />
+
+            {/* Hidden admin blog management page */}
+            <Route path="/blog-genius" element={<BlogGenius />} />
 
             {/* Blog routes (nouvelle architecture unifiée) */}
             <Route path="/blog" element={<Blog />} />

@@ -87,7 +87,12 @@ export const TEAM: TeamMember[] = [
     sports: ["Crossfit", "Gymnastique"],
     bio: "Léa HLUBINA, kinésithérapeute du sport et ancienne gymnaste. Elle accompagne les gymnastes et sportifs artistiques dans la gestion des hyperlaxités, des douleurs de dos et la prévention des blessures spécifiques.",
     image: "https://media.doctolib.com/image/upload/q_auto:eco,f_auto,w_400,h_400,c_fill,g_face/gttfrwkqsjxtiiwi4ts5.jpg",
-    doctolibUrl: "https://www.doctolib.fr/masseur-kinesitherapeute/paris/lea-hlubina"
+    doctolibUrl: "https://www.doctolib.fr/masseur-kinesitherapeute/paris/lea-hlubina",
+    rpps: "10109385814",
+    diploma: "Diplôme d’État de Masseur-Kinésithérapeute (2023)",
+    certifications: [
+      "Kiné du Sport Expert - KINESPORT (2025)"
+    ]
   },
   {
     id: 2,
@@ -97,7 +102,14 @@ export const TEAM: TeamMember[] = [
     sports: ["Course à pied", "Danse"],
     bio: "Justine JOSSE, kinésithérapeute spécialisée course à pied. Diplômée d'État, elle accompagne les coureurs de tous niveaux dans leur prévention et récupération, du 10km au marathon.",
     image: "https://media.doctolib.com/image/upload/q_auto:eco,f_auto,w_400,h_400,c_fill,g_face/r8etpv9h9jp9r6nbfien.jpg",
-    doctolibUrl: "https://www.doctolib.fr/masseur-kinesitherapeute/paris/justine-josse"
+    doctolibUrl: "https://www.doctolib.fr/masseur-kinesitherapeute/paris/justine-josse",
+    rpps: "10102313755",
+    diploma: "Diplôme d’État de Masseur-Kinésithérapeute (2020)",
+    certifications: [
+      "Epaule au Top - Du raisonnement clinique à la pratique (2021)",
+      "1.0 Fondamentaux des blessures en course à pied - La Clinique du coureur (2023)",
+      "Kiné du Sport Expert - KINESPORT (2023-2024)"
+    ]
   },
   {
     id: 3,
@@ -107,7 +119,18 @@ export const TEAM: TeamMember[] = [
     sports: ["Course à pied", "Sports nautiques"],
     bio: "Leonie TATON, experte en rééducation de la danseuse. Elle intervient sur les pathologies de la cheville, du pied et assure un suivi spécifique pour le retour à la scène.",
     image: "https://media.doctolib.com/image/upload/q_auto:eco,f_auto,w_400,h_400,c_fill,g_face/lzfstgptflq1nznaftfr.jpg",
-    doctolibUrl: "https://www.doctolib.fr/masseur-kinesitherapeute/paris/leonie-taton-paris"
+    doctolibUrl: "https://www.doctolib.fr/masseur-kinesitherapeute/paris/leonie-taton-paris",
+    rpps: "10102016630",
+    diploma: "Diplôme d’État de Masseur-Kinésithérapeute (2019)",
+    certifications: [
+      "Pilates clinique - Matwork 1 & 2 (2021)",
+      "Rééducation périnéo-sphinctérienne féminine (2021)",
+      "Kiné du Sport Expert - KINESPORT (2022)",
+      "1.0 Fondamentaux des blessures en course à pied et 1.1 Diagnostics des blessures du membre inférieur : aspects pratiques - La clinique du coureur (2023)",
+      "Endométriose et congestion pelvienne - HeyLilie (2024)",
+      "La femme sportive - Kiné Sport (2025)",
+      "Neuropathies, neurodynamique et syndromes canalaires - Rehab4neuro (2025)"
+    ]
   },
   {
     id: 4,
@@ -116,8 +139,14 @@ export const TEAM: TeamMember[] = [
     specialties: ["Traumatologie", "Réathlétisation", "Rugby"],
     sports: ["Rugby", "Tennis"],
     bio: "Martin BONNIN, kinésithérapeute du sport spécialisé rugby et sports de contact. Expertise en traumatologie (épaule, genou), commotions et retour au terrain après blessure.",
-    image: "https://media.doctolib.com/image/upload/q_auto:eco,f_auto,w_400,h_400,c_fill,g_face/default_doctor_avatar_m.jpg",
-    doctolibUrl: "https://www.doctolib.fr/masseur-kinesitherapeute/bordeaux/martin-bonnin?pid=practice-696351#pricing"
+    image: "https://media.doctolib.com/image/upload/q_auto:eco,f_auto,w_1024,h_700,c_limit/fhio2h6fqsfva0rslgjm.jpg",
+    doctolibUrl: "https://www.doctolib.fr/masseur-kinesitherapeute/bordeaux/martin-bonnin?pid=practice-696351#pricing",
+    rpps: "10110370367",
+    diploma: "Diplôme d’État de Masseur-Kinésithérapeute (2024)",
+    certifications: [
+      "Zero to pro - Maîtriser la préparation physique des sportifs blessés - Training thérapie (2024)",
+      "Prise en charge des rachialgies aiguës - Accès formation (2025)"
+    ]
   }
 ];
 

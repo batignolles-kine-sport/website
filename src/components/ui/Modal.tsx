@@ -10,23 +10,9 @@ export interface ModalProps {
     showCloseButton?: boolean;
     closeOnEscape?: boolean;
     closeOnBackdropClick?: boolean;
+    className?: string;
 }
 
-/**
- * Modal Component - iOS-Inspired Design
- * 
- * Features:
- * - Backdrop blur effect (iOS sheet style)
- * - Slide-up animation with fade-in
- * - Focus trap (accessibility)
- * - Escape key + click outside to close
- * - Portal rendering (top-level DOM)
- * 
- * HIG Principles:
- * - Depth: Blur preserves context
- * - Direct Manipulation: Click/Escape to dismiss
- * - Accessibility: Focus trap, keyboard nav
- */
 const Modal: React.FC<ModalProps> = ({
     isOpen,
     onClose,
@@ -36,6 +22,7 @@ const Modal: React.FC<ModalProps> = ({
     showCloseButton = true,
     closeOnEscape = true,
     closeOnBackdropClick = true,
+    className = '',
 }) => {
     const modalRef = useRef<HTMLDivElement>(null);
     const previousFocusRef = useRef<HTMLElement | null>(null);
@@ -43,7 +30,7 @@ const Modal: React.FC<ModalProps> = ({
     // Max width classes
     const maxWidthClasses = {
         sm: 'max-w-md',
-        md: 'max-w-modal',
+        md: 'max-w-xl',
         lg: 'max-w-3xl',
         xl: 'max-w-5xl',
     };
@@ -100,18 +87,19 @@ const Modal: React.FC<ModalProps> = ({
 
     if (!isOpen) return null;
 
+    const isDark = className.includes('bg-slate-900') || className.includes('bg-black') || className.includes('#1e1c1a') || className.includes('bg-[#1e1c1a]');
+
     const modalContent = (
         <div
-            className="fixed inset-0 z-50 flex items-center justify-center p-4"
+            className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6"
             onClick={handleBackdropClick}
             role="dialog"
             aria-modal="true"
-            aria-labelledby={title ? 'modal-title' : undefined}
         >
-            {/* Backdrop with iOS-style blur */}
+            {/* Backdrop */}
             <div
-                className="absolute inset-0 bg-surface-overlay backdrop-blur-[var(--modal-backdrop-blur)] animate-fade-in"
-                style={{ opacity: 'var(--modal-backdrop-opacity)' }}
+                className="absolute inset-0 bg-black/60 backdrop-blur-sm animate-fade-in"
+                aria-hidden="true"
             />
 
             {/* Modal Panel */}
@@ -119,26 +107,25 @@ const Modal: React.FC<ModalProps> = ({
                 ref={modalRef}
                 tabIndex={-1}
                 className={`
-          relative
-          w-full
-          ${maxWidthClasses[maxWidth]}
-          bg-surface-elevated
-          shadow-modal
-          overflow-hidden
-          animate-slide-up
-        `}
-                style={{
-                    borderRadius: 'var(--modal-radius)',
-                    padding: 'var(--modal-padding)',
-                }}
+                    relative
+                    w-full
+                    max-h-[90vh]
+                    overflow-y-auto
+                    ${maxWidthClasses[maxWidth]}
+                    ${className || 'bg-white'}
+                    shadow-2xl
+                    animate-slide-up
+                    rounded-[32px]
+                `}
+                onClick={(e) => e.stopPropagation()}
             >
                 {/* Header */}
                 {(title || showCloseButton) && (
-                    <div className="flex items-center justify-between mb-6">
+                    <div className="flex items-center justify-between p-8 pb-0">
                         {title && (
                             <h2
                                 id="modal-title"
-                                className="text-2xl font-semibold text-text-primary"
+                                className={`text-2xl font-bold tracking-tight ${isDark ? 'text-white' : 'text-slate-900'}`}
                             >
                                 {title}
                             </h2>
@@ -146,23 +133,21 @@ const Modal: React.FC<ModalProps> = ({
                         {showCloseButton && (
                             <button
                                 onClick={onClose}
-                                className="
-                  p-2
-                  -mr-2
-                  rounded-md
-                  text-text-secondary
-                  hover:text-text-primary
-                  hover:bg-surface-subtle
-                  transition-colors
-                  focus:outline-none
-                  focus:ring-2
-                  focus:ring-border-focus
-                  focus:ring-offset-2
-                "
-                                aria-label="Close modal"
+                                className={`
+                                    ml-auto
+                                    rounded-full
+                                    p-1
+                                    transition-all
+                                    duration-200
+                                    hover:scale-110
+                                    active:scale-95
+                                    focus:outline-none
+                                    ${isDark ? 'text-white/40 hover:text-white' : 'text-slate-400 hover:text-slate-900'}
+                                `}
+                                aria-label="Fermer"
                             >
                                 <svg
-                                    className="w-6 h-6"
+                                    className="w-6 h-6 stroke-[2px] hover:stroke-[2.5px] transition-all"
                                     fill="none"
                                     stroke="currentColor"
                                     viewBox="0 0 24 24"
@@ -170,7 +155,6 @@ const Modal: React.FC<ModalProps> = ({
                                     <path
                                         strokeLinecap="round"
                                         strokeLinejoin="round"
-                                        strokeWidth={2}
                                         d="M6 18L18 6M6 6l12 12"
                                     />
                                 </svg>
@@ -180,12 +164,11 @@ const Modal: React.FC<ModalProps> = ({
                 )}
 
                 {/* Content */}
-                <div className="text-text-primary">{children}</div>
+                <div className="p-8">{children}</div>
             </div>
         </div>
     );
 
-    // Render modal in portal (top-level DOM)
     return createPortal(modalContent, document.body);
 };
 

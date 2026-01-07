@@ -27,6 +27,9 @@ export interface TeamMember {
   bio: string;
   image: string;
   doctolibUrl: string;
+  rpps?: string;
+  diploma?: string;
+  certifications?: string[];
 }
 
 export interface BlogPost {
