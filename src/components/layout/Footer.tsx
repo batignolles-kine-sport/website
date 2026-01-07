@@ -65,17 +65,17 @@ export const Footer: React.FC = () => {
                         <h3 className="text-sm font-semibold uppercase tracking-wider text-slate-900 mb-4">Expertise</h3>
                         <ul className="space-y-3">
                             <li>
-                                <Link to="/pathologies" className="text-sm text-slate-600 hover:text-primary transition-colors font-medium">
+                                <Link to="/pratiques" className="text-sm text-slate-600 hover:text-primary transition-colors font-medium">
                                     Traumatologie du sport
                                 </Link>
                             </li>
                             <li>
-                                <Link to="/pathologies" className="text-sm text-slate-600 hover:text-primary transition-colors font-medium">
+                                <Link to="/pratiques" className="text-sm text-slate-600 hover:text-primary transition-colors font-medium">
                                     Rééducation Post-Op
                                 </Link>
                             </li>
                             <li>
-                                <Link to="/pathologies" className="text-sm text-slate-600 hover:text-primary transition-colors font-medium">
+                                <Link to="/pratiques" className="text-sm text-slate-600 hover:text-primary transition-colors font-medium">
                                     Prévention
                                 </Link>
                             </li>

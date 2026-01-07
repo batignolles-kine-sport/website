@@ -12,7 +12,8 @@ import {
     Scissors,
     Target,
     TrendingUp,
-    FootprintsIcon
+    FootprintsIcon,
+    ChevronDown
 } from 'lucide-react';
 import { staggerContainer, fadeUp } from '../utils/animations';
 
@@ -128,8 +129,8 @@ export const Pratiques: React.FC = () => {
             />
 
             {/* Hero Section */}
-            <section className="border-b border-slate-100">
-                <div className="mx-auto max-w-7xl px-4 py-16 md:py-20">
+            <section className="relative border-b border-slate-100 min-h-[80vh] flex items-center justify-center">
+                <div className="mx-auto max-w-7xl px-4 py-16 md:py-20 w-full">
                     <div className="space-y-8 mb-16">
                         {/* Header Section */}
                         <div className="max-w-4xl space-y-6">
@@ -171,6 +172,27 @@ export const Pratiques: React.FC = () => {
                         </div>
                     </div>
                 </div>
+
+                {/* Scroll Indicator */}
+                <motion.a
+                    href="#main-practices"
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 1, duration: 0.6 }}
+                    className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-slate-400 hover:text-primary transition-colors cursor-pointer"
+                    onClick={(e) => {
+                        e.preventDefault();
+                        document.getElementById('main-practices')?.scrollIntoView({ behavior: 'smooth' });
+                    }}
+                >
+                    <span className="text-xs uppercase tracking-widest font-medium">Découvrir</span>
+                    <motion.div
+                        animate={{ y: [0, 6, 0] }}
+                        transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
+                    >
+                        <ChevronDown size={20} />
+                    </motion.div>
+                </motion.a>
             </section>
 
             {/* Main Practices Section */}

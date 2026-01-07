@@ -10,10 +10,35 @@ interface MapFacadeProps {
 export const MapFacade: React.FC<MapFacadeProps> = ({ mapSrc, title, className = '' }) => {
     const [isActivated, setIsActivated] = useState(false);
     const [isIframeLoading, setIsIframeLoading] = useState(true);
+    const containerRef = React.useRef<HTMLDivElement>(null);
+
+    React.useEffect(() => {
+        const observer = new IntersectionObserver(
+            (entries) => {
+                const entry = entries[0];
+                if (entry.isIntersecting) {
+                    setIsActivated(true);
+                    observer.disconnect();
+                }
+            },
+            {
+                rootMargin: '200px', // Start loading 200px before it comes into view
+                threshold: 0.1
+            }
+        );
+
+        if (containerRef.current) {
+            observer.observe(containerRef.current);
+        }
+
+        return () => {
+            observer.disconnect();
+        };
+    }, []);
 
     if (isActivated) {
         return (
-            <div className={`relative h-full w-full bg-slate-100 ${className}`}>
+            <div ref={containerRef} className={`relative h-full w-full bg-slate-100 ${className}`}>
                 {isIframeLoading && (
                     <div className="absolute inset-0 flex flex-col items-center justify-center z-10 transition-opacity duration-300">
                         <Loader2 className="w-10 h-10 text-primary animate-spin mb-3" />
@@ -38,6 +63,7 @@ export const MapFacade: React.FC<MapFacadeProps> = ({ mapSrc, title, className =
 
     return (
         <div
+            ref={containerRef}
             className={`relative h-full w-full bg-slate-200 cursor-pointer group overflow-hidden ${className}`}
             onClick={() => setIsActivated(true)}
             role="button"

@@ -13,9 +13,8 @@ import {
 const EXPERTISE_DATA = [
     {
         id: 'sport-perf',
-        badge: 'BLOG',
         title: 'Sport & performance',
-        lead: 'Coureur, terrain, reprise sans douleur et charge maîtrisée.',
+        lead: 'Coureur, terrain, reprise sans douleur and charge maîtrisée.',
         tags: ['RUNNING', 'RETOUR TERRAIN', 'PRÉPA PHYSIQUE'],
         highlights: [
             'Prise en charge du coureur',
@@ -25,7 +24,6 @@ const EXPERTISE_DATA = [
     },
     {
         id: 'reeducation',
-        badge: 'BLOG',
         title: 'Rééducation & post-op',
         lead: 'Post-trauma et post-op : mobilité, force et confiance.',
         tags: ['POST-OP', 'MOBILITÉ', 'FORCE'],
@@ -37,7 +35,6 @@ const EXPERTISE_DATA = [
     },
     {
         id: 'prevention',
-        badge: 'BLOG',
         title: 'Prévention & kiné de la femme',
         lead: 'Prévention des récidives. Plancher pelvien et reprise post-partum sécurisée.',
         tags: ['PRÉVENTION', 'PLANCHER PELVIEN', 'CHARGE PROGRESSIVE'],
@@ -48,7 +45,6 @@ const EXPERTISE_DATA = [
     },
     {
         id: 'women',
-        badge: 'BLOG',
         title: 'Kiné de la femme',
         lead: 'Grossesse, post-partum, périnée, reprise sportive en douceur.',
         tags: ['FEMMES', 'PÉRINÉE', 'RETOUR AU SPORT'],
@@ -73,7 +69,7 @@ export const ExpertiseSection: React.FC = () => {
                 {/* Header */}
                 <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
                     <motion.div
-                        className="flex-1"
+                        className="flex-1 w-full"
                         initial="hidden"
                         whileInView="visible"
                         viewport={{ once: true, margin: "-100px" }}
@@ -87,8 +83,25 @@ export const ExpertiseSection: React.FC = () => {
                                     <span className="text-gradient-primary">d'expertise.</span>
                                 </>
                             }
-                            description="Notre prise en charge s'adresse aux sportifs de tous niveaux, du post-opératoire à la recherche de performance."
                         />
+
+                        {/* Description & CTA Layout - Matches Hero Landing */}
+                        <div className="mt-2 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 max-w-7xl">
+                            <p className="text-base md:text-lg leading-relaxed max-w-2xl text-slate-500">
+                                Nous combinons expertise scientifique, suivi individualisé et pédagogie pour vous accompagner du diagnostic à la reprise, que vous soyez sportif amateur ou athlète confirmé.
+                            </p>
+
+                            {/* Desktop CTA */}
+                            <div className="hidden lg:block shrink-0">
+                                <a
+                                    href="/pratiques"
+                                    className="inline-flex items-center gap-2 px-6 py-4 rounded-full bg-white border border-slate-200 text-slate-900 hover:border-primary hover:text-primary transition-colors duration-300 shadow-sm font-bold text-sm"
+                                >
+                                    Voir toutes nos prises en charge
+                                    <ArrowRight size={16} />
+                                </a>
+                            </div>
+                        </div>
                     </motion.div>
                 </div>
 
@@ -115,14 +128,11 @@ export const ExpertiseSection: React.FC = () => {
                                     }
                                 `}
                             >
-                                {/* Header: Title + Blog Badge */}
+                                {/* Header: Title */}
                                 <div className="flex justify-between items-start mb-4">
                                     <h3 className={`text-lg font-bold leading-tight ${isMain ? 'text-white' : 'text-slate-900'}`}>
                                         {card.title}
                                     </h3>
-                                    <span className={`text-[10px] font-bold tracking-widest uppercase mt-1 ${isMain ? 'text-white/60' : 'text-primary'}`}>
-                                        {card.badge}
-                                    </span>
                                 </div>
 
                                 {/* Description */}
@@ -162,9 +172,9 @@ export const ExpertiseSection: React.FC = () => {
                     })}
                 </motion.div>
 
-                <div className="mt-8 flex justify-center">
+                <div className="mt-8 flex justify-center lg:hidden">
                     <a
-                        href="/pathologies"
+                        href="/pratiques"
                         className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white border border-slate-200 text-slate-900 hover:border-primary hover:text-primary transition-colors duration-300 shadow-sm font-medium"
                     >
                         Voir toutes nos prises en charge
