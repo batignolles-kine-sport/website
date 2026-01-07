@@ -29,87 +29,73 @@ export const Team: React.FC = () => {
               </p>
             </div>
 
-            {/* Stats + CTA Row */}
-            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-8">
-              {/* Stats */}
-              <div className="grid grid-cols-3 gap-6 flex-1">
-                <div className="space-y-1">
-                  <div className="text-3xl font-bold text-text-main">2 500+</div>
-                  <div className="text-sm text-text-muted">Patients accompagnés/an</div>
-                </div>
-                <div className="space-y-1">
-                  <div className="text-3xl font-bold text-text-main">20+</div>
-                  <div className="text-sm text-text-muted">Sports couverts</div>
-                </div>
-                <div className="space-y-1">
-                  <div className="text-3xl font-bold text-text-main">&lt;48h</div>
-                  <div className="text-sm text-text-muted">Rendez-vous en urgence</div>
-                </div>
-              </div>
-
-              {/* CTA Button */}
-              <a
-                href="https://www.doctolib.fr/cabinet-de-kinesitherapie/paris/batignolles-kine-sport"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-3 px-6 py-4 rounded-xl bg-[#107ACA] text-white font-semibold text-base transition-all duration-200 hover:bg-[#0e69ad] hover:shadow-lg active:scale-95 md:flex-shrink-0"
-              >
-                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2" />
-                  <path d="M12 6v6l4 2" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-                </svg>
-                Prendre rendez-vous
-              </a>
-            </div>
+            {/* CTA Row Removed */}{/* <div className="flex flex-col sm:flex-row items-start md:items-center gap-6"></div> */}
           </div>
 
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
             {TEAM.map((member) => (
               <article
                 key={member.id}
-                className="group relative flex flex-col h-[520px] rounded-3xl overflow-hidden bg-white shadow-card hover:shadow-2xl transition-all duration-300 border border-slate-100"
+                className="group relative h-[480px] rounded-[40px] overflow-hidden shadow-2xl border border-gray-100 bg-slate-900 w-full"
               >
-                {/* Full Bleed Image - Top 60% */}
-                <div className="absolute top-0 inset-x-0 h-[60%] overflow-hidden">
+                {/* Full Image */}
+                <div className="absolute inset-0">
                   <img
                     src={member.image}
                     alt={member.name}
                     loading="lazy"
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    className="w-full h-full object-cover opacity-90 transition-transform duration-700 lg:group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-60" />
-
-                  {/* Sport Badge - Top Right */}
-                  <div className="absolute top-4 right-4">
-                    <span className="inline-flex items-center gap-2 rounded-xl bg-white/95 backdrop-blur-md border border-slate-200 px-4 py-2 text-slate-900 text-sm font-bold tracking-wide shadow-lg">
-                      {member.sport === 'Gymnastique' && <span className="text-lg">🤸</span>}
-                      {member.sport === 'Course à pied' && <span className="text-lg">🏃</span>}
-                      {member.sport === 'Danse' && <span className="text-lg">💃</span>}
-                      {member.sport === 'Rugby' && <span className="text-lg">🏉</span>}
-                      {member.sport}
-                    </span>
-                  </div>
+                  {/* Gradient overlay for contrast - Stronger on mobile since content is always there */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent lg:from-black/40 lg:via-transparent"></div>
                 </div>
 
-                {/* Content - Bottom 40% */}
-                <div className="absolute bottom-0 inset-x-0 h-[44%] bg-white rounded-t-3xl p-6 flex flex-col items-start justify-between shadow-[0_-10px_40px_-15px_rgba(0,0,0,0.1)]">
-                  <div className="w-full">
-                    <h3 className="text-xl font-bold text-slate-900 mb-1">{member.name}</h3>
-                    <p className="text-primary font-medium text-sm mb-3">{member.title}</p>
-                    <p className="text-xs text-slate-500 line-clamp-3 leading-relaxed">
-                      {member.bio}
-                    </p>
-                  </div>
+                {/* Floating Glass Pill 
+                    Mobile: Expanded state fixed (w-[92%], bg-black/60, blur-xl)
+                    Desktop: Initial small state, expands on hover (lg:w-[85%] -> lg:group-hover:w-[92%])
+                */}
+                <div className="absolute bottom-6 left-1/2 -translate-x-1/2 transition-all duration-500 ease-out overflow-hidden z-10
+                  w-[92%] bg-black/60 border-white/30 backdrop-blur-xl border
+                  lg:w-[85%] lg:bg-white/10 lg:border-white/20 lg:backdrop-blur-md
+                  lg:group-hover:w-[92%] lg:group-hover:bg-black/60 lg:group-hover:border-white/30 lg:group-hover:backdrop-blur-xl
+                  shadow-[0_8px_32px_rgba(0,0,0,0.2)] rounded-[32px]"
+                >
+                  <div className="flex flex-col items-center p-5 text-center transition-all duration-300">
+                    {/* Name */}
+                    <h3 className="text-xl font-bold text-white mb-2 lg:mb-0 lg:group-hover:mb-2 transition-all font-sans leading-tight">
+                      {member.name}
+                    </h3>
 
-                  <a
-                    href={member.doctolibUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-full mt-4 flex items-center justify-center gap-2 py-3 rounded-xl bg-[#107ACA] text-white font-semibold text-sm transition-transform active:scale-95 hover:bg-[#0e69ad]"
-                  >
-                    <img src="/images/doctolib/D_White.svg" alt="" loading="lazy" className="w-5 h-5" />
-                    Prendre rendez-vous
-                  </a>
+                    {/* Info & CTA 
+                        Mobile: Always visible (max-height auto)
+                        Desktop: Hidden initially (max-height 0), reveals on hover (max-height 500px)
+                    */}
+                    <div className="w-full transition-all duration-500 ease-in-out max-h-[500px] lg:max-h-0 lg:group-hover:max-h-[500px] overflow-hidden">
+                      <div className="flex flex-col items-center gap-3 pt-2">
+                        {/* Divider Removed */}
+
+                        {/* Sports Tags */}
+                        <div className="flex flex-wrap justify-center gap-2">
+                          {member.sports.map((sport) => (
+                            <span key={sport} className="px-3 py-1 bg-white/10 border border-white/10 text-white text-[10px] font-bold uppercase tracking-wider rounded-xl backdrop-blur-sm">
+                              {sport}
+                            </span>
+                          ))}
+                        </div>
+
+                        {/* CTA Doctolib */}
+                        <a
+                          href={member.doctolibUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center gap-2 bg-[#107ACA] hover:bg-[#0e69ad] active:bg-[#0c5a94] text-white px-5 py-3 rounded-xl font-semibold text-xs transition-colors w-full justify-center mt-1 shadow-lg"
+                        >
+                          <img src="/images/doctolib/D_White.svg" alt="" className="w-4 h-4" />
+                          Prendre RDV
+                        </a>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </article>
             ))}

@@ -84,7 +84,7 @@ export const TEAM: TeamMember[] = [
     name: "Léa HLUBINA",
     title: "Kiné du Sport",
     specialties: ["Traumatologie", "Réathlétisation", "Suivi Sportif"],
-    sport: "Gymnastique",
+    sports: ["Crossfit", "Gymnastique"],
     bio: "Léa HLUBINA, kinésithérapeute du sport et ancienne gymnaste. Elle accompagne les gymnastes et sportifs artistiques dans la gestion des hyperlaxités, des douleurs de dos et la prévention des blessures spécifiques.",
     image: "https://media.doctolib.com/image/upload/q_auto:eco,f_auto,w_400,h_400,c_fill,g_face/gttfrwkqsjxtiiwi4ts5.jpg",
     doctolibUrl: "https://www.doctolib.fr/masseur-kinesitherapeute/paris/lea-hlubina"
@@ -94,7 +94,7 @@ export const TEAM: TeamMember[] = [
     name: "Justine JOSSE",
     title: "Kiné du Sport",
     specialties: ["Thérapie Manuelle", "Prévention", "Renforcement"],
-    sport: "Course à pied",
+    sports: ["Course à pied", "Danse"],
     bio: "Justine JOSSE, kinésithérapeute spécialisée course à pied. Diplômée d'État, elle accompagne les coureurs de tous niveaux dans leur prévention et récupération, du 10km au marathon.",
     image: "https://media.doctolib.com/image/upload/q_auto:eco,f_auto,w_400,h_400,c_fill,g_face/r8etpv9h9jp9r6nbfien.jpg",
     doctolibUrl: "https://www.doctolib.fr/masseur-kinesitherapeute/paris/justine-josse"
@@ -104,7 +104,7 @@ export const TEAM: TeamMember[] = [
     name: "Leonie TATON",
     title: "Kiné du Sport",
     specialties: ["Rééducation Fonctionnelle", "Posturologie"],
-    sport: "Danse",
+    sports: ["Course à pied", "Sports nautiques"],
     bio: "Leonie TATON, experte en rééducation de la danseuse. Elle intervient sur les pathologies de la cheville, du pied et assure un suivi spécifique pour le retour à la scène.",
     image: "https://media.doctolib.com/image/upload/q_auto:eco,f_auto,w_400,h_400,c_fill,g_face/lzfstgptflq1nznaftfr.jpg",
     doctolibUrl: "https://www.doctolib.fr/masseur-kinesitherapeute/paris/leonie-taton-paris"
@@ -114,7 +114,7 @@ export const TEAM: TeamMember[] = [
     name: "Martin BONNIN",
     title: "Kiné du Sport",
     specialties: ["Traumatologie", "Réathlétisation", "Rugby"],
-    sport: "Rugby",
+    sports: ["Rugby", "Tennis"],
     bio: "Martin BONNIN, kinésithérapeute du sport spécialisé rugby et sports de contact. Expertise en traumatologie (épaule, genou), commotions et retour au terrain après blessure.",
     image: "https://media.doctolib.com/image/upload/q_auto:eco,f_auto,w_400,h_400,c_fill,g_face/default_doctor_avatar_m.jpg",
     doctolibUrl: "https://www.doctolib.fr/masseur-kinesitherapeute/bordeaux/martin-bonnin?pid=practice-696351#pricing"
@@ -167,16 +167,12 @@ export const REVIEWS: Review[] = [
     answer: 'Oui, nous accueillons de nouveaux patients chaque semaine, avec des créneaux dédiés au premier bilan.',
   },
   {
-    question: 'Êtes-vous conventionnés et quel est le prix d\'une séance ?',
-    answer: 'Oui, nous sommes conventionnés secteur 1. Le tarif sécurité sociale est appliqué (16,13€ à 20,43€ selon l\'acte). La part complémentaire est remboursée par votre mutuelle. Nous pratiquons un dépassement d\'honoraires pour l\'analyse et le suivi personnalisé.',
+    question: 'La séance est-elle prise en charge par la sécurité sociale ?',
+    answer: 'Oui, sous condition d’avoir une ordonnance de votre médecin. Une partie de la séance est prise en charge par la sécurité sociale, le reste par votre mutuelle. Nous pratiquons un dépassement d’honoraire qui est pris en charge en fonction de votre contrat de mutuelle.',
   },
   {
     question: 'Où se trouve le cabinet exactement ?',
     answer: 'Nous sommes situés au 6 rue des Batignolles, 75017 Paris. Métros proches : Rome (L2) et Brochant (L13). Le cabinet est en rez-de-chaussée, accessible facilement.',
-  },
-  {
-    question: 'Accompagnez-vous le post-partum ?',
-    answer: 'Oui, nous avons une expertise spécifique en kinésithérapie de la femme : rééducation périnéale, abdominale et reprise sportive sécurisée (post-partum, diastasis, douleurs pelviennes).',
   },
   {
     question: 'Vous êtes coureur ? Que proposez-vous ?',

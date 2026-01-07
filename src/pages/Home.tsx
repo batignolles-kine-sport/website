@@ -8,6 +8,7 @@ import { SEO } from '../components/layout/SEO';
 import { Button } from '../components/ui/Button';
 import { DOCTOLIB_URL, HERO_IMAGE_URL } from '../utils/constants'; // Removing unused import if any
 import { generateLocalBusinessSchema, generateFAQSchema } from '../utils/structuredData';
+import { CabinetSection } from '../components/home/CabinetSection';
 import { MethodSection } from '../components/home/MethodSection';
 import { TestimonialsSection } from '../components/home/TestimonialsSection';
 import { ExpertiseSection } from '../components/home/ExpertiseSection';
@@ -96,18 +97,18 @@ export const Home: React.FC = () => {
                                 <div className="max-w-content mx-auto w-full px-4 md:px-6">
                                     <div className="animate-fade-up inline-flex items-center gap-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 px-3 py-1.5 text-white text-2xs sm:text-xs md:text-sm font-semibold tracking-wide mb-5">
                                         <span className="inline-block h-1.5 w-1.5 rounded-full bg-primary" />
-                                        Kinés du sport · Paris 17 – Batignolles
+                                        Kinésithérapie du sport
                                     </div>
 
-                                    <h1 className="animate-fade-up delay-100 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight leading-[0.95] mb-4 drop-shadow-lg">
-                                        Reprendre le sport
+                                    <h1 className="animate-fade-up delay-100 text-[2.8125rem] sm:text-[3.375rem] md:text-[4.5rem] lg:text-[5.625rem] font-bold text-white tracking-tight leading-[0.95] mb-4 drop-shadow-lg">
+                                        Batignolles
                                         <br />
-                                        sans douleur.
+                                        Kiné Sport
                                     </h1>
 
                                     <div className="mt-6 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-3 lg:gap-6">
                                         <p className="animate-fade-up delay-200 text-gray-200 text-sm sm:text-base md:text-lg font-light leading-relaxed max-w-[65ch]">
-                                            Bilan précis, plan sur mesure, retour au sport encadré.
+                                            Quartier des Batignolles, Paris 17ème
                                         </p>
 
                                         <div className="animate-fade-up delay-300">
@@ -123,7 +124,7 @@ export const Home: React.FC = () => {
 
                                 {/* Scroll Indicator */}
                                 <motion.a
-                                    href="#parcours"
+                                    href="#cabinet"
                                     initial={{ opacity: 0, y: -10 }}
                                     animate={{ opacity: 1, y: 0 }}
                                     transition={{ delay: 1.2, duration: 0.6 }}
@@ -138,8 +139,8 @@ export const Home: React.FC = () => {
                                             });
                                         } else {
                                             // Mobile/Tablet: Scroll window
-                                            const parcoursSection = document.getElementById('parcours');
-                                            parcoursSection?.scrollIntoView({ behavior: 'smooth' });
+                                            const cabinetSection = document.getElementById('cabinet');
+                                            cabinetSection?.scrollIntoView({ behavior: 'smooth' });
                                         }
                                     }}
                                 >
@@ -154,6 +155,13 @@ export const Home: React.FC = () => {
                             </div>
                         </div>
                     </motion.div>
+                </section>
+
+                {/* 0. LE CABINET */}
+                <section id="cabinet" className="snap-start min-h-screen flex items-center py-10 md:py-20" style={{ scrollMarginTop: '-5vh' }}>
+                    <div className="max-w-content w-full mx-auto px-4 md:px-6">
+                        <CabinetSection />
+                    </div>
                 </section>
 
                 {/* 1. PARCOURS DE SOIN */}

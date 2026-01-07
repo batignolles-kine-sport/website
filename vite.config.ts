@@ -9,7 +9,7 @@ export default defineConfig(({ mode }) => {
   return {
     base: '/',
     server: {
-      port: 3000,
+      port: 3100,
       host: '0.0.0.0',
     },
     plugins: [
@@ -123,6 +123,7 @@ export default defineConfig(({ mode }) => {
       }
     },
     build: {
+      target: 'es2015',
       minify: 'terser',
       terserOptions: {
         compress: {

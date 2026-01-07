@@ -27,6 +27,8 @@ Documenter la structure actuelle pour savoir ce qui est utile, optionnel ou supp
 
 ## Composants
 - `/src/components/ui/Button.tsx` : CTA (variantes, DoctolibMark).
+- **[NEW] `/src/components/ui/Badge.tsx`** : Composant Badge réutilisable avec 5 variants (primary, secondary, success, warning, category) et 3 tailles (sm, md, lg). Usage dans Blog et BlogPost.
+- **[NEW] `/src/components/ui/DoctolibButton.tsx`** : Bouton Doctolib standardisé avec 3 variants (primary, secondary, floating). Utilise le composant Button comme base.
 - `/src/components/layout/Layout.tsx` : header/footer + effet glass au scroll; lien vers services via `SERVICES[0]`.
 - `/src/components/layout/SEO.tsx` : balises meta/OG via helmet.
 

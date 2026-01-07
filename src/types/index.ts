@@ -23,7 +23,7 @@ export interface TeamMember {
   name: string;
   title: string;
   specialties: string[];
-  sport: string;
+  sports: string[];
   bio: string;
   image: string;
   doctolibUrl: string;

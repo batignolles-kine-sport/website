@@ -126,7 +126,6 @@ export const BlogPost: React.FC = () => {
         
         .prose h2 { 
           color: #1a4d2e; 
-          font-family: serif; 
           font-size: 2.25rem; 
           font-weight: 700;
           margin-top: 4rem; 
@@ -138,7 +137,6 @@ export const BlogPost: React.FC = () => {
         
         .prose h3 { 
           color: #0f172a; 
-          font-family: serif; 
           font-size: 1.75rem; 
           font-weight: 600;
           margin-top: 2.5rem; 
@@ -234,11 +232,11 @@ export const BlogPost: React.FC = () => {
           <span className="mb-4 hidden md:inline-block rounded-full bg-primary px-3 py-1 text-xs font-bold uppercase tracking-wider text-white">
             {post.category}
           </span>
-          <h1 className="text-3xl font-serif leading-tight text-white md:text-5xl lg:text-6xl">{post.title}</h1>
+          <h1 className="text-3xl font-sans leading-tight text-white md:text-5xl lg:text-6xl">{post.title}</h1>
           <p className="mt-4 max-w-2xl text-lg font-light text-slate-200">{post.excerpt}</p>
           <div className="mt-6 flex flex-wrap items-center gap-4 text-sm text-slate-200">
             <div className="flex items-center gap-2">
-              <div className="flex h-9 w-9 items-center justify-center rounded-full bg-primary/80 font-serif text-white">B</div>
+              <div className="flex h-9 w-9 items-center justify-center rounded-full bg-primary/80 font-sans text-white">B</div>
               <span>Équipe BKS</span>
             </div>
             <div className="flex items-center gap-2">
@@ -271,7 +269,7 @@ export const BlogPost: React.FC = () => {
         <aside className="hidden lg:block">
           <div className="sticky top-24 max-h-screen overflow-y-auto space-y-8">
             <div className="rounded-[32px] bg-slate-900 p-8 text-white shadow-2xl ring-1 ring-white/10">
-              <h3 className="text-2xl font-serif mb-4">Besoin d'un avis ?</h3>
+              <h3 className="text-2xl font-sans mb-4">Besoin d'un avis ?</h3>
               <p className="text-sm leading-relaxed text-slate-300 mb-8">
                 Nos spécialistes vous accompagnent pour établir un diagnostic précis et un plan de traitement adapté.
               </p>
@@ -312,7 +310,7 @@ export const BlogPost: React.FC = () => {
       {relatedPosts.length > 0 && (
         <section className="mx-auto max-w-6xl px-4 pb-20 md:px-6">
           <div className="mb-8">
-            <h2 className="text-2xl font-serif text-slate-900">Articles similaires</h2>
+            <h2 className="text-2xl font-sans text-slate-900">Articles similaires</h2>
             <p className="text-slate-500 mt-1">Continuez votre lecture avec ces articles liés</p>
           </div>
           <div className="grid gap-6 md:grid-cols-3">

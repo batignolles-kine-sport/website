@@ -5,11 +5,13 @@ import { Home } from './pages/Home'; // Eager load for critical route
 
 
 const Team = lazy(() => import('./pages/Team').then((m) => ({ default: m.Team })));
+const Pratiques = lazy(() => import('./pages/Pratiques').then((m) => ({ default: m.Pratiques })));
 const Blog = lazy(() => import('./pages/Blog').then((m) => ({ default: m.Blog })));
 const BlogPost = lazy(() => import('./pages/BlogPost').then((m) => ({ default: m.BlogPost })));
 const Contact = lazy(() => import('./pages/Contact').then((m) => ({ default: m.Contact })));
 const Legal = lazy(() => import('./pages/Legal').then((m) => ({ default: m.Legal })));
 const ServicePage = lazy(() => import('./pages/ServiceDetail').then((m) => ({ default: m.ServicePage })));
+const DesignSystem = lazy(() => import('./pages/DesignSystem'));
 
 // Composant de redirection pour préserver le slug (ancienne URL pathologies)
 const PathologiesRedirect: React.FC = () => {
@@ -43,6 +45,7 @@ const App: React.FC = () => {
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/:slug" element={<BlogPost />} />
             <Route path="/equipe" element={<Team />} />
+            <Route path="/pratiques" element={<Pratiques />} />
 
             {/* Redirections anciennes URLs pathologies vers blog */}
             <Route path="/pathologies" element={<Navigate to="/blog" replace />} />
@@ -50,6 +53,7 @@ const App: React.FC = () => {
 
             <Route path="/contact" element={<Contact />} />
             <Route path="/mentions-legales" element={<Legal />} />
+            <Route path="/design-system" element={<DesignSystem />} />
 
             {/* 404 Fallback */}
             <Route path="*" element={<Navigate to="/" replace />} />

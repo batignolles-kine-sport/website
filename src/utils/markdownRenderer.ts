@@ -56,8 +56,8 @@ const renderer = {
 
     const sizes: Record<number, string> = {
       1: 'text-4xl',
-      2: 'text-3xl font-serif text-slate-900 mt-16 mb-6 pb-4 border-b border-slate-100',
-      3: 'text-2xl font-serif text-slate-800 mt-10 mb-4',
+      2: 'text-3xl text-slate-900 mt-16 mb-6 pb-4 border-b border-slate-100',
+      3: 'text-2xl text-slate-800 mt-10 mb-4',
       4: 'text-xl font-semibold text-slate-700 mt-8 mb-3'
     };
 
@@ -100,7 +100,7 @@ const renderer = {
     return `
       <div class="w-full overflow-x-auto my-8 border border-slate-200 rounded-xl shadow-sm bg-white">
         <table class="w-full text-sm text-left border-collapse min-w-[600px]">
-          <thead class="bg-slate-50 text-slate-900 font-serif font-bold border-b border-slate-200">
+          <thead class="bg-slate-50 text-slate-900 font-bold border-b border-slate-200">
             ${headerHtml}
           </thead>
           <tbody class="divide-y divide-slate-100">
