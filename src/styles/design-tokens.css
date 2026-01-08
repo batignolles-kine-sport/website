@@ -345,6 +345,26 @@
        HIG: Generous white space for clarity
        ───────────────────────────────────────── */
       --section-padding-y: var(--primitive-space-16);
+       /* Hero sections - reduced spacing for full-screen layouts */
+       --section-spacing-hero: var(--primitive-space-10);
+       /* 40px mobile */
+       --section-spacing-hero-desktop: var(--primitive-space-20);
+       /* 80px desktop */
+
+       /* Default sections - standard content spacing */
+       --section-spacing-default: var(--primitive-space-12);
+       /* 48px mobile */
+       --section-spacing-default-desktop: var(--primitive-space-24);
+       /* 96px desktop */
+
+       /* Compact sections - for related content blocks */
+       --section-spacing-compact: var(--primitive-space-8);
+       /* 32px mobile */
+       --section-spacing-compact-desktop: var(--primitive-space-16);
+       /* 64px desktop */
+
+       /* Legacy tokens - kept for backward compatibility */
+
       /* 64px desktop */
       --section-padding-y-mobile: var(--primitive-space-8);
       /* 32px mobile */

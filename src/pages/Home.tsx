@@ -5,6 +5,7 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 // AdvancedImage removed as we use native picture tag for Hero
 // import { AdvancedImage, responsive, placeholder } from '@cloudinary/react';
 import { SEO } from '../components/layout/SEO';
+import { Section } from '../components/layout/Section';
 import { Button } from '../components/ui/Button';
 import { DOCTOLIB_URL, HERO_IMAGE_URL } from '../utils/constants'; // Removing unused import if any
 import { generateLocalBusinessSchema, generateFAQSchema } from '../utils/structuredData';
@@ -158,46 +159,34 @@ export const Home: React.FC = () => {
                 </section>
 
                 {/* 0. LE CABINET */}
-                <section id="cabinet" className="snap-start min-h-screen flex items-center py-10 md:py-20" style={{ scrollMarginTop: '-5vh' }}>
-                    <div className="max-w-content w-full mx-auto px-4 md:px-6">
-                        <CabinetSection />
-                    </div>
-                </section>
+                <Section id="cabinet" spacing="hero" enableSnap>
+                    <CabinetSection />
+                </Section>
 
                 {/* 1. PARCOURS DE SOIN */}
-                <section id="parcours" className="snap-start min-h-screen flex items-center py-10 md:py-20" style={{ scrollMarginTop: '-5vh' }}>
-                    <div className="max-w-content w-full mx-auto px-4 md:px-6">
-                        <MethodSection />
-                    </div>
-                </section>
+                <Section id="parcours" spacing="hero" enableSnap>
+                    <MethodSection />
+                </Section>
 
                 {/* 2. EXPERTISE */}
-                <section id="expertise" className="snap-start min-h-screen flex items-center py-10 md:py-20" style={{ scrollMarginTop: '-5vh' }}>
-                    <div className="max-w-content w-full mx-auto px-4 md:px-6">
-                        <ExpertiseSection />
-                    </div>
-                </section>
+                <Section id="expertise" spacing="hero" enableSnap>
+                    <ExpertiseSection />
+                </Section>
 
                 {/* 3. AVIS PATIENTS */}
-                <section id="avis" className="snap-start min-h-screen flex items-center py-10 md:py-20" style={{ scrollMarginTop: '-5vh' }}>
-                    <div className="max-w-content w-full mx-auto px-4 md:px-6">
-                        <TestimonialsSection />
-                    </div>
-                </section>
+                <Section id="avis" spacing="hero" enableSnap>
+                    <TestimonialsSection />
+                </Section>
 
                 {/* 4. FAQ */}
-                <section id="faq" className="snap-start min-h-screen flex items-center py-10 md:py-20" style={{ scrollMarginTop: '-5vh' }}>
-                    <div className="max-w-content w-full mx-auto px-4 md:px-6">
-                        <FaqSection />
-                    </div>
-                </section>
+                <Section id="faq" spacing="hero" enableSnap>
+                    <FaqSection />
+                </Section>
 
                 {/* 5. ACCÈS */}
-                <section id="acces" className="snap-start min-h-screen flex items-center py-10 md:py-20" style={{ scrollMarginTop: '-5vh' }}>
-                    <div className="max-w-content w-full mx-auto px-4 md:px-6">
-                        <AccessSection />
-                    </div>
-                </section>
+                <Section id="acces" spacing="hero" enableSnap>
+                    <AccessSection />
+                </Section>
 
                 {/* Footer integrated in scroll snap */}
                 <div className="snap-end">

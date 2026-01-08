@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { SEO } from '../components/layout/SEO';
+import { Section } from '../components/layout/Section';
 import { TEAM, DOCTOLIB_URL } from '../utils/constants';
 import { ChevronDown, Activity, ArrowUpRight } from 'lucide-react';
 import Modal from '../components/ui/Modal';
@@ -303,8 +304,7 @@ export const Team: React.FC = () => {
         description="Découvrez Batignolles Kiné Sport : une équipe pluridisciplinaire spécialisée en kinésithérapie du sport et rééducation personnalisée à Paris 17."
       />
 
-      <section className="border-b border-slate-100">
-        <div className="mx-auto max-w-7xl px-4 py-16 md:py-20">
+      <Section spacing="default" className="border-b border-slate-100">
           <div className="space-y-8 mb-16">
             <div className="max-w-4xl space-y-6">
               <div className="inline-flex items-center gap-2 rounded-full border border-primary/10 bg-white px-3 py-1 text-sm font-semibold text-primary shadow-soft">
@@ -326,12 +326,11 @@ export const Team: React.FC = () => {
               <TeamCard key={member.id} member={member} />
             ))}
           </div>
-        </div>
-      </section>
+      </Section>
 
       {/* CTA Section */}
-      <section className="py-20 md:py-28 bg-gradient-to-br from-slate-50 to-white">
-        <div className="mx-auto max-w-4xl px-4 text-center">
+      <Section spacing="default" className="bg-gradient-to-br from-slate-50 to-white">
+        <div className="mx-auto max-w-4xl text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -371,7 +370,7 @@ export const Team: React.FC = () => {
             </p>
           </motion.div>
         </div>
-      </section>
+      </Section>
     </>
   );
 };

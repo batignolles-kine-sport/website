@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { SEO } from '../components/layout/SEO';
+import { Section } from '../components/layout/Section';
 import { DOCTOLIB_URL } from '../utils/constants';
 import {
     Activity,
@@ -22,54 +23,54 @@ export const MAIN_PRACTICES = [
     {
         id: 'kine-sport',
         title: 'Kinésithérapie du sport',
-        description: 'Accompagnement des sportifs : reprenez le terrain sans douleur et optimisez vos performances.',
-        image: '/images/practices/kine-sport.webp', // Image récupérée de la carte 3
+        description: 'Accompagnement du sportif : retour terrain sans douleur et performance optimisée.',
+        image: '/images/practices/kine-sport.webp',
         icon: Activity,
         highlights: [
-            'Diagnostic kinésithérapique',
-            'Plan de traitement dédié',
+            'Bilan kiné du sportif',
+            'Plan de soin sur mesure',
             'Réathlétisation progressive',
-            'Conseils et prévention'
+            'Prévention des blessures'
         ]
     },
     {
         id: 'reeducation',
-        title: 'Rééducation post-op\'',
-        description: 'Retrouvez votre pleine autonomie après une chirurgie grâce à nos protocoles de soins adaptés.',
+        title: 'Rééducation globale',
+        description: 'Suivi post-trauma ou chirurgie : retour à l’autonomie avec des soins adaptés.',
         image: '/images/practices/reeducation.webp',
         icon: HeartPulse,
         highlights: [
             'Prise en charge globale',
-            'Protocoles post-opératoires',
-            'Rééducation personnalisée',
-            'Programmes d\'exercices'
+            'Suivi post-opératoire strict',
+            'Rééducation sur mesure',
+            'Exercices personnalisés'
         ]
     },
     {
         id: 'runner',
-        title: 'Rééducation du coureur',
-        description: 'Expertise running : analyse de foulée et soins ciblés pour une pratique durable sans blessure.',
-        image: '/images/landing/method3.webp', // Nouvelle image récupérée de la carte 1
+        title: 'Prise en charge du coureur',
+        description: 'Accompagnement personnalisé du coureur, du profil débutant au confirmé.',
+        image: '/images/landing/method3.webp',
         icon: FootprintsIcon,
-        isPrimary: true, // Pour la démarquer visuellement
+        isPrimary: true,
         highlights: [
-            'Prise en charge blessures',
-            'Analyse de foulée tapis',
-            'Plan d\'entraînement dédié',
-            'Prévention des récidives'
+            'Soins des blessures de course',
+            'Analyse vidéo de course',
+            'Plan d’entraînement dédié',
+            'Conseils et prévention'
         ]
     },
     {
         id: 'women',
         title: 'Kiné de la femme',
-        description: 'Santé féminine : un accompagnement de la rééducation périnéale au sport post-partum.',
+        description: 'Rééducation abdominale post-partum et reprise du sport sécurisée et personnalisée.',
         image: '/images/practices/women.webp',
         icon: Baby,
         highlights: [
             'Rééducation abdominale',
-            'Prise en charge périnéale',
-            'Reprise sport sécurisée',
-            'Suivi post-partum expert'
+            'Traitement du diastasis',
+            'Reprise sportive progressive',
+            'Soin des pathologies sportives'
         ]
     }
 ];
@@ -212,37 +213,35 @@ export const Pratiques: React.FC = () => {
             </section>
 
             {/* Main Practices Section */}
-            <section id="main-practices" className="border-b border-slate-100 py-16 md:py-24 bg-slate-50/50">
-                <div className="mx-auto max-w-7xl px-4">
-                    <motion.div
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true, margin: "-100px" }}
-                        variants={staggerContainer}
-                        className="space-y-12"
-                    >
-                        <div className="text-center max-w-3xl mx-auto space-y-4">
-                            <h2 className="text-3xl md:text-4xl font-bold text-text-main">
-                                Nos pratiques principales
-                            </h2>
-                            <p className="text-lg text-text-muted">
-                                Quatre piliers d'expertise pour répondre à vos besoins spécifiques
-                            </p>
-                        </div>
+            <Section spacing="default" className="border-b border-slate-100 bg-slate-50/50">
+                <motion.div
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, margin: "-100px" }}
+                    variants={staggerContainer}
+                    className="space-y-12"
+                >
+                    <div className="text-center max-w-3xl mx-auto space-y-4">
+                        <h2 className="text-3xl md:text-4xl font-bold text-text-main">
+                            Nos pratiques principales
+                        </h2>
+                        <p className="text-lg text-text-muted">
+                            Quatre piliers d'expertise pour répondre à vos besoins spécifiques
+                        </p>
+                    </div>
 
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                            {MAIN_PRACTICES.map((practice) => (
-                                <PracticeCard
-                                    key={practice.id}
-                                    practice={practice}
-                                    variant="interactive"
-                                    isPrimary={practice.isPrimary}
-                                />
-                            ))}
-                        </div>
-                    </motion.div>
-                </div>
-            </section>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                        {MAIN_PRACTICES.map((practice) => (
+                            <PracticeCard
+                                key={practice.id}
+                                practice={practice}
+                                variant="interactive"
+                                isPrimary={practice.isPrimary}
+                            />
+                        ))}
+                    </div>
+                </motion.div>
+            </Section>
 
             {/* Complementary Practices Section - Hidden for now
             <section className="border-b border-slate-100 py-16 md:py-24 bg-slate-50">
@@ -336,8 +335,8 @@ export const Pratiques: React.FC = () => {
             */}
 
             {/* CTA Section */}
-            <section className="py-20 md:py-28 bg-gradient-to-br from-slate-50 to-white">
-                <div className="mx-auto max-w-4xl px-4 text-center">
+            <Section spacing="default" className="bg-gradient-to-br from-slate-50 to-white">
+                <div className="mx-auto max-w-4xl text-center">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -377,7 +376,7 @@ export const Pratiques: React.FC = () => {
                         </p>
                     </motion.div>
                 </div>
-            </section>
+            </Section>
         </>
     );
 };

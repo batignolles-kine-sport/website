@@ -90,7 +90,7 @@ const MethodCard = ({
     const data = [
         {
             title: "Bilan diagnostic",
-            desc: "Analyse approfondie : tests de mobilité, force et contrôle moteur. Nous identifions la cause racine de la pathologie.",
+            desc: "Identification précise de l’origine de votre douleur et des mécanismes responsables. Mise en place d’un plan de traitement adapté à vos objectifs.",
             img: "/images/landing/method1.webp",
             iconMobile: "M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2",
             iconDesktop: "M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2",
@@ -98,7 +98,7 @@ const MethodCard = ({
         },
         {
             title: "Protocole de soins",
-            desc: "Séances de thérapie manuelle et exercices correctifs. Programmation individualisée adaptée à vos contraintes.",
+            desc: "Grâce à un matériel adapté et des techniques s’appuyant sur les derniers données scientifiques les séances sont personnalisées et élaborées pour optimiser votre récupération.",
             img: "/images/landing/method2.webp",
             iconMobile: "M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z",
             iconDesktop: "M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z",
