@@ -18,47 +18,63 @@ import {
 import { staggerContainer, fadeUp } from '../utils/animations';
 
 // Pratiques principales
-const MAIN_PRACTICES = [
+export const MAIN_PRACTICES = [
     {
         id: 'kine-sport',
-        title: 'Kinésithérapie du Sport',
-        description: 'Accompagnement des sportifs de tous niveaux : prévention, traitement des blessures, analyse du geste sportif et optimisation de la performance.',
-        image: '/images/practices/kine-sport.png',
+        title: 'Kinésithérapie du sport',
+        description: 'Accompagnement des sportifs : reprenez le terrain sans douleur et optimisez vos performances.',
+        image: '/images/practices/kine-sport.webp', // Image récupérée de la carte 3
         icon: Activity,
         highlights: [
-            'Diagnostic kinésithérapique du sportif',
+            'Diagnostic kinésithérapique',
+            'Plan de traitement dédié',
             'Réathlétisation progressive',
-            'Analyse vidéo du geste technique',
-            'Prévention des blessures'
+            'Conseils et prévention'
         ]
     },
     {
         id: 'reeducation',
-        title: 'Rééducation Post-Traumatique',
-        description: 'Suivi rigoureux après chirurgie ou traumatisme : retour à l\'autonomie rapide et sécurisé avec protocoles adaptés à chaque pathologie.',
-        image: '/images/practices/reeducation.png',
+        title: 'Rééducation post-op\'',
+        description: 'Retrouvez votre pleine autonomie après une chirurgie grâce à nos protocoles de soins adaptés.',
+        image: '/images/practices/reeducation.webp',
         icon: HeartPulse,
         highlights: [
-            'Protocoles post-opératoires stricts',
-            'Mobilisation articulaire progressive',
-            'Drainage lymphatique manuel',
-            'Récupération fonctionnelle globale'
+            'Prise en charge globale',
+            'Protocoles post-opératoires',
+            'Rééducation personnalisée',
+            'Programmes d\'exercices'
+        ]
+    },
+    {
+        id: 'runner',
+        title: 'Rééducation du coureur',
+        description: 'Expertise running : analyse de foulée et soins ciblés pour une pratique durable sans blessure.',
+        image: '/images/landing/method3.webp', // Nouvelle image récupérée de la carte 1
+        icon: FootprintsIcon,
+        isPrimary: true, // Pour la démarquer visuellement
+        highlights: [
+            'Prise en charge blessures',
+            'Analyse de foulée tapis',
+            'Plan d\'entraînement dédié',
+            'Prévention des récidives'
         ]
     },
     {
         id: 'women',
-        title: 'Kiné de la Femme',
-        description: 'Expertise en rééducation périnéale, pré/post-partum et reprise sportive sécurisée. Accompagnement personnalisé à chaque étape.',
-        image: '/images/practices/women.png',
+        title: 'Kiné de la femme',
+        description: 'Santé féminine : un accompagnement de la rééducation périnéale au sport post-partum.',
+        image: '/images/practices/women.webp',
         icon: Baby,
         highlights: [
-            'Rééducation périnéale',
-            'Suivi pré et post-partum',
-            'Traitement du diastasis',
-            'Reprise sportive progressive'
+            'Rééducation abdominale',
+            'Prise en charge périnéale',
+            'Reprise sport sécurisée',
+            'Suivi post-partum expert'
         ]
     }
 ];
+
+import { PracticeCard } from '../components/ui/PracticeCard';
 
 // Techniques et outils complémentaires
 const COMPLEMENTARY_PRACTICES = [
@@ -196,7 +212,7 @@ export const Pratiques: React.FC = () => {
             </section>
 
             {/* Main Practices Section */}
-            <section id="main-practices" className="border-b border-slate-100 py-16 md:py-24">
+            <section id="main-practices" className="border-b border-slate-100 py-16 md:py-24 bg-slate-50/50">
                 <div className="mx-auto max-w-7xl px-4">
                     <motion.div
                         initial="hidden"
@@ -210,54 +226,19 @@ export const Pratiques: React.FC = () => {
                                 Nos pratiques principales
                             </h2>
                             <p className="text-lg text-text-muted">
-                                Trois piliers d'expertise pour répondre à vos besoins spécifiques
+                                Quatre piliers d'expertise pour répondre à vos besoins spécifiques
                             </p>
                         </div>
 
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                            {MAIN_PRACTICES.map((practice, index) => {
-                                const Icon = practice.icon;
-                                return (
-                                    <motion.article
-                                        key={practice.id}
-                                        variants={fadeUp}
-                                        className="group relative flex flex-col rounded-3xl overflow-hidden bg-white shadow-card hover:shadow-2xl transition-all duration-300 border border-slate-100"
-                                    >
-                                        {/* Image */}
-                                        <div className="relative h-64 overflow-hidden">
-                                            <img
-                                                src={practice.image}
-                                                alt={practice.title}
-                                                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                                            />
-                                            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-
-                                            {/* Icon Badge */}
-                                            <div className="absolute top-4 right-4">
-                                                <div className="w-12 h-12 rounded-2xl bg-white/95 backdrop-blur-md flex items-center justify-center shadow-lg">
-                                                    <Icon className="w-6 h-6 text-primary" />
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        {/* Content */}
-                                        <div className="p-6 flex-1 flex flex-col">
-                                            <h3 className="text-xl font-bold text-slate-900 mb-3">{practice.title}</h3>
-                                            <p className="text-sm text-slate-600 mb-6 leading-relaxed">{practice.description}</p>
-
-                                            {/* Highlights */}
-                                            <ul className="space-y-2 mt-auto">
-                                                {practice.highlights.map((highlight, i) => (
-                                                    <li key={i} className="flex items-start gap-2 text-xs text-slate-600">
-                                                        <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-primary shrink-0" />
-                                                        <span>{highlight}</span>
-                                                    </li>
-                                                ))}
-                                            </ul>
-                                        </div>
-                                    </motion.article>
-                                );
-                            })}
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                            {MAIN_PRACTICES.map((practice) => (
+                                <PracticeCard
+                                    key={practice.id}
+                                    practice={practice}
+                                    variant="interactive"
+                                    isPrimary={practice.isPrimary}
+                                />
+                            ))}
                         </div>
                     </motion.div>
                 </div>

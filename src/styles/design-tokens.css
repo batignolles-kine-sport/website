@@ -195,6 +195,10 @@
       /* Subtle contrast */
       --surface-inverse: var(--primitive-neutral-900);
       /* Dark surfaces */
+      --surface-brand: var(--primitive-green-800);
+      /* Brand colored cards #404134 */
+      --surface-brand-hover: var(--primitive-green-700);
+      /* Brand hover state */
 
       /* ─────────────────────────────────────────
        Text Colors

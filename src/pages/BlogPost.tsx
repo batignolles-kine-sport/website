@@ -125,7 +125,7 @@ export const BlogPost: React.FC = () => {
         }
         
         .prose h2 { 
-          color: #1a4d2e; 
+          color: var(--interactive-primary); 
           font-size: 2.25rem; 
           font-weight: 700;
           margin-top: 4rem; 
@@ -166,7 +166,7 @@ export const BlogPost: React.FC = () => {
 
         /* ===== INTRO PARAGRAPH ===== */
         .prose > p:first-of-type { 
-          border-left: 4px solid #1a4d2e; 
+          border-left: 4px solid var(--interactive-primary); 
           padding-left: 1.5rem; 
           font-size: 1.15rem; 
           color: #334155; 
@@ -177,18 +177,18 @@ export const BlogPost: React.FC = () => {
         
         /* ===== LINKS ===== */
         .prose a {
-          color: #1a4d2e;
+          color: var(--interactive-primary);
           font-weight: 500;
           text-decoration: underline;
-          text-decoration-color: rgba(26, 77, 46, 0.3);
+          text-decoration-color: rgba(64, 65, 52, 0.3);
           text-decoration-thickness: 2px;
           text-underline-offset: 3px;
           transition: all 0.2s ease;
         }
         
         .prose a:hover {
-          color: #2d6a4f;
-          text-decoration-color: rgba(26, 77, 46, 0.6);
+          color: var(--interactive-primary-hover);
+          text-decoration-color: rgba(64, 65, 52, 0.6);
         }
 
         /* ===== FAQ SECTION ===== */
@@ -257,7 +257,7 @@ export const BlogPost: React.FC = () => {
       <main className="mx-auto grid max-w-7xl grid-cols-1 gap-6 px-4 pb-20 pt-12 md:px-6 lg:grid-cols-[280px_1fr_280px] xl:gap-8">
         {/* Table of Contents - Left Sidebar */}
         <aside className="hidden lg:block">
-          <div className="sticky top-24 max-h-screen overflow-y-auto">
+          <div className="sticky top-24 max-h-[calc(100vh-6rem)] overflow-y-auto">
             <TableOfContents content={html} />
           </div>
         </aside>
@@ -267,7 +267,7 @@ export const BlogPost: React.FC = () => {
 
         {/* CTA Sidebar - Right */}
         <aside className="hidden lg:block">
-          <div className="sticky top-24 max-h-screen overflow-y-auto space-y-8">
+          <div className="sticky top-24 max-h-[calc(100vh-6rem)] overflow-y-auto space-y-8">
             <div className="rounded-[32px] bg-slate-900 p-8 text-white shadow-2xl ring-1 ring-white/10">
               <h3 className="text-2xl font-sans mb-4">Besoin d'un avis ?</h3>
               <p className="text-sm leading-relaxed text-slate-300 mb-8">
@@ -287,7 +287,11 @@ export const BlogPost: React.FC = () => {
                   <span>Plateau technique dédié</span>
                 </li>
               </ul>
-              <Button href={DOCTOLIB_URL} variant="booking" className="w-full sm:w-auto">
+              <Button
+                href={DOCTOLIB_URL}
+                variant="booking"
+                className="w-full text-center text-sm whitespace-nowrap px-4"
+              >
                 Prendre rendez-vous
               </Button>
               <div className="mt-8 border-t border-white/10 pt-6 text-center">

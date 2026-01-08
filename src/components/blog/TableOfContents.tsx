@@ -49,22 +49,40 @@ export const TableOfContents: React.FC<TableOfContentsProps> = ({ content }) => 
     useEffect(() => {
         const observer = new IntersectionObserver(
             (entries) => {
+                // Find the entry that is most visible
+                let mostVisibleEntry = null;
+                let maxRatio = 0;
+
                 entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        setActiveId(entry.target.id);
+                    if (entry.isIntersecting && entry.intersectionRatio > maxRatio) {
+                        maxRatio = entry.intersectionRatio;
+                        mostVisibleEntry = entry;
                     }
                 });
+
+                if (mostVisibleEntry) {
+                    setActiveId(mostVisibleEntry.target.id);
+                }
             },
-            { rootMargin: '-20% 0px -35% 0px' }
+            {
+                rootMargin: '-100px 0px -66% 0px',
+                threshold: [0, 0.25, 0.5, 0.75, 1]
+            }
         );
 
-        // Observe all h2 elements
-        document.querySelectorAll('article h2').forEach((heading, index) => {
+        // Observe all h2 elements in the prose content
+        const headings = document.querySelectorAll('.prose h2');
+        headings.forEach((heading, index) => {
             if (!heading.id) {
                 heading.id = `heading-${index}`;
             }
             observer.observe(heading);
         });
+
+        // Set initial active heading
+        if (headings.length > 0 && !activeId) {
+            setActiveId(headings[0].id);
+        }
 
         return () => observer.disconnect();
     }, [content]);
@@ -118,7 +136,7 @@ export const TableOfContents: React.FC<TableOfContentsProps> = ({ content }) => 
                                 className={`
                   group flex w-full items-start gap-2 rounded-lg px-3 py-2 text-left text-sm transition-all
                   ${activeId === heading.id
-                                        ? 'bg-primary/10 font-semibold text-primary'
+                                        ? 'bg-primary/10 !font-bold text-primary'
                                         : 'text-slate-600 hover:bg-slate-50 hover:text-slate-900'
                                     }
                 `}

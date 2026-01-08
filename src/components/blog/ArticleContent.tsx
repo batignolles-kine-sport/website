@@ -20,8 +20,8 @@ export const ArticleContent: React.FC<ArticleContentProps> = ({ html }) => {
           top: 0.4em;
           width: 20px;
           height: 20px;
-          /* Green check icon */
-          background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%231a4d2e' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'%3E%3C/path%3E%3C/svg%3E");
+          /* Green check icon - using new brand color #404134 */
+          background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23404134' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'%3E%3C/path%3E%3C/svg%3E");
           background-repeat: no-repeat;
           background-position: center;
           background-size: contain;
@@ -54,7 +54,7 @@ export const ArticleContent: React.FC<ArticleContentProps> = ({ html }) => {
           top: 1.25rem;
           width: 1.75rem;
           height: 1.75rem;
-          background: linear-gradient(135deg, #1a4d2e 0%, #14532d 100%);
+          background: linear-gradient(135deg, var(--interactive-primary) 0%, var(--interactive-primary-hover) 100%);
           color: white;
           border-radius: 50%;
           display: flex;
@@ -66,7 +66,7 @@ export const ArticleContent: React.FC<ArticleContentProps> = ({ html }) => {
         }
         .prose ol > li strong:first-child {
             display: block;
-            color: #1a4d2e;
+            color: var(--interactive-primary);
             font-size: 1.1rem;
             margin-bottom: 0.25rem;
         }

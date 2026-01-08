@@ -10,6 +10,13 @@ import {
     ChevronDown
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { PracticeCard } from '../components/ui/PracticeCard';
+import { MAIN_PRACTICES } from './Pratiques';
+import { MethodExplorer } from '../components/design-system/MethodExplorer';
+
+const DEMO_PRACTICE = MAIN_PRACTICES[0];
+
+
 
 /**
  * Design System Showcase Page - Real Site Components
@@ -92,6 +99,20 @@ const DesignSystem: React.FC = () => {
           50% { border-right-color: transparent; }
         }
     `;
+
+    const DEMO_PRACTICE = {
+        id: 'demo',
+        title: 'Kinésithérapie du sport',
+        description: 'Coureur, terrain, reprise sans douleur et charge maîtrisée.',
+        image: '/images/practices/kine-sport.png',
+        icon: Activity,
+        highlights: [
+            'Diagnostic sportif',
+            'Traitement personnalisé',
+            'Réathlétisation',
+            'Prévention'
+        ]
+    };
 
     return (
         <div className="min-h-screen bg-surface-base pb-20">
@@ -486,6 +507,47 @@ const DesignSystem: React.FC = () => {
                         </div>
                     </div>
                 </div>
+            </section>
+
+            {/* Nouvelles Cartes Pratiques */}
+            <section id="new-practices" className="py-12 px-6 max-w-7xl mx-auto bg-slate-100 rounded-3xl mb-12 border border-slate-200 shadow-sm">
+                <div className="mb-8 pb-6 border-b border-slate-200">
+                    <h2 className="text-3xl font-sans font-bold text-[#1e1c1a]">Carte Expertise Unifiée</h2>
+                    <p className="text-slate-500 mt-2">Nouveau standard : Design immersif sombre, interactions hybrides (Survol sur Desktop, Clic sur Mobile).</p>
+                </div>
+
+                <div className="space-y-12">
+                    <div>
+                        <h3 className="font-bold text-slate-700 mb-6">Exemples Complets (Grille Réelle)</h3>
+                        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+                            {MAIN_PRACTICES.map((practice) => (
+                                <div key={practice.id} className="h-[400px]">
+                                    <PracticeCard practice={practice} variant="interactive" isPrimary={practice.isPrimary} />
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+
+                    <div className="bg-white p-8 rounded-2xl border border-slate-200">
+                        <h3 className="font-bold text-slate-700 mb-4">Spécifications Techniques</h3>
+                        <ul className="space-y-2 text-sm text-slate-600">
+                            <li>• <strong>Mobile :</strong> Toggle "+" agrandi (56px) pour accessibilité tactile.</li>
+                            <li>• <strong>Desktop :</strong> Révélation au survol avec flou d'arrière-plan (Apple-like).</li>
+                            <li>• <strong>Performance :</strong> Images WebP, loading lazy, décodage asynchrone.</li>
+                            <li>• <strong>Primarisation :</strong> Halo vert pour la carte <code>isPrimary</code>.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            {/* EXPLORATION METHODOLOGIE */}
+            <section id="method-exploration" className="py-12 px-6 max-w-7xl mx-auto mb-12">
+                <div className="mb-10 pb-6 border-b border-slate-200">
+                    <h2 className="text-3xl font-sans font-bold text-[#1e1c1a]">Exploration Méthodologie</h2>
+                    <p className="text-slate-500 mt-2">Refonte complète : 3 directions artistiques sur une mécanique unifiée.</p>
+                </div>
+
+                <MethodExplorer />
             </section>
 
             {/* Typography */}

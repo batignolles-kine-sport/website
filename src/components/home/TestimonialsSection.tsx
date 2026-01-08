@@ -140,7 +140,7 @@ export const TestimonialsSection: React.FC = () => {
     };
 
     const translateX = trackRef.current && trackRef.current.children.length > 0
-        ? currentIndex * ((trackRef.current.children[0] as HTMLElement).offsetWidth + 20) // 20px gap
+        ? currentIndex * ((trackRef.current.children[0] as HTMLElement).offsetWidth + 16) // 16px gap (gap-4)
         : 0;
 
     // Style injection for custom animations/transitions if needed (or using Tailwind config)
@@ -192,14 +192,14 @@ export const TestimonialsSection: React.FC = () => {
             </div>
 
             {/* Carousel Container */}
-            <div className="carousel-container relative overflow-hidden">
+            <div className="carousel-container relative overflow-hidden -mx-4 md:mx-0">
                 {/* Fade overlay on right */}
                 <div className="absolute top-0 right-0 bottom-0 w-[40px] md:w-[60px] bg-gradient-to-l from-gray-200/0 via-gray-200/50 to-transparent z-10 pointer-events-none hidden"></div>
                 {/* Note: Background fade disabled or adjusted if needed, usually transparent needed if bg is gray */}
 
                 <div
                     ref={trackRef}
-                    className="flex transition-transform duration-700 ease-[cubic-bezier(0.4,0,0.2,1)] gap-4 py-3 touch-pan-y"
+                    className="flex transition-transform duration-700 ease-[cubic-bezier(0.4,0,0.2,1)] gap-4 py-3 touch-pan-y pl-[7.5vw] md:pl-0"
                     style={{ transform: `translateX(-${translateX}px)` }}
                     onTouchStart={onTouchStart}
                     onTouchMove={onTouchMove}
