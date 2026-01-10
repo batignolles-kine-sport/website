@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Instagram, Mail, MapPin, Phone } from 'lucide-react';
+import { Instagram, Mail, MapPin, Phone, Calendar } from 'lucide-react';
 import { toTelHref } from '../../utils/helpers';
 import { ADDRESS, DOCTOLIB_URL, EMAIL, INSTAGRAM_URL, PHONE, GOOGLE_MAPS_URL } from '../../utils/constants';
 
@@ -53,35 +53,35 @@ export const Footer: React.FC = () => {
                                 </Link>
                             </li>
                             <li>
-                                <a href={DOCTOLIB_URL} target="_blank" rel="noopener noreferrer" className="text-sm text-primary hover:text-primary/80 transition-colors font-medium">
-                                    Prendre rendez-vous
-                                </a>
+                                <Link to="/mentions-legales" className="text-sm text-slate-600 hover:text-primary transition-colors font-medium">
+                                    Mentions légales
+                                </Link>
                             </li>
                         </ul>
                     </div>
 
-                    {/* Pathologies */}
+                    {/* Expertise */}
                     <div className="col-span-1">
                         <h3 className="text-sm font-semibold uppercase tracking-wider text-slate-900 mb-4">Expertise</h3>
                         <ul className="space-y-3">
                             <li>
                                 <Link to="/pratiques" className="text-sm text-slate-600 hover:text-primary transition-colors font-medium">
-                                    Traumatologie du sport
+                                    Kinésithérapie du sport
                                 </Link>
                             </li>
                             <li>
                                 <Link to="/pratiques" className="text-sm text-slate-600 hover:text-primary transition-colors font-medium">
-                                    Rééducation Post-Op
+                                    Rééducation globale
                                 </Link>
                             </li>
                             <li>
                                 <Link to="/pratiques" className="text-sm text-slate-600 hover:text-primary transition-colors font-medium">
-                                    Prévention
+                                    Prise en charge du coureur
                                 </Link>
                             </li>
                             <li>
-                                <Link to="/mentions-legales" className="text-sm text-slate-600 hover:text-primary transition-colors font-medium">
-                                    Mentions Légales
+                                <Link to="/pratiques" className="text-sm text-slate-600 hover:text-primary transition-colors font-medium">
+                                    Kiné de la femme
                                 </Link>
                             </li>
                         </ul>
@@ -118,6 +118,17 @@ export const Footer: React.FC = () => {
                                 >
                                     <Mail size={16} className="shrink-0 text-primary group-hover:scale-110 transition-transform" />
                                     <span className="font-medium text-sm break-all">{EMAIL}</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    href={DOCTOLIB_URL}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="flex items-center gap-3 text-sm text-primary hover:text-primary/80 transition-colors font-medium group"
+                                >
+                                    <Calendar size={16} className="shrink-0 text-primary group-hover:scale-110 transition-transform" />
+                                    <span>Prendre rendez-vous</span>
                                 </a>
                             </li>
                         </ul>

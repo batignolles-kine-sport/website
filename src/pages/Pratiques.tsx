@@ -50,7 +50,7 @@ export const MAIN_PRACTICES = [
         id: 'runner',
         title: 'Prise en charge du coureur',
         description: 'Accompagnement personnalisé du coureur, du profil débutant au confirmé.',
-        image: '/images/landing/method3.webp',
+        image: '/images/practices/coureur.webp',
         icon: FootprintsIcon,
         isPrimary: true,
         highlights: [
@@ -120,20 +120,39 @@ const COMPLEMENTARY_PRACTICES = [
 // Pathologies par zone anatomique
 const PATHOLOGIES = [
     {
-        zone: 'Membre Inférieur',
-        items: ['Entorse de cheville', 'Tendinite d\'Achille', 'Syndrome rotulien', 'Périostite tibiale', 'Pubalgie', 'Lésion des ischio-jambiers']
+        zone: 'Membre supérieur',
+        items: [
+            'Traumatisme et chirurgie du membre supérieur',
+            'Tendinopathie de l\'épaule',
+            'Instabilité de l\'épaule',
+            'Capsulite',
+            'Tennis elbow',
+            'Pathologie de la main et du poignet'
+        ]
     },
     {
-        zone: 'Membre Supérieur',
-        items: ['Tendinite de l\'épaule', 'Épicondylite', 'Syndrome du canal carpien', 'Instabilité scapulaire']
+        zone: 'Membre inférieur',
+        items: [
+            'Entorse de cheville',
+            'Tendinopathie du membre inférieur',
+            'Ligament croisé antérieur (LCA) en pré et post-opératoire',
+            'Entorse de genou',
+            'Syndrome fémoropatellaire',
+            'Syndrome de l\'essuie-glace',
+            'Lésion musculaire',
+            'Pubalgie',
+            'Chirurgie du membre inférieur (PTH, PTG, ligamentoplastie…)'
+        ]
     },
     {
         zone: 'Tronc',
-        items: ['Lombalgie', 'Cervicalgie', 'Douleurs thoraciques', 'Hernie discale']
-    },
-    {
-        zone: 'Sport Spécifique',
-        items: ['Course à pied', 'Rugby', 'Danse', 'Gymnastique', 'Cyclisme', 'Tennis']
+        items: [
+            'Cervicalgie',
+            'Névralgie cervico-brachiale',
+            'Dorsalgie',
+            'Lombalgie',
+            'Rééducation abdominale post-partum'
+        ]
     }
 ];
 
@@ -230,15 +249,64 @@ export const Pratiques: React.FC = () => {
                         </p>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                        {MAIN_PRACTICES.map((practice) => (
-                            <PracticeCard
-                                key={practice.id}
-                                practice={practice}
-                                variant="interactive"
-                                isPrimary={practice.isPrimary}
-                            />
-                        ))}
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        {MAIN_PRACTICES.map((practice) => {
+                            const Icon = practice.icon;
+                            return (
+                                <motion.article
+                                    key={practice.id}
+                                    variants={fadeUp}
+                                    className="group relative h-[600px] rounded-3xl overflow-hidden border border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-300"
+                                >
+                                    {/* Background Image */}
+                                    <div className="absolute inset-0">
+                                        <img
+                                            src={practice.image}
+                                            alt={practice.title}
+                                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                                        />
+                                        {/* No overlay - image fully visible */}
+                                    </div>
+
+                                    {/* Icon Badge - Glassmorphism */}
+                                    <div className="absolute top-6 right-6 w-14 h-14 bg-white/90 backdrop-blur-md rounded-2xl shadow-lg flex items-center justify-center z-10 border border-white/20">
+                                        <Icon className="w-7 h-7 text-primary" />
+                                    </div>
+
+                                    {/* Content with progressive blur - positioned at bottom */}
+                                    <div className="absolute inset-0 flex flex-col justify-end">
+                                        {/* Progressive blur background covering bottom half */}
+                                        <div
+                                            className="absolute inset-0 backdrop-blur-xl"
+                                            style={{
+                                                maskImage: 'linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 30%, rgba(0,0,0,0.7) 60%, rgba(0,0,0,0) 100%)',
+                                                WebkitMaskImage: 'linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 30%, rgba(0,0,0,0.7) 60%, rgba(0,0,0,0) 100%)'
+                                            }}
+                                        ></div>
+
+                                        {/* Content */}
+                                        <div className="relative z-10 p-8 space-y-4">
+                                            <h3 className="text-2xl font-bold text-white mb-3">
+                                                {practice.title}
+                                            </h3>
+                                            <p className="text-white leading-relaxed mb-4 font-medium">
+                                                {practice.description}
+                                            </p>
+
+                                            {/* Highlights List */}
+                                            <ul className="space-y-2">
+                                                {practice.highlights.map((highlight, i) => (
+                                                    <li key={i} className="flex items-start gap-3 text-sm text-white font-medium">
+                                                        <div className="w-1.5 h-1.5 rounded-full bg-white shrink-0 mt-2" />
+                                                        <span className="leading-relaxed">{highlight}</span>
+                                                    </li>
+                                                ))}
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </motion.article>
+                            );
+                        })}
                     </div>
                 </motion.div>
             </Section>
@@ -289,50 +357,48 @@ export const Pratiques: React.FC = () => {
             </section>
             */}
 
-            {/* Pathologies Section - Hidden for now
-            <section className="border-b border-slate-100 py-16 md:py-24">
-                <div className="mx-auto max-w-7xl px-4">
-                    <motion.div
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true, margin: "-100px" }}
-                        variants={staggerContainer}
-                        className="space-y-12"
-                    >
-                        <div className="text-center max-w-3xl mx-auto space-y-4">
-                            <h2 className="text-3xl md:text-4xl font-bold text-text-main">
-                                Pathologies <span className="text-gradient-primary">traitées</span>
-                            </h2>
-                            <p className="text-lg text-text-muted">
-                                Une expertise étendue sur toutes les zones anatomiques
-                            </p>
-                        </div>
+            {/* Pathologies Section - SEO Optimized */}
+            <Section spacing="default" className="border-b border-slate-100">
+                <motion.div
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, margin: "-100px" }}
+                    variants={staggerContainer}
+                    className="space-y-12"
+                >
+                    <div className="text-center max-w-3xl mx-auto space-y-4">
+                        <h2 className="text-3xl md:text-4xl font-bold text-text-main">
+                            Pathologies <span className="text-gradient-primary">traitées</span>
+                        </h2>
+                        <p className="text-lg text-text-muted">
+                            Une expertise étendue sur toutes les zones anatomiques
+                        </p>
+                    </div>
 
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            {PATHOLOGIES.map((category, index) => (
-                                <motion.div
-                                    key={category.zone}
-                                    variants={fadeUp}
-                                    className="p-8 rounded-3xl bg-white border border-slate-100 shadow-card"
-                                >
-                                    <h3 className="text-xl font-bold text-slate-900 mb-6 pb-4 border-b border-slate-100">
-                                        {category.zone}
-                                    </h3>
-                                    <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                                        {category.items.map((item, i) => (
-                                            <li key={i} className="flex items-center gap-2 text-sm text-slate-600">
-                                                <div className="w-1.5 h-1.5 rounded-full bg-primary shrink-0" />
-                                                <span>{item}</span>
-                                            </li>
-                                        ))}
-                                    </ul>
-                                </motion.div>
-                            ))}
-                        </div>
-                    </motion.div>
-                </div>
-            </section>
-            */}
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        {PATHOLOGIES.map((category) => (
+                            <motion.article
+                                key={category.zone}
+                                variants={fadeUp}
+                                className="p-8 rounded-3xl bg-white border border-slate-100 shadow-card hover:shadow-xl transition-shadow duration-300"
+                            >
+                                <h3 className="text-xl font-bold text-slate-900 mb-6 pb-4 border-b border-slate-100">
+                                    {category.zone}
+                                </h3>
+                                <ul className="space-y-3">
+                                    {category.items.map((item, i) => (
+                                        <li key={i} className="flex items-start gap-3 text-sm text-slate-600">
+                                            <div className="w-1.5 h-1.5 rounded-full bg-primary shrink-0 mt-2" />
+                                            <span className="leading-relaxed">{item}</span>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </motion.article>
+                        ))}
+                    </div>
+                </motion.div>
+            </Section>
+
 
             {/* CTA Section */}
             <Section spacing="default" className="bg-gradient-to-br from-slate-50 to-white">

@@ -172,7 +172,7 @@ const MethodCard = ({
                         <motion.img
                             src={data.img}
                             alt={data.title}
-                            className="w-full h-full object-cover"
+                            className="w-full h-full object-cover grayscale"
                             initial={{ scale: 1 }}
                             animate={{ scale: 1.1 }}
                             transition={{ duration: 10, ease: "linear" }}

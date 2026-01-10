@@ -86,7 +86,7 @@ export const TEAM: TeamMember[] = [
     specialties: ["Traumatologie", "Réathlétisation", "Suivi Sportif"],
     sports: ["Crossfit", "Gymnastique"],
     bio: "Léa HLUBINA, kinésithérapeute du sport et ancienne gymnaste. Elle accompagne les gymnastes et sportifs artistiques dans la gestion des hyperlaxités, des douleurs de dos et la prévention des blessures spécifiques.",
-    image: "https://media.doctolib.com/image/upload/q_auto:eco,f_auto,w_400,h_400,c_fill,g_face/gttfrwkqsjxtiiwi4ts5.jpg",
+    image: "https://media.doctolib.com/image/upload/q_auto:eco,f_auto,w_400,h_400,c_fill,g_face/y963mvve875v6zc8myvn.jpg",
     doctolibUrl: "https://www.doctolib.fr/masseur-kinesitherapeute/paris/lea-hlubina",
     rpps: "10109385814",
     diploma: "Diplôme d’État de Masseur-Kinésithérapeute (2023)",
@@ -140,7 +140,7 @@ export const TEAM: TeamMember[] = [
     sports: ["Rugby", "Tennis"],
     bio: "Martin BONNIN, kinésithérapeute du sport spécialisé rugby et sports de contact. Expertise en traumatologie (épaule, genou), commotions et retour au terrain après blessure.",
     image: "https://media.doctolib.com/image/upload/q_auto:eco,f_auto,w_1024,h_700,c_limit/fhio2h6fqsfva0rslgjm.jpg",
-    doctolibUrl: "https://www.doctolib.fr/masseur-kinesitherapeute/bordeaux/martin-bonnin?pid=practice-696351#pricing",
+    doctolibUrl: "https://www.doctolib.fr/masseur-kinesitherapeute/bordeaux/martin-bonnin",
     rpps: "10110370367",
     diploma: "Diplôme d’État de Masseur-Kinésithérapeute (2024)",
     certifications: [

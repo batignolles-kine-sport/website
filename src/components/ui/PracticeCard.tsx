@@ -263,7 +263,7 @@ export const PracticeCard: React.FC<PracticeCardProps> = ({ practice, variant = 
                 variants={fadeUp}
                 style={isPrimary ? { boxShadow: '0 0 40px rgba(64,65,52,0.6)' } : undefined}
                 className={`group relative flex flex-col h-[400px] rounded-[2rem] overflow-hidden border transition-all duration-500 will-change-transform cursor-pointer ${isPrimary
-                    ? 'bg-primary border-2 border-[#404134] z-10'
+                    ? 'bg-primary border-0 z-10'
                     : 'bg-white border-slate-100 shadow-sm hover:shadow-xl'
                     }`}
                 onClick={() => {

@@ -27,7 +27,7 @@ export const Contact: React.FC = () => {
     setFormData(prev => ({ ...prev, consent: e.target.checked }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus('submitting');
 
@@ -38,20 +38,41 @@ export const Contact: React.FC = () => {
       return;
     }
 
-    // Simulate API call
-    setTimeout(() => {
-      console.log('Form Submitted:', formData);
-      setStatus('success');
-      setFormData({
-        firstName: '',
-        lastName: '',
-        email: '',
-        phone: '',
-        service: 'sport',
-        message: '',
-        consent: false
+    // Encode form data for Netlify
+    const encode = (data: Record<string, string | boolean>) => {
+      return Object.keys(data)
+        .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(String(data[key])))
+        .join("&");
+    };
+
+    try {
+      const response = await fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: encode({
+          "form-name": "contact",
+          ...formData
+        })
       });
-    }, 1500);
+
+      if (response.ok) {
+        setStatus('success');
+        setFormData({
+          firstName: '',
+          lastName: '',
+          email: '',
+          phone: '',
+          service: 'sport',
+          message: '',
+          consent: false
+        });
+      } else {
+        setStatus('error');
+      }
+    } catch (error) {
+      console.error('Form submission error:', error);
+      setStatus('error');
+    }
   };
 
   return (
@@ -95,8 +116,35 @@ export const Contact: React.FC = () => {
                       Envoyer un autre message
                     </button>
                   </div>
+                ) : status === 'error' ? (
+                  <div className="bg-red-50 border border-red-200 text-red-800 p-6 rounded-lg text-center">
+                    <h3 className="text-lg font-bold mb-2">Erreur d'envoi</h3>
+                    <p>Une erreur s'est produite lors de l'envoi de votre message. Veuillez réessayer ou nous contacter directement par téléphone.</p>
+                    <button
+                      onClick={() => setStatus('idle')}
+                      className="mt-4 text-primary font-medium hover:underline"
+                    >
+                      Réessayer
+                    </button>
+                  </div>
                 ) : (
-                  <form onSubmit={handleSubmit} className="space-y-6">
+                  <form
+                    onSubmit={handleSubmit}
+                    className="space-y-6"
+                    name="contact"
+                    method="POST"
+                    data-netlify="true"
+                    data-netlify-honeypot="bot-field"
+                  >
+                    {/* Hidden field for Netlify Forms */}
+                    <input type="hidden" name="form-name" value="contact" />
+
+                    {/* Honeypot field for spam protection */}
+                    <div className="hidden">
+                      <label>
+                        Don't fill this out if you're human: <input name="bot-field" />
+                      </label>
+                    </div>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                       <div>
                         <label htmlFor="firstName" className="block text-sm font-medium text-text-main mb-1">Prénom</label>
