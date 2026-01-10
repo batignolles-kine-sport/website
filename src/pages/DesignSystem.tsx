@@ -13,6 +13,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { PracticeCard } from '../components/ui/PracticeCard';
 import { MAIN_PRACTICES } from './Pratiques';
 import { MethodExplorer } from '../components/design-system/MethodExplorer';
+import { PracticeCardBlurVariants } from '../components/design-system/PracticeCardBlurVariants';
 
 const DEMO_PRACTICE = MAIN_PRACTICES[0];
 
@@ -548,6 +549,16 @@ const DesignSystem: React.FC = () => {
                 </div>
 
                 <MethodExplorer />
+            </section>
+
+            {/* PRACTICE CARD BLUR VARIANTS */}
+            <section id="practice-blur-variants" className="py-12 px-6 max-w-7xl mx-auto mb-12 bg-slate-50 border-y border-slate-200">
+                <div className="mb-10 pb-6 border-b border-slate-200">
+                    <h2 className="text-3xl font-sans font-bold text-[#1e1c1a]">Variantes Cartes Pratiques</h2>
+                    <p className="text-slate-500 mt-2">Recherche d'un équilibre parfait entre immersion visuelle et lisibilité, inspiré par Apple & Google.</p>
+                </div>
+
+                <PracticeCardBlurVariants />
             </section>
 
             {/* Typography */}

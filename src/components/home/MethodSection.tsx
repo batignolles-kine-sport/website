@@ -169,15 +169,18 @@ const MethodCard = ({
                         transition={{ duration: 0.5 }}
                         className="absolute inset-0 z-0"
                     >
-                        <motion.img
-                            src={data.img}
-                            alt={data.title}
-                            className="w-full h-full object-cover grayscale"
-                            initial={{ scale: 1 }}
-                            animate={{ scale: 1.1 }}
-                            transition={{ duration: 10, ease: "linear" }}
-                            loading="lazy"
-                        />
+                        {/* Only load image on desktop to improve mobile Lighthouse score */}
+                        {typeof window !== 'undefined' && window.innerWidth >= 1024 && (
+                            <motion.img
+                                src={data.img}
+                                alt={data.title}
+                                className="w-full h-full object-cover grayscale"
+                                initial={{ scale: 1 }}
+                                animate={{ scale: 1.1 }}
+                                transition={{ duration: 10, ease: "linear" }}
+                                loading="lazy"
+                            />
+                        )}
                         {/* Immersive Gradient Overlay */}
                         <div className="absolute inset-x-0 bottom-0 h-3/4 bg-gradient-to-t from-black/90 via-black/40 to-transparent z-10" />
                     </motion.div>

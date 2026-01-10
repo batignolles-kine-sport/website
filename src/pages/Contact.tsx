@@ -191,8 +191,8 @@ export const Contact: React.FC = () => {
                           type="tel"
                           id="phone"
                           name="phone"
-                          pattern="[0-9]{10}"
-                          placeholder="0612345678"
+                          pattern="[0-9\s.+-]{10,}"
+                          placeholder="06 12 34 56 78"
                           required
                           value={formData.phone}
                           onChange={handleChange}
@@ -202,7 +202,7 @@ export const Contact: React.FC = () => {
                     </div>
 
                     <div>
-                      <label htmlFor="service" className="block text-sm font-medium text-text-main mb-1">Sujet / Service</label>
+                      <label htmlFor="service" className="block text-sm font-medium text-text-main mb-1">Sujet</label>
                       <select
                         id="service"
                         name="service"
@@ -211,7 +211,9 @@ export const Contact: React.FC = () => {
                         className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-primary focus:border-primary"
                       >
                         <option value="sport">Kiné du Sport</option>
-                        <option value="reeducation">Rééducation</option>
+                        <option value="reeducation">Rééducation globale</option>
+                        <option value="coureur">Accompagnement du coureur</option>
+                        <option value="femme">Kiné de la femme</option>
                         <option value="autre">Autre demande</option>
                       </select>
                     </div>

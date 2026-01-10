@@ -256,52 +256,36 @@ export const Pratiques: React.FC = () => {
                                 <motion.article
                                     key={practice.id}
                                     variants={fadeUp}
-                                    className="group relative h-[600px] rounded-3xl overflow-hidden border border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-300"
+                                    className="group relative h-[500px] rounded-[2rem] overflow-hidden bg-black shadow-2xl hover:shadow-3xl transition-all duration-500"
                                 >
-                                    {/* Background Image */}
+                                    {/* Image - Full Color Permanent */}
                                     <div className="absolute inset-0">
                                         <img
                                             src={practice.image}
                                             alt={practice.title}
-                                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                                            className="w-full h-full object-cover"
                                         />
-                                        {/* No overlay - image fully visible */}
+                                        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/20 to-black/90"></div>
                                     </div>
 
-                                    {/* Icon Badge - Glassmorphism */}
-                                    <div className="absolute top-6 right-6 w-14 h-14 bg-white/90 backdrop-blur-md rounded-2xl shadow-lg flex items-center justify-center z-10 border border-white/20">
-                                        <Icon className="w-7 h-7 text-primary" />
+                                    {/* Floating Icon */}
+                                    <div className="absolute top-0 right-0 p-6 opacity-80 group-hover:opacity-100 transition-opacity">
+                                        <Icon className="w-8 h-8 text-white drop-shadow-lg" />
                                     </div>
 
-                                    {/* Content with progressive blur - positioned at bottom */}
-                                    <div className="absolute inset-0 flex flex-col justify-end">
-                                        {/* Progressive blur background covering bottom half */}
-                                        <div
-                                            className="absolute inset-0 backdrop-blur-xl"
-                                            style={{
-                                                maskImage: 'linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 30%, rgba(0,0,0,0.7) 60%, rgba(0,0,0,0) 100%)',
-                                                WebkitMaskImage: 'linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 30%, rgba(0,0,0,0.7) 60%, rgba(0,0,0,0) 100%)'
-                                            }}
-                                        ></div>
+                                    {/* Content */}
+                                    <div className="absolute inset-x-0 bottom-0 p-8">
 
-                                        {/* Content */}
-                                        <div className="relative z-10 p-8 space-y-4">
-                                            <h3 className="text-2xl font-bold text-white mb-3">
-                                                {practice.title}
-                                            </h3>
-                                            <p className="text-white leading-relaxed mb-4 font-medium">
-                                                {practice.description}
-                                            </p>
+                                        <h3 className="text-3xl font-bold text-white mb-2 drop-shadow-md">{practice.title}</h3>
+                                        <p className="text-gray-200 text-sm mb-6 max-w-[95%] font-medium leading-relaxed drop-shadow-sm">{practice.description}</p>
 
-                                            {/* Highlights List */}
-                                            <ul className="space-y-2">
-                                                {practice.highlights.map((highlight, i) => (
-                                                    <li key={i} className="flex items-start gap-3 text-sm text-white font-medium">
-                                                        <div className="w-1.5 h-1.5 rounded-full bg-white shrink-0 mt-2" />
-                                                        <span className="leading-relaxed">{highlight}</span>
-                                                    </li>
-                                                ))}
-                                            </ul>
+                                        {/* Highlights as Tags */}
+                                        <div className="flex flex-wrap gap-2">
+                                            {practice.highlights.map((h, i) => (
+                                                <span key={i} className="px-3 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-xs text-white/95 font-medium shadow-sm">
+                                                    {h}
+                                                </span>
+                                            ))}
                                         </div>
                                     </div>
                                 </motion.article>
