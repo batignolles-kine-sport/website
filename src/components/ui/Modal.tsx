@@ -80,7 +80,7 @@ const Modal: React.FC<ModalProps> = ({
 
     // Handle backdrop click
     const handleBackdropClick = (e: React.MouseEvent) => {
-        if (closeOnBackdropClick && e.target === e.currentTarget) {
+        if (closeOnBackdropClick) {
             onClose();
         }
     };
