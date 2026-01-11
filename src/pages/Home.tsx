@@ -64,7 +64,7 @@ export const Home: React.FC = () => {
 
             <div ref={containerRef} className="text-slate-900 lg:h-screen lg:overflow-y-scroll lg:snap-y lg:snap-mandatory">
                 {/* Hero w/ Parallax Scale */}
-                <section id="hero" className="px-3 sm:px-4 md:px-6 flex flex-col snap-start snap-always min-h-screen">
+                <section id="hero" className="px-3 sm:px-4 md:px-6 flex flex-col lg:snap-start lg:snap-always lg:min-h-screen">
                     <motion.div
                         style={{ scale: heroScale, opacity: heroOpacity }}
                         className="relative w-full h-[90dvh] md:h-[90vh] min-h-[450px] max-h-[95vh] rounded-3xl md:rounded-4xl lg:rounded-5xl overflow-hidden shadow-2xl shadow-slate-200 bg-slate-900 group border border-white"
@@ -158,8 +158,8 @@ export const Home: React.FC = () => {
                     </motion.div>
                 </section>
 
-                {/* 0. LE CABINET */}
-                <Section id="cabinet" spacing="hero" enableSnap>
+                {/* 0. LE CABINET - Reduced top padding to link with Hero */}
+                <Section id="cabinet" spacing="hero" enableSnap className="!pt-8 lg:!pt-[var(--section-spacing-hero-desktop)]">
                     <CabinetSection />
                 </Section>
 

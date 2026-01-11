@@ -44,7 +44,7 @@ export const Section: React.FC<SectionProps> = ({
 
     const alignmentClasses = {
         start: 'items-start',
-        center: 'items-center',
+        center: 'items-start md:items-center',
         end: 'items-end'
     };
 
@@ -52,7 +52,7 @@ export const Section: React.FC<SectionProps> = ({
         <section
             id={id}
             className={`
-                ${enableSnap ? 'snap-start min-h-screen' : ''}
+                ${enableSnap ? 'lg:snap-start lg:min-h-screen' : ''}
                 ${spacing !== 'none' ? 'flex' : ''}
                 ${spacing !== 'none' ? alignmentClasses[alignContent] : ''}
                 ${spacingClasses[spacing]}

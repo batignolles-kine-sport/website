@@ -17,7 +17,7 @@ export const ExpertiseSection: React.FC = () => {
         <div className="w-full relative">
             <div className="w-full">
                 {/* Header */}
-                <div className="flex flex-col md:flex-row md:items-end justify-between mb-6 gap-4">
+                <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
                     <motion.div
                         className="flex-1 w-full"
                         initial="hidden"
@@ -36,10 +36,13 @@ export const ExpertiseSection: React.FC = () => {
                         />
 
                         {/* Description & CTA Layout - Matches Hero Landing */}
-                        <div className="mt-2 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 max-w-7xl">
-                            <p className="text-sm md:text-base leading-relaxed max-w-lg text-slate-500">
+                        <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 max-w-7xl">
+                            <motion.p
+                                variants={fadeUp}
+                                className="text-base md:text-lg leading-relaxed max-w-2xl text-slate-500"
+                            >
                                 Nous combinons expertise scientifique, suivi individualisé et pédagogie pour vous accompagner du diagnostic à la reprise.
-                            </p>
+                            </motion.p>
 
                             {/* Desktop CTA */}
                             <div className="hidden lg:block shrink-0">

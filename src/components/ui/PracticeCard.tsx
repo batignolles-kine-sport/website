@@ -257,12 +257,20 @@ export const PracticeCard: React.FC<PracticeCardProps> = ({ practice, variant = 
     // Interactive Style (Landing Page) - Compact, reveal on hover
     if (variant === 'interactive') {
         const [isMobileOpen, setIsMobileOpen] = React.useState(false);
+        const [isShortScreen, setIsShortScreen] = React.useState(false);
+
+        React.useEffect(() => {
+            const checkHeight = () => setIsShortScreen(window.innerHeight < 850);
+            checkHeight();
+            window.addEventListener('resize', checkHeight);
+            return () => window.removeEventListener('resize', checkHeight);
+        }, []);
 
         return (
             <motion.article
                 variants={fadeUp}
                 style={isPrimary ? { boxShadow: '0 0 40px rgba(64,65,52,0.6)' } : undefined}
-                className={`group relative flex flex-col h-[400px] rounded-[2rem] overflow-hidden border transition-all duration-500 will-change-transform cursor-pointer ${isPrimary
+                className={`group relative flex flex-col ${isShortScreen ? 'h-[320px]' : 'h-[400px]'} rounded-[2rem] overflow-hidden border transition-all duration-500 will-change-transform cursor-pointer ${isPrimary
                     ? 'bg-primary border-0 z-10'
                     : 'bg-white border-slate-100 shadow-sm hover:shadow-xl'
                     }`}
@@ -289,12 +297,12 @@ export const PracticeCard: React.FC<PracticeCardProps> = ({ practice, variant = 
                 </div>
 
                 {/* Content Container */}
-                <div className="relative z-10 flex flex-col h-full p-8 text-white">
+                <div className={`relative z-10 flex flex-col h-full ${isShortScreen ? 'p-6' : 'p-8'} text-white`}>
                     {/* Header : Icon + Description (Top) */}
                     <div className="flex flex-col gap-4">
                         <div className="flex justify-between items-start">
-                            <div className={`backdrop-blur-md p-3.5 rounded-2xl shadow-lg border border-white/20 bg-white/10`}>
-                                <Icon className="w-8 h-8 text-white" />
+                            <div className={`backdrop-blur-md ${isShortScreen ? 'p-2.5' : 'p-3.5'} rounded-2xl shadow-lg border border-white/20 bg-white/10`}>
+                                <Icon className={`${isShortScreen ? 'w-6 h-6' : 'w-8 h-8'} text-white`} />
                             </div>
 
                             {/* Mobile Toggle Button - Visible ONLY on Mobile */}
@@ -328,7 +336,7 @@ export const PracticeCard: React.FC<PracticeCardProps> = ({ practice, variant = 
                             }`}>
                             <div className={`overflow-hidden transition-opacity duration-500 delay-100 ${isMobileOpen ? 'opacity-100' : 'opacity-0 md:group-hover:opacity-100'
                                 }`}>
-                                <p className="text-sm text-white/90 font-medium leading-relaxed max-w-[90%] drop-shadow-md pb-2">
+                                <p className={`${isShortScreen ? 'text-sm leading-tight' : 'text-sm leading-relaxed'} text-white/90 font-medium max-w-[90%] drop-shadow-md pb-2`}>
                                     {practice.description}
                                 </p>
                             </div>
@@ -339,7 +347,7 @@ export const PracticeCard: React.FC<PracticeCardProps> = ({ practice, variant = 
                     <div className="mt-auto relative min-h-[80px] flex items-end">
 
                         {/* Title - Visible by default, fades out on hover/open */}
-                        <h3 className={`text-3xl font-bold leading-none drop-shadow-xl transition-all duration-500 transform ${isMobileOpen
+                        <h3 className={`${isShortScreen ? 'text-2xl' : 'text-3xl'} font-bold leading-none drop-shadow-xl transition-all duration-500 transform ${isMobileOpen
                             ? 'opacity-0 translate-y-4'
                             : 'opacity-100 translate-y-0 md:group-hover:opacity-0 md:group-hover:translate-y-4'
                             }`}>
@@ -351,9 +359,9 @@ export const PracticeCard: React.FC<PracticeCardProps> = ({ practice, variant = 
                             ? 'opacity-100 translate-y-0'
                             : 'opacity-0 translate-y-4 md:group-hover:opacity-100 md:group-hover:translate-y-0'
                             }`}>
-                            <ul className="space-y-2">
+                            <ul className={`${isShortScreen ? 'space-y-1' : 'space-y-2'}`}>
                                 {practice.highlights.map((highlight, i) => (
-                                    <li key={i} className="flex items-center gap-3 text-sm text-white font-medium">
+                                    <li key={i} className={`flex items-center gap-3 ${isShortScreen ? 'text-xs' : 'text-sm'} text-white font-medium`}>
                                         <div className="w-1.5 h-1.5 rounded-full bg-white shadow-[0_0_8px_rgba(255,255,255,0.8)] shrink-0" />
                                         <span className="leading-snug drop-shadow-md">{highlight}</span>
                                     </li>

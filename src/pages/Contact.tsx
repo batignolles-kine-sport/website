@@ -46,13 +46,17 @@ export const Contact: React.FC = () => {
     };
 
     try {
+      const data = new URLSearchParams();
+      data.append("form-name", "contact");
+      data.append("bot-field", ""); // Honeypot
+      Object.entries(formData).forEach(([key, value]) => {
+        data.append(key, String(value));
+      });
+
       const response = await fetch("/", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: encode({
-          "form-name": "contact",
-          ...formData
-        })
+        body: data.toString(),
       });
 
       if (response.ok) {
@@ -67,6 +71,8 @@ export const Contact: React.FC = () => {
           consent: false
         });
       } else {
+        const errorText = await response.text();
+        console.error('Netlify Error Response:', errorText);
         setStatus('error');
       }
     } catch (error) {

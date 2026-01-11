@@ -91,7 +91,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                                 Pratiques
                                 <span className="absolute -bottom-1 left-0 w-0 h-px bg-primary transition-all duration-300 group-hover:w-full" />
                             </NavLink>
-                            <NavLink
+                            {/* <NavLink
                                 to="/blog"
                                 className={({ isActive }) =>
                                     `text-sm font-medium transition-colors relative group ${isActive ? 'text-primary' : 'text-slate-600 hover:text-primary'}`
@@ -99,7 +99,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                             >
                                 Blog
                                 <span className="absolute -bottom-1 left-0 w-0 h-px bg-primary transition-all duration-300 group-hover:w-full" />
-                            </NavLink>
+                            </NavLink> */}
                             <NavLink
                                 to="/equipe"
                                 className={({ isActive }) =>
@@ -168,7 +168,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                         Pratiques
                         <span className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-0 h-px bg-primary transition-all duration-300 group-hover:w-16" />
                     </NavLink>
-                    <NavLink
+                    {/* <NavLink
                         to="/blog"
                         className={({ isActive }) =>
                             `text-slate-900 text-2xl md:text-3xl font-sans font-medium tracking-tight transition-colors relative group ${isActive ? 'text-primary' : 'hover:text-primary'}`
@@ -177,7 +177,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                     >
                         Blog
                         <span className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-0 h-px bg-primary transition-all duration-300 group-hover:w-12" />
-                    </NavLink>
+                    </NavLink> */}
                     <NavLink
                         to="/equipe"
                         className={({ isActive }) =>

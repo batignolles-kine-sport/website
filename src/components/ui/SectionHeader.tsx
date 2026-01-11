@@ -75,7 +75,7 @@ export const SectionHeader: React.FC<SectionHeaderProps> = ({
         variants={fadeUp}
       >
         <HeadingTag
-          className={`text-4xl md:text-6xl font-bold tracking-tight mb-6 ${light ? 'text-white' : 'text-slate-900'}`}
+          className={`text-4xl md:text-6xl font-bold tracking-tight leading-[1.1] mb-6 ${light ? 'text-white' : 'text-slate-900'}`}
         >
           {title}
         </HeadingTag>
@@ -84,7 +84,7 @@ export const SectionHeader: React.FC<SectionHeaderProps> = ({
       {description && (
         <motion.p
           variants={fadeUp}
-          className={`text-base md:text-lg leading-relaxed max-w-lg ${isCenter ? 'mx-auto' : ''} ${light ? 'text-slate-300' : 'text-slate-500'}`}
+          className={`text-base md:text-lg leading-relaxed max-w-2xl ${isCenter ? 'mx-auto' : ''} ${light ? 'text-slate-300' : 'text-slate-500'}`}
         >
           {description}
         </motion.p>

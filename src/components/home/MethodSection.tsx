@@ -7,10 +7,12 @@ import { BKS_EASE, staggerContainer, fadeUp, fadeRight, hoverScale } from '../..
 export const MethodSection: React.FC = () => {
     const [activeCard, setActiveCard] = useState<number>(1);
     const [isDesktop, setIsDesktop] = useState(true);
+    const [isShortScreen, setIsShortScreen] = useState(false);
 
     useEffect(() => {
         const handleResize = () => {
             setIsDesktop(window.innerWidth >= 768);
+            setIsShortScreen(window.innerHeight < 850);
         };
 
         // Initial check
@@ -66,6 +68,7 @@ export const MethodSection: React.FC = () => {
                         num={num}
                         activeCard={activeCard}
                         isDesktop={isDesktop}
+                        isShortScreen={isShortScreen}
                         handleMouseEnter={handleMouseEnter}
                     />
                 ))}
@@ -78,11 +81,13 @@ const MethodCard = ({
     num,
     activeCard,
     isDesktop,
+    isShortScreen,
     handleMouseEnter
 }: {
     num: number;
     activeCard: number;
     isDesktop: boolean;
+    isShortScreen: boolean;
     handleMouseEnter: (n: number) => void;
 }) => {
     const isActive = activeCard === num;
@@ -149,11 +154,11 @@ const MethodCard = ({
                 relative flex flex-col rounded-2xl transition-all duration-500
                 ${isDesktop
                     ? (isActive
-                        ? 'h-[340px] shadow-2xl border border-transparent bg-slate-900 text-white z-10 overflow-hidden'
-                        : `h-[340px] cursor-pointer shadow-inner border hover:border-border-subtle z-0 bg-slate-50 ${colors.border} overflow-hidden`)
+                        ? `${isShortScreen ? 'h-[280px]' : 'h-[340px]'} shadow-2xl border border-transparent bg-slate-900 text-white z-10 overflow-hidden`
+                        : `${isShortScreen ? 'h-[280px]' : 'h-[340px]'} cursor-pointer shadow-inner border hover:border-border-subtle z-0 bg-slate-50 ${colors.border} overflow-hidden`)
                     : 'w-full h-auto bg-white border-slate-100 px-8 pb-8 pt-16 shadow-soft overflow-visible'
                 }
-                ${isDesktop && isActive ? 'p-0' : 'p-6'}
+                ${isDesktop && isActive ? 'p-0' : (isShortScreen ? 'p-4' : 'p-6')}
             `}
             style={{
                 flex: isDesktop ? (isActive ? 7 : 1) : 'none' // Increased expansion ratio
@@ -216,7 +221,7 @@ const MethodCard = ({
             <div className={`flex flex-col flex-1 relative z-20 ${isDesktop && !isActive ? 'hidden' : 'flex'}`}>
                 {/* Using AnimatePresence for content fade in/out on desktop switch */}
                 <motion.div
-                    className={`flex flex-col gap-4 mt-auto ${isDesktop && isActive ? 'p-8 w-full max-w-xl' : ''}`}
+                    className={`flex flex-col gap-4 mt-auto ${isDesktop && isActive ? (isShortScreen ? 'p-6' : 'p-8') + ' w-full max-w-xl' : ''}`}
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.1, duration: 0.4 }}
@@ -224,7 +229,7 @@ const MethodCard = ({
                     <div className="flex flex-row items-center gap-4 md:justify-between w-full">
                         <motion.h3
                             layout="position"
-                            className={`font-bold tracking-tight ${isDesktop && isActive ? 'text-3xl md:text-4xl text-white mb-1' : 'text-xl md:text-xl text-slate-900'}`}
+                            className={`font-bold tracking-tight ${isDesktop && isActive ? `${isShortScreen ? 'text-2xl md:text-3xl' : 'text-3xl md:text-4xl'} text-white mb-1` : 'text-xl md:text-xl text-slate-900'}`}
                         >
                             {data.title}
                         </motion.h3>
@@ -232,7 +237,7 @@ const MethodCard = ({
 
                     <motion.p
                         layout="position"
-                        className={`font-light leading-relaxed ${isDesktop && isActive ? 'text-base md:text-lg text-white/80' : 'text-sm text-slate-500'}`}
+                        className={`font-light ${isShortScreen ? 'leading-tight text-sm md:text-base' : 'leading-relaxed text-base md:text-lg'} ${isDesktop && isActive ? 'text-white/80' : 'text-sm text-slate-500'}`}
                     >
                         {data.desc}
                     </motion.p>
@@ -248,12 +253,12 @@ const MethodCard = ({
                     className="absolute inset-x-0 bottom-16 flex flex-col items-center justify-center gap-6" // Raised slightly
                 >
                     <div className={`
-                        w-20 h-20 rounded-2xl flex items-center justify-center transition-all duration-300
+                        ${isShortScreen ? 'w-14 h-14' : 'w-20 h-20'} rounded-2xl flex items-center justify-center transition-all duration-300
                         ${colors.bg} backdrop-blur-sm
                     `}>
-                        <svg className={`w-10 h-10 transition-colors duration-300 ${colors.icon}`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d={data.iconDesktop} /></svg>
+                        <svg className={`${isShortScreen ? 'w-8 h-8' : 'w-10 h-10'} transition-colors duration-300 ${colors.icon}`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d={data.iconDesktop} /></svg>
                     </div>
-                    <span className={`font-bold text-sm uppercase tracking-[0.25em] transition-colors duration-300 ${colors.label}`}>{data.label}</span>
+                    <span className={`font-bold ${isShortScreen ? 'text-xs' : 'text-sm'} uppercase tracking-[0.25em] transition-colors duration-300 ${colors.label}`}>{data.label}</span>
                 </motion.div>
             )}
         </motion.div>

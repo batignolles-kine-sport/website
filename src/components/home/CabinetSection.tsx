@@ -134,15 +134,25 @@ export const CabinetSection: React.FC = () => {
                     </div>
 
                     {/* Indicators */}
-                    <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-3 p-2.5 rounded-full bg-black/30 backdrop-blur-md z-10">
-                        {CABINET_PHOTOS.map((_, idx) => (
-                            <button
-                                key={idx}
-                                onClick={() => setPage([idx, idx > currentIndex ? 1 : -1])}
-                                aria-label={`Aller à la photo ${idx + 1}`}
-                                className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${idx === currentIndex ? 'bg-white w-5' : 'bg-white/40 hover:bg-white/70'}`}
-                            />
-                        ))}
+                    {/* Indicators */}
+                    <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10">
+                        <div className="flex items-center gap-1 px-2 py-1 rounded-full bg-black/30 backdrop-blur-md">
+                            {CABINET_PHOTOS.map((_, idx) => (
+                                <button
+                                    key={idx}
+                                    onClick={() => setPage([idx, idx > currentIndex ? 1 : -1])}
+                                    aria-label={`Aller à la photo ${idx + 1}`}
+                                    className="w-8 h-8 flex items-center justify-center group transition-colors focus:outline-none"
+                                >
+                                    <span
+                                        className={`block h-1.5 rounded-full transition-all duration-300 ${idx === currentIndex
+                                                ? 'bg-white w-6'
+                                                : 'bg-white/40 w-1.5 group-hover:bg-white/70'
+                                            }`}
+                                    />
+                                </button>
+                            ))}
+                        </div>
                     </div>
                 </div>
             </div>

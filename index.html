@@ -157,7 +157,16 @@
   <div id="root"></div>
   <script type="module" src="/src/index.tsx"></script>
 
-
+  <!-- Dummy form for Netlify Bots to register the contact form -->
+  <form name="contact" netlify netlify-honeypot="bot-field" hidden>
+    <input type="text" name="firstName" />
+    <input type="text" name="lastName" />
+    <input type="email" name="email" />
+    <input type="tel" name="phone" />
+    <input type="text" name="service" />
+    <textarea name="message"></textarea>
+    <input type="checkbox" name="consent" />
+  </form>
 </body>
 
 </html>
