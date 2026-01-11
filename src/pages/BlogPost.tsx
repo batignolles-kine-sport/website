@@ -13,7 +13,7 @@ import { DOCTOLIB_URL, PHONE } from '../utils/constants';
 import { toTelHref } from '../utils/helpers';
 import { getRelatedPosts } from '../utils/blogSuggestions';
 import { getResponsiveImage, pathToPublicId, isCloudinaryImage } from '../utils/cloudinary';
-import { generateArticleSchema } from '../utils/structuredData';
+import { generateArticleSchema, generateBreadcrumbSchema } from '../utils/structuredData';
 import blogPostsData from '../data/blog-metadata.json';
 
 // Helper to extract content body (stripping frontmatter)
@@ -110,12 +110,13 @@ export const BlogPost: React.FC = () => {
         description={post.excerpt}
         image={post.image}
         type="article"
+        schema={articleSchema || undefined}
+        breadcrumbs={[
+          { name: 'Accueil', url: 'https://batignolleskinesport.fr' },
+          { name: 'Blog', url: 'https://batignolleskinesport.fr/blog' },
+          { name: post.title, url: `https://batignolleskinesport.fr/blog/${post.slug}` }
+        ]}
       />
-      <Helmet>
-        <script type="application/ld+json">
-          {JSON.stringify(articleSchema)}
-        </script>
-      </Helmet>
       <ReadingProgress />
 
       <style>{`

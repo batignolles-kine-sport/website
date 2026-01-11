@@ -1,6 +1,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { SITE_URL, OG_IMAGE_URL } from '../../utils/constants';
+import { generateLocalBusinessSchema, generateBreadcrumbSchema } from '../../utils/structuredData';
 
 interface SEOProps {
   title: string;
@@ -8,6 +9,8 @@ interface SEOProps {
   canonical?: string;
   type?: 'website' | 'article';
   image?: string;
+  schema?: object | object[];
+  breadcrumbs?: Array<{ name: string; url: string }>;
 }
 
 export const SEO: React.FC<SEOProps> = ({
@@ -15,7 +18,9 @@ export const SEO: React.FC<SEOProps> = ({
   description,
   canonical,
   type = 'website',
-  image
+  image,
+  schema,
+  breadcrumbs
 }) => {
   const siteName = "Batignolles Kiné Sport";
   const fullTitle = `${title} | ${siteName}`;
@@ -34,6 +39,10 @@ export const SEO: React.FC<SEOProps> = ({
 
   // Auto-generate canonical URL if not provided
   const canonicalUrl = canonical || (typeof window !== 'undefined' ? `${SITE_URL}${window.location.pathname}` : SITE_URL);
+
+  // Schema composition
+  const localBusinessSchema = generateLocalBusinessSchema();
+  const breadcrumbSchema = breadcrumbs ? generateBreadcrumbSchema(breadcrumbs) : null;
 
   return (
     <Helmet>
@@ -63,6 +72,25 @@ export const SEO: React.FC<SEOProps> = ({
       <meta name="twitter:title" content={fullTitle} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={ogImage} />
+
+      {/* Structured Data: Local Business (EEAT) */}
+      <script type="application/ld+json">
+        {JSON.stringify(localBusinessSchema)}
+      </script>
+
+      {/* Structured Data: Breadcrumbs */}
+      {breadcrumbSchema && (
+        <script type="application/ld+json">
+          {JSON.stringify(breadcrumbSchema)}
+        </script>
+      )}
+
+      {/* Structured Data: Page Specific (Article, FAQ, etc) */}
+      {schema && (
+        <script type="application/ld+json">
+          {JSON.stringify(schema)}
+        </script>
+      )}
     </Helmet>
   );
 };

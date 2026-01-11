@@ -1,198 +1,303 @@
 [
   {
     "slug": "capsulite-retractile",
-    "title": "Capsulite rétractile : Quand l'épaule se gèle",
-    "category": "Épaule",
+    "title": "Capsulite Rétractile de l'Épaule : Traitement, Exercices, Rééducation",
+    "category": "postop",
     "type": "Membre Supérieur",
     "readTime": "6 min",
     "image": "/images/blog/capsulite-retractile.jpg",
-    "excerpt": "L'épaule gelée est une pathologie longue et frustrante. Comprendre ses phases pour mieux gérer la récupération.",
+    "excerpt": "Capsulite rétractile (frozen shoulder) : phases traitement, étirements, mobilisation progressive.",
     "publishedAt": "28 Novembre 2024",
     "author": "Équipe BKS",
     "date": "28 Novembre 2024",
-    "featured": true
+    "featured": true,
+    "keywords": [
+      "capsulite rétractile",
+      "épaule gelée",
+      "frozen shoulder",
+      "raideur",
+      "mobilité"
+    ]
   },
   {
     "slug": "epaule-conflit",
-    "title": "Conflit sous-acromial : quand l'épaule coince",
-    "category": "Épaule",
+    "title": "Conflit Subacromial de l'Épaule : Symptômes, Exercices, Rééducation",
+    "category": "sport",
     "type": "Membre Supérieur",
     "readTime": "5 min",
     "image": "/images/blog/epaule-conflit.jpg",
-    "excerpt": "Douleur en levant le bras ou en dormant dessus ? Le conflit sous-acromial est fréquent. Découvrez comment libérer votre épaule.",
+    "excerpt": "Conflit épaule : douleur sus-épineuse, exercices thérapeutiques, retour sport. Traitement conservateur.",
     "publishedAt": "28 Août 2025",
     "author": "Équipe BKS",
     "date": "28 Août 2025",
-    "featured": true
+    "featured": true,
+    "keywords": [
+      "conflit épaule",
+      "sus-épineux",
+      "impingement",
+      "rééducation",
+      "sport"
+    ]
   },
   {
     "slug": "entorse-genou-lli",
-    "title": "Entorse du genou (LLI) : Moins grave que le croisé, mais à ne pas négliger",
-    "category": "Genou",
+    "title": "Entorse du Genou (LLI) : Traitement, Rééducation, Reprise Sport",
+    "category": "sport",
     "type": "Membre Inférieur",
     "readTime": "5 min",
     "image": "/images/blog/entorse-genou-lli.jpg",
-    "excerpt": "L'atteinte du Ligament Latéral Interne est fréquente au ski ou au foot. Voici comment bien cicatriser pour éviter les séquelles.",
+    "excerpt": "Entorse genou (ligament latéral interne) : diagnostic, phases rééducation, retour athlétique. Guide complet.",
     "publishedAt": "25 Novembre 2024",
     "author": "Équipe BKS",
     "date": "25 Novembre 2024",
-    "featured": true
+    "featured": true,
+    "keywords": [
+      "entorse genou",
+      "ligament latéral",
+      "lli",
+      "rééducation",
+      "retour sport"
+    ]
   },
   {
     "slug": "sciatique",
-    "title": "Sciatique : comprendre et soulager la douleur qui irradie",
-    "category": "Dos",
+    "title": "Sciatique : Diagnostic, Exercices, Traitement, Prévention",
+    "category": "postop",
     "type": "Rachis",
     "readTime": "5 min",
     "image": "/images/blog/sciatique.jpg",
-    "excerpt": "Une douleur électrique qui descend dans la fesse et la jambe ? C'est probablement une sciatique. Pas de panique, voici quoi faire.",
+    "excerpt": "Sciatique : douleur nerveuse, exercices anti-compression, traitement progressif, prévention.",
     "publishedAt": "25 Juillet 2025",
     "author": "Équipe BKS",
     "date": "25 Juillet 2025",
-    "featured": true
+    "featured": true,
+    "keywords": [
+      "sciatique",
+      "nerf sciatique",
+      "jambe",
+      "douleur",
+      "traitement"
+    ]
   },
   {
     "slug": "sport-grossesse",
-    "title": "Sport et grossesse : bouger pour deux (en toute sécurité)",
-    "category": "Grossesse",
+    "title": "Sport et Grossesse : Exercices Sûrs, Recommandations, Bénéfices",
+    "category": "femme",
     "type": "Kiné de la femme",
     "readTime": "6 min",
     "image": "/images/blog/sport-grossesse.jpg",
-    "excerpt": "Enceinte et sportive ? Fini le temps où on restait allongée 9 mois. Découvrez les bienfaits de l'activité physique pour vous et bébé.",
+    "excerpt": "Sport grossesse : exercices adaptés, recommandations OMS, bénéfices, sécurité. Guide complet femmes enceintes.",
     "publishedAt": "22 Septembre 2025",
     "author": "Équipe BKS",
     "date": "22 Septembre 2025",
-    "featured": true
+    "featured": true,
+    "keywords": [
+      "sport grossesse",
+      "enceinte",
+      "exercices",
+      "sécurité",
+      "bénéfices"
+    ]
   },
   {
     "slug": "reeducation-abdominale",
-    "title": "Rééducation abdominale post-partum : retrouver un ventre fonctionnel",
-    "category": "Post-partum",
+    "title": "Rééducation Abdominale Post-Partum : Diastasis, Exercices, Retour Sport",
+    "category": "femme",
     "type": "Kiné de la femme",
     "readTime": "6 min",
     "image": "/images/blog/reeducation-abdominale.jpg",
-    "excerpt": "Après l'accouchement, la rééducation abdominale est une étape clé. Découvrez comment renforcer votre sangle abdominale en toute sécurité.",
+    "excerpt": "Rééducation abdo post-partum : diastasis recti, exercices progressifs, retour sport sans douleur.",
     "publishedAt": "22 Juin 2025",
     "author": "Équipe BKS",
     "date": "22 Juin 2025",
-    "featured": true
+    "featured": true,
+    "keywords": [
+      "rééducation abdominale",
+      "post-partum",
+      "diastasis",
+      "ventre",
+      "exercices"
+    ]
   },
   {
     "slug": "tendinopathie-rotulienne",
-    "title": "Tendinopathie rotulienne : Le genou du sauteur",
-    "category": "Genou",
+    "title": "Tendinopathie Rotulienne : Causes, Traitement, Retour à la Course - 2025",
+    "category": "sport",
     "type": "Membre Inférieur",
     "readTime": "5 min",
     "image": "/images/blog/tendinopathie-rotulienne.jpg",
-    "excerpt": "Douleur sous la rotule ? C'est peut-être une tendinopathie rotulienne. Apprenez à gérer la charge pour guérir vos tendons.",
+    "excerpt": "Tendinopathie rotulienne : diagnostic, exercices, délai de guérison. Guide complet pour coureurs et athlètes. Science-based.",
     "publishedAt": "20 Novembre 2024",
     "author": "Équipe BKS",
     "date": "20 Novembre 2024",
-    "featured": true
+    "featured": true,
+    "keywords": [
+      "tendinopathie rotulienne",
+      "douleur genou coureur",
+      "traitement",
+      "exercices",
+      "retour course"
+    ]
   },
   {
     "slug": "lesion-ischio-jambiers",
-    "title": "Lésion des ischio-jambiers : le claquage du sprinter",
-    "category": "Cuisse",
+    "title": "Lésion Ischio-Jambiers : Traitement, Récupération, Prévention",
+    "category": "sport",
     "type": "Membre Inférieur",
     "readTime": "6 min",
     "image": "/images/blog/lesion-ischio-jambiers.jpg",
-    "excerpt": "Une douleur brutale derrière la cuisse en plein sprint ? Le claquage des ischios est la hantise des footballeurs. Voici comment bien cicatriser.",
+    "excerpt": "Claquage ischio-jambiers : phases rééducation, exercices, délai retour sport. Prévention des récidives.",
     "publishedAt": "20 Août 2025",
     "author": "Équipe BKS",
     "date": "20 Août 2025",
-    "featured": true
+    "featured": true,
+    "keywords": [
+      "ischio-jambiers",
+      "claquage",
+      "déchirure",
+      "rééducation",
+      "prévention"
+    ]
   },
   {
     "slug": "syndrome-essuie-glace",
-    "title": "Syndrome de l'essuie-glace (TFL) : le cauchemar du runner",
-    "category": "Genou",
+    "title": "Syndrome de l'Essuie-Glace (ITBS) : Causes, Traitement, Prévention",
+    "category": "sport",
     "type": "Membre Inférieur",
     "readTime": "6 min",
     "image": "/images/blog/syndrome-essuie-glace.jpg",
-    "excerpt": "Une douleur vive sur le côté externe du genou après 20 minutes de course ? C'est probablement le TFL. Voici comment s'en débarrasser.",
+    "excerpt": "Syndrome de l'essuie-glace : douleur genou latéral, exercices, retour course sécurisé. Coureurs et traileurs.",
     "publishedAt": "18 Juillet 2025",
     "author": "Équipe BKS",
     "date": "18 Juillet 2025",
-    "featured": true
+    "featured": true,
+    "keywords": [
+      "essuie-glace",
+      "itbs",
+      "genou latéral",
+      "coureur",
+      "trail"
+    ]
   },
   {
     "slug": "arthrose-genou-sport",
-    "title": "Arthrose du genou et sport : faut-il vraiment arrêter ?",
-    "category": "Genou",
+    "title": "Arthrose du Genou et Sport : Traitement, Exercices, Activités Adaptées",
+    "category": "sport",
     "type": "Membre Inférieur",
     "readTime": "6 min",
     "image": "/images/blog/arthrose-genou-sport.jpg",
-    "excerpt": "On vous a diagnostiqué de l'arthrose et on vous a dit d'arrêter de courir ? C'est peut-être une erreur. Le mouvement est le meilleur médicament.",
+    "excerpt": "Arthrose genou : traitement, exercices, activités sans douleur. Continuer le sport en sécurité.",
     "publishedAt": "15 Septembre 2025",
     "author": "Équipe BKS",
     "date": "15 Septembre 2025",
-    "featured": true
+    "featured": true,
+    "keywords": [
+      "arthrose genou",
+      "gonarthrose",
+      "traitement",
+      "sport adapté",
+      "exercices"
+    ]
   },
   {
     "slug": "pubalgie",
-    "title": "Pubalgie : Comprendre et soigner cette douleur de l'aine",
-    "category": "Hanche",
+    "title": "Pubalgie : Causes, Diagnostic, Traitement, Retour Sport",
+    "category": "sport",
     "type": "Membre Inférieur",
     "readTime": "6 min",
     "image": "/images/blog/pubalgie.jpg",
-    "excerpt": "Souvent redoutée par les footballeurs, la pubalgie est complexe. Découvrez comment la rééducation active permet de vaincre ces douleurs du bassin.",
+    "excerpt": "Pubalgie : douleur aine/pubis, causes (sport, post-op), rééducation, retour progressif.",
     "publishedAt": "15 Novembre 2024",
     "author": "Équipe BKS",
     "date": "15 Novembre 2024",
-    "featured": true
+    "featured": true,
+    "keywords": [
+      "pubalgie",
+      "aine",
+      "douleur aine",
+      "sport",
+      "traitement"
+    ]
   },
   {
     "slug": "entorse-cheville",
-    "title": "Entorse de cheville : comment bien récupérer pour éviter la récidive ?",
-    "category": "Cheville",
+    "title": "Entorse de la Cheville : Degrés, Rééducation, Retour au Sport",
+    "category": "sport",
     "type": "Membre Inférieur",
     "readTime": "5 min",
     "image": "/images/blog/entorse-cheville.jpg",
-    "excerpt": "Une cheville qui tourne, ça arrive vite. Découvrez comment la soigner efficacement pour reprendre le sport sans appréhension.",
+    "excerpt": "Entorse cheville : grade 1/2/3, exercices de rééducation, délai de guérison. Comment reprendre le sport en sécurité.",
     "publishedAt": "15 Juin 2025",
     "author": "Équipe BKS",
     "date": "15 Juin 2025",
-    "featured": true
+    "featured": true,
+    "keywords": [
+      "entorse cheville",
+      "rééducation",
+      "stabilité",
+      "sport",
+      "prévention"
+    ]
   },
   {
     "slug": "rupture-lca",
-    "title": "Rupture du ligament croisé antérieur (LCA) : le guide complet de la rééducation",
-    "category": "Genou",
+    "title": "Rupture LCA : Diagnostic, Chirurgie, Rééducation, Retour Sport",
+    "category": "postop",
     "type": "Membre Inférieur",
     "readTime": "7 min",
     "image": "/images/blog/rupture-lca.jpg",
-    "excerpt": "De la blessure au retour sur le terrain : découvrez les étapes clés pour récupérer un genou stable et performant, avec ou sans opération.",
+    "excerpt": "Rupture ligament croisé antérieur (LCA) : post-op, phases rééducation, retour athlétique progressif.",
     "publishedAt": "12 Octobre 2024",
     "author": "Équipe BKS",
     "date": "12 Octobre 2024",
-    "featured": true
+    "featured": true,
+    "keywords": [
+      "rupture lca",
+      "ligament croisé",
+      "post-op",
+      "rééducation",
+      "retour sport"
+    ]
   },
   {
     "slug": "fuites-urinaires-sport",
-    "title": "Fuites urinaires et sport : brisons le tabou",
-    "category": "Périnée",
+    "title": "Fuites Urinaires à l'Effort : Traitement, Exercices Périnéaux",
+    "category": "femme",
     "type": "Kiné de la femme",
     "readTime": "5 min",
     "image": "/images/blog/fuites-urinaires-sport.jpg",
-    "excerpt": "Quelques gouttes en sautant à la corde ou en éternuant ? Ce n'est pas normal, même après une grossesse. Parlons solutions.",
+    "excerpt": "Fuites urinaires effort : causes, exercices périnée, traitement conservateur. Femmes actives.",
     "publishedAt": "12 Août 2025",
     "author": "Équipe BKS",
     "date": "12 Août 2025",
-    "featured": true
+    "featured": true,
+    "keywords": [
+      "fuites urinaires",
+      "incontinence",
+      "périnée",
+      "sport",
+      "traitement"
+    ]
   },
   {
     "slug": "cervicalgie-teletravail",
-    "title": "Cervicalgie et télétravail : comment sauver votre cou ?",
-    "category": "Dos",
+    "title": "Cervicalgie et Télétravail : Ergonomie, Exercices, Traitement",
+    "category": "prevention",
     "type": "Rachis",
     "readTime": "5 min",
     "image": "/images/blog/cervicalgie-teletravail.jpg",
-    "excerpt": "Tensions dans la nuque, maux de tête en fin de journée ? Le télétravail met nos cervicales à rude épreuve. Voici nos solutions.",
+    "excerpt": "Douleur cervicale télétravail : ergonomie bureau, exercices, traitement. Prévention posturale.",
     "publishedAt": "10 Juillet 2025",
     "author": "Équipe BKS",
     "date": "10 Juillet 2025",
-    "featured": true
+    "featured": true,
+    "keywords": [
+      "cervicalgie",
+      "nuque",
+      "télétravail",
+      "ergonomie",
+      "bureau"
+    ]
   },
   {
     "slug": "kine-perinee-paris-17",
@@ -205,46 +310,67 @@
     "publishedAt": "10 Janvier 2026",
     "author": "Équipe BKS",
     "date": "10 Janvier 2026",
-    "featured": true
+    "featured": true,
+    "keywords": []
   },
   {
     "slug": "methodologie-ebp",
-    "title": "Notre méthodologie EBP : La science au service de votre guérison",
-    "category": "Prévention",
+    "title": "Médecine Basée sur les Preuves (EBP) en Kinésithérapie : Principes",
+    "category": "general",
     "type": "Méthodologie",
     "readTime": "5 min",
     "image": "/images/blog/methodologie-ebp.jpg",
-    "excerpt": "Comprendre l'Evidence Based Practice (EBP) : comment nous combinons recherche scientifique, expertise clinique et vos objectifs pour des soins optimaux.",
+    "excerpt": "Evidence-Based Practice (EBP) : approche scientifique en kinésithérapie, bénéfices, traitement personnalisé.",
     "publishedAt": "10 Décembre 2025",
     "author": "Équipe BKS",
     "date": "10 Décembre 2025",
-    "featured": true
+    "featured": true,
+    "keywords": [
+      "ebp",
+      "preuves scientifiques",
+      "médecine basée preuves",
+      "kinésithérapie"
+    ]
   },
   {
     "slug": "commotion-cerebrale-rugby",
-    "title": "Commotion cérébrale : Le danger invisible du rugby et des sports de contact",
-    "category": "Tête",
+    "title": "Commotion Cérébrale au Rugby : Protocole Retour, Sécurité",
+    "category": "postop",
     "type": "Traumatologie",
     "readTime": "6 min",
     "image": "/images/blog/commotion-cerebrale-rugby.jpg",
-    "excerpt": "Maux de tête, vertiges après un choc ? La commotion cérébrale doit être prise très au sérieux. Voici le protocole de retour au jeu.",
+    "excerpt": "Commotion cérébrale : symptômes, protocole retour progressif, sécurité. Guide complet rugby.",
     "publishedAt": "09 Décembre 2024",
     "author": "Équipe BKS",
     "date": "09 Décembre 2024",
-    "featured": true
+    "featured": true,
+    "keywords": [
+      "commotion",
+      "tête",
+      "rugby",
+      "trauma",
+      "retour progressif"
+    ]
   },
   {
     "slug": "strapping-taping",
-    "title": "Strapping vs K-Taping : Quelle différence et quand les utiliser ?",
-    "category": "Prévention",
+    "title": "Strapping et K-Taping : Techniques, Application, Efficacité",
+    "category": "prevention",
     "type": "Technique",
     "readTime": "5 min",
     "image": "/images/blog/strapping-taping.jpg",
-    "excerpt": "Bandes rigides ou bandes colorées élastiques ? On vous explique tout sur ces contentions pour choisir la bonne méthode.",
+    "excerpt": "Strapping et taping : techniques d'application, indications cliniques, prévention blessures.",
     "publishedAt": "09 Décembre 2024",
     "author": "Équipe BKS",
     "date": "09 Décembre 2024",
-    "featured": true
+    "featured": true,
+    "keywords": [
+      "strapping",
+      "k-taping",
+      "taping",
+      "stabilité",
+      "prévention"
+    ]
   },
   {
     "slug": "reeducation-lca-protocole",
@@ -257,85 +383,128 @@
     "publishedAt": "08 Janvier 2026",
     "author": "Équipe BKS",
     "date": "08 Janvier 2026",
-    "featured": true
+    "featured": true,
+    "keywords": []
   },
   {
     "slug": "douleur-hanche-sportif",
-    "title": "Douleur de hanche chez le sportif : Le conflit fémoro-acétabulaire",
-    "category": "Hanche",
+    "title": "Douleur de Hanche chez le Sportif : Diagnostic, Traitement, Exercices",
+    "category": "sport",
     "type": "Membre Inférieur",
     "readTime": "5 min",
     "image": "/images/blog/douleur-hanche-sportif.jpg",
-    "excerpt": "Une douleur dans le pli de l'aine en faisant du sport ? C'est peut-être un conflit de hanche. Explications et solutions.",
+    "excerpt": "Douleur hanche sportif : causes (FAI, pubalgie), exercices spécifiques, retour athlétique.",
     "publishedAt": "08 Décembre 2024",
     "author": "Équipe BKS",
     "date": "08 Décembre 2024",
-    "featured": true
+    "featured": true,
+    "keywords": [
+      "douleur hanche",
+      "fai",
+      "impingement",
+      "sportif",
+      "rééducation"
+    ]
   },
   {
     "slug": "recuperation-sportive",
-    "title": "Récupération sportive : Les méthodes qui marchent (et les autres)",
-    "category": "Prévention",
+    "title": "Récupération Sportive : Protocoles, Exercices, Prévention Blessures",
+    "category": "prevention",
     "type": "Performance",
     "readTime": "6 min",
     "image": "/images/blog/recuperation-sportive.jpg",
-    "excerpt": "Cryothérapie, massage, étirements, sommeil... On fait le tri dans les techniques de récupération pour optimiser vos performances.",
+    "excerpt": "Récupération sportive optimale : techniques, exercices, prévention. Pour athlètes et coureurs.",
     "publishedAt": "08 Décembre 2024",
     "author": "Équipe BKS",
     "date": "08 Décembre 2024",
-    "featured": true
+    "featured": true,
+    "keywords": [
+      "récupération",
+      "récup",
+      "sport",
+      "prévention",
+      "performance"
+    ]
   },
   {
     "slug": "echauffement-prevention",
-    "title": "L'échauffement efficace : Arrêtez de perdre votre temps",
-    "category": "Prévention",
+    "title": "Échauffement et Prévention des Blessures : Protocole Complet",
+    "category": "prevention",
     "type": "Performance",
     "readTime": "5 min",
     "image": "/images/blog/echauffement-prevention.jpg",
-    "excerpt": "5 minutes de footing ne suffisent pas. Découvrez comment construire une routine d'échauffement qui prévient vraiment les blessures.",
+    "excerpt": "Échauffement efficace : séquence complète, dynamique, prévention blessures. Pour tous les sports.",
     "publishedAt": "07 Décembre 2024",
     "author": "Équipe BKS",
     "date": "07 Décembre 2024",
-    "featured": true
+    "featured": true,
+    "keywords": [
+      "échauffement",
+      "warm-up",
+      "prévention",
+      "dynamique",
+      "blessure"
+    ]
   },
   {
     "slug": "entorse-poignet",
-    "title": "Entorse du poignet : Ne la laissez pas traîner",
-    "category": "Poignet",
+    "title": "Entorse du Poignet : Rééducation, Exercices, Retour Activités",
+    "category": "postop",
     "type": "Membre Supérieur",
     "readTime": "4 min",
     "image": "/images/blog/entorse-poignet.jpg",
-    "excerpt": "Une chute sur la main ? Une douleur au poignet ? Attention, le poignet est complexe et une entorse mal soignée peut gêner longtemps.",
+    "excerpt": "Entorse poignet : diagnostic, phases rééducation, exercices fonctionnels, retour sport/travail.",
     "publishedAt": "06 Décembre 2024",
     "author": "Équipe BKS",
     "date": "06 Décembre 2024",
-    "featured": true
+    "featured": true,
+    "keywords": [
+      "entorse poignet",
+      "poignet",
+      "rééducation",
+      "mobilité",
+      "force"
+    ]
   },
   {
     "slug": "periostite-tibiale",
-    "title": "Périostite tibiale : la douleur qui brûle le tibia",
-    "category": "Jambe",
+    "title": "Périostite Tibiale : Diagnostic, Exercices, Prévention - Coureurs",
+    "category": "sport",
     "type": "Membre Inférieur",
     "readTime": "5 min",
     "image": "/images/blog/periostite-tibiale.jpg",
-    "excerpt": "Une douleur sur le devant du tibia à chaque foulée ? La périostite est fréquente chez les débutants. Voici comment l'éteindre.",
+    "excerpt": "Périostite tibiale (shin splints) : causes, traitement, reprise course sécurisée. Conseils kinésithérapeute pour coureurs.",
     "publishedAt": "05 Septembre 2025",
     "author": "Équipe BKS",
     "date": "05 Septembre 2025",
-    "featured": true
+    "featured": true,
+    "keywords": [
+      "périostite tibiale",
+      "shin splints",
+      "douleur tibia",
+      "coureur",
+      "traitement"
+    ]
   },
   {
     "slug": "lumbago",
-    "title": "Lumbago : que faire quand le dos se bloque ?",
-    "category": "Dos",
+    "title": "Lumbago : Traitement, Exercices, Prévention des Récidives",
+    "category": "postop",
     "type": "Rachis",
     "readTime": "5 min",
     "image": "/images/blog/lumbago.jpg",
-    "excerpt": "Le dos bloqué, impossible de bouger... Le lumbago est effrayant mais souvent bénin. Voici les bons réflexes pour soulager la douleur rapidement.",
+    "excerpt": "Lumbago (tour de reins) : traitement phase aiguë, exercices progression, prévention récidives.",
     "publishedAt": "05 Juillet 2025",
     "author": "Équipe BKS",
     "date": "05 Juillet 2025",
-    "featured": true
+    "featured": true,
+    "keywords": [
+      "lumbago",
+      "tour de reins",
+      "lombaire",
+      "douleur",
+      "traitement"
+    ]
   },
   {
     "slug": "tendinite-achille-traitement",
@@ -348,20 +517,28 @@
     "publishedAt": "05 Janvier 2026",
     "author": "Équipe BKS",
     "date": "05 Janvier 2026",
-    "featured": true
+    "featured": true,
+    "keywords": []
   },
   {
     "slug": "hernie-discale-sport",
-    "title": "Hernie discale et sport : Est-ce la fin de ma carrière ?",
-    "category": "Dos",
+    "title": "Hernie Discale et Sport : Traitement, Exercices, Retour Progressif",
+    "category": "postop",
     "type": "Rachis",
     "readTime": "7 min",
     "image": "/images/blog/hernie-discale-sport.jpg",
-    "excerpt": "Le diagnostic de hernie discale fait peur. Pourtant, la majorité se résorbe sans opération. Le mouvement est votre allié.",
+    "excerpt": "Hernie discale : traitement conservateur, exercices lombaires, retour sport progressif.",
     "publishedAt": "05 Décembre 2024",
     "author": "Équipe BKS",
     "date": "05 Décembre 2024",
-    "featured": true
+    "featured": true,
+    "keywords": [
+      "hernie discale",
+      "lombaire",
+      "dos",
+      "traitement",
+      "exercices"
+    ]
   },
   {
     "slug": "allaitement-posture",
@@ -374,7 +551,8 @@
     "publishedAt": "04 Janvier 2026",
     "author": "Équipe BKS",
     "date": "04 Janvier 2026",
-    "featured": true
+    "featured": true,
+    "keywords": []
   },
   {
     "slug": "blessure-doigt-escalade-poulie",
@@ -387,7 +565,8 @@
     "publishedAt": "04 Janvier 2026",
     "author": "Équipe BKS",
     "date": "04 Janvier 2026",
-    "featured": true
+    "featured": true,
+    "keywords": []
   },
   {
     "slug": "blessures-padel-debutant",
@@ -400,7 +579,8 @@
     "publishedAt": "04 Janvier 2026",
     "author": "Équipe BKS",
     "date": "04 Janvier 2026",
-    "featured": true
+    "featured": true,
+    "keywords": []
   },
   {
     "slug": "canal-carpien-tennis",
@@ -413,7 +593,8 @@
     "publishedAt": "04 Janvier 2026",
     "author": "Équipe BKS",
     "date": "04 Janvier 2026",
-    "featured": true
+    "featured": true,
+    "keywords": []
   },
   {
     "slug": "cesarienne-reeducation",
@@ -426,7 +607,8 @@
     "publishedAt": "04 Janvier 2026",
     "author": "Équipe BKS",
     "date": "04 Janvier 2026",
-    "featured": true
+    "featured": true,
+    "keywords": []
   },
   {
     "slug": "changements-direction-football",
@@ -439,7 +621,8 @@
     "publishedAt": "04 Janvier 2026",
     "author": "Équipe BKS",
     "date": "04 Janvier 2026",
-    "featured": true
+    "featured": true,
+    "keywords": []
   },
   {
     "slug": "cheville-instable-boxeur",
@@ -452,7 +635,8 @@
     "publishedAt": "04 Janvier 2026",
     "author": "Équipe BKS",
     "date": "04 Janvier 2026",
-    "featured": true
+    "featured": true,
+    "keywords": []
   },
   {
     "slug": "claquage-mollet-tennis",
@@ -465,7 +649,8 @@
     "publishedAt": "04 Janvier 2026",
     "author": "Équipe BKS",
     "date": "04 Janvier 2026",
-    "featured": true
+    "featured": true,
+    "keywords": []
   },
   {
     "slug": "dechirure-abdomen-gymnaste",
@@ -478,7 +663,8 @@
     "publishedAt": "04 Janvier 2026",
     "author": "Équipe BKS",
     "date": "04 Janvier 2026",
-    "featured": true
+    "featured": true,
+    "keywords": []
   },
   {
     "slug": "depression-post-partum-activite",
@@ -491,7 +677,8 @@
     "publishedAt": "04 Janvier 2026",
     "author": "Équipe BKS",
     "date": "04 Janvier 2026",
-    "featured": true
+    "featured": true,
+    "keywords": []
   },
   {
     "slug": "diastasis-grossesse",
@@ -504,7 +691,8 @@
     "publishedAt": "04 Janvier 2026",
     "author": "Équipe BKS",
     "date": "04 Janvier 2026",
-    "featured": true
+    "featured": true,
+    "keywords": []
   },
   {
     "slug": "douleur-epaule-crossfit",
@@ -517,7 +705,8 @@
     "publishedAt": "04 Janvier 2026",
     "author": "Équipe BKS",
     "date": "04 Janvier 2026",
-    "featured": true
+    "featured": true,
+    "keywords": []
   },
   {
     "slug": "douleur-poignet-boxeur",
@@ -530,7 +719,8 @@
     "publishedAt": "04 Janvier 2026",
     "author": "Équipe BKS",
     "date": "04 Janvier 2026",
-    "featured": true
+    "featured": true,
+    "keywords": []
   },
   {
     "slug": "douleur-poignet-yoga",
@@ -543,7 +733,8 @@
     "publishedAt": "04 Janvier 2026",
     "author": "Équipe BKS",
     "date": "04 Janvier 2026",
-    "featured": true
+    "featured": true,
+    "keywords": []
   },
   {
     "slug": "douleurs-ligaments-ronds",
@@ -556,7 +747,8 @@
     "publishedAt": "04 Janvier 2026",
     "author": "Équipe BKS",
     "date": "04 Janvier 2026",
-    "featured": true
+    "featured": true,
+    "keywords": []
   },
   {
     "slug": "douleurs-lombaires-grossesse",
@@ -569,7 +761,8 @@
     "publishedAt": "04 Janvier 2026",
     "author": "Équipe BKS",
     "date": "04 Janvier 2026",
-    "featured": true
+    "featured": true,
+    "keywords": []
   },
   {
     "slug": "douleurs-symphyse-pubienne",
@@ -582,7 +775,8 @@
     "publishedAt": "04 Janvier 2026",
     "author": "Équipe BKS",
     "date": "04 Janvier 2026",
-    "featured": true
+    "featured": true,
+    "keywords": []
   },
   {
     "slug": "entorse-genou-gardien-football",
@@ -595,7 +789,8 @@
     "publishedAt": "04 Janvier 2026",
     "author": "Équipe BKS",
     "date": "04 Janvier 2026",
-    "featured": true
+    "featured": true,
+    "keywords": []
   },
   {
     "slug": "genou-nageur-brasse",
@@ -608,7 +803,8 @@
     "publishedAt": "04 Janvier 2026",
     "author": "Équipe BKS",
     "date": "04 Janvier 2026",
-    "featured": true
+    "featured": true,
+    "keywords": []
   },
   {
     "slug": "golf-elbow-epicondylite-mediale",
@@ -621,7 +817,8 @@
     "publishedAt": "04 Janvier 2026",
     "author": "Équipe BKS",
     "date": "04 Janvier 2026",
-    "featured": true
+    "featured": true,
+    "keywords": []
   },
   {
     "slug": "grand-dorsal-nageur",
@@ -634,7 +831,8 @@
     "publishedAt": "04 Janvier 2026",
     "author": "Équipe BKS",
     "date": "04 Janvier 2026",
-    "featured": true
+    "featured": true,
+    "keywords": []
   },
   {
     "slug": "luxation-rotule-tennis",
@@ -647,7 +845,8 @@
     "publishedAt": "04 Janvier 2026",
     "author": "Équipe BKS",
     "date": "04 Janvier 2026",
-    "featured": true
+    "featured": true,
+    "keywords": []
   },
   {
     "slug": "melee-rugby-lombalgie-pilier",
@@ -660,7 +859,8 @@
     "publishedAt": "04 Janvier 2026",
     "author": "Équipe BKS",
     "date": "04 Janvier 2026",
-    "featured": true
+    "featured": true,
+    "keywords": []
   },
   {
     "slug": "periostite-coureur-urbain-paris",
@@ -673,7 +873,8 @@
     "publishedAt": "04 Janvier 2026",
     "author": "Équipe BKS",
     "date": "04 Janvier 2026",
-    "featured": true
+    "featured": true,
+    "keywords": []
   },
   {
     "slug": "plaquage-rugby-epaule",
@@ -686,7 +887,8 @@
     "publishedAt": "04 Janvier 2026",
     "author": "Équipe BKS",
     "date": "04 Janvier 2026",
-    "featured": true
+    "featured": true,
+    "keywords": []
   },
   {
     "slug": "preparation-accouchement-perinee",
@@ -699,7 +901,8 @@
     "publishedAt": "04 Janvier 2026",
     "author": "Équipe BKS",
     "date": "04 Janvier 2026",
-    "featured": true
+    "featured": true,
+    "keywords": []
   },
   {
     "slug": "prolapsus-prevention",
@@ -712,7 +915,8 @@
     "publishedAt": "04 Janvier 2026",
     "author": "Équipe BKS",
     "date": "04 Janvier 2026",
-    "featured": true
+    "featured": true,
+    "keywords": []
   },
   {
     "slug": "reeducation-perineale-methodes",
@@ -725,7 +929,8 @@
     "publishedAt": "04 Janvier 2026",
     "author": "Équipe BKS",
     "date": "04 Janvier 2026",
-    "featured": true
+    "featured": true,
+    "keywords": []
   },
   {
     "slug": "retour-football-fracture-jambe",
@@ -738,7 +943,8 @@
     "publishedAt": "04 Janvier 2026",
     "author": "Équipe BKS",
     "date": "04 Janvier 2026",
-    "featured": true
+    "featured": true,
+    "keywords": []
   },
   {
     "slug": "retour-sport-post-partum",
@@ -751,7 +957,8 @@
     "publishedAt": "04 Janvier 2026",
     "author": "Équipe BKS",
     "date": "04 Janvier 2026",
-    "featured": true
+    "featured": true,
+    "keywords": []
   },
   {
     "slug": "sciatique-grossesse",
@@ -764,7 +971,8 @@
     "publishedAt": "04 Janvier 2026",
     "author": "Équipe BKS",
     "date": "04 Janvier 2026",
-    "featured": true
+    "featured": true,
+    "keywords": []
   },
   {
     "slug": "spondylolyse-gymnaste",
@@ -777,7 +985,8 @@
     "publishedAt": "04 Janvier 2026",
     "author": "Équipe BKS",
     "date": "04 Janvier 2026",
-    "featured": true
+    "featured": true,
+    "keywords": []
   },
   {
     "slug": "syndrome-piriforme-cycliste",
@@ -790,7 +999,8 @@
     "publishedAt": "04 Janvier 2026",
     "author": "Équipe BKS",
     "date": "04 Janvier 2026",
-    "featured": true
+    "featured": true,
+    "keywords": []
   },
   {
     "slug": "syndrome-rotulien-powerlifter",
@@ -803,7 +1013,8 @@
     "publishedAt": "04 Janvier 2026",
     "author": "Équipe BKS",
     "date": "04 Janvier 2026",
-    "featured": true
+    "featured": true,
+    "keywords": []
   },
   {
     "slug": "tendinite-epaule-boxeur",
@@ -816,7 +1027,8 @@
     "publishedAt": "04 Janvier 2026",
     "author": "Équipe BKS",
     "date": "04 Janvier 2026",
-    "featured": true
+    "featured": true,
+    "keywords": []
   },
   {
     "slug": "tendinite-long-biceps-musculation",
@@ -829,20 +1041,28 @@
     "publishedAt": "04 Janvier 2026",
     "author": "Équipe BKS",
     "date": "04 Janvier 2026",
-    "featured": true
+    "featured": true,
+    "keywords": []
   },
   {
     "slug": "luxation-epaule",
-    "title": "Luxation d'épaule : Que faire après s'être déboîté l'épaule ?",
-    "category": "Épaule",
+    "title": "Luxation de l'Épaule : Rééducation Post-Op, Stabilité, Retour Sport",
+    "category": "postop",
     "type": "Traumatologie",
     "readTime": "6 min",
     "image": "/images/blog/luxation-epaule.jpg",
-    "excerpt": "Une épaule qui se luxe est un traumatisme important. La rééducation est cruciale pour éviter que cela ne devienne chronique.",
+    "excerpt": "Luxation épaule : post-op, protocole rééducation, retour sport sécurisé. Prévention récidives.",
     "publishedAt": "04 Décembre 2024",
     "author": "Équipe BKS",
     "date": "04 Décembre 2024",
-    "featured": true
+    "featured": true,
+    "keywords": [
+      "luxation épaule",
+      "post-op",
+      "instabilité",
+      "rééducation",
+      "prévention"
+    ]
   },
   {
     "slug": "analyse-foulee-coureur",
@@ -855,7 +1075,8 @@
     "publishedAt": "03 Janvier 2026",
     "author": "Équipe BKS",
     "date": "03 Janvier 2026",
-    "featured": true
+    "featured": true,
+    "keywords": []
   },
   {
     "slug": "crampes-course-pied",
@@ -868,7 +1089,8 @@
     "publishedAt": "03 Janvier 2026",
     "author": "Équipe BKS",
     "date": "03 Janvier 2026",
-    "featured": true
+    "featured": true,
+    "keywords": []
   },
   {
     "slug": "dechirure-adducteurs-football",
@@ -881,7 +1103,8 @@
     "publishedAt": "03 Janvier 2026",
     "author": "Équipe BKS",
     "date": "03 Janvier 2026",
-    "featured": true
+    "featured": true,
+    "keywords": []
   },
   {
     "slug": "douleur-epaule-musculation",
@@ -894,7 +1117,8 @@
     "publishedAt": "03 Janvier 2026",
     "author": "Équipe BKS",
     "date": "03 Janvier 2026",
-    "featured": true
+    "featured": true,
+    "keywords": []
   },
   {
     "slug": "douleur-genou-course",
@@ -907,7 +1131,8 @@
     "publishedAt": "03 Janvier 2026",
     "author": "Équipe BKS",
     "date": "03 Janvier 2026",
-    "featured": true
+    "featured": true,
+    "keywords": []
   },
   {
     "slug": "douleur-hanche-coureur",
@@ -920,7 +1145,8 @@
     "publishedAt": "03 Janvier 2026",
     "author": "Équipe BKS",
     "date": "03 Janvier 2026",
-    "featured": true
+    "featured": true,
+    "keywords": []
   },
   {
     "slug": "douleur-hanche-course",
@@ -933,7 +1159,8 @@
     "publishedAt": "03 Janvier 2026",
     "author": "Équipe BKS",
     "date": "03 Janvier 2026",
-    "featured": true
+    "featured": true,
+    "keywords": []
   },
   {
     "slug": "douleur-inter-scapulaire-teletravail",
@@ -946,7 +1173,8 @@
     "publishedAt": "03 Janvier 2026",
     "author": "Équipe BKS",
     "date": "03 Janvier 2026",
-    "featured": true
+    "featured": true,
+    "keywords": []
   },
   {
     "slug": "douleur-mollet-coureur",
@@ -959,7 +1187,8 @@
     "publishedAt": "03 Janvier 2026",
     "author": "Équipe BKS",
     "date": "03 Janvier 2026",
-    "featured": true
+    "featured": true,
+    "keywords": []
   },
   {
     "slug": "echauffement-course-pied",
@@ -972,7 +1201,8 @@
     "publishedAt": "03 Janvier 2026",
     "author": "Équipe BKS",
     "date": "03 Janvier 2026",
-    "featured": true
+    "featured": true,
+    "keywords": []
   },
   {
     "slug": "engourdissement-mains-cycliste",
@@ -985,7 +1215,8 @@
     "publishedAt": "03 Janvier 2026",
     "author": "Équipe BKS",
     "date": "03 Janvier 2026",
-    "featured": true
+    "featured": true,
+    "keywords": []
   },
   {
     "slug": "fracture-fatigue-coureur",
@@ -998,7 +1229,8 @@
     "publishedAt": "03 Janvier 2026",
     "author": "Équipe BKS",
     "date": "03 Janvier 2026",
-    "featured": true
+    "featured": true,
+    "keywords": []
   },
   {
     "slug": "fracture-pouce-boxeur",
@@ -1011,7 +1243,8 @@
     "publishedAt": "03 Janvier 2026",
     "author": "Équipe BKS",
     "date": "03 Janvier 2026",
-    "featured": true
+    "featured": true,
+    "keywords": []
   },
   {
     "slug": "hallux-valgus-danseuse",
@@ -1024,7 +1257,8 @@
     "publishedAt": "03 Janvier 2026",
     "author": "Équipe BKS",
     "date": "03 Janvier 2026",
-    "featured": true
+    "featured": true,
+    "keywords": []
   },
   {
     "slug": "instabilite-cheville-danseuse",
@@ -1037,7 +1271,8 @@
     "publishedAt": "03 Janvier 2026",
     "author": "Équipe BKS",
     "date": "03 Janvier 2026",
-    "featured": true
+    "featured": true,
+    "keywords": []
   },
   {
     "slug": "lombalgie-sportif",
@@ -1050,7 +1285,8 @@
     "publishedAt": "03 Janvier 2026",
     "author": "Équipe BKS",
     "date": "03 Janvier 2026",
-    "featured": true
+    "featured": true,
+    "keywords": []
   },
   {
     "slug": "lombalgie-teletravail-routine",
@@ -1063,7 +1299,8 @@
     "publishedAt": "03 Janvier 2026",
     "author": "Équipe BKS",
     "date": "03 Janvier 2026",
-    "featured": true
+    "featured": true,
+    "keywords": []
   },
   {
     "slug": "periostite-tibiale-coureur",
@@ -1076,7 +1313,8 @@
     "publishedAt": "03 Janvier 2026",
     "author": "Équipe BKS",
     "date": "03 Janvier 2026",
-    "featured": true
+    "featured": true,
+    "keywords": []
   },
   {
     "slug": "premier-marathon-preparation",
@@ -1089,7 +1327,8 @@
     "publishedAt": "03 Janvier 2026",
     "author": "Équipe BKS",
     "date": "03 Janvier 2026",
-    "featured": true
+    "featured": true,
+    "keywords": []
   },
   {
     "slug": "preparation-physique-coureur",
@@ -1102,7 +1341,8 @@
     "publishedAt": "03 Janvier 2026",
     "author": "Équipe BKS",
     "date": "03 Janvier 2026",
-    "featured": true
+    "featured": true,
+    "keywords": []
   },
   {
     "slug": "preparation-ski",
@@ -1115,7 +1355,8 @@
     "publishedAt": "03 Janvier 2026",
     "author": "Équipe BKS",
     "date": "03 Janvier 2026",
-    "featured": true
+    "featured": true,
+    "keywords": []
   },
   {
     "slug": "recuperation-coureur",
@@ -1128,7 +1369,8 @@
     "publishedAt": "03 Janvier 2026",
     "author": "Équipe BKS",
     "date": "03 Janvier 2026",
-    "featured": true
+    "featured": true,
+    "keywords": []
   },
   {
     "slug": "reprise-sport-blessure",
@@ -1141,7 +1383,8 @@
     "publishedAt": "03 Janvier 2026",
     "author": "Équipe BKS",
     "date": "03 Janvier 2026",
-    "featured": true
+    "featured": true,
+    "keywords": []
   },
   {
     "slug": "syndrome-os-naviculaire-danse",
@@ -1154,7 +1397,8 @@
     "publishedAt": "03 Janvier 2026",
     "author": "Équipe BKS",
     "date": "03 Janvier 2026",
-    "featured": true
+    "featured": true,
+    "keywords": []
   },
   {
     "slug": "syndrome-traversee-thoraco-brachiale",
@@ -1167,7 +1411,8 @@
     "publishedAt": "03 Janvier 2026",
     "author": "Équipe BKS",
     "date": "03 Janvier 2026",
-    "featured": true
+    "featured": true,
+    "keywords": []
   },
   {
     "slug": "tendinite-de-quervain-teletravail",
@@ -1180,58 +1425,87 @@
     "publishedAt": "03 Janvier 2026",
     "author": "Équipe BKS",
     "date": "03 Janvier 2026",
-    "featured": true
+    "featured": true,
+    "keywords": []
   },
   {
     "slug": "fasciite-plantaire",
-    "title": "Fasciite plantaire : En finir avec la douleur sous le talon",
-    "category": "Pied",
+    "title": "Fasciite Plantaire : Cause, Traitement, Prévention - Sportifs",
+    "category": "sport",
     "type": "Membre Inférieur",
     "readTime": "5 min",
     "image": "/images/blog/fasciite-plantaire.jpg",
-    "excerpt": "Cette douleur vive au réveil sous le pied vous gâche la vie ? Découvrez les solutions pour soigner votre aponévrose.",
+    "excerpt": "Fasciite plantaire : douleur talon, exercices, semelles. Guide complet pour reprise sport sans douleur.",
     "publishedAt": "03 Décembre 2024",
     "author": "Équipe BKS",
     "date": "03 Décembre 2024",
-    "featured": true
+    "featured": true,
+    "keywords": [
+      "fasciite plantaire",
+      "douleur talon",
+      "plante pied",
+      "traitement",
+      "prévention"
+    ]
   },
   {
     "slug": "fracture-fatigue",
-    "title": "Fracture de fatigue : Quand l'os dit stop",
-    "category": "Os",
+    "title": "Fracture de Fatigue : Diagnostic, Repos, Retour Entraînement",
+    "category": "postop",
     "type": "Traumatologie",
     "readTime": "5 min",
     "image": "/images/blog/fracture-fatigue.jpg",
-    "excerpt": "Une douleur osseuse qui persiste à l'effort ? Attention à la fracture de fatigue. Le repos relatif est la clé de la guérison.",
+    "excerpt": "Fracture de stress/fatigue : diagnostic, immobilisation, retour sport progressif. Athlètes.",
     "publishedAt": "02 Décembre 2024",
     "author": "Équipe BKS",
     "date": "02 Décembre 2024",
-    "featured": true
+    "featured": true,
+    "keywords": [
+      "fracture fatigue",
+      "fracture stress",
+      "os",
+      "sport",
+      "retour"
+    ]
   },
   {
     "slug": "tendinopathie-achille",
-    "title": "Tendinopathie d'Achille : ne laissez pas traîner cette raideur",
-    "category": "Cheville",
+    "title": "Tendinopathie d'Achille : Diagnostic, Rééducation, Retour Athlétique",
+    "category": "sport",
     "type": "Membre Inférieur",
     "readTime": "5 min",
     "image": "/images/blog/tendinopathie-achille.jpg",
-    "excerpt": "Une raideur au talon le matin ? Une douleur qui chauffe à la course ? Attention à la tendinite d'Achille. Voici comment la soigner.",
+    "excerpt": "Tendinopathie tendon Achille : traitement progressif, exercices excentriques, délai retour sport.",
     "publishedAt": "02 Août 2025",
     "author": "Équipe BKS",
     "date": "02 Août 2025",
-    "featured": true
+    "featured": true,
+    "keywords": [
+      "tendinopathie achille",
+      "douleur talon",
+      "rééducation",
+      "exercices",
+      "coureur"
+    ]
   },
   {
     "slug": "epicondylite-coude",
-    "title": "Épicondylite (Tennis Elbow) : Pas que pour les tennismen",
-    "category": "Coude",
+    "title": "Épicondylite (Tennis Elbow) : Traitement, Rééducation, Retour Raquette",
+    "category": "sport",
     "type": "Membre Supérieur",
     "readTime": "5 min",
     "image": "/images/blog/epicondylite-coude.jpg",
-    "excerpt": "Douleur sur le côté du coude ? Le travail sur ordinateur ou le bricolage sont souvent responsables de cette tendinopathie.",
+    "excerpt": "Tennis elbow (épicondylite) : causes, exercices, délai guérison. Retour raquettes et sports de lancer.",
     "publishedAt": "01 Décembre 2024",
     "author": "Équipe BKS",
     "date": "01 Décembre 2024",
-    "featured": true
+    "featured": true,
+    "keywords": [
+      "épicondylite",
+      "tennis elbow",
+      "coude",
+      "raquette",
+      "traitement"
+    ]
   }
 ]

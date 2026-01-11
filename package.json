@@ -5,9 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "node scripts/generate-blog-metadata.js && vite",
-    "build": "node scripts/generate-blog-metadata.js && vite build",
+    "build": "node scripts/generate-blog-metadata.js && node scripts/generate-sitemap.js && vite build",
     "preview": "vite preview",
-    "sitemap": "node -r esbuild-register src/utils/sitemap.ts",
+    "sitemap": "node scripts/generate-sitemap.js",
     "migrate-images": "node --loader ts-node/esm scripts/migrate-to-cloudinary.ts"
   },
   "dependencies": {

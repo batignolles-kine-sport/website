@@ -72,9 +72,9 @@ export function generateLocalBusinessSchema(): StructuredDataLocalBusiness {
     url: 'https://batignolleskinesport.fr',
     priceRange: '€€',
     medicalSpecialty: [
-      'Sports Medicine',
-      'Physical Therapy',
-      'Orthopedic Rehabilitation',
+      'Médecine du sport',
+      'Kinésithérapie',
+      'Rééducation orthopédique',
     ],
     areaServed: {
       '@type': 'City',
@@ -120,6 +120,7 @@ export function generateArticleSchema(
     url: `https://batignolleskinesport.fr/blog/${slug}`,
     publisher: {
       '@type': 'Organization',
+      '@id': 'https://batignolleskinesport.fr/#organization',
       name: 'Batignolles Kiné Sport',
       logo: {
         '@type': 'ImageObject',

@@ -8,7 +8,7 @@ import { SEO } from '../components/layout/SEO';
 import { Section } from '../components/layout/Section';
 import { Button } from '../components/ui/Button';
 import { DOCTOLIB_URL, HERO_IMAGE_URL } from '../utils/constants'; // Removing unused import if any
-import { generateLocalBusinessSchema, generateFAQSchema } from '../utils/structuredData';
+import { generateFAQSchema } from '../utils/structuredData';
 import { CabinetSection } from '../components/home/CabinetSection';
 import { MethodSection } from '../components/home/MethodSection';
 import { TestimonialsSection } from '../components/home/TestimonialsSection';
@@ -31,7 +31,6 @@ export const Home: React.FC = () => {
         'Kinés du sport à Paris 17 – Batignolles. Coureurs, post‑op, post‑partum. Bilan précis, plan sur mesure, retour au sport encadré.';
 
     const faqSchema = generateFAQSchema(FAQ_ENTRIES);
-    const localBusinessSchema = generateLocalBusinessSchema();
 
     // Detect mobile to disable parallax
     const [isMobile, setIsMobile] = useState(false);
@@ -57,10 +56,8 @@ export const Home: React.FC = () => {
             <SEO
                 title="Kinésithérapeute du Sport Paris 17 | Batignolles Kiné Sport"
                 description="Cabinet de kinésithérapie du sport à Paris 17 Batignolles. Spécialistes course, post-op, périnée. Bilan précis, protocole validé, retour terrain encadré."
+                schema={faqSchema}
             />
-            <Helmet>
-                <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
-            </Helmet>
 
             <div ref={containerRef} className="text-slate-900 lg:h-screen lg:overflow-y-scroll lg:snap-y lg:snap-mandatory">
                 {/* Hero w/ Parallax Scale */}

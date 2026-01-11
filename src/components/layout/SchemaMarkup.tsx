@@ -103,11 +103,11 @@ export function generateClinicSchema(options: ClinicSchemaOptions) {
     description:
       'Cabinet de kinésithérapie spécialisé en kiné du sport et rééducation à Paris 17e, près du Parc des Batignolles, Métro Rome et Église des Batignolles. Expertise en traumatologie sportive, rééducation du coureur et réathlétisation.',
     medicalSpecialty: [
-      'Sports Medicine',
-      'Physiotherapy',
-      'Athletic Training',
-      'Sports Injury Recovery',
-      'Post-Operative Rehabilitation',
+      'Médecine du sport',
+      'Kinésithérapie',
+      'Réathlétisation',
+      'Récupération de blessures sportives',
+      'Rééducation post-opératoire',
     ],
     address: {
       '@type': 'PostalAddress',
@@ -141,14 +141,14 @@ export function generateClinicSchema(options: ClinicSchemaOptions) {
     ],
     sameAs: [DOCTOLIB_URL, INSTAGRAM_URL, GOOGLE_MAPS_URL],
     knowsAbout: [
-      'Sports Injury Recovery',
-      'Runner Training',
-      'Post-Operative Rehabilitation',
-      'Athlete Performance',
-      'Tendinopathy Treatment',
-      'Ankle Sprain Rehabilitation',
-      'ACL Reconstruction Recovery',
-      'Running Gait Analysis',
+      'Rééducation du sportif',
+      'Accompagnement du coureur',
+      'Rééducation post-opératoire',
+      'Performance athlétique',
+      'Traitement des tendinopathies',
+      'Rééducation entorse cheville',
+      'Rééducation LCA',
+      'Analyse de la foulée',
     ],
   };
 
@@ -170,7 +170,7 @@ export function generateClinicSchema(options: ClinicSchemaOptions) {
     '@id': `${domain}/#practitioner-${index + 1}`,
     name: practitioner.name,
     jobTitle: practitioner.jobTitle,
-    medicalSpecialty: practitioner.medicalSpecialty,
+    knowsAbout: practitioner.medicalSpecialty, // Changed from medicalSpecialty to knowsAbout
     image: practitioner.image,
     ...(practitioner.telephone && {
       telephone: practitioner.telephone,
