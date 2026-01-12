@@ -65,6 +65,12 @@
   <link rel="dns-prefetch" href="https://www.doctolib.fr">
   <link rel="dns-prefetch" href="https://cdn.openwidget.com">
 
+  <!-- Preload Critical Fonts (Latin for French content) -->
+  <link rel="preload" href="/fonts/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw.woff2" as="font" type="font/woff2"
+    crossorigin />
+  <link rel="preload" href="/fonts/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa25L7W0Q5n-wU.woff2" as="font" type="font/woff2"
+    crossorigin />
+
   <!-- Preload LCP Image - LOCAL OPTIMIZED -->
   <!-- Mobile & Tablet Portrait (< 1024px) -->
   <link rel="preload" as="image" fetchpriority="high" href="/images/hero/hero-mobile.webp"
@@ -76,45 +82,7 @@
   <!-- Google Fonts - Self-hosted via CSS import -->
   <!-- <link href="https://fonts.googleapis.com/css2..." rel="stylesheet"> removed -->
 
-  <!-- Basic JSON-LD for SSR/crawlers -->
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": ["LocalBusiness", "MedicalBusiness", "Physiotherapy"],
-      "name": "BKS - Batignolles Kiné Sport",
-      "description": "Cabinet de kinésithérapie du sport à Paris 17e. Rééducation, kiné du sport et préparation physique.",
-      "url": "https://batignolleskinesport.fr",
-      "telephone": "+33962434961",
-      "email": "contact@batignolleskinesport.fr",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "6 rue des Batignolles",
-        "addressLocality": "Paris",
-        "addressRegion": "Île-de-France",
-        "postalCode": "75017",
-        "addressCountry": "FR"
-      },
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": 48.8822,
-        "longitude": 2.3244
-      },
-      "openingHoursSpecification": [
-        {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-          "opens": "08:00",
-          "closes": "19:00"
-        }
-      ],
-      "priceRange": "€€",
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "5.0",
-        "reviewCount": "42"
-      }
-    }
-    </script>
+
 
   <style>
     :root {

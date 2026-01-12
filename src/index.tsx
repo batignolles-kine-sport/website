@@ -4,6 +4,7 @@ import { HelmetProvider } from 'react-helmet-async';
 import App from './App';
 import './styles/fonts.css';
 import './styles/main.css';
+import './registerSW'; // Manual SW registration (deferred)
 
 // Fix pour l'accès à l'admin Decap CMS en dev avec BrowserRouter
 if (window.location.pathname.startsWith('/admin')) {

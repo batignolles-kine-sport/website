@@ -1,7 +1,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { SITE_URL, OG_IMAGE_URL } from '../../utils/constants';
-import { generateLocalBusinessSchema, generateBreadcrumbSchema } from '../../utils/structuredData';
+import { generateBreadcrumbSchema } from '../../utils/structuredData';
 
 interface SEOProps {
   title: string;
@@ -41,7 +41,6 @@ export const SEO: React.FC<SEOProps> = ({
   const canonicalUrl = canonical || (typeof window !== 'undefined' ? `${SITE_URL}${window.location.pathname}` : SITE_URL);
 
   // Schema composition
-  const localBusinessSchema = generateLocalBusinessSchema();
   const breadcrumbSchema = breadcrumbs ? generateBreadcrumbSchema(breadcrumbs) : null;
 
   return (
@@ -73,10 +72,7 @@ export const SEO: React.FC<SEOProps> = ({
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={ogImage} />
 
-      {/* Structured Data: Local Business (EEAT) */}
-      <script type="application/ld+json">
-        {JSON.stringify(localBusinessSchema)}
-      </script>
+
 
       {/* Structured Data: Breadcrumbs */}
       {breadcrumbSchema && (

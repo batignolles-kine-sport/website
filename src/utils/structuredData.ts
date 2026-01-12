@@ -27,7 +27,7 @@ export interface StructuredDataLocalBusiness {
   email: string;
   url: string;
   priceRange: string;
-  medicalSpecialty: string[];
+  knowsAbout: string[];
   areaServed: {
     '@type': string;
     name: string;
@@ -49,8 +49,8 @@ export interface StructuredDataLocalBusiness {
 export function generateLocalBusinessSchema(): StructuredDataLocalBusiness {
   return {
     '@context': 'https://schema.org',
-    '@type': ['LocalBusiness', 'MedicalBusiness', 'HealthAndBeautyBusiness'],
-    '@id': 'https://batignolleskinesport.fr/#organization',
+    '@type': ['LocalBusiness', 'MedicalBusiness'],
+    '@id': `${typeof window !== 'undefined' ? window.location.origin : 'https://batignolleskinesport.fr'}/#organization`,
     name: 'Batignolles Kiné Sport',
     alternateName: 'BKS',
     image: 'https://batignolleskinesport.fr/images/logo.svg',
@@ -71,7 +71,7 @@ export function generateLocalBusinessSchema(): StructuredDataLocalBusiness {
     email: 'contact@batignolleskinesport.fr',
     url: 'https://batignolleskinesport.fr',
     priceRange: '€€',
-    medicalSpecialty: [
+    knowsAbout: [
       'Médecine du sport',
       'Kinésithérapie',
       'Rééducation orthopédique',

@@ -21,7 +21,7 @@ const PRODUCTION_DOMAIN = 'https://batignolleskinesport.fr';
 interface PractitionerData {
   name: string;
   jobTitle: string;
-  medicalSpecialty: string[];
+  knowsAbout: string[];
   image: string;
   telephone?: string;
   doctolibUrl?: string;
@@ -52,7 +52,7 @@ interface ClinicSchema {
   name: string;
   alternateName: string;
   description: string;
-  medicalSpecialty: string[];
+  knowsAbout: string[];
   address: {
     '@type': string;
     streetAddress: string;
@@ -96,19 +96,12 @@ export function generateClinicSchema(options: ClinicSchemaOptions) {
   // Main organization/clinic schema
   const clinicSchema: ClinicSchema = {
     '@context': 'https://schema.org',
-    '@type': ['LocalBusiness', 'MedicalBusiness', 'Physiotherapy'],
+    '@type': ['LocalBusiness', 'MedicalBusiness'],
     '@id': `${domain}/#organization`,
     name: 'BKS - Batignolles Kiné Sport',
     alternateName: 'Batignolles Kiné Sport',
     description:
       'Cabinet de kinésithérapie spécialisé en kiné du sport et rééducation à Paris 17e, près du Parc des Batignolles, Métro Rome et Église des Batignolles. Expertise en traumatologie sportive, rééducation du coureur et réathlétisation.',
-    medicalSpecialty: [
-      'Médecine du sport',
-      'Kinésithérapie',
-      'Réathlétisation',
-      'Récupération de blessures sportives',
-      'Rééducation post-opératoire',
-    ],
     address: {
       '@type': 'PostalAddress',
       streetAddress: '6 rue des Batignolles',
@@ -141,9 +134,13 @@ export function generateClinicSchema(options: ClinicSchemaOptions) {
     ],
     sameAs: [DOCTOLIB_URL, INSTAGRAM_URL, GOOGLE_MAPS_URL],
     knowsAbout: [
+      'Médecine du sport',
+      'Kinésithérapie',
+      'Réathlétisation',
+      'Récupération de blessures sportives',
+      'Rééducation post-opératoire',
       'Rééducation du sportif',
       'Accompagnement du coureur',
-      'Rééducation post-opératoire',
       'Performance athlétique',
       'Traitement des tendinopathies',
       'Rééducation entorse cheville',
@@ -170,7 +167,7 @@ export function generateClinicSchema(options: ClinicSchemaOptions) {
     '@id': `${domain}/#practitioner-${index + 1}`,
     name: practitioner.name,
     jobTitle: practitioner.jobTitle,
-    knowsAbout: practitioner.medicalSpecialty, // Changed from medicalSpecialty to knowsAbout
+    knowsAbout: practitioner.knowsAbout, // Changed from medicalSpecialty to knowsAbout
     image: practitioner.image,
     ...(practitioner.telephone && {
       telephone: practitioner.telephone,
@@ -216,7 +213,7 @@ export const SchemaMarkup: React.FC<SchemaMarkupProps> = ({
   const practitionerData: PractitionerData[] = practitioners.map((member) => ({
     name: member.name,
     jobTitle: member.title,
-    medicalSpecialty: member.specialties,
+    knowsAbout: member.specialties,
     image: member.image,
     doctolibUrl: member.doctolibUrl,
   }));
