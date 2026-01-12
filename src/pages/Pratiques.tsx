@@ -232,7 +232,7 @@ export const Pratiques: React.FC = () => {
             </section>
 
             {/* Main Practices Section */}
-            <Section spacing="default" className="border-b border-slate-100 bg-slate-50/50">
+            <Section id="main-practices" spacing="default" className="border-b border-slate-100 bg-slate-50/50">
                 <motion.div
                     initial="hidden"
                     whileInView="visible"
