@@ -1,7 +1,6 @@
 import React, { useMemo, useState, useEffect } from 'react';
 import { Link, Navigate, useParams } from 'react-router-dom';
 import { ArrowLeft, ArrowRight, Calendar, CheckCircle, Clock, Tag } from 'lucide-react';
-import { Helmet } from 'react-helmet-async';
 import { AdvancedImage, responsive, lazyload, placeholder } from '@cloudinary/react';
 import { SEO } from '../components/layout/SEO';
 import { Button } from '../components/ui/Button';
@@ -305,10 +304,7 @@ export const BlogPost: React.FC = () => {
           </div>
         </aside>
 
-        {/* Mobile ToC */}
-        <div className="lg:hidden col-span-full">
-          <TableOfContents content={html} />
-        </div>
+
       </main>
 
       {/* Articles similaires */}

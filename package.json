@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "node scripts/generate-blog-metadata.js && vite",
-    "build": "node scripts/generate-blog-metadata.js && node scripts/generate-sitemap.js && vite build",
+    "build": "node scripts/generate-blog-metadata.js && node scripts/generate-sitemap.js && npx vite-react-ssg build",
+    "build:spa": "node scripts/generate-blog-metadata.js && node scripts/generate-sitemap.js && vite build",
     "preview": "vite preview",
     "sitemap": "node scripts/generate-sitemap.js",
     "migrate-images": "node --loader ts-node/esm scripts/migrate-to-cloudinary.ts"
@@ -40,6 +41,7 @@
     "typescript": "~5.8.2",
     "vite": "^6.2.0",
     "vite-plugin-compression": "^0.5.1",
-    "vite-plugin-pwa": "^1.2.0"
+    "vite-plugin-pwa": "^1.2.0",
+    "vite-react-ssg": "^0.8.9"
   }
 }

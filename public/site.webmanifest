@@ -1,12 +1,6 @@
 {
   "name": "Batignolles Kiné Sport",
   "short_name": "Kiné",
-  "description": "Cabinet de kinésithérapie du sport à Paris 17e",
-  "start_url": "/",
-  "scope": "/",
-  "display": "standalone",
-  "theme_color": "#0D2918",
-  "background_color": "#ffffff",
   "icons": [
     {
       "src": "/web-app-manifest-192x192.png",
@@ -20,5 +14,8 @@
       "type": "image/png",
       "purpose": "maskable"
     }
-  ]
+  ],
+  "theme_color": "#ffffff",
+  "background_color": "#ffffff",
+  "display": "standalone"
 }

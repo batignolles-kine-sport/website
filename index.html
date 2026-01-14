@@ -5,6 +5,7 @@
   <meta charset="UTF-8" />
 
   <!-- Favicons - RealFaviconGenerator -->
+  <link rel="icon" type="image/png" href="/favicon-48x48.png" sizes="48x48" />
   <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="shortcut icon" href="/favicon.ico" />
@@ -14,44 +15,14 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- Robots Meta Tag -->
+  <!-- Robots Meta Tag - common to all pages -->
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
 
-  <!-- Primary Meta Tags -->
-  <title>Kinésithérapeute du Sport Paris 17 | Batignolles Kiné Sport</title>
-  <meta name="description"
-    content="Rééducation du coureur & kiné du sport aux Batignolles. Bilan complet, suivi personnalisé. 6 rue des Batignolles, 75017. RDV Doctolib." />
-  <meta name="keywords"
-    content="kiné sport, kinésithérapie, Batignolles, Paris 17, rééducation, coureur, physiothérapie" />
-
-  <!-- Canonical URL -->
-  <link rel="canonical" href="https://batignolleskinesport.fr/" />
-
-  <!-- Open Graph / Facebook -->
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://batignolleskinesport.fr/" />
-  <meta property="og:title" content="Kiné du Sport Batignolles | Paris 17" />
-  <meta property="og:description"
-    content="Rééducation du coureur & kiné du sport aux Batignolles. Bilan complet, suivi personnalisé. 6 rue des Batignolles, 75017." />
-  <meta property="og:image"
-    content="https://res.cloudinary.com/dsesaneyj/image/upload/f_jpg,q_auto,w_1200,h_630,c_fill/og-image" />
-  <meta property="og:image:secure_url"
-    content="https://res.cloudinary.com/dsesaneyj/image/upload/f_jpg,q_auto,w_1200,h_630,c_fill/og-image" />
-  <meta property="og:image:type" content="image/jpeg" />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt" content="Batignolles Kiné Sport - Cabinet de kinésithérapie du sport à Paris 17e" />
-  <meta property="og:site_name" content="Batignolles Kiné Sport" />
-  <meta property="og:locale" content="fr_FR" />
-
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:url" content="https://batignolleskinesport.fr/" />
-  <meta name="twitter:title" content="Kiné du Sport Batignolles | Paris 17" />
-  <meta name="twitter:description"
-    content="Rééducation du coureur & kiné du sport aux Batignolles. Bilan complet, suivi personnalisé. 6 rue des Batignolles, 75017." />
-  <meta name="twitter:image"
-    content="https://res.cloudinary.com/dsesaneyj/image/upload/f_jpg,q_auto,w_1200,h_630,c_fill/og-image" />
+  <!-- 
+    SEO Meta Tags (title, description, canonical, og:*, twitter:*)
+    These are now dynamically injected by the vite-react-ssg Head component
+    for each page during Static Site Generation (SSG).
+  -->
 
   <!-- Language -->
   <meta http-equiv="content-language" content="fr" />
@@ -122,8 +93,8 @@
     <p><strong>Adresse:</strong> 6 rue des Batignolles, 75017 Paris</p>
     <p><strong>Téléphone:</strong> 09 62 43 49 61</p>
   </noscript>
-  <div id="root"></div>
-  <script type="module" src="/src/index.tsx"></script>
+  <div id="root"><!--app-html--></div>
+  <script type="module" src="/src/main.tsx"></script>
 
   <!-- Dummy form for Netlify Bots to register the contact form -->
   <form name="contact" netlify netlify-honeypot="bot-field" hidden>

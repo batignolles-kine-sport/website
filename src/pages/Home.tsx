@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { Helmet } from 'react-helmet-async';
 
 import { motion, useScroll, useTransform } from 'framer-motion';
 // AdvancedImage removed as we use native picture tag for Hero

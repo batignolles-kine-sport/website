@@ -1,5 +1,5 @@
 import React from 'react';
-import { Helmet } from 'react-helmet-async';
+import { Head } from 'vite-react-ssg';
 import { TeamMember } from '../../types';
 import {
   ADDRESS,
@@ -229,8 +229,8 @@ export const SchemaMarkup: React.FC<SchemaMarkupProps> = ({
   const schemaJson = JSON.stringify(schema, null, 2);
 
   return (
-    <Helmet>
+    <Head>
       <script type="application/ld+json">{schemaJson}</script>
-    </Helmet>
+    </Head>
   );
 };

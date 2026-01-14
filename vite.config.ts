@@ -1,11 +1,13 @@
 import path from 'path';
 import { defineConfig, loadEnv } from 'vite';
 import react from '@vitejs/plugin-react';
-import viteCompression from 'vite-plugin-compression';
 import { VitePWA } from 'vite-plugin-pwa';
+import { getRoutes } from './src/routes';
 
-export default defineConfig(({ mode }) => {
+export default defineConfig(({ mode, command }) => {
   const env = loadEnv(mode, '.', '');
+  const isSSG = command === 'build';
+
   return {
     base: '/',
     server: {
@@ -14,9 +16,10 @@ export default defineConfig(({ mode }) => {
     },
     plugins: [
       react(),
-      VitePWA({
+      // Only enable PWA for client build, not SSG
+      !isSSG && VitePWA({
         registerType: 'prompt',
-        injectRegister: false, // We'll register manually to avoid blocking initial load
+        injectRegister: false,
         includeAssets: ['favicon.ico', 'robots.txt', 'apple-touch-icon.png'],
         manifest: {
           name: 'Batignolles Kiné Sport',
@@ -55,7 +58,7 @@ export default defineConfig(({ mode }) => {
                 cacheName: 'cloudinary-images',
                 expiration: {
                   maxEntries: 50,
-                  maxAgeSeconds: 60 * 60 * 24 * 30 // 30 Days
+                  maxAgeSeconds: 60 * 60 * 24 * 30
                 },
                 cacheableResponse: {
                   statuses: [0, 200]
@@ -69,7 +72,7 @@ export default defineConfig(({ mode }) => {
                 cacheName: 'google-fonts-cache',
                 expiration: {
                   maxEntries: 10,
-                  maxAgeSeconds: 60 * 60 * 24 * 365 // 1 Year
+                  maxAgeSeconds: 60 * 60 * 24 * 365
                 },
                 cacheableResponse: {
                   statuses: [0, 200]
@@ -83,14 +86,13 @@ export default defineConfig(({ mode }) => {
                 cacheName: 'gstatic-fonts-cache',
                 expiration: {
                   maxEntries: 10,
-                  maxAgeSeconds: 60 * 60 * 24 * 365 // 1 Year
+                  maxAgeSeconds: 60 * 60 * 24 * 365
                 },
                 cacheableResponse: {
                   statuses: [0, 200]
                 }
               }
             },
-            // NetworkFirst for content pages to ensure fresh data
             {
               urlPattern: ({ request }) => request.mode === 'navigate',
               handler: 'NetworkFirst',
@@ -98,15 +100,15 @@ export default defineConfig(({ mode }) => {
                 cacheName: 'pages-cache',
                 expiration: {
                   maxEntries: 10,
-                  maxAgeSeconds: 60 * 60 * 24 * 7 // 1 Week
+                  maxAgeSeconds: 60 * 60 * 24 * 7
                 },
-                networkTimeoutSeconds: 3 // Fallback to cache after 3s
+                networkTimeoutSeconds: 3
               }
             }
           ]
         }
       }),
-    ],
+    ].filter(Boolean),
     define: {
       'process.env.API_KEY': JSON.stringify(env.GEMINI_API_KEY),
       'process.env.GEMINI_API_KEY': JSON.stringify(env.GEMINI_API_KEY)
@@ -123,13 +125,39 @@ export default defineConfig(({ mode }) => {
         '@assets': path.resolve(__dirname, './src/assets'),
       }
     },
+    // SSG Configuration
+    ssgOptions: {
+      script: 'async',
+      formatting: 'minify',
+      crittersOptions: {
+        preload: 'swap',
+      },
+      // Get routes from our routes.ts file
+      includedRoutes: (paths) => getRoutes(),
+      // Handle errors gracefully during SSG
+      onPageRendered: (route, html) => {
+        console.log(`✅ Rendered: ${route}`);
+        return html;
+      },
+    },
+    // SSR externals - packages that should not be bundled for SSR
+    ssr: {
+      noExternal: [
+        'framer-motion',
+        'motion',
+        '@cloudinary/react',
+        '@cloudinary/url-gen',
+        'lucide-react',
+        'react-helmet-async',
+      ],
+    },
     build: {
       target: 'es2015',
       minify: 'terser',
       terserOptions: {
         compress: {
-          drop_console: true, // Remove console.logs in production
-          passes: 2 // More aggressive compression
+          drop_console: true,
+          passes: 2
         }
       },
       rollupOptions: {
@@ -138,14 +166,24 @@ export default defineConfig(({ mode }) => {
           moduleSideEffects: false
         },
         output: {
-          manualChunks: {
-            vendor: ['react', 'react-dom', 'react-router-dom', 'react-helmet-async'],
-            framer: ['framer-motion'],
-            cloudinary: ['@cloudinary/react', '@cloudinary/url-gen']
+          // Only apply manualChunks for client build, not SSR
+          manualChunks: (id) => {
+            // During SSR build, don't chunk externals
+            if (id.includes('node_modules')) {
+              if (id.includes('react') || id.includes('react-dom') || id.includes('react-router-dom') || id.includes('react-helmet-async')) {
+                return 'vendor';
+              }
+              if (id.includes('framer-motion')) {
+                return 'framer';
+              }
+              if (id.includes('@cloudinary')) {
+                return 'cloudinary';
+              }
+            }
+            return undefined;
           }
         }
       }
     }
   };
 });
-

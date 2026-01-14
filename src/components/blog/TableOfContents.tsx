@@ -8,45 +8,55 @@ interface Heading {
 }
 
 interface TableOfContentsProps {
-    content: string;
+    html: string;
 }
 
-export const TableOfContents: React.FC<TableOfContentsProps> = ({ content }) => {
+// SSR-safe HTML parser that extracts headings without using DOM APIs
+function parseHeadingsFromHTML(html: string): Heading[] {
+    const headings: Heading[] = [];
+
+    // RegEx to find h2 tags with id and content
+    const h2Regex = /<h2[^>]*(?:\s+id="([^"]*)")?[^>]*>([^<]*(?:<[^>]*>[^<]*)*)<\/h2>/gi;
+
+    let match;
+    let index = 0;
+
+    while ((match = h2Regex.exec(html)) !== null) {
+        const id = match[1] || `heading-${index}`;
+        // Clean the text: remove HTML tags and trailing # symbols
+        let text = match[2]
+            .replace(/<[^>]*>/g, '') // Remove HTML tags
+            .replace(/\s*#+$/, '')   // Remove trailing #
+            .trim();
+
+        if (text) {
+            headings.push({ id, text, level: 2 });
+            index++;
+        }
+    }
+
+    return headings;
+}
+
+export const TableOfContents: React.FC<TableOfContentsProps> = ({ html }) => {
     const [activeId, setActiveId] = useState<string>('');
     const [isOpen, setIsOpen] = useState(false);
+    const [isMounted, setIsMounted] = useState(false);
 
-    // Extract headings from HTML content
+    // Extract headings from HTML content - SSR-safe
     const headings = useMemo(() => {
-        const tempDiv = document.createElement('div');
-        tempDiv.innerHTML = content;
+        return parseHeadingsFromHTML(html);
+    }, [html]);
 
-        const h2s = Array.from(tempDiv.querySelectorAll('h2'));
-        const h3s = Array.from(tempDiv.querySelectorAll('h3'));
-
-        const allHeadings: Heading[] = [];
-
-        h2s.forEach((h2, index) => {
-            // Use existing ID if available (from markdown renderer), fallback to index
-            const id = h2.id || `heading-${index}`;
-
-            // Clone the element to safely modify it for text extraction
-            const clone = h2.cloneNode(true) as HTMLElement;
-
-            // Remove all anchor tags (permalinks) to ensure clean text
-            clone.querySelectorAll('a').forEach(a => a.remove());
-
-            // Extract text and systemically remove any trailing '#' artifacts (fail-safe)
-            let text = clone.textContent?.trim() || '';
-            text = text.replace(/\s*#+$/, '').trim();
-
-            allHeadings.push({ id, text, level: 2 });
-        });
-
-        return allHeadings;
-    }, [content]);
-
-    // Scroll spy effect
+    // Track if component is mounted (client-side)
     useEffect(() => {
+        setIsMounted(true);
+    }, []);
+
+    // Scroll spy effect - client-side only
+    useEffect(() => {
+        if (typeof window === 'undefined') return;
+
         const observer = new IntersectionObserver(
             (entries) => {
                 // Find the entry that is most visible
@@ -61,7 +71,7 @@ export const TableOfContents: React.FC<TableOfContentsProps> = ({ content }) => 
                 });
 
                 if (mostVisibleEntry) {
-                    setActiveId(mostVisibleEntry.target.id);
+                    setActiveId((mostVisibleEntry as IntersectionObserverEntry).target.id);
                 }
             },
             {
@@ -71,8 +81,8 @@ export const TableOfContents: React.FC<TableOfContentsProps> = ({ content }) => 
         );
 
         // Observe all h2 elements in the prose content
-        const headings = document.querySelectorAll('.prose h2');
-        headings.forEach((heading, index) => {
+        const headingElements = document.querySelectorAll('.prose h2');
+        headingElements.forEach((heading, index) => {
             if (!heading.id) {
                 heading.id = `heading-${index}`;
             }
@@ -80,14 +90,16 @@ export const TableOfContents: React.FC<TableOfContentsProps> = ({ content }) => 
         });
 
         // Set initial active heading
-        if (headings.length > 0 && !activeId) {
-            setActiveId(headings[0].id);
+        if (headingElements.length > 0 && !activeId) {
+            setActiveId(headingElements[0].id);
         }
 
         return () => observer.disconnect();
-    }, [content]);
+    }, [html, isMounted]);
 
     const scrollToHeading = (id: string) => {
+        if (typeof window === 'undefined') return;
+
         const element = document.getElementById(id);
         if (element) {
             const top = element.getBoundingClientRect().top + window.scrollY - 100;
@@ -100,14 +112,16 @@ export const TableOfContents: React.FC<TableOfContentsProps> = ({ content }) => 
 
     return (
         <>
-            {/* Mobile Toggle */}
-            <button
-                onClick={() => setIsOpen(!isOpen)}
-                className="lg:hidden fixed bottom-6 right-6 z-40 flex items-center gap-2 rounded-full bg-slate-900 px-4 py-3 text-sm font-medium text-white shadow-lg hover:bg-slate-800 transition-colors"
-            >
-                <span>Sommaire</span>
-                <ChevronRight className={`h-4 w-4 transition-transform ${isOpen ? 'rotate-90' : ''}`} />
-            </button>
+            {/* Mobile Toggle - only render on client */}
+            {isMounted && (
+                <button
+                    onClick={() => setIsOpen(!isOpen)}
+                    className="lg:hidden fixed bottom-6 right-6 z-40 flex items-center gap-2 rounded-full bg-slate-900 px-4 py-3 text-sm font-medium text-white shadow-lg hover:bg-slate-800 transition-colors"
+                >
+                    <span>Sommaire</span>
+                    <ChevronRight className={`h-4 w-4 transition-transform ${isOpen ? 'rotate-90' : ''}`} />
+                </button>
+            )}
 
             {/* Mobile Overlay */}
             {isOpen && (

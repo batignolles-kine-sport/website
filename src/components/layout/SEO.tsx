@@ -1,5 +1,6 @@
 import React from 'react';
-import { Helmet } from 'react-helmet-async';
+import { Head } from 'vite-react-ssg';
+import { useLocation } from 'react-router-dom';
 import { SITE_URL, OG_IMAGE_URL } from '../../utils/constants';
 import { generateBreadcrumbSchema } from '../../utils/structuredData';
 
@@ -25,6 +26,9 @@ export const SEO: React.FC<SEOProps> = ({
   const siteName = "Batignolles Kiné Sport";
   const fullTitle = `${title} | ${siteName}`;
 
+  // Use react-router's useLocation for SSG compatibility
+  const location = useLocation();
+
   // Process image URL
   let ogImage = OG_IMAGE_URL;
   if (image) {
@@ -37,14 +41,14 @@ export const SEO: React.FC<SEOProps> = ({
     }
   }
 
-  // Auto-generate canonical URL if not provided
-  const canonicalUrl = canonical || (typeof window !== 'undefined' ? `${SITE_URL}${window.location.pathname}` : SITE_URL);
+  // Auto-generate canonical URL using react-router location (SSG compatible)
+  const canonicalUrl = canonical || `${SITE_URL}${location.pathname}`;
 
   // Schema composition
   const breadcrumbSchema = breadcrumbs ? generateBreadcrumbSchema(breadcrumbs) : null;
 
   return (
-    <Helmet>
+    <Head>
       <title>{fullTitle}</title>
       <meta name="description" content={description} />
 
@@ -72,8 +76,6 @@ export const SEO: React.FC<SEOProps> = ({
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={ogImage} />
 
-
-
       {/* Structured Data: Breadcrumbs */}
       {breadcrumbSchema && (
         <script type="application/ld+json">
@@ -87,6 +89,6 @@ export const SEO: React.FC<SEOProps> = ({
           {JSON.stringify(schema)}
         </script>
       )}
-    </Helmet>
+    </Head>
   );
 };
