@@ -1,0 +1,435 @@
+/**
+ * DESIGN TOKENS - Apple-Grade System
+ * Architecture: Primitives → Semantics → Components
+ * Grid: 8px soft grid
+ * Typography: Modular scale 1.250 ratio
+ * Accessibility: WCAG AAA (7:1 contrast)
+ */
+
+@layer base {
+   :root {
+      /* ============================================
+       LAYER 1: PRIMITIVES (Raw Values)
+       ============================================ */
+
+      /* ─────────────────────────────────────────
+       Colors - Primary Palette
+       ───────────────────────────────────────── */
+      --primitive-green-950: #141509;
+      --primitive-green-900: #2a2c1e;
+      --primitive-green-800: #404134;
+      /* NEW: Olive Mineral (Option 2) */
+      --primitive-green-700: #52543f;
+      /* Hover: +10% luminance */
+      --primitive-green-600: #6a6c53;
+      --primitive-green-500: #73755c;
+      /* Sage accent */
+      --primitive-green-400: #8b8c6f;
+      --primitive-green-300: #a5a68d;
+      --primitive-green-200: #c2c3af;
+      --primitive-green-100: #dedfd1;
+      --primitive-green-50: #f0f0ea;
+
+      /* Colors - Neutral Palette (Warm Gray) */
+      --primitive-neutral-950: #0f0e0d;
+      --primitive-neutral-900: #1e1c1a;
+      --primitive-neutral-800: #3b342d;
+      --primitive-neutral-700: #5f5248;
+      --primitive-neutral-600: #867865;
+      --primitive-neutral-500: #a79d8f;
+      --primitive-neutral-400: #c2baaf;
+      --primitive-neutral-300: #d6d0c9;
+      --primitive-neutral-200: #e8e5e1;
+      --primitive-neutral-100: #f5f3f0;
+      --primitive-neutral-50: #fcfcf9;
+
+      /* Colors - Accent Palette */
+      --primitive-teal-700: #0a5f5a;
+      --primitive-teal-600: #0d9488;
+      --primitive-teal-500: #14b8a6;
+
+      --primitive-slate-700: #334155;
+      --primitive-slate-600: #475569;
+      --primitive-slate-500: #64748b;
+
+      /* Colors - Status Palette */
+      --primitive-red-700: #b91c1c;
+      --primitive-red-600: #dc2626;
+      --primitive-red-500: #ef4444;
+
+      --primitive-green-status-700: #15803d;
+      --primitive-green-status-600: #16a34a;
+      --primitive-green-status-500: #22c55e;
+
+      --primitive-amber-700: #b45309;
+      --primitive-amber-600: #d97706;
+      --primitive-amber-500: #f59e0b;
+
+      --primitive-blue-700: #1d4ed8;
+      --primitive-blue-600: #2563eb;
+      --primitive-blue-500: #3b82f6;
+
+      /* ─────────────────────────────────────────
+       Spacing - 8px Soft Grid
+       ───────────────────────────────────────── */
+      --primitive-space-1: 0.25rem;
+      /* 4px */
+      --primitive-space-2: 0.5rem;
+      /* 8px */
+      --primitive-space-3: 0.75rem;
+      /* 12px */
+      --primitive-space-4: 1rem;
+      /* 16px */
+      --primitive-space-5: 1.25rem;
+      /* 20px */
+      --primitive-space-6: 1.5rem;
+      /* 24px */
+      --primitive-space-8: 2rem;
+      /* 32px */
+      --primitive-space-10: 2.5rem;
+      /* 40px */
+      --primitive-space-12: 3rem;
+      /* 48px */
+      --primitive-space-16: 4rem;
+      /* 64px */
+      --primitive-space-20: 5rem;
+      /* 80px */
+      --primitive-space-24: 6rem;
+      /* 96px */
+      --primitive-space-32: 8rem;
+      /* 128px */
+
+      /* ─────────────────────────────────────────
+       Typography - Modular Scale 1.250
+       ───────────────────────────────────────── */
+      --primitive-font-size-xs: 0.75rem;
+      /* 12px */
+      --primitive-font-size-sm: 0.875rem;
+      /* 14px */
+      --primitive-font-size-base: 1rem;
+      /* 16px */
+      --primitive-font-size-lg: 1.125rem;
+      /* 18px */
+      --primitive-font-size-xl: 1.25rem;
+      /* 20px */
+      --primitive-font-size-2xl: 1.5rem;
+      /* 24px */
+      --primitive-font-size-3xl: 1.875rem;
+      /* 30px */
+      --primitive-font-size-4xl: 2.25rem;
+      /* 36px */
+      --primitive-font-size-5xl: 3rem;
+      /* 48px */
+      --primitive-font-size-6xl: 3.75rem;
+      /* 60px */
+
+      /* Typography - Font Weights */
+      --primitive-font-weight-regular: 400;
+      --primitive-font-weight-medium: 500;
+      --primitive-font-weight-semibold: 600;
+      --primitive-font-weight-bold: 700;
+
+      /* Typography - Line Heights (Leading) */
+      --primitive-leading-tight: 1.2;
+      --primitive-leading-snug: 1.375;
+      --primitive-leading-normal: 1.5;
+      --primitive-leading-relaxed: 1.625;
+      --primitive-leading-loose: 1.75;
+
+      /* Typography - Letter Spacing (Tracking) */
+      --primitive-tracking-tighter: -0.05em;
+      --primitive-tracking-tight: -0.025em;
+      --primitive-tracking-normal: 0;
+      --primitive-tracking-wide: 0.025em;
+      --primitive-tracking-wider: 0.05em;
+      --primitive-tracking-widest: 0.1em;
+
+      /* ─────────────────────────────────────────
+       Elevation - Shadows
+       ───────────────────────────────────────── */
+      --primitive-shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+      --primitive-shadow-base: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+      --primitive-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+      --primitive-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+      --primitive-shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+
+      /* ─────────────────────────────────────────
+       Border Radius
+       ───────────────────────────────────────── */
+      --primitive-radius-sm: 0.5rem;
+      /* 8px */
+      --primitive-radius-md: 0.75rem;
+      /* 12px */
+      --primitive-radius-lg: 1rem;
+      /* 16px */
+      --primitive-radius-full: 9999px;
+
+      /* ─────────────────────────────────────────
+       Animation - Timing & Easing
+       ───────────────────────────────────────── */
+      --primitive-duration-fast: 150ms;
+      --primitive-duration-base: 200ms;
+      --primitive-duration-slow: 300ms;
+      --primitive-duration-slower: 500ms;
+
+      --primitive-ease-in: cubic-bezier(0.4, 0, 1, 1);
+      --primitive-ease-out: cubic-bezier(0, 0, 0.2, 1);
+      --primitive-ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+      --primitive-ease-spring: cubic-bezier(0.23, 1, 0.32, 1);
+
+      /* ============================================
+       LAYER 2: SEMANTICS (Contextual Usage)
+       ============================================ */
+
+      /* ─────────────────────────────────────────
+       Surface Colors
+       HIG: Clear visual hierarchy through subtle elevation
+       ───────────────────────────────────────── */
+      --surface-base: var(--primitive-neutral-50);
+      /* Main background */
+      --surface-elevated: #ffffff;
+      /* Cards, modals */
+      --surface-overlay: rgba(0, 0, 0, 0.4);
+      /* Modal backdrop */
+      --surface-subtle: var(--primitive-neutral-100);
+      /* Subtle contrast */
+      --surface-inverse: var(--primitive-neutral-900);
+      /* Dark surfaces */
+      --surface-brand: var(--primitive-green-800);
+      /* Brand colored cards #404134 */
+      --surface-brand-hover: var(--primitive-green-700);
+      /* Brand hover state */
+
+      /* ─────────────────────────────────────────
+       Text Colors
+       WCAG AAA: 7:1 contrast ratio minimum
+       ───────────────────────────────────────── */
+      --text-primary: var(--primitive-neutral-900);
+      /* Body text - 15.8:1 on white */
+      --text-secondary: var(--primitive-neutral-700);
+      /* Secondary text - 7.2:1 */
+      --text-tertiary: var(--primitive-neutral-600);
+      /* Tertiary text - 4.8:1 */
+      --text-inverse: #ffffff;
+      /* On dark backgrounds */
+      --text-disabled: var(--primitive-neutral-400);
+      /* Disabled states */
+
+      /* Typography - Professional Hierarchy (HIG) */
+      --text-pro-headline: var(--primitive-neutral-900);
+      --text-pro-subheadline: var(--primitive-neutral-800);
+      --text-pro-body: var(--primitive-neutral-700);
+      --text-pro-caption: var(--primitive-neutral-600);
+
+      /* ─────────────────────────────────────────
+       Interactive Colors
+       HIG: Clear affordances with hover feedback
+       ───────────────────────────────────────── */
+      --interactive-primary: var(--primitive-green-800);
+      --interactive-primary-hover: var(--primitive-green-700);
+      --interactive-primary-active: var(--primitive-green-900);
+      --interactive-primary-disabled: var(--primitive-neutral-300);
+
+      --interactive-secondary: var(--primitive-neutral-700);
+      --interactive-secondary-hover: var(--primitive-neutral-800);
+      --interactive-secondary-active: var(--primitive-neutral-900);
+
+      --interactive-tertiary: var(--primitive-teal-600);
+      --interactive-tertiary-hover: var(--primitive-teal-700);
+
+      /* ─────────────────────────────────────────
+       Status Colors
+       HIG: Use color + iconography for accessibility
+       ───────────────────────────────────────── */
+      --status-success: var(--primitive-green-status-600);
+      --status-success-bg: var(--primitive-green-100);
+      --status-success-border: var(--primitive-green-status-500);
+
+      --status-error: var(--primitive-red-600);
+      --status-error-bg: #fef2f2;
+      --status-error-border: var(--primitive-red-500);
+
+      --status-warning: var(--primitive-amber-600);
+      --status-warning-bg: #fffbeb;
+      --status-warning-border: var(--primitive-amber-500);
+
+      --status-info: var(--primitive-blue-600);
+      --status-info-bg: #eff6ff;
+      --status-info-border: var(--primitive-blue-500);
+
+      /* ─────────────────────────────────────────
+       Border Colors
+       HIG: Subtle separation without heavy lines
+       ───────────────────────────────────────── */
+      --border-subtle: rgba(64, 65, 52, 0.08);
+      --border-medium: var(--primitive-neutral-300);
+      --border-strong: var(--primitive-neutral-400);
+      --border-focus: var(--primitive-green-800);
+      /* Uses new #404134 */
+
+      /* ============================================
+       LAYER 3: COMPONENTS (Application Tokens)
+       ============================================ */
+
+      /* ─────────────────────────────────────────
+       Button Component
+       HIG: 44-48px touch targets minimum
+       ───────────────────────────────────────── */
+      --btn-padding-x: var(--primitive-space-6);
+      /* 24px */
+      --btn-padding-y: var(--primitive-space-3);
+      /* 12px */
+      --btn-radius: var(--primitive-radius-md);
+      /* 12px */
+      --btn-font-size: var(--primitive-font-size-base);
+      --btn-font-weight: var(--primitive-font-weight-semibold);
+      --btn-min-height: 3rem;
+      /* 48px - HIG touch target */
+      --btn-shadow: var(--primitive-shadow-sm);
+      --btn-shadow-hover: var(--primitive-shadow-md);
+      --btn-transition: all var(--primitive-duration-base) var(--primitive-ease-out);
+
+      /* ─────────────────────────────────────────
+       Card Component
+       HIG: Elevated surfaces with subtle shadows
+       ───────────────────────────────────────── */
+      --card-padding: var(--primitive-space-6);
+      /* 24px */
+      --card-padding-sm: var(--primitive-space-4);
+      /* 16px mobile */
+      --card-radius: var(--primitive-radius-md);
+      /* 12px */
+      --card-shadow: var(--primitive-shadow-base);
+      --card-shadow-hover: var(--primitive-shadow-lg);
+      --card-border: 1px solid var(--border-subtle);
+      --card-bg: var(--surface-elevated);
+      --card-transition: all var(--primitive-duration-slow) var(--primitive-ease-spring);
+
+      /* ─────────────────────────────────────────
+       Input Component
+       HIG: Clear states with focus indication
+       ───────────────────────────────────────── */
+      --input-padding-x: var(--primitive-space-3);
+      /* 12px */
+      --input-padding-y: var(--primitive-space-2);
+      /* 8px */
+      --input-radius: var(--primitive-radius-sm);
+      /* 8px */
+      --input-border-width: 1px;
+      --input-border-color: var(--border-medium);
+      --input-border-color-focus: var(--border-focus);
+      --input-font-size: var(--primitive-font-size-base);
+      /* 16px - prevents iOS zoom */
+      --input-bg: var(--surface-elevated);
+      --input-bg-disabled: var(--primitive-neutral-100);
+      --input-shadow-focus: 0 0 0 3px rgba(64, 65, 52, 0.1);
+      --input-transition: all var(--primitive-duration-base) var(--primitive-ease-out);
+
+      /* ─────────────────────────────────────────
+       Modal Component
+       HIG: iOS-style sheet with backdrop blur
+       ───────────────────────────────────────── */
+      --modal-backdrop-blur: 20px;
+      --modal-backdrop-opacity: 0.4;
+      --modal-padding: var(--primitive-space-8);
+      /* 32px */
+      --modal-radius: var(--primitive-radius-lg);
+      /* 16px */
+      --modal-shadow: var(--primitive-shadow-xl);
+      --modal-max-width: 42rem;
+      /* 672px */
+      --modal-animation-duration: var(--primitive-duration-slow);
+
+      /* ─────────────────────────────────────────
+       Section Component
+       HIG: Generous white space for clarity
+       ───────────────────────────────────────── */
+      --section-padding-y: var(--primitive-space-16);
+      /* Hero sections - reduced spacing for full-screen layouts */
+      --section-spacing-hero: var(--primitive-space-16);
+      /* 64px mobile (was 40px) */
+      --section-spacing-hero-desktop: var(--primitive-space-20);
+      /* 80px desktop */
+
+      /* Default sections - standard content spacing */
+      --section-spacing-default: var(--primitive-space-12);
+      /* 48px mobile */
+      --section-spacing-default-desktop: var(--primitive-space-24);
+      /* 96px desktop */
+
+      /* Compact sections - for related content blocks */
+      --section-spacing-compact: var(--primitive-space-8);
+      /* 32px mobile */
+      --section-spacing-compact-desktop: var(--primitive-space-16);
+      /* 64px desktop */
+
+      /* Legacy tokens - kept for backward compatibility */
+
+      /* 64px desktop */
+      --section-padding-y-mobile: var(--primitive-space-8);
+      /* 32px mobile */
+      --section-max-width: 75rem;
+      /* 1200px */
+      --section-content-max-width: 50rem;
+      /* 800px for text */
+
+      /* ─────────────────────────────────────────
+       Typography - Fluid Sizing (clamp)
+       HIG: Responsive without breakpoints
+       ───────────────────────────────────────── */
+      --fluid-text-sm: clamp(0.875rem, 0.85rem + 0.125vw, 1rem);
+      --fluid-text-base: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+      --fluid-text-lg: clamp(1.125rem, 1.05rem + 0.375vw, 1.375rem);
+      --fluid-text-xl: clamp(1.25rem, 1.15rem + 0.5vw, 1.625rem);
+      --fluid-text-2xl: clamp(1.5rem, 1.35rem + 0.75vw, 2rem);
+      --fluid-text-3xl: clamp(1.875rem, 1.65rem + 1.125vw, 2.625rem);
+      --fluid-text-4xl: clamp(2.25rem, 1.95rem + 1.5vw, 3.25rem);
+      --fluid-text-5xl: clamp(3rem, 2.55rem + 2.25vw, 4.5rem);
+
+      /* Fluid Spacing */
+      --fluid-space-sm: clamp(1rem, 0.9rem + 0.5vw, 1.5rem);
+      --fluid-space-md: clamp(1.5rem, 1.3rem + 1vw, 2.5rem);
+      --fluid-space-lg: clamp(2rem, 1.6rem + 2vw, 4rem);
+      --fluid-space-xl: clamp(3rem, 2.4rem + 3vw, 6rem);
+   }
+
+   /* ─────────────────────────────────────────
+     Dark Mode Support (Optional)
+     HIG: Semantic tokens make theme switching trivial
+     ───────────────────────────────────────── */
+   @media (prefers-color-scheme: dark) {
+      :root {
+         --surface-base: var(--primitive-neutral-950);
+         --surface-elevated: var(--primitive-neutral-900);
+         --surface-subtle: var(--primitive-neutral-800);
+
+         --text-primary: var(--primitive-neutral-50);
+         --text-secondary: var(--primitive-neutral-300);
+         --text-tertiary: var(--primitive-neutral-400);
+
+         --border-subtle: rgba(255, 255, 255, 0.08);
+         --border-medium: var(--primitive-neutral-700);
+      }
+   }
+
+   /* ─────────────────────────────────────────
+     Reduced Motion Support (Accessibility)
+     HIG: Respect user preferences
+     ───────────────────────────────────────── */
+   @media (prefers-reduced-motion: reduce) {
+      :root {
+         --primitive-duration-fast: 0ms;
+         --primitive-duration-base: 0ms;
+         --primitive-duration-slow: 0ms;
+         --primitive-duration-slower: 0ms;
+      }
+
+      *,
+      *::before,
+      *::after {
+         animation-duration: 0.01ms !important;
+         animation-iteration-count: 1 !important;
+         transition-duration: 0.01ms !important;
+      }
+   }
+}

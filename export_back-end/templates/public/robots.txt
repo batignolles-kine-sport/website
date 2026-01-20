@@ -1,0 +1,39 @@
+# TODO: CONFIGURATION À ADAPTER POUR VOTRE PROJET
+
+# TODO: Remplacer [VOTRE-DOMAINE].fr par votre domaine réel
+User-agent: *
+Disallow: /admin
+Disallow: /node_modules/
+Disallow: /src/
+Disallow: /.git/
+Disallow: /api/
+
+# Bots bienvenus (crawl prioritaire)
+User-agent: Googlebot
+Crawl-delay: 0
+Allow: /
+
+User-agent: Bingbot
+Crawl-delay: 0
+Allow: /
+
+# IA éthiques (autorisés pour gain visibilité)
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+# Bots agressifs (rate limit)
+User-agent: MJ12bot
+Crawl-delay: 30
+
+User-agent: AhrefsBot
+Crawl-delay: 30
+
+# Scrapers malveillants (bloqués)
+User-agent: CCBot
+Disallow: /
+
+# TODO: Remplacer par l'URL de votre sitemap
+Sitemap: https://[VOTRE-DOMAINE].fr/sitemap.xml

@@ -1,0 +1,46 @@
+{
+  "name": "[nom-projet]",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "node scripts/generate-blog-metadata.js && vite",
+    "build": "node scripts/generate-blog-metadata.js && node scripts/generate-sitemap.js && npx vite-react-ssg build",
+    "build:spa": "node scripts/generate-blog-metadata.js && node scripts/generate-sitemap.js && vite build",
+    "preview": "vite preview",
+    "sitemap": "node scripts/generate-sitemap.js"
+  },
+  "dependencies": {
+    "@cloudinary/react": "^1.14.3",
+    "@cloudinary/url-gen": "^1.22.0",
+    "@tailwindcss/cli": "^4.1.17",
+    "@tailwindcss/postcss": "^4.1.17",
+    "@tailwindcss/vite": "^4.1.17",
+    "decap-cms-app": "^3.0.0",
+    "framer-motion": "^12.23.26",
+    "lucide-react": "0.344.0",
+    "marked": "^17.0.1",
+    "motion": "^12.23.25",
+    "postcss": "^8.5.6",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-helmet-async": "2.0.4",
+    "react-router-dom": "6.22.3",
+    "tailwindcss": "^4.1.17"
+  },
+  "devDependencies": {
+    "@types/node": "^22.19.3",
+    "@types/react": "^19.2.7",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^5.0.0",
+    "cloudinary": "^2.8.0",
+    "dotenv": "^17.2.3",
+    "terser": "^5.44.1",
+    "ts-node": "^10.9.2",
+    "typescript": "~5.8.2",
+    "vite": "^6.2.0",
+    "vite-plugin-compression": "^0.5.1",
+    "vite-plugin-pwa": "^1.2.0",
+    "vite-react-ssg": "^0.8.9"
+  }
+}

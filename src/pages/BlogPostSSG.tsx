@@ -58,7 +58,7 @@ interface BlogPostLoaderData {
  */
 export function getStaticPaths() {
     const posts = blogPostsData as BlogPostMetadata[];
-    return posts.map((post) => `blog/${post.slug}`);
+    return posts.map((post) => `blog/${post.slug}/`);
 }
 
 /**
@@ -288,87 +288,122 @@ export function Component() {
 
             {/* Content */}
             <main className="relative mx-auto max-w-7xl py-8 md:py-12 lg:py-16 px-4 md:px-6">
-                <div className="lg:grid lg:grid-cols-[1fr_280px] lg:gap-12 xl:gap-16">
+                <div className="lg:grid lg:grid-cols-[280px_1fr_280px] lg:gap-12 xl:gap-16">
+                    {/* Left Sidebar (ToC) */}
+                    <aside className="hidden lg:block relative">
+                        <div className="sticky top-24 max-h-[calc(100vh-6rem)] overflow-y-auto pr-4 bg-transparent">
+                            <TableOfContents content={html} />
+                        </div>
+                    </aside>
+
                     <article className="prose prose-lg max-w-none">
                         {/* Table of Contents for mobile */}
                         <div className="lg:hidden mb-8">
-                            <TableOfContents html={html} />
+                            <TableOfContents content={html} />
                         </div>
 
                         <ArticleContent html={html} />
                     </article>
 
-                    {/* Sidebar */}
-                    <aside className="hidden lg:block">
-                        <div className="sticky top-24 space-y-8">
-                            <TableOfContents html={html} />
-
-                            {/* CTA Card */}
-                            <div className="bg-gradient-to-br from-primary/5 to-primary/10 rounded-2xl p-6 border border-primary/10">
-                                <h3 className="text-lg font-semibold text-slate-900 mb-3">
-                                    Besoin d'aide ?
-                                </h3>
-                                <p className="text-slate-600 text-sm mb-4">
-                                    Nos kinés du sport sont là pour vous accompagner dans votre rééducation.
+                    {/* Right Sidebar (CTA) */}
+                    <aside className="hidden lg:block relative">
+                        <div className="sticky top-24 max-h-[calc(100vh-6rem)] overflow-hidden rounded-[2rem] shadow-[0_20px_50px_-12px_rgba(0,0,0,0.15),0_10px_20px_-10px_rgba(0,0,0,0.1)]">
+                            <div className="rounded-[2rem] bg-[#0F172A] p-6 xl:p-8 text-white">
+                                <h3 className="mb-4 xl:mb-6 text-lg xl:text-xl font-bold leading-tight">Besoin d'un avis ?</h3>
+                                <p className="mb-6 xl:mb-8 text-sm leading-relaxed text-slate-300">
+                                    Nos spécialistes vous accompagnent pour établir un diagnostic précis et un plan de
+                                    traitement adapté.
                                 </p>
-                                <div className="space-y-3">
-                                    <Button href={DOCTOLIB_URL} variant="booking" className="w-full justify-center text-sm">
-                                        Prendre RDV
-                                    </Button>
-                                    <Button href={toTelHref(PHONE)} variant="secondary" className="w-full justify-center text-sm">
-                                        {PHONE}
-                                    </Button>
+
+                                <ul className="mb-6 xl:mb-8 space-y-3 xl:space-y-4">
+                                    <li className="flex items-start gap-3">
+                                        <div className="rounded-full border border-[#10B981] p-0.5 shrink-0 mt-0.5">
+                                            <CheckCircle className="h-3.5 w-3.5 xl:h-4 xl:w-4 text-[#10B981]" strokeWidth={3} />
+                                        </div>
+                                        <span className="text-xs xl:text-sm font-medium text-white">Bilan initial complet (1h)</span>
+                                    </li>
+                                    <li className="flex items-start gap-3">
+                                        <div className="rounded-full border border-[#10B981] p-0.5 shrink-0 mt-0.5">
+                                            <CheckCircle className="h-3.5 w-3.5 xl:h-4 xl:w-4 text-[#10B981]" strokeWidth={3} />
+                                        </div>
+                                        <span className="text-xs xl:text-sm font-medium text-white">Tests de force (Isocinétisme)</span>
+                                    </li>
+                                    <li className="flex items-start gap-3">
+                                        <div className="rounded-full border border-[#10B981] p-0.5 shrink-0 mt-0.5">
+                                            <CheckCircle className="h-3.5 w-3.5 xl:h-4 xl:w-4 text-[#10B981]" strokeWidth={3} />
+                                        </div>
+                                        <span className="text-xs xl:text-sm font-medium text-white">Plateau technique dédié</span>
+                                    </li>
+                                </ul>
+
+                                <Button
+                                    href={DOCTOLIB_URL}
+                                    className="w-full justify-center rounded-full bg-[#414234] py-3 xl:py-4 text-sm font-bold text-white transition-all hover:bg-[#2f3026] hover:scale-[1.02]"
+                                >
+                                    Prendre rendez-vous
+                                </Button>
+
+                                <div className="mt-6 xl:mt-8 border-t border-white/10 pt-4 xl:pt-6 text-center">
+                                    <p className="mb-1 xl:mb-2 text-xs font-medium text-slate-400">Questions ? Appelez-nous au</p>
+                                    <a
+                                        href={toTelHref(PHONE)}
+                                        className="text-lg xl:text-xl font-bold text-white transition-colors hover:text-[#10B981]"
+                                    >
+                                        09 62 43 49 61
+                                    </a>
                                 </div>
                             </div>
                         </div>
                     </aside>
-                </div>
+                </div >
 
                 {/* Related Posts */}
-                {relatedPosts && relatedPosts.length > 0 && (
-                    <section className="mt-16 md:mt-20 pt-12 border-t border-slate-200">
-                        <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-8">
-                            Articles similaires
-                        </h2>
-                        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                            {relatedPosts.slice(0, 3).map((related) => (
-                                <Link
-                                    key={related.slug}
-                                    to={`/blog/${related.slug}`}
-                                    className="group bg-white rounded-xl border border-slate-200 overflow-hidden hover:shadow-lg hover:border-primary/20 transition-all duration-300"
-                                >
-                                    <div className="aspect-[16/10] overflow-hidden bg-slate-100">
-                                        {related.image && isCloudinaryImage(related.image) ? (
-                                            <AdvancedImage
-                                                cldImg={getResponsiveImage(pathToPublicId(related.image))}
-                                                plugins={[responsive({ steps: 200 }), lazyload(), placeholder({ mode: 'blur' })]}
-                                                alt={related.title}
-                                                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                                            />
-                                        ) : (
-                                            <img
-                                                src={related.image || '/images/blog/default.jpg'}
-                                                alt={related.title}
-                                                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                                                loading="lazy"
-                                            />
-                                        )}
-                                    </div>
-                                    <div className="p-4 md:p-5">
-                                        <div className="flex items-center gap-2 mb-2">
-                                            <span className="text-xs font-medium text-primary">{related.type}</span>
-                                            <span className="text-slate-300">•</span>
-                                            <span className="text-xs text-slate-500">{related.readTime}</span>
+                {
+                    relatedPosts && relatedPosts.length > 0 && (
+                        <section className="mt-16 md:mt-20 pt-12 border-t border-slate-200">
+                            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-8">
+                                Articles similaires
+                            </h2>
+                            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                                {relatedPosts.slice(0, 3).map((related) => (
+                                    <Link
+                                        key={related.slug}
+                                        to={`/blog/${related.slug}`}
+                                        className="group bg-white rounded-xl border border-slate-200 overflow-hidden hover:shadow-lg hover:border-primary/20 transition-all duration-300"
+                                    >
+                                        <div className="aspect-[16/10] overflow-hidden bg-slate-100">
+                                            {related.image && isCloudinaryImage(related.image) ? (
+                                                <AdvancedImage
+                                                    cldImg={getResponsiveImage(pathToPublicId(related.image))}
+                                                    plugins={[responsive({ steps: 200 }), lazyload(), placeholder({ mode: 'blur' })]}
+                                                    alt={related.title}
+                                                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                                />
+                                            ) : (
+                                                <img
+                                                    src={related.image || '/images/blog/default.jpg'}
+                                                    alt={related.title}
+                                                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                                    loading="lazy"
+                                                />
+                                            )}
                                         </div>
-                                        <h3 className="font-semibold text-slate-900 group-hover:text-primary transition-colors line-clamp-2">
-                                            {related.title}
-                                        </h3>
-                                    </div>
-                                </Link>
-                            ))}
-                        </div>
-                    </section>
-                )}
+                                        <div className="p-4 md:p-5">
+                                            <div className="flex items-center gap-2 mb-2">
+                                                <span className="text-xs font-medium text-primary">{related.type}</span>
+                                                <span className="text-slate-300">•</span>
+                                                <span className="text-xs text-slate-500">{related.readTime}</span>
+                                            </div>
+                                            <h3 className="font-semibold text-slate-900 group-hover:text-primary transition-colors line-clamp-2">
+                                                {related.title}
+                                            </h3>
+                                        </div>
+                                    </Link>
+                                ))}
+                            </div>
+                        </section>
+                    )
+                }
 
                 {/* Bottom CTA (Mobile) */}
                 <div className="lg:hidden mt-12 bg-gradient-to-br from-primary/5 to-primary/10 rounded-2xl p-6 border border-primary/10">
@@ -387,8 +422,8 @@ export function Component() {
                         </Button>
                     </div>
                 </div>
-            </main>
-        </div>
+            </main >
+        </div >
     );
 }
 

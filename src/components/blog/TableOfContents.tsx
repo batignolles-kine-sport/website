@@ -8,26 +8,51 @@ interface Heading {
 }
 
 interface TableOfContentsProps {
-    html: string;
+    content: string;
 }
 
+// SSR-safe HTML parser that extracts headings without using DOM APIs
 // SSR-safe HTML parser that extracts headings without using DOM APIs
 function parseHeadingsFromHTML(html: string): Heading[] {
     const headings: Heading[] = [];
 
-    // RegEx to find h2 tags with id and content
-    const h2Regex = /<h2[^>]*(?:\s+id="([^"]*)")?[^>]*>([^<]*(?:<[^>]*>[^<]*)*)<\/h2>/gi;
+    // Match all h2 tags non-greedily
+    // [\s\S] matches any character including newlines
+    const h2Regex = /<h2[\s\S]+?<\/h2>/gi;
+
+    // Helper to decode HTML entities
+    const decodeHtmlEntities = (text: string) => {
+        const entities: Record<string, string> = {
+            '&amp;': '&',
+            '&lt;': '<',
+            '&gt;': '>',
+            '&quot;': '"',
+            '&#39;': "'",
+            '&#x27;': "'"
+        };
+        return text.replace(/&(?:amp|lt|gt|quot|#39|#x27);/g, entity => entities[entity] || entity);
+    };
 
     let match;
     let index = 0;
 
     while ((match = h2Regex.exec(html)) !== null) {
-        const id = match[1] || `heading-${index}`;
-        // Clean the text: remove HTML tags and trailing # symbols
-        let text = match[2]
-            .replace(/<[^>]*>/g, '') // Remove HTML tags
-            .replace(/\s*#+$/, '')   // Remove trailing #
+        const fullTag = match[0];
+
+        // Extract ID
+        const idMatch = fullTag.match(/id="([^"]*)"/);
+        const id = idMatch ? idMatch[1] : `heading-${index}`;
+
+        // Extract text content
+        // 1. Remove all HTML tags
+        // 2. Remove trailing #
+        // 3. Decode entities
+        let text = fullTag
+            .replace(/<[^>]+>/g, '')
+            .replace(/\s*#+$/, '')
             .trim();
+
+        text = decodeHtmlEntities(text);
 
         if (text) {
             headings.push({ id, text, level: 2 });
@@ -38,15 +63,15 @@ function parseHeadingsFromHTML(html: string): Heading[] {
     return headings;
 }
 
-export const TableOfContents: React.FC<TableOfContentsProps> = ({ html }) => {
+export const TableOfContents: React.FC<TableOfContentsProps> = ({ content }) => {
     const [activeId, setActiveId] = useState<string>('');
     const [isOpen, setIsOpen] = useState(false);
     const [isMounted, setIsMounted] = useState(false);
 
     // Extract headings from HTML content - SSR-safe
     const headings = useMemo(() => {
-        return parseHeadingsFromHTML(html);
-    }, [html]);
+        return parseHeadingsFromHTML(content);
+    }, [content]);
 
     // Track if component is mounted (client-side)
     useEffect(() => {
@@ -95,7 +120,7 @@ export const TableOfContents: React.FC<TableOfContentsProps> = ({ html }) => {
         }
 
         return () => observer.disconnect();
-    }, [html, isMounted]);
+    }, [content, isMounted]);
 
     const scrollToHeading = (id: string) => {
         if (typeof window === 'undefined') return;
@@ -132,35 +157,23 @@ export const TableOfContents: React.FC<TableOfContentsProps> = ({ html }) => {
             )}
 
             {/* Table of Contents */}
-            <nav
-                className={`
-          rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-100
-          lg:mx-0 lg:mb-0
-          ${isOpen ? 'fixed left-0 right-0 z-40 mx-4 mb-8 shadow-lg ring-slate-200 translate-y-0' : 'hidden lg:block'}
-        `}
-            >
-                <h3 className="mb-4 text-sm font-bold uppercase tracking-wider text-slate-400">
+            <nav className="hidden lg:block">
+                <h3 className="mb-6 text-xs font-bold uppercase tracking-widest text-slate-400">
                     Sommaire
                 </h3>
-                <ul className="space-y-2">
+                <ul className="space-y-4 border-l-2 border-slate-100 pl-4">
                     {headings.map((heading) => (
                         <li key={heading.id}>
                             <button
                                 onClick={() => scrollToHeading(heading.id)}
                                 className={`
-                  group flex w-full items-start gap-2 rounded-lg px-3 py-2 text-left text-sm transition-all
-                  ${activeId === heading.id
-                                        ? 'bg-primary/10 !font-bold text-primary'
-                                        : 'text-slate-600 hover:bg-slate-50 hover:text-slate-900'
+                                    group flex w-full items-start gap-3 text-left text-sm transition-all
+                                    ${activeId === heading.id
+                                        ? 'font-bold text-primary translate-x-1'
+                                        : 'text-slate-500 hover:text-slate-900 hover:translate-x-1'
                                     }
-                `}
+                                `}
                             >
-                                <span
-                                    className={`
-                    mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full transition-all
-                    ${activeId === heading.id ? 'bg-primary scale-125' : 'bg-slate-300'}
-                  `}
-                                />
                                 <span className="line-clamp-2">{heading.text}</span>
                             </button>
                         </li>

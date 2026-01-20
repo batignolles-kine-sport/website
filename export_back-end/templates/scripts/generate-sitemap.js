@@ -1,3 +1,5 @@
+// TODO: CONFIGURATION À ADAPTER POUR VOTRE PROJET
+// Remplacez les valeurs entre [CROCHETS] par vos propres valeurs
 
 import fs from 'fs';
 import path from 'path';
@@ -6,17 +8,24 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const DOMAIN = 'https://batignolleskinesport.fr';
+// TODO: Remplacer par l'URL de votre site
+const DOMAIN = 'https://[VOTRE-DOMAINE].fr';
+
+// TODO: Adapter le chemin vers vos articles
 const PATHOLOGIES_DIR = path.resolve(__dirname, '../src/posts/pathologies');
+
+// TODO: Adapter le chemin vers votre fichier constants.ts (ou supprimer si non utilisé)
 const CONSTANTS_FILE = path.resolve(__dirname, '../src/utils/constants.ts');
+
 const PUBLIC_DIR = path.resolve(__dirname, '../public');
 
 /**
  * Extracts service paths from constants.ts using regex
+ * TODO: Adapter selon votre structure de services
  */
 const getServicePaths = () => {
     if (!fs.existsSync(CONSTANTS_FILE)) {
-        console.warn('⚠️ Constants file not found');
+        console.warn('⚠️  Constants file not found');
         return [];
     }
 
@@ -42,7 +51,7 @@ const getServicePaths = () => {
  */
 const getBlogPaths = () => {
     if (!fs.existsSync(PATHOLOGIES_DIR)) {
-        console.warn('⚠️ Pathologies directory not found');
+        console.warn('⚠️  Pathologies directory not found');
         return [];
     }
 
@@ -81,12 +90,12 @@ const generateSitemap = () => {
     const urls = [];
 
     // 1. Static Pages
+    // TODO: Adapter avec vos pages statiques
     const staticPages = [
         { loc: '/', priority: 1.0, changefreq: 'weekly' },
-        { loc: '/blog', priority: 0.9, changefreq: 'daily' }, // Blog changes often
+        { loc: '/blog', priority: 0.9, changefreq: 'daily' },
         { loc: '/contact', priority: 0.8, changefreq: 'monthly' },
-        { loc: '/equipe', priority: 0.7, changefreq: 'monthly' },
-        { loc: '/mentions-legales', priority: 0.5, changefreq: 'yearly' },
+        // TODO: Ajouter vos autres pages (/a-propos, /services, etc.)
     ];
 
     staticPages.forEach(page => {
@@ -98,7 +107,8 @@ const generateSitemap = () => {
         });
     });
 
-    // 2. Services
+    // 2. Services (si applicable)
+    // TODO: Activer si vous avez des pages de services
     const servicePaths = getServicePaths();
     servicePaths.forEach(p => {
         urls.push({

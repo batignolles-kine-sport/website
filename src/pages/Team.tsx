@@ -34,18 +34,18 @@ const TeamCard: React.FC<{ member: typeof TEAM[0] }> = ({ member }) => {
       <div className="absolute top-6 right-6 z-20">
         <motion.button
           layout
-          initial={false}
-          animate={{
-            scale: 1.05,
-            backgroundColor: '#4a4b3d',
+          variants={{
+            rest: { scale: 1.05, backgroundColor: '#4a4b3d' },
+            hover: { scale: 1.15, backgroundColor: '#5c5d4b' }
           }}
+          initial="rest"
+          whileHover="hover"
+          whileTap={{ scale: 0.95 }}
           transition={{
             type: "spring",
-            stiffness: 100, // Smoother spring
-            damping: 20,
-            mass: 1
+            stiffness: 400,
+            damping: 17
           }}
-          whileTap={{ scale: 0.95 }}
           onClick={(e) => {
             e.stopPropagation();
             setIsModalOpen(true);

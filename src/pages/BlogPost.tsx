@@ -254,10 +254,10 @@ export const BlogPost: React.FC = () => {
         </div>
       </header>
 
-      <main className="mx-auto grid max-w-7xl grid-cols-1 gap-6 px-4 pb-20 pt-12 md:px-6 lg:grid-cols-[280px_1fr_280px] xl:gap-8">
+      <main className="mx-auto grid max-w-7xl grid-cols-1 items-start gap-6 px-4 pb-20 pt-12 md:px-6 lg:grid-cols-[280px_1fr_280px] xl:gap-8">
         {/* Table of Contents - Left Sidebar */}
-        <aside className="hidden lg:block">
-          <div className="sticky top-24 max-h-[calc(100vh-6rem)] overflow-y-auto">
+        <aside className="hidden lg:block relative">
+          <div className="sticky top-32 max-h-[calc(100vh-8rem)] overflow-y-auto pr-4 custom-scrollbar">
             <TableOfContents content={html} />
           </div>
         </aside>
@@ -265,38 +265,26 @@ export const BlogPost: React.FC = () => {
         {/* Article Content - Center */}
         <ArticleContent html={html} />
 
-        {/* CTA Sidebar - Right */}
-        <aside className="hidden lg:block">
-          <div className="sticky top-24 max-h-[calc(100vh-6rem)] overflow-y-auto space-y-8">
-            <div className="rounded-[32px] bg-slate-900 p-8 text-white shadow-2xl ring-1 ring-white/10">
-              <h3 className="text-2xl font-sans mb-4">Besoin d'un avis ?</h3>
-              <p className="text-sm leading-relaxed text-slate-300 mb-8">
-                Nos spécialistes vous accompagnent pour établir un diagnostic précis et un plan de traitement adapté.
+        <aside className="hidden lg:block relative">
+          <div className="sticky top-32 max-h-[calc(100vh-8rem)] overflow-y-auto pl-4 custom-scrollbar">
+            <div className="rounded-2xl bg-[#f0f1f1] p-6 text-[#1a1a1a]">
+              <h3 className="mb-3 text-lg font-bold">Besoin d'aide ?</h3>
+              <p className="mb-6 text-sm leading-relaxed text-[#4a4a4a]">
+                Nos kinés du sport sont là pour vous accompagner dans votre rééducation.
               </p>
-              <ul className="space-y-4 mb-8">
-                <li className="flex items-start gap-3 text-sm text-slate-200">
-                  <CheckCircle className="h-5 w-5 text-[#4ade80] shrink-0" />
-                  <span>Bilan initial complet (1h)</span>
-                </li>
-                <li className="flex items-start gap-3 text-sm text-slate-200">
-                  <CheckCircle className="h-5 w-5 text-[#4ade80] shrink-0" />
-                  <span>Tests de force (Isocinétisme)</span>
-                </li>
-                <li className="flex items-start gap-3 text-sm text-slate-200">
-                  <CheckCircle className="h-5 w-5 text-[#4ade80] shrink-0" />
-                  <span>Plateau technique dédié</span>
-                </li>
-              </ul>
-              <Button
-                href={DOCTOLIB_URL}
-                variant="booking"
-                className="w-full text-center text-sm whitespace-nowrap px-4"
-              >
-                Prendre rendez-vous
-              </Button>
-              <div className="mt-8 border-t border-white/10 pt-6 text-center">
-                <p className="text-xs text-slate-400 mb-1">Questions ? Appelez-nous au</p>
-                <a href={toTelHref(PHONE)} className="text-lg font-semibold text-white hover:text-[#4ade80] transition-colors">
+
+              <div className="space-y-3">
+                <Button
+                  href={DOCTOLIB_URL}
+                  className="w-full justify-center rounded-full bg-[#404134] py-3 text-sm font-medium text-white transition-colors hover:bg-[#2f3026]"
+                >
+                  Prendre RDV
+                </Button>
+
+                <a
+                  href={toTelHref(PHONE)}
+                  className="flex w-full items-center justify-center rounded-full bg-white py-3 text-sm font-bold text-[#1a1a1a] shadow-sm transition-colors hover:bg-gray-50"
+                >
                   {PHONE}
                 </a>
               </div>

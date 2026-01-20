@@ -10,6 +10,7 @@ interface NavbarProps {
     isDesktop: boolean;
     mobileMenuOpen: boolean;
     setMobileMenuOpen: (open: boolean) => void;
+    isHome?: boolean;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({
@@ -17,12 +18,23 @@ export const Navbar: React.FC<NavbarProps> = ({
     isNavVisible,
     isDesktop,
     mobileMenuOpen,
-    setMobileMenuOpen
+    setMobileMenuOpen,
+    isHome = false
 }) => {
+    // Colors are now constant regardless of scroll state
+    const textColor = 'text-slate-600 hover:text-primary';
+    const activeColor = 'text-primary';
+    const barColor = 'bg-primary';
+
+    // Visibility logic:
+    // Mobile: Hide if !isNavVisible AND menu closed.
+    // Desktop: Always visible (translate-y-0).
+    const transformClass = (!isNavVisible && !mobileMenuOpen) ? '-translate-y-full md:translate-y-0' : 'translate-y-0';
+
     return (
         <>
             {/* --- FLOATING NAVBAR WRAPPER --- */}
-            <div className={`fixed top-0 left-0 w-full z-50 flex justify-center items-start pointer-events-none transition-transform duration-300 h-14 md:h-16 ${!isNavVisible && !mobileMenuOpen ? '-translate-y-full md:translate-y-0' : 'translate-y-0'}`}>
+            <div className={`fixed top-0 left-0 w-full z-[100] flex justify-center items-start pointer-events-none transition-transform duration-300 h-14 md:h-16 ${transformClass}`}>
                 <motion.header
                     className="pointer-events-auto flex items-center justify-between w-full max-w-[1400px] px-4 md:px-6 py-2 md:py-3"
                     initial="top"
@@ -40,14 +52,14 @@ export const Navbar: React.FC<NavbarProps> = ({
                         scrolled: {
                             width: "95%",
                             marginTop: isDesktop ? "20px" : "10px",
-                            backgroundColor: "rgba(255, 255, 255, 0.90)", // increased opacity
+                            backgroundColor: "rgba(255, 255, 255, 0.90)",
                             backdropFilter: "blur(20px) saturate(180%)",
                             borderRadius: "9999px",
                             border: "1px solid rgba(255, 255, 255, 0.5)",
                             boxShadow: "0 8px 32px rgba(0, 0, 0, 0.12), 0 2px 8px rgba(0, 0, 0, 0.04)",
                         }
                     }}
-                    transition={{ duration: 0.2, ease: "easeInOut" }} // Faster, more responsive
+                    transition={{ duration: 0.2, ease: "easeInOut" }}
                 >
                     <div className="w-full flex justify-between items-center">
                         {/* Logo */}
@@ -59,7 +71,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                             <motion.img
                                 src={LOGO_URL}
                                 alt="BKS - Batignolles Kiné Sport"
-                                className="w-auto object-contain"
+                                className="w-auto object-contain transition-all duration-300"
                                 variants={{
                                     top: { height: isDesktop ? "2rem" : "1.75rem" },
                                     scrolled: { height: "1.75rem" }
@@ -76,47 +88,38 @@ export const Navbar: React.FC<NavbarProps> = ({
                             <NavLink
                                 to="/"
                                 className={({ isActive }) =>
-                                    `text-sm font-medium transition-colors relative group ${isActive ? 'text-primary' : 'text-slate-600 hover:text-primary'}`
+                                    `text-sm font-medium transition-colors relative group ${isActive ? activeColor : textColor}`
                                 }
                             >
                                 Accueil
-                                <span className="absolute -bottom-1 left-0 w-0 h-px bg-primary transition-all duration-300 group-hover:w-full" />
+                                <span className={`absolute -bottom-1 left-0 w-0 h-px ${barColor} transition-all duration-300 group-hover:w-full`} />
                             </NavLink>
                             <NavLink
                                 to="/pratiques"
                                 className={({ isActive }) =>
-                                    `text-sm font-medium transition-colors relative group ${isActive ? 'text-primary' : 'text-slate-600 hover:text-primary'}`
+                                    `text-sm font-medium transition-colors relative group ${isActive ? activeColor : textColor}`
                                 }
                             >
                                 Pratiques
-                                <span className="absolute -bottom-1 left-0 w-0 h-px bg-primary transition-all duration-300 group-hover:w-full" />
+                                <span className={`absolute -bottom-1 left-0 w-0 h-px ${barColor} transition-all duration-300 group-hover:w-full`} />
                             </NavLink>
-                            {/* <NavLink
-                                to="/blog"
-                                className={({ isActive }) =>
-                                    `text-sm font-medium transition-colors relative group ${isActive ? 'text-primary' : 'text-slate-600 hover:text-primary'}`
-                                }
-                            >
-                                Blog
-                                <span className="absolute -bottom-1 left-0 w-0 h-px bg-primary transition-all duration-300 group-hover:w-full" />
-                            </NavLink> */}
                             <NavLink
                                 to="/equipe"
                                 className={({ isActive }) =>
-                                    `text-sm font-medium transition-colors relative group ${isActive ? 'text-primary' : 'text-slate-600 hover:text-primary'}`
+                                    `text-sm font-medium transition-colors relative group ${isActive ? activeColor : textColor}`
                                 }
                             >
                                 Équipe
-                                <span className="absolute -bottom-1 left-0 w-0 h-px bg-primary transition-all duration-300 group-hover:w-full" />
+                                <span className={`absolute -bottom-1 left-0 w-0 h-px ${barColor} transition-all duration-300 group-hover:w-full`} />
                             </NavLink>
                             <NavLink
                                 to="/contact"
                                 className={({ isActive }) =>
-                                    `text-sm font-medium transition-colors relative group ${isActive ? 'text-primary' : 'text-slate-600 hover:text-primary'}`
+                                    `text-sm font-medium transition-colors relative group ${isActive ? activeColor : textColor}`
                                 }
                             >
                                 Contact
-                                <span className="absolute -bottom-1 left-0 w-0 h-px bg-primary transition-all duration-300 group-hover:w-full" />
+                                <span className={`absolute -bottom-1 left-0 w-0 h-px ${barColor} transition-all duration-300 group-hover:w-full`} />
                             </NavLink>
                         </nav>
 
@@ -136,7 +139,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                         {/* Burger Mobile */}
                         <button
                             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                            className="lg:hidden text-slate-900 p-2 -mr-2"
+                            className="lg:hidden p-2 -mr-2 text-slate-900"
                             aria-label="Menu"
                         >
                             {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -168,16 +171,6 @@ export const Navbar: React.FC<NavbarProps> = ({
                         Pratiques
                         <span className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-0 h-px bg-primary transition-all duration-300 group-hover:w-16" />
                     </NavLink>
-                    {/* <NavLink
-                        to="/blog"
-                        className={({ isActive }) =>
-                            `text-slate-900 text-2xl md:text-3xl font-sans font-medium tracking-tight transition-colors relative group ${isActive ? 'text-primary' : 'hover:text-primary'}`
-                        }
-                        onClick={() => setMobileMenuOpen(false)}
-                    >
-                        Blog
-                        <span className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-0 h-px bg-primary transition-all duration-300 group-hover:w-12" />
-                    </NavLink> */}
                     <NavLink
                         to="/equipe"
                         className={({ isActive }) =>

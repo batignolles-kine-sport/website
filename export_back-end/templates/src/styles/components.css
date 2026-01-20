@@ -1,0 +1,134 @@
+/* Component-level utility classes and overrides live here. */
+
+@layer components {
+	.step-card {
+		border-radius: theme('borderRadius.lg');
+		padding: 32px;
+		display: flex;
+		flex-direction: column;
+		gap: 12px;
+		background: theme('colors.surface.card');
+		border: 1px solid theme('colors.border.subtle');
+		box-shadow: theme('boxShadow.soft');
+		transition: all 0.3s ease;
+	}
+
+	.step-card:hover {
+		box-shadow: theme('boxShadow.hover');
+		transform: translateY(-2px);
+		border-color: rgba(26, 77, 46, 0.15);
+	}
+
+	.step-card--1,
+	.step-card--2,
+	.step-card--3 {
+		background: theme('colors.surface.card');
+		/* No more gradients */
+	}
+
+	.step-card__label {
+		font-size: 11px;
+		text-transform: uppercase;
+		letter-spacing: 0.1em;
+		color: theme('colors.primary.DEFAULT');
+		font-weight: 600;
+		opacity: 1;
+	}
+
+	.btn {
+		@apply inline-flex items-center justify-center font-medium tracking-wide transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed gap-2 rounded-sm md:rounded-sm min-h-[44px];
+	}
+
+	.btn:active {
+		transform: scale(0.97);
+	}
+
+	.btn-primary {
+		@apply bg-interactive-primary text-white hover:bg-interactive-primary-hover shadow-soft hover:shadow-hover border border-transparent;
+	}
+
+	.btn-secondary {
+		@apply bg-surface-elevated text-text-primary border border-border-medium hover:border-border-strong hover:shadow-soft shadow-none;
+	}
+
+	.btn-booking {
+		@apply shadow-soft text-base rounded-full px-6 py-3 bg-interactive-primary text-white hover:bg-interactive-primary-hover hover:shadow-hover transition-all border border-transparent;
+	}
+
+	.btn-tertiary {
+		@apply bg-transparent text-text-primary hover:text-interactive-primary underline underline-offset-4 px-0 py-0 font-medium;
+	}
+
+	.badge-pill {
+		@apply inline-flex items-center justify-center rounded-pill font-semibold text-2xs leading-none px-3 py-1;
+	}
+
+	.section-title {
+		@apply text-3xl md:text-4xl font-bold tracking-tight text-text-primary;
+	}
+
+	/* Spacing utilities - Apple-inspired density */
+	.spacing-compact {
+		gap: 1.5rem;
+	}
+
+	.spacing-normal {
+		gap: 2rem;
+	}
+
+	.spacing-loose {
+		gap: 2.5rem;
+	}
+
+	/* Fixed-height cards for visual consistency */
+	.card-fixed {
+		height: 35vh;
+		min-height: 300px;
+		max-height: 500px;
+	}
+
+	/* Compact section padding pattern */
+	.section-compact {
+		@apply py-12 md:py-16;
+	}
+
+	/* Reduced header margin for tighter sections */
+	.header-compact {
+		@apply mb-12;
+	}
+
+	/* Flip Card Styles */
+	.flip-card-container {
+		perspective: 1000px;
+		cursor: pointer;
+	}
+
+	.flip-card-inner {
+		position: relative;
+		width: 100%;
+		height: 100%;
+		transition: transform 0.6s;
+		transform-style: preserve-3d;
+	}
+
+	.flip-card-inner.flipped {
+		transform: rotateY(180deg);
+	}
+
+	.flip-card-face {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		backface-visibility: hidden;
+		-webkit-backface-visibility: hidden;
+	}
+
+	.flip-card-front {
+		z-index: 2;
+		transform: rotateY(0deg);
+	}
+
+	.flip-card-back {
+		transform: rotateY(180deg);
+	}
+}

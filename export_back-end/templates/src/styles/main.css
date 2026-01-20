@@ -1,0 +1,113 @@
+@import "tailwindcss";
+@import "./design-tokens.css";
+@import "./components.css";
+@config "../../tailwind.config.js";
+@source "../**/*.{js,ts,jsx,tsx}";
+@source "../../index.html";
+
+@theme {
+    /* Primary color now references the single source of truth */
+    --color-primary: var(--interactive-primary);
+    /* #404134 from design-tokens.css */
+    --color-surface: #F8F9FA;
+    --color-surface-card: #FFFFFF;
+    --color-surface-subtle: #fafbfc;
+    --color-text-main: #111111;
+    --color-text-muted: #666666;
+    --color-border-subtle: rgba(64, 65, 52, 0.08);
+    /* Updated to match new green */
+
+    /* Accent colors - Earth Premium */
+    --color-accent-slate: #64748b;
+    --color-accent-teal: #0d9488;
+    --color-accent-slate-dark: #334155;
+
+    /* Shadows now use neutral color for consistency */
+    --shadow-soft: 0 4px 12px rgba(64, 65, 52, 0.06);
+    --shadow-hover: 0 12px 24px rgba(64, 65, 52, 0.08);
+
+    --radius-sm: 12px;
+    --radius-lg: 24px;
+    --radius-pill: 9999px;
+}
+
+@layer base {
+
+    html,
+    body {
+        background-color: white;
+        overflow-x: hidden;
+    }
+
+    /* Accessibilité : Focus visible pour navigation clavier (Standard WCAG/Apple) */
+    :focus-visible {
+        outline: 2px solid var(--color-primary);
+        outline-offset: 2px;
+    }
+}
+
+/* Animations d'entrée CSS pour éviter le TBT/LCP delay de Framer Motion */
+@keyframes fade-up {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fade-up {
+    animation: fade-up 0.8s ease-out forwards;
+    opacity: 0;
+    will-change: transform, opacity;
+    /* État initial pour éviter le flash */
+}
+
+.delay-100 {
+    animation-delay: 0.1s;
+}
+
+.delay-200 {
+    animation-delay: 0.2s;
+}
+
+.delay-300 {
+    animation-delay: 0.3s;
+}
+
+.delay-400 {
+    animation-delay: 0.4s;
+}
+
+.delay-500 {
+    animation-delay: 0.5s;
+}
+
+/* Animation en vue (Intersection Observer alternative) */
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.animate-fade-in {
+    animation: fade-in 0.6s ease-out forwards;
+    opacity: 0;
+    will-change: opacity;
+}
+
+/* Hover scale effect (CSS only) */
+.hover-scale {
+    transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.hover-scale:hover {
+    transform: scale(1.02);
+}

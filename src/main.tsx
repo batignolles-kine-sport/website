@@ -1,6 +1,7 @@
 import React, { Suspense, lazy } from 'react';
 import { ViteReactSSG } from 'vite-react-ssg';
 import type { RouteRecord } from 'vite-react-ssg';
+import { Outlet } from 'react-router-dom';
 import { Layout } from './components/layout/Layout';
 import { Home } from './pages/Home';
 import { getRoutes } from './routes';
@@ -72,51 +73,74 @@ function ServicePageWrapper({ serviceId }: { serviceId: string }) {
     );
 }
 
+// Root Layout Component that wraps all pages
+function RootLayout() {
+    return (
+        <>
+            {/* Only render OpenWidget on client side */}
+            {typeof window !== 'undefined' && (
+                <Suspense fallback={null}>
+                    <OpenWidget />
+                </Suspense>
+            )}
+            <Layout>
+                <Outlet />
+            </Layout>
+        </>
+    );
+}
+
 // Route configuration for vite-react-ssg
 // Using RouteRecord type for proper SSG support
 const routes: RouteRecord[] = [
     {
         path: '/',
-        element: <Home />,
-    },
-    {
-        path: '/blog',
-        element: <BlogPage />,
-    },
-    // Blog posts - using lazy loading with getStaticPaths and loader
-    {
-        path: '/blog/:slug',
-        lazy: () => import('./pages/BlogPostSSG'),
-        entry: 'src/pages/BlogPostSSG.tsx',
-    },
-    {
-        path: '/equipe',
-        element: <TeamPage />,
-    },
-    {
-        path: '/pratiques',
-        element: <PratiquesPage />,
-    },
-    {
-        path: '/contact',
-        element: <ContactPage />,
-    },
-    {
-        path: '/mentions-legales',
-        element: <LegalPage />,
-    },
-    {
-        path: '/services/kine-sport',
-        element: <ServicePageWrapper serviceId="kine-sport" />,
-    },
-    {
-        path: '/services/reeducation-post-traumatique',
-        element: <ServicePageWrapper serviceId="reeducation-post-traumatique" />,
-    },
-    {
-        path: '/services/prevention-preparation-physique',
-        element: <ServicePageWrapper serviceId="prevention-preparation-physique" />,
-    },
+        element: <RootLayout />,
+        children: [
+            {
+                index: true,
+                element: <Home />,
+            },
+            {
+                path: 'blog',
+                element: <BlogPage />,
+            },
+            // Blog posts - using lazy loading with getStaticPaths and loader
+            {
+                path: 'blog/:slug',
+                lazy: () => import('./pages/BlogPostSSG'),
+                // Note: entry property might be needed for SSG specific logic if used elsewhere
+            },
+            {
+                path: 'equipe',
+                element: <TeamPage />,
+            },
+            {
+                path: 'pratiques',
+                element: <PratiquesPage />,
+            },
+            {
+                path: 'contact',
+                element: <ContactPage />,
+            },
+            {
+                path: 'mentions-legales',
+                element: <LegalPage />,
+            },
+            {
+                path: 'services/kine-sport',
+                element: <ServicePageWrapper serviceId="kine-sport" />,
+            },
+            {
+                path: 'services/reeducation-post-traumatique',
+                element: <ServicePageWrapper serviceId="reeducation-post-traumatique" />,
+            },
+            {
+                path: 'services/prevention-preparation-physique',
+                element: <ServicePageWrapper serviceId="prevention-preparation-physique" />,
+            },
+        ]
+    }
 ];
 
 // Fix pour l'accès à l'admin Decap CMS (client-side only)
@@ -137,19 +161,6 @@ export const createRoot = ViteReactSSG(
             // Register service worker (deferred)
             import('./registerSW');
         }
-    },
-    ({ children }) => {
-        return (
-            <>
-                {/* Only render OpenWidget on client side */}
-                {typeof window !== 'undefined' && (
-                    <Suspense fallback={null}>
-                        <OpenWidget />
-                    </Suspense>
-                )}
-                <Layout>{children}</Layout>
-            </>
-        );
     }
 );
 

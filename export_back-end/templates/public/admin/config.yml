@@ -1,0 +1,103 @@
+# TODO: CONFIGURATION À ADAPTER POUR VOTRE PROJET
+# public/admin/config.yml - Configuration Decap CMS
+
+backend:
+  name: github
+  # TODO: Remplacer par votre organisation/repo GitHub
+  repo: [ORGANISATION]/[NOM-REPO]
+  branch: main
+  auth_endpoint: /api/auth
+
+# Configuration des médias
+media_folder: "public/images/blog"
+public_folder: "/images/blog"
+
+# Collections (types de contenu)
+collections:
+  - name: "articles"
+    label: "Articles Blog"
+    folder: "src/posts/pathologies"
+    create: true
+    slug: "{{slug}}"
+    preview_path: "/blog/{{slug}}"
+    
+    # TODO: Adapter les champs selon vos besoins
+    fields:
+      - { 
+          label: "Titre", 
+          name: "title", 
+          widget: "string", 
+          required: true,
+          hint: "Titre principal de l'article"
+        }
+      
+      - { 
+          label: "Catégorie", 
+          name: "category", 
+          widget: "select", 
+          # TODO: Remplacer par vos catégories
+          options: ["Technologie", "Business", "Design", "Marketing", "Autre"],
+          required: true 
+        }
+      
+      - { 
+          label: "Type", 
+          name: "type", 
+          widget: "select",
+          # TODO: Adapter selon vos types d'articles 
+          options: ["Guide", "Actualité", "Tutoriel", "Étude de cas", "Opinion"],
+          required: true 
+        }
+      
+      - { 
+          label: "Image de couverture", 
+          name: "image", 
+          widget: "image", 
+          required: true,
+          hint: "Image principale de l'article (min 1200x630px)"
+        }
+      
+      - { 
+          label: "Temps de lecture", 
+          name: "readTime", 
+          widget: "string", 
+          default: "5 min",
+          hint: "Format: '5 min', '10 min', etc."
+        }
+      
+      - { 
+          label: "Extrait (résumé)", 
+          name: "excerpt", 
+          widget: "text", 
+          required: true,
+          hint: "Résumé court pour les listes et le SEO (150-200 caractères)"
+        }
+      
+      - { 
+          label: "Date de publication", 
+          name: "publishedAt", 
+          widget: "string",
+          # TODO: Adapter le format si nécessaire
+          pattern: ["^\\d{2} [A-Za-z]+ \\d{4}$", "Format: 17 Décembre 2025"],
+          hint: "Format: JJ Mois AAAA (ex: 17 Décembre 2025)"
+        }
+      
+      - { 
+          label: "Afficher sur le blog", 
+          name: "featured", 
+          widget: "boolean", 
+          default: true, 
+          required: false,
+          hint: "Décocher pour masquer cet article de la liste principale (il restera accessible via son URL)" 
+        }
+      
+      - { 
+          label: "Contenu", 
+          name: "body", 
+          widget: "markdown", 
+          required: true,
+          hint: "Contenu principal de l'article en Markdown"
+        }
+
+# TODO: Ajouter d'autres collections si nécessaire
+# Exemples: pages, équipe, témoignages, etc.

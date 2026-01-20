@@ -219,11 +219,25 @@ export const SchemaMarkup: React.FC<SchemaMarkupProps> = ({
   }));
 
   // Generate the schema
-  const schema = generateClinicSchema({
+  const clinicSchema = generateClinicSchema({
     domain,
     practitioners: practitionerData,
     aggregateRating,
   });
+
+  // Generate WebSite schema
+  const webSiteSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: 'Batignolles Kiné Sport',
+    alternateName: 'BKS Paris 17',
+    url: domain,
+  };
+
+  // Combine schemas
+  const schema = Array.isArray(clinicSchema)
+    ? [webSiteSchema, ...clinicSchema]
+    : [webSiteSchema, clinicSchema];
 
   // Convert to JSON string
   const schemaJson = JSON.stringify(schema, null, 2);

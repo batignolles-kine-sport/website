@@ -73,7 +73,14 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
   // Handle Scroll Logic
   useEffect(() => {
     const handleScroll = () => {
-      const currentScrollY = window.scrollY;
+      let currentScrollY = window.scrollY;
+
+      // Check for home scroll container (special case for desktop home page)
+      const homeScroll = document.querySelector('.lg\\:overflow-y-scroll');
+      if (homeScroll && window.innerWidth >= 1024) {
+        currentScrollY = homeScroll.scrollTop;
+      }
+
       const isScrollingDown = currentScrollY > lastScrollY.current;
 
       // Liquid Glass State
@@ -96,8 +103,20 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+
+    // Listen to Home container scroll as well
+    const homeScroll = document.querySelector('.lg\\:overflow-y-scroll');
+    if (homeScroll) {
+      homeScroll.addEventListener('scroll', handleScroll, { passive: true });
+    }
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      if (homeScroll) {
+        homeScroll.removeEventListener('scroll', handleScroll);
+      }
+    };
+  }, [location.pathname]);
 
   // Bloquer le scroll quand menu mobile ouvert
   useEffect(() => {
@@ -125,6 +144,7 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
         isDesktop={isDesktop}
         mobileMenuOpen={mobileMenuOpen}
         setMobileMenuOpen={setMobileMenuOpen}
+        isHome={location.pathname === '/'}
       />
 
       {/* Spacer pour compenser la navbar fixed */}
