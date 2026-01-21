@@ -83,6 +83,8 @@ interface ClinicSchema {
   }>;
   sameAs: string[];
   knowsAbout: string[];
+  acceptsReservations?: boolean;
+  paymentAccepted?: string;
   aggregateRating?: AggregateRating;
 }
 
@@ -96,7 +98,7 @@ export function generateClinicSchema(options: ClinicSchemaOptions) {
   // Main organization/clinic schema
   const clinicSchema: ClinicSchema = {
     '@context': 'https://schema.org',
-    '@type': ['LocalBusiness', 'MedicalBusiness'],
+    '@type': ['LocalBusiness', 'MedicalBusiness', 'Physiotherapy'],
     '@id': `${domain}/#organization`,
     name: 'BKS - Batignolles Kiné Sport',
     alternateName: 'Batignolles Kiné Sport',
@@ -112,8 +114,8 @@ export function generateClinicSchema(options: ClinicSchemaOptions) {
     },
     geo: {
       '@type': 'GeoCoordinates',
-      latitude: 48.8822,
-      longitude: 2.3244,
+      latitude: 48.8833,
+      longitude: 2.3212,
     },
     areaServed: {
       '@type': 'City',
@@ -129,9 +131,11 @@ export function generateClinicSchema(options: ClinicSchemaOptions) {
         '@type': 'OpeningHoursSpecification',
         dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
         opens: '08:00',
-        closes: '19:00',
+        closes: '21:00',
       },
     ],
+    acceptsReservations: true,
+    paymentAccepted: 'Cash, Credit Card, Carte Vitale',
     sameAs: [DOCTOLIB_URL, INSTAGRAM_URL, GOOGLE_MAPS_URL],
     knowsAbout: [
       'Médecine du sport',
@@ -225,6 +229,24 @@ export const SchemaMarkup: React.FC<SchemaMarkupProps> = ({
     aggregateRating,
   });
 
+  // Generate Organization schema with logo
+  const organizationSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    '@id': `${domain}/#organization`,
+    name: 'BKS - Batignolles Kiné Sport',
+    alternateName: 'Batignolles Kiné Sport',
+    url: domain,
+    logo: {
+      '@type': 'ImageObject',
+      url: `${domain}/favicon-600x600.png`,
+      width: 600,
+      height: 600,
+      caption: 'Batignolles Kiné Sport Logo',
+    },
+    sameAs: [DOCTOLIB_URL, INSTAGRAM_URL, GOOGLE_MAPS_URL],
+  };
+
   // Generate WebSite schema
   const webSiteSchema = {
     '@context': 'https://schema.org',
@@ -234,10 +256,10 @@ export const SchemaMarkup: React.FC<SchemaMarkupProps> = ({
     url: domain,
   };
 
-  // Combine schemas
+  // Combine schemas (Organization first for Knowledge Panel optimization)
   const schema = Array.isArray(clinicSchema)
-    ? [webSiteSchema, ...clinicSchema]
-    : [webSiteSchema, clinicSchema];
+    ? [organizationSchema, webSiteSchema, ...clinicSchema]
+    : [organizationSchema, webSiteSchema, clinicSchema];
 
   // Convert to JSON string
   const schemaJson = JSON.stringify(schema, null, 2);

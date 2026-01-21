@@ -1,8 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Head } from 'vite-react-ssg';
 import { SEO } from '../components/layout/SEO';
 import { Section } from '../components/layout/Section';
 import { DOCTOLIB_URL } from '../utils/constants';
+import { generateFAQSchema } from '../utils/structuredData';
 import {
     Activity,
     HeartPulse,
@@ -163,6 +165,30 @@ export const Pratiques: React.FC = () => {
                 title="Nos Pratiques - Kinésithérapie du Sport Paris 17"
                 description="Découvrez toutes nos pratiques de kinésithérapie : sport, rééducation post-op, kiné de la femme, thérapie manuelle et techniques avancées. Cabinet à Paris 17 Batignolles."
             />
+
+            {/* FAQ Schema */}
+            <Head>
+                <script type="application/ld+json">
+                    {JSON.stringify(generateFAQSchema([
+                        {
+                            question: 'Quelles sont vos spécialités en kinésithérapie ?',
+                            answer: 'Nous sommes spécialisés en kinésithérapie du sport, rééducation globale post-opératoire, prise en charge du coureur et kinésithérapie de la femme (rééducation abdominale post-partum). Notre équipe utilise des techniques avancées comme la thérapie manuelle, les ondes de choc, le dry needling et l\'analyse de la foulée.'
+                        },
+                        {
+                            question: 'Prenez-vous en charge les sportifs de tous niveaux ?',
+                            answer: 'Oui, nous accompagnons tous les profils de sportifs, du débutant à l\'athlète confirmé. Notre approche personnalisée s\'adapte à vos objectifs spécifiques, que ce soit pour une reprise après blessure, une optimisation de performance ou de la prévention.'
+                        },
+                        {
+                            question: 'Combien de séances sont nécessaires ?',
+                            answer: 'Le nombre de séances varie selon votre pathologie et vos objectifs. Lors du premier bilan, nous établissons un plan de traitement personnalisé. En moyenne, un suivi peut aller de quelques séances pour une blessure mineure à plusieurs semaines pour une rééducation post-opératoire.'
+                        },
+                        {
+                            question: 'Proposez-vous de la réathlétisation ?',
+                            answer: 'Oui, la réathlétisation fait partie intégrante de notre approche. Nous vous accompagnons progressivement du retour au mouvement jusqu\'à la reprise sportive complète, en validant les critères de performance et de sécurité à chaque étape.'
+                        }
+                    ]))}
+                </script>
+            </Head>
 
             {/* Hero Section */}
             <section className="relative border-b border-slate-100 min-h-[80vh] flex items-center justify-center">
@@ -379,6 +405,89 @@ export const Pratiques: React.FC = () => {
                                 </ul>
                             </motion.article>
                         ))}
+                    </div>
+                </motion.div>
+            </Section>
+
+
+            {/* FAQ Section */}
+            <Section spacing="default" className="border-b border-slate-100 bg-slate-50/50">
+                <motion.div
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, margin: "-100px" }}
+                    variants={staggerContainer}
+                    className="space-y-12"
+                >
+                    <div className="text-center max-w-3xl mx-auto space-y-4">
+                        <h2 className="text-3xl md:text-4xl font-bold text-text-main">
+                            Questions <span className="text-gradient-primary">fréquentes</span>
+                        </h2>
+                        <p className="text-lg text-text-muted">
+                            Tout ce que vous devez savoir sur nos pratiques
+                        </p>
+                    </div>
+
+                    <div className="max-w-3xl mx-auto space-y-4">
+                        <motion.details
+                            variants={fadeUp}
+                            className="bg-white p-6 rounded-2xl shadow-sm cursor-pointer group border border-slate-100 hover:shadow-md transition-shadow"
+                        >
+                            <summary className="font-semibold list-none flex justify-between items-center text-text-main text-lg">
+                                Quelles sont vos spécialités en kinésithérapie ?
+                                <span className="transition group-open:rotate-180 text-primary">
+                                    <ChevronDown size={24} />
+                                </span>
+                            </summary>
+                            <p className="text-text-muted mt-4 leading-relaxed">
+                                Nous sommes spécialisés en kinésithérapie du sport, rééducation globale post-opératoire, prise en charge du coureur et kinésithérapie de la femme (rééducation abdominale post-partum). Notre équipe utilise des techniques avancées comme la thérapie manuelle, les ondes de choc, le dry needling et l'analyse de la foulée.
+                            </p>
+                        </motion.details>
+
+                        <motion.details
+                            variants={fadeUp}
+                            className="bg-white p-6 rounded-2xl shadow-sm cursor-pointer group border border-slate-100 hover:shadow-md transition-shadow"
+                        >
+                            <summary className="font-semibold list-none flex justify-between items-center text-text-main text-lg">
+                                Prenez-vous en charge les sportifs de tous niveaux ?
+                                <span className="transition group-open:rotate-180 text-primary">
+                                    <ChevronDown size={24} />
+                                </span>
+                            </summary>
+                            <p className="text-text-muted mt-4 leading-relaxed">
+                                Oui, nous accompagnons tous les profils de sportifs, du débutant à l'athlète confirmé. Notre approche personnalisée s'adapte à vos objectifs spécifiques, que ce soit pour une reprise après blessure, une optimisation de performance ou de la prévention.
+                            </p>
+                        </motion.details>
+
+                        <motion.details
+                            variants={fadeUp}
+                            className="bg-white p-6 rounded-2xl shadow-sm cursor-pointer group border border-slate-100 hover:shadow-md transition-shadow"
+                        >
+                            <summary className="font-semibold list-none flex justify-between items-center text-text-main text-lg">
+                                Combien de séances sont nécessaires ?
+                                <span className="transition group-open:rotate-180 text-primary">
+                                    <ChevronDown size={24} />
+                                </span>
+                            </summary>
+                            <p className="text-text-muted mt-4 leading-relaxed">
+                                Le nombre de séances varie selon votre pathologie et vos objectifs. Lors du premier bilan, nous établissons un plan de traitement personnalisé. En moyenne, un suivi peut aller de quelques séances pour une blessure mineure à plusieurs semaines pour une rééducation post-opératoire.
+                            </p>
+                        </motion.details>
+
+                        <motion.details
+                            variants={fadeUp}
+                            className="bg-white p-6 rounded-2xl shadow-sm cursor-pointer group border border-slate-100 hover:shadow-md transition-shadow"
+                        >
+                            <summary className="font-semibold list-none flex justify-between items-center text-text-main text-lg">
+                                Proposez-vous de la réathlétisation ?
+                                <span className="transition group-open:rotate-180 text-primary">
+                                    <ChevronDown size={24} />
+                                </span>
+                            </summary>
+                            <p className="text-text-muted mt-4 leading-relaxed">
+                                Oui, la réathlétisation fait partie intégrante de notre approche. Nous vous accompagnons progressivement du retour au mouvement jusqu'à la reprise sportive complète, en validant les critères de performance et de sécurité à chaque étape.
+                            </p>
+                        </motion.details>
                     </div>
                 </motion.div>
             </Section>

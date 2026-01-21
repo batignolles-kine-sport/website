@@ -23,6 +23,7 @@ export interface StructuredDataLocalBusiness {
     latitude: number;
     longitude: number;
   };
+  hasMap: string;
   telephone: string;
   email: string;
   url: string;
@@ -39,17 +40,19 @@ export interface StructuredDataLocalBusiness {
     opens: string;
     closes: string;
   }>;
+  acceptsReservations?: boolean;
+  paymentAccepted?: string;
 }
 
 /**
  * Génère le structured data LocalBusiness pour Batignolles Kiné Sport
- * Google utilisera automatiquement les avis de Google My Business (36 avis)
- * IMPORTANT : Ne pas inclure aggregateRating ici pour éviter les pénalités Google
+ * Google utilisera automatiquement les avis de Google My Business via le lien sameAs/hasMap
+ * IMPORTANT : Ne pas hardcoder aggregateRating sauf si les avis sont affichés sur le site via API
  */
 export function generateLocalBusinessSchema(): StructuredDataLocalBusiness {
   return {
     '@context': 'https://schema.org',
-    '@type': ['LocalBusiness', 'MedicalBusiness'],
+    '@type': ['LocalBusiness', 'MedicalBusiness', 'Physiotherapy'],
     '@id': `${typeof window !== 'undefined' ? window.location.origin : 'https://batignolleskinesport.fr'}/#organization`,
     name: 'Batignolles Kiné Sport',
     alternateName: 'BKS',
@@ -64,9 +67,10 @@ export function generateLocalBusinessSchema(): StructuredDataLocalBusiness {
     },
     geo: {
       '@type': 'GeoCoordinates',
-      latitude: 48.8822,
-      longitude: 2.3244,
+      latitude: 48.8833,
+      longitude: 2.3212,
     },
+    hasMap: 'https://www.google.com/maps?cid=5317377546682704321',
     telephone: '+33962434961',
     email: 'contact@batignolleskinesport.fr',
     url: 'https://batignolleskinesport.fr',
@@ -75,6 +79,8 @@ export function generateLocalBusinessSchema(): StructuredDataLocalBusiness {
       'Médecine du sport',
       'Kinésithérapie',
       'Rééducation orthopédique',
+      'Thérapie manuelle',
+      'Réathlétisation'
     ],
     areaServed: {
       '@type': 'City',
@@ -83,15 +89,18 @@ export function generateLocalBusinessSchema(): StructuredDataLocalBusiness {
     sameAs: [
       'https://www.doctolib.fr/cabinet-de-kinesitherapie/paris/batignolles-kine-sport',
       'https://www.instagram.com/batignolleskinesport/',
+      'https://www.google.com/maps?cid=5317377546682704321' // Critical for connecting reviews
     ],
     openingHoursSpecification: [
       {
         '@type': 'OpeningHoursSpecification',
         dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
         opens: '08:00',
-        closes: '19:00',
+        closes: '21:00',
       },
     ],
+    acceptsReservations: true,
+    paymentAccepted: 'Cash, Credit Card, Carte Vitale',
   };
 }
 

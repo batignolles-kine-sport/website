@@ -208,6 +208,92 @@ Réponse
 
 ---
 
+## 11. Optimisation Featured Snippets (Position Zero)
+
+Pour maximiser les chances d'apparaître en Featured Snippet sur Google, appliquez ces techniques :
+
+### A. Formulation "Réponse Directe" (Answer-First)
+
+Chaque section H2 doit commencer par une réponse directe de 2-3 phrases.
+
+**Avant :**
+
+```markdown
+## Comment traiter une tendinite ?
+La tendinite est une pathologie complexe qui nécessite une approche progressive...
+```
+
+**Après :**
+
+```markdown
+## Comment traiter une tendinite ?
+**Réponse directe :** Un traitement efficace de tendinite combine repos relatif, 
+anti-inflammatoires naturels et rééducation progressive sur 4-8 semaines.
+
+La tendinite est une pathologie complexe qui nécessite une approche progressive...
+```
+
+### B. Boîte de Définition (Articles Pathologies)
+
+Ajoutez une définition encadrée (40-60 mots) après l'introduction :
+
+```markdown
+> **Définition** : La [pathologie] est [cause principale], caractérisée par 
+> [symptômes principaux]. Elle touche principalement [population concernée] 
+> et se traite par [approche générale].
+```
+
+### C. Tableaux Stratégiques
+
+Créez des tableaux comparatifs pour structurer l'information :
+
+**Tableau Symptômes/Actions :**
+
+```markdown
+| Symptôme | Signification | Action recommandée |
+|----------|---------------|-------------------|
+| Douleur matinale | Inflammation active | Réduire la charge |
+| Douleur à l'effort seul | Tendon surchargé | Repos relatif |
+| Douleur au repos | Phase aiguë | Consultation urgente |
+```
+
+**Tableau Phases de traitement :**
+
+```markdown
+| Phase | Durée | Objectif | Actions clés |
+|-------|-------|----------|-------------|
+| Aiguë | S1-S2 | Calmer douleur | Repos, isométrie |
+| Renforcement | S3-S8 | Reconstruire | Excentrique, charges |
+| Réathlétisation | S8+ | Retour terrain | Pliométrie, sport |
+```
+
+### D. Listes Numérotées pour les Processus
+
+Convertissez les guides "Comment faire" en listes numérotées avec résumé :
+
+```markdown
+### Comment reprendre la course après blessure ?
+
+**Résumé des étapes :**
+1. Bilan kiné et feu vert médical
+2. Reprise progressive (marche → course alternée)
+3. Réintroduction du volume puis de l'intensité
+
+#### Étape détaillée :
+1. **Bilan initial** : Évaluation complète de la blessure...
+2. **Reprise progressive** : Commencez par des séances courtes...
+3. **Réintroduction** : Une fois le volume récupéré...
+```
+
+### E. Cibler les "People Also Ask" (PAA)
+
+* Recherchez les questions PAA sur Google pour votre mot-clé
+* Intégrez ces questions exactes comme H3 dans votre FAQ
+* Répondez en 40-60 mots maximum pour chaque question PAA
+
+---
+
 **Document créé** : 14 janvier 2026  
+**Mis à jour** : 21 janvier 2026 (ajout section Featured Snippets)  
 **Basé sur** : Bonnes pratiques SEO & Content Marketing  
 **À utiliser pour** : Tous vos nouveaux articles blog

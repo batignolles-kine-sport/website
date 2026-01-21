@@ -1,9 +1,11 @@
 import React from 'react';
 import { Navigate, useParams } from 'react-router-dom';
 import { CheckCircle, Clock, Calendar } from 'lucide-react';
+import { Head } from 'vite-react-ssg';
 import { SEO } from '../components/layout/SEO';
 import { Button } from '../components/ui/Button';
 import { SERVICES, DOCTOLIB_URL } from '../utils/constants';
+import { generateFAQSchema } from '../utils/structuredData';
 
 export const ServiceDetail: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -37,6 +39,22 @@ export const ServicePage: React.FC<ServicePageProps> = ({ serviceId }) => {
         title={`${service.title} - Batignolles Kiné Sport`}
         description={service.shortDescription}
       />
+
+      {/* FAQ Schema */}
+      <Head>
+        <script type="application/ld+json">
+          {JSON.stringify(generateFAQSchema([
+            {
+              question: 'Faut-il une ordonnance ?',
+              answer: 'Oui, pour bénéficier d\'une prise en charge par la Sécurité Sociale et votre mutuelle, une prescription médicale est nécessaire. Vous pouvez cependant consulter sans ordonnance (hors parcours de soins).'
+            },
+            {
+              question: 'Que dois-je apporter à la première séance ?',
+              answer: 'Votre ordonnance, votre carte vitale, votre carte de mutuelle, ainsi que les éventuels examens complémentaires (radios, IRM, échographies). Prévoyez une tenue confortable.'
+            }
+          ]))}
+        </script>
+      </Head>
 
       {/* Header */}
       <div className="py-16 md:py-20">
