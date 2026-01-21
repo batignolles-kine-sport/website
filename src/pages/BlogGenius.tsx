@@ -40,6 +40,7 @@ type BlogPost = {
     author?: string;
     date?: string;
     featured?: boolean;
+    keywords?: string[];
 };
 
 import blogPostsData from '../data/blog-metadata.json';
@@ -81,8 +82,8 @@ const BlogCardGenius = React.memo(({ post, showHiddenBadge }: { post: BlogPost; 
 
     return (
         <article className={`flex flex-col border rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all ${isHidden
-                ? 'bg-gray-50 border-2 border-orange-300 opacity-75'
-                : 'bg-white border-gray-100'
+            ? 'bg-gray-50 border-2 border-orange-300 opacity-75'
+            : 'bg-white border-gray-100'
             }`}>
             <Link to={`/blog/${post.slug}`} className="block h-48 overflow-hidden relative">
                 {isHidden && showHiddenBadge && (
@@ -110,8 +111,8 @@ const BlogCardGenius = React.memo(({ post, showHiddenBadge }: { post: BlogPost; 
             <div className="p-6 flex flex-col flex-grow">
                 <div className="flex items-center text-xs text-text-muted mb-3 space-x-3">
                     <span className={`px-2 py-1 rounded font-medium ${isHidden
-                            ? 'bg-orange-100 text-orange-700'
-                            : 'bg-primary/10 text-primary'
+                        ? 'bg-orange-100 text-orange-700'
+                        : 'bg-primary/10 text-primary'
                         }`}>
                         {post.category}
                     </span>
@@ -172,9 +173,42 @@ export const BlogGenius: React.FC = () => {
     const activeCategory = searchParams.get('category') || '';
     const currentPage = parseInt(searchParams.get('page') || '1', 10);
 
+    // Helper to infer specific category from post metadata
+    const inferCategory = (post: BlogPost): string => {
+        // 1. If category is already specific (e.g. 'Genou'), return it
+        const specificCategories = [
+            'Genou', 'Cheville', 'Hanche', 'Cuisse', 'Jambe', 'Pied',
+            'Épaule', 'Coude', 'Poignet',
+            'Dos', 'Tête',
+            'Grossesse', 'Post-partum', 'Périnée',
+            'Prévention', 'Os'
+        ];
+        if (specificCategories.includes(post.category)) return post.category;
+
+        // 2. Map from keywords patterns to specific categories
+        const keywordString = (post.keywords || []).join(' ').toLowerCase() + ' ' + post.title.toLowerCase();
+
+        if (/genou|croisé|lca|rotul|menisqu|ligament/.test(keywordString)) return 'Genou';
+        if (/cheville|entorse|achille/.test(keywordString)) return 'Cheville';
+        if (/hanche|fai|pubalgie|aine/.test(keywordString)) return 'Hanche';
+        if (/épaule|coiffe|bourse|conflit/.test(keywordString)) return 'Épaule';
+        if (/coude|tennis elbow|golf/.test(keywordString)) return 'Coude';
+        if (/poignet|carpien|main/.test(keywordString)) return 'Poignet';
+        if (/dos|lombaire|cervical|sciatique|hernie/.test(keywordString)) return 'Dos';
+        if (/tête|commotion|machoire/.test(keywordString)) return 'Tête';
+        if (/grossesse|enceinte/.test(keywordString)) return 'Grossesse';
+        if (/post-partum|césarienne|diastasis/.test(keywordString)) return 'Post-partum';
+        if (/périnée|fuite|prolapsus/.test(keywordString)) return 'Périnée';
+        if (/prévention|récupération|échauffement/.test(keywordString)) return 'Prévention';
+        if (/os|fracture|périostite/.test(keywordString)) return 'Os';
+
+        // 3. Fallback based on 'type' field which is often specific
+        return post.type || post.category;
+    };
+
     // Get all unique categories from posts
     const allCategories = useMemo(
-        () => Array.from(new Set(BLOG_POSTS.map((post) => post.category))),
+        () => Array.from(new Set(BLOG_POSTS.map(inferCategory))),
         []
     );
 
@@ -182,7 +216,8 @@ export const BlogGenius: React.FC = () => {
     const categoryCounts = useMemo(() => {
         const counts: Record<string, number> = {};
         BLOG_POSTS.forEach((post) => {
-            counts[post.category] = (counts[post.category] || 0) + 1;
+            const cat = inferCategory(post);
+            counts[cat] = (counts[cat] || 0) + 1;
         });
         return counts;
     }, []);
@@ -191,7 +226,8 @@ export const BlogGenius: React.FC = () => {
     const hiddenCounts = useMemo(() => {
         const counts: Record<string, number> = {};
         BLOG_POSTS.filter(post => post.featured === false).forEach((post) => {
-            counts[post.category] = (counts[post.category] || 0) + 1;
+            const cat = inferCategory(post);
+            counts[cat] = (counts[cat] || 0) + 1;
         });
         return counts;
     }, []);
@@ -220,7 +256,7 @@ export const BlogGenius: React.FC = () => {
         // Then filter by category if active
         if (activeCategory) {
             posts = posts.filter(
-                (post) => slugifyCategory(post.category) === activeCategory.toLowerCase()
+                (post) => slugifyCategory(inferCategory(post)) === activeCategory.toLowerCase()
             );
         }
 

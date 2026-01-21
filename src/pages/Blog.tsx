@@ -40,6 +40,7 @@ type BlogPost = {
   author?: string;
   date?: string;
   featured?: boolean;
+  keywords?: string[];
 };
 
 import blogPostsData from '../data/blog-metadata.json';
@@ -150,17 +151,51 @@ export const Blog: React.FC = () => {
   const activeCategory = searchParams.get('category') || '';
   const currentPage = parseInt(searchParams.get('page') || '1', 10);
 
-  // Get all unique categories from posts
+  // Helper to infer specific category from post metadata
+  const inferCategory = (post: BlogPost): string => {
+    // 1. If category is already specific (e.g. 'Genou'), return it
+    const specificCategories = [
+      'Genou', 'Cheville', 'Hanche', 'Cuisse', 'Jambe', 'Pied',
+      'Épaule', 'Coude', 'Poignet',
+      'Dos', 'Tête',
+      'Grossesse', 'Post-partum', 'Périnée',
+      'Prévention', 'Os'
+    ];
+    if (specificCategories.includes(post.category)) return post.category;
+
+    // 2. Map from keywords patterns to specific categories
+    const keywordString = (post.keywords || []).join(' ').toLowerCase() + ' ' + post.title.toLowerCase();
+
+    if (/genou|croisé|lca|rotul|menisqu|ligament/.test(keywordString)) return 'Genou';
+    if (/cheville|entorse|achille/.test(keywordString)) return 'Cheville';
+    if (/hanche|fai|pubalgie|aine/.test(keywordString)) return 'Hanche';
+    if (/épaule|coiffe|bourse|conflit/.test(keywordString)) return 'Épaule';
+    if (/coude|tennis elbow|golf/.test(keywordString)) return 'Coude';
+    if (/poignet|carpien|main/.test(keywordString)) return 'Poignet';
+    if (/dos|lombaire|cervical|sciatique|hernie/.test(keywordString)) return 'Dos';
+    if (/tête|commotion|machoire/.test(keywordString)) return 'Tête';
+    if (/grossesse|enceinte/.test(keywordString)) return 'Grossesse';
+    if (/post-partum|césarienne|diastasis/.test(keywordString)) return 'Post-partum';
+    if (/périnée|fuite|prolapsus/.test(keywordString)) return 'Périnée';
+    if (/prévention|récupération|échauffement/.test(keywordString)) return 'Prévention';
+    if (/os|fracture|périostite/.test(keywordString)) return 'Os';
+
+    // 3. Fallback based on 'type' field which is often specific
+    return post.type || post.category;
+  };
+
+  // Get all unique infered categories
   const allCategories = useMemo(
-    () => Array.from(new Set(BLOG_POSTS.map((post) => post.category))),
+    () => Array.from(new Set(BLOG_POSTS.map(inferCategory))),
     []
   );
 
-  // Count articles per category
+  // Count articles per infered category
   const categoryCounts = useMemo(() => {
     const counts: Record<string, number> = {};
     BLOG_POSTS.forEach((post) => {
-      counts[post.category] = (counts[post.category] || 0) + 1;
+      const cat = inferCategory(post);
+      counts[cat] = (counts[cat] || 0) + 1;
     });
     return counts;
   }, []);
@@ -185,7 +220,7 @@ export const Blog: React.FC = () => {
     // Then filter by category if active
     if (activeCategory) {
       posts = posts.filter(
-        (post) => slugifyCategory(post.category) === activeCategory.toLowerCase()
+        (post) => slugifyCategory(inferCategory(post)) === activeCategory.toLowerCase()
       );
     }
     return posts;

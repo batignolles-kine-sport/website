@@ -15,6 +15,7 @@ const Blog = lazy(() => import('./pages/Blog').then((m) => ({ default: m.Blog })
 const Contact = lazy(() => import('./pages/Contact').then((m) => ({ default: m.Contact })));
 const Legal = lazy(() => import('./pages/Legal').then((m) => ({ default: m.Legal })));
 const ServicePage = lazy(() => import('./pages/ServiceDetail').then((m) => ({ default: m.ServicePage })));
+const NotFound = lazy(() => import('./pages/NotFound').then((m) => ({ default: m.NotFound })));
 
 // OpenWidget - client only component
 const OpenWidget = lazy(() => import('./components/OpenWidget'));
@@ -69,6 +70,14 @@ function ServicePageWrapper({ serviceId }: { serviceId: string }) {
     return (
         <Suspense fallback={<LoadingFallback />}>
             <ServicePage serviceId={serviceId} />
+        </Suspense>
+    );
+}
+
+function NotFoundPage() {
+    return (
+        <Suspense fallback={<LoadingFallback />}>
+            <NotFound />
         </Suspense>
     );
 }
@@ -136,6 +145,10 @@ const routes: RouteRecord[] = [
             {
                 path: 'services/prevention-preparation-physique',
                 element: <ServicePageWrapper serviceId="prevention-preparation-physique" />,
+            },
+            {
+                path: '*',
+                element: <NotFoundPage />,
             },
         ]
     }
