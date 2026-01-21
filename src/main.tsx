@@ -77,12 +77,10 @@ function ServicePageWrapper({ serviceId }: { serviceId: string }) {
 function RootLayout() {
     return (
         <>
-            {/* Only render OpenWidget on client side */}
-            {typeof window !== 'undefined' && (
-                <Suspense fallback={null}>
-                    <OpenWidget />
-                </Suspense>
-            )}
+            {/* OpenWidget handles client-only rendering internally via useEffect */}
+            <Suspense fallback={null}>
+                <OpenWidget />
+            </Suspense>
             <Layout>
                 <Outlet />
             </Layout>

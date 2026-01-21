@@ -207,11 +207,10 @@ export const SchemaMarkup: React.FC<SchemaMarkupProps> = ({
   practitioners = [],
   aggregateRating,
 }) => {
-  // Get the production domain from window.location or use the production fallback
-  const domain =
-    typeof window !== 'undefined'
-      ? window.location.origin
-      : PRODUCTION_DOMAIN;
+  // Always use production domain for schema markup
+  // This ensures consistency between SSR and client hydration,
+  // and structured data should always point to production URLs
+  const domain = PRODUCTION_DOMAIN;
 
   // Transform team members to practitioner data format
   const practitionerData: PractitionerData[] = practitioners.map((member) => ({

@@ -72,6 +72,8 @@ export const Navbar: React.FC<NavbarProps> = ({
                                 src={LOGO_URL}
                                 alt="BKS - Batignolles Kiné Sport"
                                 className="w-auto object-contain transition-all duration-300"
+                                width="140"
+                                height="32"
                                 variants={{
                                     top: { height: isDesktop ? "2rem" : "1.75rem" },
                                     scrolled: { height: "1.75rem" }

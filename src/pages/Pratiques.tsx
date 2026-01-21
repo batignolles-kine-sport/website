@@ -321,6 +321,78 @@ export const Pratiques: React.FC = () => {
                 </motion.div>
             </Section>
 
+            {/* Comparison Section - Featured Snippet Optimized */}
+            <Section spacing="default" className="border-b border-slate-100">
+                <motion.div
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, margin: "-100px" }}
+                    variants={staggerContainer}
+                    className="space-y-12"
+                >
+                    <div className="text-center max-w-3xl mx-auto space-y-4">
+                        <h2 className="text-3xl md:text-4xl font-bold text-text-main">
+                            Kiné du Sport vs Kiné Classique : <span className="text-gradient-primary">Quelle différence ?</span>
+                        </h2>
+                        <p className="text-lg text-text-muted">
+                            <strong>Réponse directe :</strong> La kinésithérapie du sport se concentre sur la performance,
+                            la prévention et le retour terrain optimisé, tandis que la kiné classique vise principalement
+                            la rééducation post-traumatique et le retour à l'autonomie quotidienne.
+                        </p>
+                    </div>
+
+                    <motion.div variants={fadeUp} className="overflow-x-auto">
+                        <table className="w-full max-w-4xl mx-auto bg-white rounded-2xl shadow-card overflow-hidden">
+                            <thead>
+                                <tr className="bg-slate-50 border-b border-slate-100">
+                                    <th className="px-6 py-4 text-left text-sm font-bold text-slate-900">Critère</th>
+                                    <th className="px-6 py-4 text-left text-sm font-bold text-primary">Kiné du Sport</th>
+                                    <th className="px-6 py-4 text-left text-sm font-bold text-slate-600">Kiné Classique</th>
+                                </tr>
+                            </thead>
+                            <tbody className="divide-y divide-slate-100">
+                                <tr className="hover:bg-slate-50/50 transition-colors">
+                                    <td className="px-6 py-4 text-sm font-medium text-slate-900">Approche</td>
+                                    <td className="px-6 py-4 text-sm text-slate-700">Performance + prévention + retour terrain</td>
+                                    <td className="px-6 py-4 text-sm text-slate-500">Rééducation post-traumatique</td>
+                                </tr>
+                                <tr className="hover:bg-slate-50/50 transition-colors">
+                                    <td className="px-6 py-4 text-sm font-medium text-slate-900">Objectif final</td>
+                                    <td className="px-6 py-4 text-sm text-slate-700">Retour au sport optimisé</td>
+                                    <td className="px-6 py-4 text-sm text-slate-500">Retour à l'autonomie quotidienne</td>
+                                </tr>
+                                <tr className="hover:bg-slate-50/50 transition-colors">
+                                    <td className="px-6 py-4 text-sm font-medium text-slate-900">Analyse</td>
+                                    <td className="px-6 py-4 text-sm text-slate-700">Analyse vidéo de foulée, tests spécifiques</td>
+                                    <td className="px-6 py-4 text-sm text-slate-500">Bilan fonctionnel standard</td>
+                                </tr>
+                                <tr className="hover:bg-slate-50/50 transition-colors">
+                                    <td className="px-6 py-4 text-sm font-medium text-slate-900">Techniques</td>
+                                    <td className="px-6 py-4 text-sm text-slate-700">Ondes de choc, dry needling, réathlétisation</td>
+                                    <td className="px-6 py-4 text-sm text-slate-500">Mobilisations, exercices fonctionnels</td>
+                                </tr>
+                                <tr className="hover:bg-slate-50/50 transition-colors">
+                                    <td className="px-6 py-4 text-sm font-medium text-slate-900">Durée séance</td>
+                                    <td className="px-6 py-4 text-sm text-slate-700">45-60 minutes</td>
+                                    <td className="px-6 py-4 text-sm text-slate-500">30 minutes</td>
+                                </tr>
+                                <tr className="hover:bg-slate-50/50 transition-colors">
+                                    <td className="px-6 py-4 text-sm font-medium text-slate-900">Suivi</td>
+                                    <td className="px-6 py-4 text-sm text-slate-700">Critères de reprise sport validés</td>
+                                    <td className="px-6 py-4 text-sm text-slate-500">Récupération fonctionnelle</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </motion.div>
+
+                    <div className="text-center">
+                        <p className="text-sm text-slate-500">
+                            Chez BKS, nous combinons les deux approches pour une prise en charge complète.
+                        </p>
+                    </div>
+                </motion.div>
+            </Section>
+
             {/* Complementary Practices Section - Hidden for now
             <section className="border-b border-slate-100 py-16 md:py-24 bg-slate-50">
                 <div className="mx-auto max-w-7xl px-4">
