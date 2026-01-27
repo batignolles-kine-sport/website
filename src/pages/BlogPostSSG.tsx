@@ -58,7 +58,7 @@ interface BlogPostLoaderData {
  */
 export function getStaticPaths() {
     const posts = blogPostsData as BlogPostMetadata[];
-    return posts.map((post) => `blog/${post.slug}/`);
+    return posts.map((post) => `blog/${post.slug}`);
 }
 
 /**

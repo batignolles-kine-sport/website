@@ -115,7 +115,7 @@ const generateSitemap = () => {
 
     blogPosts.forEach(post => {
         urls.push({
-            loc: `${DOMAIN}/blog/${post.slug}/`,
+            loc: `${DOMAIN}/blog/${post.slug}`,
             lastmod: post.lastmod,
             changefreq: 'monthly',
             priority: 0.7
