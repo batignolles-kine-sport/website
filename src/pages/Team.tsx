@@ -1,8 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Head } from 'vite-react-ssg';
 import { SEO } from '../components/layout/SEO';
 import { Section } from '../components/layout/Section';
 import { TEAM, DOCTOLIB_URL } from '../utils/constants';
+import { generatePersonSchema } from '../utils/structuredData';
 import { ArrowUpRight } from 'lucide-react';
 import Modal from '../components/ui/Modal';
 
@@ -171,8 +173,29 @@ export const Team: React.FC = () => {
     <>
       <SEO
         title="Notre Équipe - Kinésithérapeutes Paris 17"
-        description="Découvrez Batignolles Kiné Sport : une équipe pluridisciplinaire spécialisée en kinésithérapie du sport et rééducation personnalisée à Paris 17."
+        description="4 kinés du sport diplômés. Expertise course, rugby, danse, post-partum. RDV rapide sur Doctolib. ✓ Paris 17 Batignolles."
+        breadcrumbs={[
+          { name: 'Accueil', url: 'https://batignolleskinesport.fr' },
+          { name: 'Équipe', url: 'https://batignolleskinesport.fr/equipe' }
+        ]}
       />
+
+      {/* Person Schemas for each practitioner */}
+      <Head>
+        {TEAM.map(member => (
+          <script key={member.id} type="application/ld+json">
+            {JSON.stringify(generatePersonSchema({
+              name: member.name,
+              title: member.title,
+              image: member.image,
+              doctolibUrl: member.doctolibUrl,
+              rpps: member.rpps,
+              diploma: member.diploma,
+              specialties: member.specialties,
+            }))}
+          </script>
+        ))}
+      </Head>
 
       <Section spacing="default" className="border-b border-slate-100">
         <div className="space-y-8 mb-16">

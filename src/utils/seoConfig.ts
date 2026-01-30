@@ -932,3 +932,37 @@ export function getBlogSEOConfig(slug: string): BlogPostSEO | null {
 export function getAllBlogSlugs(): string[] {
   return Object.keys(BLOG_SEO_CONFIG);
 }
+
+// =====================================================================
+// SERVICE SEO CONFIG
+// Optimized meta titles and descriptions for service pages
+// =====================================================================
+
+export interface ServiceSEO {
+  id: string;
+  title: string;
+  metaDescription: string;
+}
+
+export const SERVICES_SEO_CONFIG: Record<string, ServiceSEO> = {
+  'kine-sport': {
+    id: 'kine-sport',
+    title: 'Kiné du Sport Paris 17 : 5 Raisons de Consulter (2026)',
+    metaDescription: 'Blessure sportive ? 90% de retour terrain en 12 sem. Bilan complet, protocole personnalisé. ✓ 3 kinés spécialisés Paris Batignolles.',
+  },
+  'reeducation-post-traumatique': {
+    id: 'reeducation-post-traumatique',
+    title: 'Rééducation Post-Op Paris 17 : Protocole Complet (2026)',
+    metaDescription: 'Après chirurgie du genou, épaule ou cheville ? Suivi post-op strict avec kinés spécialisés. ✓ Retour autonomie en 6-12 sem. Paris Batignolles.',
+  },
+  'prevention-preparation-physique': {
+    id: 'prevention-preparation-physique',
+    title: 'Prévention & Prépa Physique Paris 17 : Bilan FMS (2026)',
+    metaDescription: 'Évitez les blessures avec un bilan préventif FMS. Programme personnalisé par kinés du sport. ✓ Correction déséquilibres musculaires. Paris 17.',
+  },
+};
+
+export function getServiceSEOConfig(serviceId: string): ServiceSEO | null {
+  return SERVICES_SEO_CONFIG[serviceId] || null;
+}
+

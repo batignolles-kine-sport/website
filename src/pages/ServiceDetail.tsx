@@ -5,7 +5,8 @@ import { Head } from 'vite-react-ssg';
 import { SEO } from '../components/layout/SEO';
 import { Button } from '../components/ui/Button';
 import { SERVICES, DOCTOLIB_URL } from '../utils/constants';
-import { generateFAQSchema } from '../utils/structuredData';
+import { generateFAQSchema, generateServiceSchema } from '../utils/structuredData';
+import { getServiceSEOConfig } from '../utils/seoConfig';
 
 export const ServiceDetail: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -28,6 +29,7 @@ interface ServicePageProps {
 
 export const ServicePage: React.FC<ServicePageProps> = ({ serviceId }) => {
   const service = SERVICES.find(s => s.id === serviceId);
+  const seoConfig = getServiceSEOConfig(serviceId);
 
   if (!service) {
     return <Navigate to="/" />;
@@ -36,8 +38,8 @@ export const ServicePage: React.FC<ServicePageProps> = ({ serviceId }) => {
   return (
     <>
       <SEO
-        title={`${service.title} - Batignolles Kiné Sport`}
-        description={service.shortDescription}
+        title={seoConfig?.title || `${service.title} - Batignolles Kiné Sport`}
+        description={seoConfig?.metaDescription || service.shortDescription}
         breadcrumbs={[
           { name: 'Accueil', url: 'https://batignolleskinesport.fr' },
           { name: 'Services', url: 'https://batignolleskinesport.fr/services/kine-sport' },
@@ -58,6 +60,15 @@ export const ServicePage: React.FC<ServicePageProps> = ({ serviceId }) => {
               answer: 'Votre ordonnance, votre carte vitale, votre carte de mutuelle, ainsi que les éventuels examens complémentaires (radios, IRM, échographies). Prévoyez une tenue confortable.'
             }
           ]))}
+        </script>
+        {/* Service Schema */}
+        <script type="application/ld+json">
+          {JSON.stringify(generateServiceSchema({
+            name: service.title,
+            description: service.fullDescription,
+            serviceId: serviceId,
+            features: service.features,
+          }))}
         </script>
       </Head>
 

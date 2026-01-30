@@ -174,3 +174,110 @@ export function generateBreadcrumbSchema(items: Array<{ name: string; url: strin
     })),
   };
 }
+
+/**
+ * Génère le Person schema pour les praticiens
+ * Améliore les rich snippets sur la page équipe
+ */
+export interface PersonSchemaInput {
+  name: string;
+  title: string;
+  image: string;
+  doctolibUrl: string;
+  rpps?: string;
+  diploma?: string;
+  specialties?: string[];
+}
+
+export function generatePersonSchema(person: PersonSchemaInput) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    '@id': `https://batignolleskinesport.fr/equipe#${person.name.toLowerCase().replace(/\s+/g, '-')}`,
+    name: person.name,
+    jobTitle: person.title,
+    image: person.image,
+    worksFor: {
+      '@type': 'Organization',
+      '@id': 'https://batignolleskinesport.fr/#organization',
+      name: 'Batignolles Kiné Sport',
+    },
+    sameAs: [person.doctolibUrl],
+    ...(person.rpps && {
+      identifier: {
+        '@type': 'PropertyValue',
+        propertyID: 'RPPS',
+        value: person.rpps,
+      },
+    }),
+    ...(person.diploma && { hasCredential: person.diploma }),
+    ...(person.specialties && { knowsAbout: person.specialties }),
+  };
+}
+
+/**
+ * Génère le Service schema pour les pages services
+ */
+export interface ServiceSchemaInput {
+  name: string;
+  description: string;
+  serviceId: string;
+  features?: string[];
+}
+
+export function generateServiceSchema(service: ServiceSchemaInput) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'MedicalProcedure',
+    '@id': `https://batignolleskinesport.fr/services/${service.serviceId}`,
+    name: service.name,
+    description: service.description,
+    url: `https://batignolleskinesport.fr/services/${service.serviceId}`,
+    procedureType: 'Physiotherapy',
+    provider: {
+      '@type': 'Organization',
+      '@id': 'https://batignolleskinesport.fr/#organization',
+      name: 'Batignolles Kiné Sport',
+    },
+    ...(service.features && {
+      additionalProperty: service.features.map(f => ({
+        '@type': 'PropertyValue',
+        name: 'Feature',
+        value: f,
+      }))
+    }),
+  };
+}
+
+/**
+ * Génère le HowTo schema pour les articles tutoriels
+ * Améliore les rich snippets avec les étapes sur Google
+ */
+export interface HowToStep {
+  name: string;
+  text: string;
+  image?: string;
+}
+
+export function generateHowToSchema(
+  title: string,
+  description: string,
+  steps: HowToStep[],
+  estimatedTime?: string // e.g. "PT30M" for 30 minutes in ISO 8601 format
+) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'HowTo',
+    name: title,
+    description: description,
+    ...(estimatedTime && { totalTime: estimatedTime }),
+    step: steps.map((step, index) => ({
+      '@type': 'HowToStep',
+      position: index + 1,
+      name: step.name,
+      text: step.text,
+      ...(step.image && { image: step.image }),
+    })),
+  };
+}
+
