@@ -104,9 +104,4 @@
   to = "/services/kine-sport"
   status = 301
 
-# 404 fallback - only for truly unknown routes
-# Since all pages are pre-rendered, this should rarely be hit
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
+
