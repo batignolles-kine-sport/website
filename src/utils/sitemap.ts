@@ -88,6 +88,24 @@ function getStaticUrls(): SitemapUrl[] {
       priority: 0.9,
     },
     {
+      loc: `${DOMAIN}/services/kine-sport`,
+      lastmod: new Date().toISOString().split('T')[0],
+      changefreq: 'monthly',
+      priority: 0.85,
+    },
+    {
+      loc: `${DOMAIN}/services/reeducation-post-traumatique`,
+      lastmod: new Date().toISOString().split('T')[0],
+      changefreq: 'monthly',
+      priority: 0.85,
+    },
+    {
+      loc: `${DOMAIN}/services/prevention-preparation-physique`,
+      lastmod: new Date().toISOString().split('T')[0],
+      changefreq: 'monthly',
+      priority: 0.85,
+    },
+    {
       loc: `${DOMAIN}/contact`,
       lastmod: new Date().toISOString().split('T')[0],
       changefreq: 'monthly',
@@ -107,6 +125,7 @@ function getStaticUrls(): SitemapUrl[] {
     },
   ];
 }
+
 
 /**
  * Échappe les caractères spéciaux XML

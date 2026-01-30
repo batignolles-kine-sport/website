@@ -85,10 +85,14 @@ const generateSitemap = () => {
         { loc: '/', priority: 1.0, changefreq: 'weekly' },
         { loc: '/blog', priority: 0.9, changefreq: 'daily' }, // Blog changes often
         { loc: '/pratiques', priority: 0.9, changefreq: 'weekly' },
+        { loc: '/services/kine-sport', priority: 0.85, changefreq: 'monthly' },
+        { loc: '/services/reeducation-post-traumatique', priority: 0.85, changefreq: 'monthly' },
+        { loc: '/services/prevention-preparation-physique', priority: 0.85, changefreq: 'monthly' },
         { loc: '/contact', priority: 0.8, changefreq: 'monthly' },
         { loc: '/equipe', priority: 0.7, changefreq: 'monthly' },
         { loc: '/mentions-legales', priority: 0.5, changefreq: 'yearly' },
     ];
+
 
     staticPages.forEach(page => {
         urls.push({

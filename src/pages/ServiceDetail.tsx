@@ -38,6 +38,11 @@ export const ServicePage: React.FC<ServicePageProps> = ({ serviceId }) => {
       <SEO
         title={`${service.title} - Batignolles Kiné Sport`}
         description={service.shortDescription}
+        breadcrumbs={[
+          { name: 'Accueil', url: 'https://batignolleskinesport.fr' },
+          { name: 'Services', url: 'https://batignolleskinesport.fr/services/kine-sport' },
+          { name: service.title, url: `https://batignolleskinesport.fr/services/${serviceId}` }
+        ]}
       />
 
       {/* FAQ Schema */}
