@@ -84,6 +84,7 @@ const generateSitemap = () => {
     const staticPages = [
         { loc: '/', priority: 1.0, changefreq: 'weekly' },
         { loc: '/blog', priority: 0.9, changefreq: 'daily' }, // Blog changes often
+        { loc: '/pratiques', priority: 0.9, changefreq: 'weekly' },
         { loc: '/contact', priority: 0.8, changefreq: 'monthly' },
         { loc: '/equipe', priority: 0.7, changefreq: 'monthly' },
         { loc: '/mentions-legales', priority: 0.5, changefreq: 'yearly' },

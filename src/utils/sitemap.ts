@@ -82,6 +82,12 @@ function getStaticUrls(): SitemapUrl[] {
       priority: 0.9,
     },
     {
+      loc: `${DOMAIN}/pratiques`,
+      lastmod: new Date().toISOString().split('T')[0],
+      changefreq: 'weekly',
+      priority: 0.9,
+    },
+    {
       loc: `${DOMAIN}/contact`,
       lastmod: new Date().toISOString().split('T')[0],
       changefreq: 'monthly',
