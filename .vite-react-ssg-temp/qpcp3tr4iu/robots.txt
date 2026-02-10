@@ -1,9 +1,0 @@
-User-agent: *
-Allow: /
-
-# Bloquer l'accès aux fichiers d'administration du CMS
-Disallow: /admin/
-Disallow: /api/
-
-# Sitemap
-Sitemap: https://batignolleskinesport.fr/sitemap.xml
