@@ -9,6 +9,7 @@ import {
     ShieldCheck,
     ArrowRight
 } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { PracticeCard } from '../ui/PracticeCard';
 import { MAIN_PRACTICES } from '../../pages/Pratiques';
 
@@ -46,13 +47,13 @@ export const ExpertiseSection: React.FC = () => {
 
                             {/* Desktop CTA */}
                             <div className="hidden lg:block shrink-0">
-                                <a
-                                    href="/pratiques"
+                                <Link
+                                    to="/pratiques"
                                     className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-white border border-slate-200 text-slate-900 hover:border-primary hover:text-primary transition-colors duration-300 shadow-sm font-bold text-xs"
                                 >
                                     Voir tout
                                     <ArrowRight size={14} />
-                                </a>
+                                </Link>
                             </div>
                         </div>
                     </motion.div>
@@ -78,13 +79,13 @@ export const ExpertiseSection: React.FC = () => {
                     </motion.div>
                 </div>
 
-                <div className="mt-8 flex justify-center lg:hidden">
-                    <a
-                        href="/pratiques"
+                <div className="mt-8 flex justify-center lg:hidden relative z-20">
+                    <Link
+                        to="/pratiques"
                         className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white border border-slate-200 text-slate-900 hover:border-primary hover:text-primary transition-colors duration-300 shadow-sm font-medium"
                     >
                         Voir toutes nos prises en charge
-                    </a>
+                    </Link>
                 </div>
             </div>
         </div>

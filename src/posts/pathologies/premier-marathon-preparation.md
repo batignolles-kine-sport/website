@@ -4,7 +4,7 @@ category: "Prévention"
 sport: "Course à pied"
 sport: "Course à pied"
 type: "Performance"
-readTime: "8 min"
+readTime: "10 min"
 image: "/images/blog/premier-marathon-preparation.jpg"
 excerpt: "Vous préparez votre premier marathon et vous avez peur de vous blesser avant le jour J ? Découvrez le guide complet du kiné pour arriver sur la ligne de départ en pleine forme."
 publishedAt: "03 Janvier 2026"
@@ -81,6 +81,7 @@ Un plan marathon intelligent se découpe en 3 phases distinctes.
 **Intensité** : 80% du volume en endurance fondamentale (vous pouvez parler en courant), 20% en allure marathon ou légèrement plus rapide.
 
 **Séances types** :
+
 - 3 sorties d'endurance (8-12 km)
 - 1 sortie longue progressive (12 → 25 km sur 8 semaines)
 - 1 séance de tempo run (20 min à allure marathon)
@@ -97,6 +98,7 @@ Un plan marathon intelligent se découpe en 3 phases distinctes.
 **Intensité** : Introduction de séances au seuil anaérobie (allure semi-marathon).
 
 **Séances types** :
+
 - 2 sorties d'endurance (10-12 km)
 - 1 sortie longue (25-32 km, dont 10-15 km à allure marathon)
 - 1 séance de seuil (2 x 20 min à allure semi-marathon, récup 5 min)
@@ -114,6 +116,7 @@ Un plan marathon intelligent se découpe en 3 phases distinctes.
 **Intensité** : Quelques rappels à allure marathon, mais volume réduit.
 
 **Semaine type (S-2 avant le marathon)** :
+
 - Lundi : Repos
 - Mardi : 8 km facile
 - Mercredi : 10 km avec 3 x 1 km à allure marathon (récup 2 min)
@@ -123,6 +126,7 @@ Un plan marathon intelligent se découpe en 3 phases distinctes.
 - Dimanche : 12-15 km à allure endurance
 
 **Semaine du marathon (J-7 à J)** :
+
 - J-7 : 8 km facile
 - J-5 : 6 km avec 2 x 1 km à allure marathon
 - J-3 : 5 km très facile
@@ -131,6 +135,19 @@ Un plan marathon intelligent se découpe en 3 phases distinctes.
 - **J : MARATHON**
 
 **Focus kiné** : Privilégiez les massages de récupération, la mobilité douce, le sommeil. Évitez toute nouvelle séance intense.
+
+### Tableau récapitulatif des 3 phases
+
+| | Phase 1 : Base aérobie | Phase 2 : Seuil | Phase 3 : Affûtage |
+|---|:---:|:---:|:---:|
+| **Semaines** | 1 à 8 | 9 à 14 | 15 à 17 |
+| **Volume** | 20 → 60 km/sem | 55-65 km/sem | -30 à -50% |
+| **Intensité** | 80% endurance | + seuil anaérobie | Rappels légers |
+| **Sortie longue** | 12 → 25 km | 25 → 32 km | 12-15 km max |
+| **PPG** | 2x/sem (essentiel) | 1x/sem (maintenance) | Repos |
+| **Risque blessure** | Modéré | Élevé | Faible |
+
+> Si vous ressentez des douleurs aux tibias pendant les phases 1-2, consultez notre article sur la [périostite tibiale du coureur](/blog/periostite-tibiale-coureur).
 
 ## 3. Les signaux d'alerte à ne jamais ignorer
 
@@ -167,6 +184,7 @@ Voici les points à vérifier aux étapes clés de votre préparation.
 ### À J-30 : Bilan de mi-parcours
 
 **Questions à vous poser :**
+
 - [x] Ai-je réussi à suivre mon plan sans blessure majeure ?
 - [x] Ai-je réussi à courir au moins 30 km en sortie longue ?
 - [x] Mes séances à allure marathon sont-elles confortables ?
@@ -177,17 +195,20 @@ Voici les points à vérifier aux étapes clés de votre préparation.
 ### À J-15 : Préparation finale
 
 **Check-list matérielle :**
+
 - [x] Chaussures testées sur au moins 100 km (jamais de chaussures neuves le jour J).
 - [x] Nutrition testée en sortie longue (gels, boisson énergétique).
 - [x] Tenue complète testée (évitez les frottements).
 
 **Check-list physique :**
+
 - [x] Pas de douleur persistante.
 - [x] Sensation de « sur-forme » qui commence (effet de l'affûtage).
 
 ### À J-7 : Derniers ajustements
 
 **À faire :**
+
 - [x] Réduire le volume drastiquement.
 - [x] Augmenter les glucides (charge glycogénique progressive).
 - [x] Dormir 8h minimum par nuit.
@@ -195,6 +216,7 @@ Voici les points à vérifier aux étapes clés de votre préparation.
 - [x] Massage léger ou auto-massage (rouleau).
 
 **À NE PAS faire :**
+
 - [ ] Tester un nouveau restaurant exotique.
 - [ ] Faire une séance « pour vérifier que ça va ».
 - [ ] Stresser sur la météo (vous n'y pouvez rien).
@@ -210,6 +232,7 @@ Ne tentez pas de finir votre séance en boitant. Arrêtez, glacez si c'est gonfl
 ### Étape 2 : Diagnostic précis
 
 Le kiné évalue la gravité. Trois scénarios :
+
 1. **Blessure mineure** (contracture, inflammation légère) → Repos partiel 5-7 jours, reprise progressive.
 2. **Blessure modérée** (tendinopathie, périostite) → Repos complet 10-14 jours, rééducation, objectif = finir le marathon (pas de chrono).
 3. **Blessure grave** (fracture de fatigue, déchirure musculaire) → Abandon du marathon. Reportez sur un autre objectif dans 3-6 mois.
@@ -247,6 +270,14 @@ Non ! La sortie longue maximale doit être de 32-35 km. Au-delà, vous créez tr
 
 Mangez équilibré avec suffisamment de glucides (50-60% de vos calories). Testez votre stratégie nutrition (gels, boisson) lors des sorties longues pour éviter les surprises le jour J.
 
+### Quelles chaussures choisir pour un premier marathon ?
+
+Privilégiez le confort et l'amorti plutôt que la légèreté. Des chaussures de running avec un drop de 8-10 mm et un bon amorti sont recommandées pour un premier marathon. **Conseil essentiel** : essayez-les en magasin spécialisé et courez au moins **100 km avec** avant le jour J. Ne courrez JAMAIS un marathon avec des chaussures neuves.
+
+### Quand prendre les gels pendant un marathon ?
+
+Premier gel entre le **km 5 et le km 10** (pas avant — le corps a assez de glycogène au départ). Ensuite, **un gel toutes les 30-45 minutes** (environ tous les 5-7 km). Buvez toujours 2-3 gorgées d'eau avec chaque gel pour faciliter l'absorption. Testez impérativement cette stratégie lors de vos sorties longues.
+
 ## Conclusion
 
 Préparer un marathon, c'est une aventure exigeante mais accessible. La clé du succès ne réside pas dans l'intensité, mais dans la **progressivité, la régularité et l'intelligence**.
@@ -254,4 +285,4 @@ Préparer un marathon, c'est une aventure exigeante mais accessible. La clé du 
 Augmentez votre volume progressivement, renforcez votre corps avec de la PPG, écoutez les signaux d'alerte, et vous arriverez sur la ligne de départ en pleine forme, prêt à vivre une expérience inoubliable.
 
 **Vous préparez votre premier marathon et vous voulez maximiser vos chances de réussite ?**  
-Prenez rendez-vous chez Batignolles Kiné Sport. Nous réalisons un bilan complet de votre condition physique, nous adaptons votre plan d'entraînement et nous vous accompagnons jusqu'au jour J pour que vous viviez votre marathon sereinement.
+Prenez rendez-vous chez Batignolles Kiné Sport. Nous réalisons un bilan complet de votre condition physique, nous adaptons votre plan d'entraînement et nous vous accompagnons jusqu'au jour J pour que vous viviez votre marathon sereinement. Si vous préparez aussi la saison de ski ou d'autres sports, consultez notre [guide de préparation physique ski](/blog/preparation-ski).

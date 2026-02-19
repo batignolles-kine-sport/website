@@ -53,8 +53,8 @@ export const Home: React.FC = () => {
     return (
         <>
             <SEO
-                title="Kinésithérapeute du Sport Paris 17"
-                description="Cabinet de kinésithérapie du sport à Paris 17 Batignolles. Spécialistes course, post-op, périnée. Bilan précis, protocole validé, retour terrain encadré."
+                title="Kiné du Sport Paris 17 Batignolles — Cabinet Spécialisé"
+                description="Kiné du sport Paris 17 — Cabinet spécialisé Batignolles. Bilan sportif, post-op, périnée. 3 kinés, rdv rapide. ✓ Prise en charge immédiate."
                 schema={faqSchema}
             />
 

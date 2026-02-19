@@ -104,11 +104,11 @@ export const BLOG_SEO_CONFIG: Record<string, BlogPostSEO> = {
 
   'epaule-conflit': {
     slug: 'epaule-conflit',
-    title: 'Conflit d\'Épaule : 5 Exercices pour Guérir (2026)',
-    metaDescription: 'Douleur à l\'épaule en levant le bras ? 90% des conflits guérissent sans chirurgie. Protocole complet + 5 exercices. ✓ Kinés.',
-    excerpt: 'Épaule qui accroche ? Les 5 exercices qui libèrent l\'espace sous l\'acromion.',
+    title: 'Conflit Sous-Acromial : 5 Exercices pour Guérir (2026)',
+    metaDescription: 'Conflit sous-acromial ? 90% guérissent sans chirurgie. 5 exercices ciblés + protocole progressif. Résultats en 6-8 sem. ✓ Validé kinés épaule.',
+    excerpt: 'Épaule qui accroche en levant le bras ? Les 5 exercices qui libèrent l\'espace sous l\'acromion.',
     category: 'sport',
-    keywords: ['conflit épaule', 'sus-épineux', 'impingement', 'rééducation', 'sport'],
+    keywords: ['conflit sous-acromial', 'conflit épaule', 'exercices', 'impingement', 'rééducation'],
   },
 
   'luxation-epaule': {
@@ -404,11 +404,11 @@ export const BLOG_SEO_CONFIG: Record<string, BlogPostSEO> = {
 
   'premier-marathon-preparation': {
     slug: 'premier-marathon-preparation',
-    title: 'Premier Marathon 2026 : Guide Complet de Préparation',
-    metaDescription: 'Votre 1er marathon approche ? 5 erreurs fatales à éviter + plan nutrition et récup. 80% des finishers les appliquent. ✓ Guide kinés du sport Paris.',
+    title: 'Préparation Course 2026 : Questions Fréquentes [Guide]',
+    metaDescription: 'Questions sur la préparation course 2026 ? Plan entraînement, nutrition, erreurs fréquentes — toutes les réponses. ✓ Guide complet par kinés du sport Paris.',
     excerpt: 'Les 42 km vous font rêver ? On vous prépare à franchir la ligne debout.',
     category: 'sport',
-    keywords: ['marathon', 'préparation', 'plan entraînement', 'nutrition', 'coureur'],
+    keywords: ['questions fréquentes', 'préparation course', 'marathon', 'plan entraînement', 'nutrition'],
   },
 
   'analyse-foulee-coureur': {
@@ -551,11 +551,11 @@ export const BLOG_SEO_CONFIG: Record<string, BlogPostSEO> = {
 
   'tendinite-long-biceps-musculation': {
     slug: 'tendinite-long-biceps-musculation',
-    title: 'Tendinite Biceps Muscu : Traitement et Prévention (2026)',
-    metaDescription: 'Douleur devant l\'épaule au curl ou tirage ? Tendinite du long biceps. Traitement + adaptation entraînement. ✓ Kinés muscu.',
+    title: 'Tendinite Long Biceps : Combien de Temps ? Traitement (2026)',
+    metaDescription: 'Tendinite du long biceps : combien de temps pour guérir ? 8-12 semaines avec ce protocole. Continuez à vous entraîner. ✓ Kinés musculation Paris.',
     excerpt: 'Le biceps qui tire à l\'épaule ? Comment soigner sans arrêter de s\'entraîner.',
     category: 'sport',
-    keywords: ['tendinite biceps', 'musculation', 'épaule', 'curl', 'traitement'],
+    keywords: ['tendinite long biceps', 'combien de temps', 'musculation', 'épaule', 'traitement'],
   },
 
   'syndrome-rotulien-powerlifter': {
@@ -608,11 +608,11 @@ export const BLOG_SEO_CONFIG: Record<string, BlogPostSEO> = {
 
   'blessure-doigt-escalade-poulie': {
     slug: 'blessure-doigt-escalade-poulie',
-    title: 'Blessure Poulie Escalade : Diagnostic et Reprise (2026)',
-    metaDescription: 'Poulie qui a craqué au bloc ? Diagnostic grades 1-4 + protocole reprise grimpe. Patience requise ! ✓ Kinés main escalade.',
+    title: 'Poulie Escalade : Blessure, Grades et Reprise (2026)',
+    metaDescription: 'Poulie escalade blessée ? Grades 1 à 4, diagnostic et protocole de reprise grimpe. Ne brûlez pas les étapes ! ✓ Kinés main escalade Paris.',
     excerpt: 'La poulie A2 qui lâche sur l\'arqué. Comment revenir grimper en sécurité.',
     category: 'sport',
-    keywords: ['poulie', 'escalade', 'doigt', 'blessure', 'bloc'],
+    keywords: ['poulie escalade', 'blessure doigt', 'grades', 'reprise grimpe', 'bloc'],
   },
 
   'douleur-poignet-boxeur': {
@@ -644,11 +644,11 @@ export const BLOG_SEO_CONFIG: Record<string, BlogPostSEO> = {
 
   'fracture-pouce-boxeur': {
     slug: 'fracture-pouce-boxeur',
-    title: 'Fracture Pouce Boxeur : Rééducation et Retour (2026)',
-    metaDescription: 'Pouce de boxeur fracturé ? Rééducation post-immobilisation + retour aux gants. Renforcement grip. ✓ Kinés sport combat.',
-    excerpt: 'Le pouce qui a cassé sur un coup mal placé. Le protocole de retour au ring.',
+    title: 'Fracture du Pouce : Rééducation et Délais (2026)',
+    metaDescription: 'Fracture du pouce : rééducation complète post-immobilisation. Délai retour sport, exercices progressifs. ✓ Kinés main Paris 17.',
+    excerpt: 'Le pouce fracturé : combien de temps, quels exercices et quand reprendre le sport.',
     category: 'postop',
-    keywords: ['fracture pouce', 'boxeur', 'main', 'rééducation', 'retour'],
+    keywords: ['fracture du pouce', 'rééducation', 'délais', 'main', 'retour sport'],
   },
 
   'genou-nageur-brasse': {
@@ -680,11 +680,11 @@ export const BLOG_SEO_CONFIG: Record<string, BlogPostSEO> = {
 
   'preparation-ski': {
     slug: 'preparation-ski',
-    title: 'Préparation Physique Ski : 6 Exercices Clés (2026)',
-    metaDescription: 'Préparez vos genoux et cuisses pour les pistes. 6 exercices 4 sem avant le ski. Évitez les blessures. ✓ Programme complet.',
+    title: 'Préparation Physique Ski : 6 Exercices Indispensables (2026)',
+    metaDescription: 'Préparation physique ski : 6 exercices 4 sem avant les pistes. Genoux, cuisses, proprioception. Évitez la blessure dès J1. ✓ Programme kiné.',
     excerpt: 'Le ski approche ? 6 exercices pour ne pas exploser les genoux dès le premier jour.',
     category: 'prevention',
-    keywords: ['préparation', 'ski', 'exercices', 'genoux', 'cuisses'],
+    keywords: ['préparation physique ski', 'exercices', 'genoux', 'cuisses', 'proprioception'],
   },
 
   'spondylolyse-gymnaste': {

@@ -17,7 +17,8 @@ import { DOCTOLIB_URL, PHONE, SITE_URL } from '../utils/constants';
 import { toTelHref } from '../utils/helpers';
 import { getRelatedPosts } from '../utils/blogSuggestions';
 import { getResponsiveImage, pathToPublicId, isCloudinaryImage } from '../utils/cloudinary';
-import { generateArticleSchema, generateBreadcrumbSchema } from '../utils/structuredData';
+import { generateArticleSchema, generateBreadcrumbSchema, generateFAQSchema } from '../utils/structuredData';
+import { BLOG_FAQ_DATA } from '../data/blogFaqData';
 import blogPostsData from '../data/blog-metadata.json';
 
 // Import all markdown files eagerly for SSG (build-time)
@@ -99,12 +100,17 @@ export async function loader({ params }: { params: { slug?: string } }): Promise
         'Équipe BKS'
     );
 
+    // Generate FAQ schema if FAQ data exists for this article
+    const faqData = BLOG_FAQ_DATA[slug];
+    const faqSchema = faqData ? generateFAQSchema(faqData) : null;
+    const schemas = faqSchema ? [articleSchema, faqSchema] : articleSchema;
+
     return {
         post,
         content,
         html,
         relatedPosts,
-        articleSchema,
+        articleSchema: schemas,
     };
 }
 

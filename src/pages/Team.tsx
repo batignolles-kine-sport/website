@@ -5,6 +5,7 @@ import { SEO } from '../components/layout/SEO';
 import { Section } from '../components/layout/Section';
 import { TEAM, DOCTOLIB_URL } from '../utils/constants';
 import { generatePersonSchema } from '../utils/structuredData';
+import { Link } from 'react-router-dom';
 import { ArrowUpRight } from 'lucide-react';
 import Modal from '../components/ui/Modal';
 
@@ -250,12 +251,12 @@ export const Team: React.FC = () => {
                 <img src="/images/doctolib/D_White.svg" alt="" loading="lazy" className="w-5 h-5" />
                 Prendre rendez-vous
               </a>
-              <a
-                href="/contact"
+              <Link
+                to="/contact"
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-white border-2 border-slate-200 text-slate-900 font-semibold text-base transition-all duration-200 hover:border-primary hover:text-primary active:scale-95"
               >
                 Nous contacter
-              </a>
+              </Link>
             </div>
 
             <p className="text-sm text-slate-500 pt-4">
