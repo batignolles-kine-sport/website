@@ -118,9 +118,14 @@ La rééducation ne doit pas être douloureuse. Une légère gêne est normale l
 
 Pas forcément. Nous utilisons les "Critères d'Ottawa" pour savoir si une radio est nécessaire (pour éliminer une fracture). Si vous pouvez faire 4 pas et que la douleur n'est pas exquise sur les os, la radio est souvent inutile.
 
-### Quand puis-je recourir ?
+### Combien de temps pour reprendre le sport après une entorse ?
 
-Dès que vous pouvez marcher vite sans boiterie, monter sur la pointe des pieds sans douleur et sautiller sur place. En général, pour une entorse moyenne, comptez 3 à 6 semaines avant la reprise de la course linéaire.
+Dès que vous pouvez marcher vite sans boiterie, monter sur la pointe des pieds sans douleur et sautiller sur place. En général :
+
+- **Entorse bénigne (grade 1)** : 1 à 3 semaines.
+- **Entorse moyenne (grade 2)** : 3 à 6 semaines.
+- **Entorse grave (grade 3)** : 6 à 12 semaines.
+Ne brûlez pas les étapes : validez la reprise course linéaire avant les changements de direction.
 
 ## Conclusion
 
