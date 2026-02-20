@@ -60,12 +60,16 @@
   to = "/blog/:splat"
   status = 301
 
-
+# Blog trailing slash redirect - forces canonical without trailing slash
+# Only for /blog/* routes — static pages (/pratiques, /equipe, etc.) are handled natively by Netlify Pretty URLs
+[[redirects]]
+  from = "/blog/*/"
+  to = "/blog/:splat"
+  status = 301
+  force = true
 
 # Services root redirect
 [[redirects]]
   from = "/services"
   to = "/services/kine-sport"
   status = 301
-
-
