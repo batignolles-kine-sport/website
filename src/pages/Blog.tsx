@@ -269,7 +269,7 @@ export const Blog: React.FC = () => {
   return (
     <>
       <SEO
-        title="Blog Kiné Sport & Santé"
+        title="Conseils Kiné Sport : Exercices et Rééducation"
         description="Conseils, exercices et actualités santé par les kinésithérapeutes de Batignolles Kiné Sport. Prévention, rééducation et performance."
       />
 

@@ -84,7 +84,7 @@ export const Contact: React.FC = () => {
   return (
     <>
       <SEO
-        title="Contactez-nous - Batignolles Kiné Sport"
+        title="Contact et Accès — Paris 17 Batignolles"
         description="Prendre rendez-vous ou nous contacter. Cabinet situé au 6 rue des Batignolles, Paris 17e."
       />
 

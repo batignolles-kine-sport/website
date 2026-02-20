@@ -53,7 +53,7 @@ export const Home: React.FC = () => {
     return (
         <>
             <SEO
-                title="Kiné du Sport Paris 17 Batignolles — Cabinet Spécialisé"
+                title="Kiné du Sport Paris 17 — RDV Rapide Batignolles"
                 description="Kiné du sport Paris 17 — Cabinet spécialisé Batignolles. Préparation Athlétique, Bilan sportif, post-op. 3 kinés, rdv rapide. ✓ Prise en charge immédiate."
                 schema={faqSchema}
             />

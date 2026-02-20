@@ -947,17 +947,17 @@ export interface ServiceSEO {
 export const SERVICES_SEO_CONFIG: Record<string, ServiceSEO> = {
   'kine-sport': {
     id: 'kine-sport',
-    title: 'Kiné du Sport Paris 17 : 5 Raisons de Consulter (2026)',
+    title: 'Kiné du Sport Paris 17 — Bilan et Suivi',
     metaDescription: 'Blessure sportive ? 90% de retour terrain en 12 sem. Bilan complet, protocole personnalisé. ✓ 3 kinés spécialisés Paris Batignolles.',
   },
   'reeducation-post-traumatique': {
     id: 'reeducation-post-traumatique',
-    title: 'Rééducation Post-Op Paris 17 : Protocole Complet (2026)',
+    title: 'Rééducation Post-Op Paris 17 — Genou, Épaule',
     metaDescription: 'Après chirurgie du genou, épaule ou cheville ? Suivi post-op strict avec kinés spécialisés. ✓ Retour autonomie en 6-12 sem. Paris Batignolles.',
   },
   'prevention-preparation-physique': {
     id: 'prevention-preparation-physique',
-    title: 'Prévention & Prépa Physique Paris 17 : Bilan FMS (2026)',
+    title: 'Préparation Physique Paris 17 — Bilan Sportif',
     metaDescription: 'Évitez les blessures avec un bilan préventif FMS. Programme personnalisé par kinés du sport. ✓ Correction déséquilibres musculaires. Paris 17.',
   },
 };

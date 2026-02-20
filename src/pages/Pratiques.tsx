@@ -163,7 +163,7 @@ export const Pratiques: React.FC = () => {
     return (
         <>
             <SEO
-                title="Nos Pratiques - Kinésithérapie du Sport Paris 17"
+                title="Kinésithérapie du Sport : Nos Spécialités"
                 description="4 spécialités kiné sport : coureurs, post-op, femmes. 85% de retour terrain en 8 sem. 📍 Paris 17 Batignolles – RDV Doctolib."
                 breadcrumbs={[
                     { name: 'Accueil', url: 'https://batignolleskinesport.fr' },

@@ -114,14 +114,11 @@ const TeamCard: React.FC<{ member: typeof TEAM[0] }> = ({ member }) => {
 };
 
 export const Team: React.FC = () => {
-  // Build dynamic title with all practitioner names
-  const names = TEAM.map(m => m.name).join(', ');
-
   return (
     <>
       <SEO
-        title={`${names} — Kinés du Sport Paris 17 Batignolles`}
-        description={`Découvrez l'équipe de Batignolles Kiné Sport : ${names}. Kinésithérapeutes du sport diplômés, spécialisés course, rugby, danse, post-partum. Paris 17.`}
+        title="Notre Équipe de Kinés du Sport — Paris 17"
+        description={`Découvrez l'équipe de Batignolles Kiné Sport : ${TEAM.map(m => m.name).join(', ')}. Kinésithérapeutes du sport diplômés, spécialisés course, rugby, danse, post-partum. Paris 17.`}
         breadcrumbs={[
           { name: 'Accueil', url: 'https://batignolleskinesport.fr' },
           { name: 'Équipe', url: 'https://batignolleskinesport.fr/equipe' }
