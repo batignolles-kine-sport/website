@@ -6,182 +6,129 @@ import { Section } from '../components/layout/Section';
 import { TEAM, DOCTOLIB_URL } from '../utils/constants';
 import { generatePersonSchema } from '../utils/structuredData';
 import { Link } from 'react-router-dom';
-import { ArrowUpRight } from 'lucide-react';
-import Modal from '../components/ui/Modal';
+import { ArrowUpRight, GraduationCap, Award, Dumbbell } from 'lucide-react';
+import { staggerContainer, fadeUp } from '../utils/animations';
 
 const TeamCard: React.FC<{ member: typeof TEAM[0] }> = ({ member }) => {
-
-  const [isModalOpen, setIsModalOpen] = React.useState(false);
-
-  // Identify if this is Leonie's card (ID 3)
-  const isLeonie = member.id === 3;
+  const slug = member.name.toLowerCase().replace(/\s+/g, '-');
 
   return (
-    <article
-      className={`group relative h-[480px] rounded-[40px] overflow-hidden shadow-2xl border border-gray-100 bg-slate-900 w-full transition-all duration-500`}
+    <motion.article
+      variants={fadeUp}
+      id={slug}
+      className="group bg-white rounded-3xl overflow-hidden shadow-card hover:shadow-xl transition-all duration-500 border border-slate-100"
     >
-
-
-      {/* Full Image */}
-      <div className="absolute inset-0">
+      {/* Image Section */}
+      <div className="relative h-[400px] overflow-hidden">
         <img
           src={member.image}
-          alt={member.name}
+          alt={`${member.name}, ${member.title} à Batignolles Kiné Sport Paris 17`}
           loading="lazy"
-          className="w-full h-full object-cover opacity-90 transition-transform duration-700 lg:group-hover:scale-105"
+          className="w-full h-full object-cover transition-transform duration-700 lg:group-hover:scale-105"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent lg:from-black/40 lg:via-transparent"></div>
-      </div>
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
 
-      {/* Badge Métier Prominent - Modal on Click */}
-      <div className="absolute top-6 right-6 z-20">
-        <motion.button
-          layout
-          variants={{
-            rest: { scale: 1.05, backgroundColor: '#4a4b3d' },
-            hover: { scale: 1.15, backgroundColor: '#5c5d4b' }
-          }}
-          initial="rest"
-          whileHover="hover"
-          whileTap={{ scale: 0.95 }}
-          transition={{
-            type: "spring",
-            stiffness: 400,
-            damping: 17
-          }}
-          onClick={(e) => {
-            e.stopPropagation();
-            setIsModalOpen(true);
-          }}
-          className="text-white text-[11px] font-bold px-6 py-3 rounded-full shadow-2xl ring-1 ring-white/20 backdrop-blur-md uppercase tracking-wider flex items-center justify-center gap-2 group/badge cursor-pointer overflow-hidden min-h-[40px]"
-        >
-          <span className="whitespace-nowrap">Expériences</span>
-          <ArrowUpRight size={16} className="text-white shrink-0" />
-        </motion.button>
-      </div>
-
-      {/* Bottom Content Area - Always Expanded */}
-      <div className="absolute left-1/2 -translate-x-1/2 z-10 shadow-[0_8px_32px_rgba(0,0,0,0.2)] rounded-[32px] p-5 bottom-3 w-[92%] bg-black/60 border-white/30 backdrop-blur-xl border">
-
-        <div className="relative flex items-center justify-center mb-4">
-          <h3 className="text-xl font-bold font-sans text-white leading-tight text-center">
+        {/* Name overlay on image */}
+        <div className="absolute bottom-0 inset-x-0 p-6">
+          <h2 className="text-2xl md:text-3xl font-bold text-white drop-shadow-md">
             {member.name}
-          </h3>
+          </h2>
+          <p className="text-white/80 font-medium mt-1">{member.title}</p>
         </div>
+      </div>
+
+      {/* Content Section — Fully crawlable by Google */}
+      <div className="p-6 md:p-8 space-y-6">
+
+        {/* Bio */}
+        <p className="text-slate-600 leading-relaxed text-[15px]">
+          {member.bio}
+        </p>
+
+        {/* Sports */}
+        {member.sports && member.sports.length > 0 && (
+          <div>
+            <div className="flex items-center gap-2 mb-3">
+              <Dumbbell size={16} className="text-primary" />
+              <h3 className="text-sm font-bold text-slate-900 uppercase tracking-wider">Sports pratiqués</h3>
+            </div>
+            <div className="flex flex-wrap gap-2">
+              {member.sports.map((sport, i) => (
+                <span key={i} className="px-3 py-1 rounded-full bg-primary/5 border border-primary/10 text-xs text-primary font-medium">
+                  {sport}
+                </span>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* Diploma */}
+        {member.diploma && (
+          <div>
+            <div className="flex items-center gap-2 mb-2">
+              <GraduationCap size={16} className="text-primary" />
+              <h3 className="text-sm font-bold text-slate-900 uppercase tracking-wider">Diplôme</h3>
+            </div>
+            <p className="text-sm text-slate-600">{member.diploma}</p>
+          </div>
+        )}
+
+        {/* Certifications */}
+        {member.certifications && member.certifications.length > 0 && (
+          <div>
+            <div className="flex items-center gap-2 mb-3">
+              <Award size={16} className="text-primary" />
+              <h3 className="text-sm font-bold text-slate-900 uppercase tracking-wider">Formations & Expertise</h3>
+            </div>
+            <ul className="space-y-2">
+              {member.certifications.map((cert, i) => (
+                <li key={i} className="flex items-start gap-2 text-sm text-slate-600">
+                  <span className="text-primary mt-1.5 text-[6px] shrink-0">●</span>
+                  {cert}
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+
+        {/* RPPS */}
+        {member.rpps && (
+          <p className="text-xs text-slate-400 font-mono">
+            N° RPPS : {member.rpps}
+          </p>
+        )}
 
         {/* CTA Doctolib */}
         <a
           href={member.doctolibUrl}
           target="_blank"
           rel="noopener noreferrer"
-          onClick={(e) => e.stopPropagation()}
-          className="flex items-center gap-2 bg-[#107ACA] hover:bg-[#0e69ad] active:bg-[#0c5a94] text-white px-5 py-3 rounded-xl font-semibold text-xs transition-colors w-full justify-center shadow-lg"
+          className="flex items-center justify-center gap-3 w-full bg-[#107ACA] hover:bg-[#0e69ad] active:scale-[0.98] text-white py-3.5 rounded-xl font-semibold text-sm transition-all duration-200 shadow-lg"
         >
-          <img src="/images/doctolib/D_White.svg" alt="" className="w-4 h-4" />
-          Prendre rendez-vous
+          <img src="/images/doctolib/D_White.svg" alt="" className="w-5 h-5" />
+          Prendre rendez-vous avec {member.name.split(' ')[0]}
         </a>
       </div>
-
-      {/* Practitioner Modal (Official Anthracite Theme) */}
-      <Modal
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-        title={member.name}
-        maxWidth={isLeonie ? 'xl' : 'md'}
-        className="bg-[#1e1c1a] border border-white/5"
-      >
-        <div className="space-y-12 py-2">
-          {/* RPPS Number under name */}
-          {member.rpps && (
-            <div className="-mt-4 mb-4">
-              <p className="text-sm font-mono font-medium text-slate-400 uppercase tracking-widest">
-                RPPS {member.rpps}
-              </p>
-            </div>
-          )}
-
-          {/* Content Section */}
-          <div className="space-y-10">
-
-            {/* Diploma Section */}
-            {member.diploma && (
-              <div className="space-y-4">
-                <h4 className="text-xl font-bold text-white tracking-wide normal-case">
-                  Diplôme d'État
-                </h4>
-                <div className="text-slate-300 text-lg font-medium leading-relaxed">
-                  {member.diploma}
-                </div>
-              </div>
-            )}
-
-            {/* Sports Section */}
-            {member.sports && member.sports.length > 0 && (
-              <div className="space-y-4">
-                <h4 className="text-xl font-bold text-white tracking-wide normal-case">
-                  Sports pratiqués
-                </h4>
-                <div className="flex flex-wrap gap-2">
-                  {member.sports.map((sport, index) => (
-                    <span key={index} className="px-4 py-2 bg-white/5 border border-white/10 rounded-full text-sm text-slate-300 font-medium">
-                      {sport}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            )}
-
-            {/* Certifications Section */}
-            {member.certifications && member.certifications.length > 0 && (
-              <div className="space-y-4">
-                <h4 className="text-xl font-bold text-white tracking-wide normal-case">
-                  Formations & Expertise
-                </h4>
-                <ul className="space-y-4">
-                  {member.certifications.map((cert, index) => (
-                    <li key={index} className="flex items-start gap-4 text-lg text-slate-300 font-medium leading-relaxed">
-                      <span className="text-[#404134] mt-2.5 text-[8px] shrink-0">●</span>
-                      {cert}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
-
-
-
-            {/* Footer Action */}
-            <div className="pt-2">
-              <a
-                href={member.doctolibUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-center gap-3 w-full bg-[#107ACA] hover:bg-[#0e69ad] active:scale-[0.98] text-white py-4 rounded-2xl text-lg font-bold shadow-2xl transition-all duration-200"
-              >
-                <img src="/images/doctolib/D_White.svg" alt="" className="w-6 h-6" />
-                Prendre rendez-vous
-              </a>
-            </div>
-          </div>
-        </div>
-      </Modal>
-    </article>
+    </motion.article>
   );
 };
 
 export const Team: React.FC = () => {
+  // Build dynamic title with all practitioner names
+  const names = TEAM.map(m => m.name).join(', ');
+
   return (
     <>
       <SEO
-        title="Notre Équipe - Kinésithérapeutes Paris 17"
-        description="4 kinés du sport diplômés. Expertise course, rugby, danse, post-partum. RDV rapide sur Doctolib. ✓ Paris 17 Batignolles."
+        title={`${names} — Kinés du Sport Paris 17 Batignolles`}
+        description={`Découvrez l'équipe de Batignolles Kiné Sport : ${names}. Kinésithérapeutes du sport diplômés, spécialisés course, rugby, danse, post-partum. Paris 17.`}
         breadcrumbs={[
           { name: 'Accueil', url: 'https://batignolleskinesport.fr' },
           { name: 'Équipe', url: 'https://batignolleskinesport.fr/equipe' }
         ]}
       />
 
-      {/* Person Schemas for each practitioner */}
+      {/* Person Schemas for each practitioner — enriched with bio */}
       <Head>
         {TEAM.map(member => (
           <script key={member.id} type="application/ld+json">
@@ -193,11 +140,13 @@ export const Team: React.FC = () => {
               rpps: member.rpps,
               diploma: member.diploma,
               specialties: member.specialties,
+              bio: member.bio,
             }))}
           </script>
         ))}
       </Head>
 
+      {/* Hero Section */}
       <Section spacing="default" className="border-b border-slate-100">
         <div className="space-y-8 mb-16">
           <div className="max-w-4xl space-y-6">
@@ -215,11 +164,18 @@ export const Team: React.FC = () => {
           </div>
         </div>
 
-        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+        {/* Team Grid — Full content exposed */}
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+          variants={staggerContainer}
+          className="grid gap-8 md:grid-cols-2"
+        >
           {TEAM.map((member) => (
             <TeamCard key={member.id} member={member} />
           ))}
-        </div>
+        </motion.div>
       </Section>
 
       {/* CTA Section */}
@@ -237,7 +193,7 @@ export const Team: React.FC = () => {
                 Prêt à démarrer votre <span className="text-gradient-primary">rééducation ?</span>
               </h2>
               <p className="text-lg text-text-muted max-w-2xl mx-auto">
-                L’équipe de Batignolles Kiné Sport vous accompagne dans votre rééducation, que vous soyez sportif ou non, pour vous aider à retrouver vos capacités, améliorer vos performances ou reprendre vos activités quotidiennes sans douleur.
+                L'équipe de Batignolles Kiné Sport vous accompagne dans votre rééducation, que vous soyez sportif ou non, pour vous aider à retrouver vos capacités, améliorer vos performances ou reprendre vos activités quotidiennes sans douleur.
               </p>
             </div>
 

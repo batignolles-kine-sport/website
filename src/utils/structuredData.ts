@@ -187,20 +187,33 @@ export interface PersonSchemaInput {
   rpps?: string;
   diploma?: string;
   specialties?: string[];
+  bio?: string;
 }
 
 export function generatePersonSchema(person: PersonSchemaInput) {
+  const slug = person.name.toLowerCase().replace(/\s+/g, '-');
   return {
     '@context': 'https://schema.org',
     '@type': 'Person',
-    '@id': `https://batignolleskinesport.fr/equipe#${person.name.toLowerCase().replace(/\s+/g, '-')}`,
+    '@id': `https://batignolleskinesport.fr/equipe#${slug}`,
     name: person.name,
     jobTitle: person.title,
     image: person.image,
+    url: `https://batignolleskinesport.fr/equipe#${slug}`,
+    ...(person.bio && { description: person.bio }),
     worksFor: {
       '@type': 'Organization',
       '@id': 'https://batignolleskinesport.fr/#organization',
       name: 'Batignolles Kiné Sport',
+    },
+    hasOccupation: {
+      '@type': 'Occupation',
+      name: 'Masseur-Kinésithérapeute',
+      occupationalCategory: '3255',
+      occupationLocation: {
+        '@type': 'AdministrativeArea',
+        name: 'Paris 17, Batignolles',
+      },
     },
     sameAs: [person.doctolibUrl],
     ...(person.rpps && {
