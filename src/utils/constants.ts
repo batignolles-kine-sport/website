@@ -80,21 +80,6 @@ export const SERVICES: ServiceData[] = [
 
 export const TEAM: TeamMember[] = [
   {
-    id: 1,
-    name: "Léa HLUBINA",
-    title: "Kiné du Sport",
-    specialties: ["Traumatologie", "Réathlétisation", "Suivi Sportif"],
-    sports: ["Crossfit", "Gymnastique"],
-    bio: "Léa HLUBINA, kinésithérapeute du sport et ancienne gymnaste. Elle accompagne les gymnastes et sportifs artistiques dans la gestion des hyperlaxités, des douleurs de dos et la prévention des blessures spécifiques.",
-    image: "https://media.doctolib.com/image/upload/q_auto:eco,f_auto,w_400,h_400,c_fill,g_face/y963mvve875v6zc8myvn.jpg",
-    doctolibUrl: "https://www.doctolib.fr/masseur-kinesitherapeute/paris/lea-hlubina",
-    rpps: "10109385814",
-    diploma: "Diplôme d’État de Masseur-Kinésithérapeute (2023)",
-    certifications: [
-      "Kiné du Sport Expert - KINESPORT (2025)"
-    ]
-  },
-  {
     id: 2,
     name: "Justine JOSSE",
     title: "Kiné du Sport",
@@ -130,6 +115,21 @@ export const TEAM: TeamMember[] = [
       "Endométriose et congestion pelvienne - HeyLilie (2024)",
       "La femme sportive - Kiné Sport (2025)",
       "Neuropathies, neurodynamique et syndromes canalaires - Rehab4neuro (2025)"
+    ]
+  },
+  {
+    id: 1,
+    name: "Léa HLUBINA",
+    title: "Kiné du Sport",
+    specialties: ["Traumatologie", "Réathlétisation", "Suivi Sportif"],
+    sports: ["Crossfit", "Gymnastique"],
+    bio: "Léa HLUBINA, kinésithérapeute du sport et ancienne gymnaste. Elle accompagne les gymnastes et sportifs artistiques dans la gestion des hyperlaxités, des douleurs de dos et la prévention des blessures spécifiques.",
+    image: "https://media.doctolib.com/image/upload/q_auto:eco,f_auto,w_400,h_400,c_fill,g_face/y963mvve875v6zc8myvn.jpg",
+    doctolibUrl: "https://www.doctolib.fr/masseur-kinesitherapeute/paris/lea-hlubina",
+    rpps: "10109385814",
+    diploma: "Diplôme d’État de Masseur-Kinésithérapeute (2023)",
+    certifications: [
+      "Kiné du Sport Expert - KINESPORT (2025)"
     ]
   },
   {
