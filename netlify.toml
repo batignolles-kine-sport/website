@@ -60,43 +60,7 @@
   to = "/blog/:splat"
   status = 301
 
-# Trailing slash redirects - Redirect URLs with trailing slash to without
-# This ensures Google indexes the correct canonical URL
-[[redirects]]
-  from = "/blog/*/"
-  to = "/blog/:splat"
-  status = 301
-  force = true
 
-[[redirects]]
-  from = "/services/*/"
-  to = "/services/:splat"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/equipe/"
-  to = "/equipe"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/contact/"
-  to = "/contact"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/pratiques/"
-  to = "/pratiques"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/mentions-legales/"
-  to = "/mentions-legales"
-  status = 301
-  force = true
 
 # Services root redirect
 [[redirects]]
