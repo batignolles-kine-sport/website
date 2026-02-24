@@ -105,7 +105,7 @@ export const BLOG_SEO_CONFIG: Record<string, BlogPostSEO> = {
   'epaule-conflit': {
     slug: 'epaule-conflit',
     title: 'Conflit Sous-Acromial : 5 Exercices pour Guérir (2026)',
-    metaDescription: 'Conflit sous-acromial ? 90% guérissent sans chirurgie. 5 exercices ciblés + protocole progressif. Résultats en 6-8 sem. ✓ Validé kinés épaule.',
+    metaDescription: '5 exercices pour soulager un conflit sous-acromial sans chirurgie. Résultats en 6 semaines. Programme progressif + vidéos. ✓ Kinés épaule Paris 17.',
     excerpt: 'Épaule qui accroche en levant le bras ? Les 5 exercices qui libèrent l\'espace sous l\'acromion.',
     category: 'sport',
     keywords: ['conflit sous-acromial', 'conflit épaule', 'exercices', 'impingement', 'rééducation'],
@@ -404,8 +404,8 @@ export const BLOG_SEO_CONFIG: Record<string, BlogPostSEO> = {
 
   'premier-marathon-preparation': {
     slug: 'premier-marathon-preparation',
-    title: 'Préparation Course 2026 : Questions Fréquentes [Guide]',
-    metaDescription: 'Questions sur la préparation course 2026 ? Plan entraînement, nutrition, erreurs fréquentes — toutes les réponses. ✓ Guide complet par kinés du sport Paris.',
+    title: 'Questions Fréquentes Course à Pied 2026 [Guide Kiné]',
+    metaDescription: 'Les 10 questions les plus posées sur la course 2026 : plan d\'entraînement, nutrition, blessures, chaussures. Réponses de kinés du sport Paris.',
     excerpt: 'Les 42 km vous font rêver ? On vous prépare à franchir la ligne debout.',
     category: 'sport',
     keywords: ['questions fréquentes', 'préparation course', 'marathon', 'plan entraînement', 'nutrition'],
@@ -609,7 +609,7 @@ export const BLOG_SEO_CONFIG: Record<string, BlogPostSEO> = {
   'blessure-doigt-escalade-poulie': {
     slug: 'blessure-doigt-escalade-poulie',
     title: 'Poulie Escalade : Blessure, Grades et Reprise (2026)',
-    metaDescription: 'Poulie escalade blessée ? Grades 1 à 4, diagnostic et protocole de reprise grimpe. Ne brûlez pas les étapes ! ✓ Kinés main escalade Paris.',
+    metaDescription: 'Poulie A2 claquée ? Évaluez votre grade (1-4), délai de reprise et protocole retour grimpe. Ne risquez pas la rupture complète. ✓ Kinés escalade.',
     excerpt: 'La poulie A2 qui lâche sur l\'arqué. Comment revenir grimper en sécurité.',
     category: 'sport',
     keywords: ['poulie escalade', 'blessure doigt', 'grades', 'reprise grimpe', 'bloc'],
