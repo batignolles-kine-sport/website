@@ -40,11 +40,6 @@ const TeamCard: React.FC<{ member: typeof TEAM[0] }> = ({ member }) => {
       {/* Content Section — Fully crawlable by Google */}
       <div className="p-6 md:p-8 space-y-6">
 
-        {/* Bio */}
-        <p className="text-slate-600 leading-relaxed text-[15px]">
-          {member.bio}
-        </p>
-
         {/* Sports */}
         {member.sports && member.sports.length > 0 && (
           <div>
@@ -172,6 +167,31 @@ export const Team: React.FC = () => {
           {TEAM.map((member) => (
             <TeamCard key={member.id} member={member} />
           ))}
+        </motion.div>
+
+        {/* SEO Content Block — Crawlable by Google */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="mt-16 rounded-3xl bg-slate-50 border border-slate-100 p-8 md:p-12 space-y-6 text-sm text-slate-600 leading-relaxed"
+        >
+          <h2 className="text-xl md:text-2xl font-bold text-text-main">
+            Une équipe de kinésithérapeutes du sport au cœur de Paris 17
+          </h2>
+          <p>
+            Batignolles Kiné Sport réunit quatre kinésithérapeutes diplômés d'État, tous spécialisés dans la prise en charge du sportif : <strong>Justine Josse</strong>, <strong>Leonie Taton</strong>, <strong>Léa Hlubina</strong> et <strong>Martin Bonnin</strong>. Chacun apporte une expertise complémentaire — course à pied, danse, gymnastique, rugby — pour couvrir l'ensemble des blessures et pathologies rencontrées dans la pratique sportive amateur ou de compétition.
+          </p>
+          <p>
+            Notre cabinet de kinésithérapie du sport, situé au 6 rue des Batignolles (Paris 17<sup>e</sup>), propose des bilans individualisés, des protocoles de rééducation post-traumatique et des programmes de réathlétisation. Nos kinésithérapeutes interviennent sur les pathologies musculo-squelettiques les plus fréquentes : entorses, tendinopathies, douleurs lombaires, fractures de fatigue, syndromes rotuliens, lésions musculaires et suites opératoires (LCA, coiffe des rotateurs, etc.).
+          </p>
+          <p>
+            Formés aux approches les plus récentes — thérapie manuelle orthopédique, pilates clinique, neurodynamique, analyse de la foulée, renforcement fonctionnel — nos praticiens s'engagent dans une formation continue rigoureuse pour vous offrir une prise en charge fondée sur les dernières données probantes de la recherche en kinésithérapie sportive.
+          </p>
+          <p>
+            Que vous vous prépariez à un marathon, que vous repreniez le sport après une opération, ou que vous cherchiez à prévenir les blessures liées à votre discipline, l'équipe de Batignolles Kiné Sport vous accompagne à chaque étape, du premier bilan au retour à la compétition.
+          </p>
         </motion.div>
       </Section>
 
