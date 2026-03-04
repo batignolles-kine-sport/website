@@ -73,3 +73,28 @@
   from = "/services"
   to = "/services/kine-sport"
   status = 301
+
+# Strict HTTPS and non-www enforcement
+[[redirects]]
+  from = "http://batignolleskinesport.fr/*"
+  to = "https://batignolleskinesport.fr/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://www.batignolleskinesport.fr/*"
+  to = "https://batignolleskinesport.fr/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.batignolleskinesport.fr/*"
+  to = "https://batignolleskinesport.fr/:splat"
+  status = 301
+  force = true
+
+# Fallback SPA routing (resolves potential 404s or redirect loops for dynamic routes)
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

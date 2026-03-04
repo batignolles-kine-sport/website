@@ -1,11 +1,11 @@
 ---
-title: "Fracture du pouce du boxeur : rééducation et retour au sac"
+title: "Que Faire en Cas de Fracture du Pouce du Boxeur (Bennett) ?"
 category: "Poignet"
 sport: "Boxe"
 type: "Main"
 readTime: "8 min"
 image: "/images/blog/fracture-pouce-boxeur.jpg"
-excerpt: "Vous avez mal au pouce après un crochet mal placé ? Découvrez comment soigner une fracture du pouce (Bennett ou Rolando) et reprendre la boxe sans douleur."
+excerpt: "Découvrez que faire en cas de fracture du pouce du boxeur. Symptômes, rééducation des fractures de Bennett/Rolando, et conseils de reprise sportive."
 publishedAt: "03 Janvier 2026"
 ---
 

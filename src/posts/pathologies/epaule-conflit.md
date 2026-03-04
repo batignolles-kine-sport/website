@@ -1,10 +1,10 @@
 ---
-title: "Conflit sous-acromial : quand l'épaule coince"
+title: "Exercices pour le Syndrome d'Impingement de l'Épaule"
 category: "Épaule"
 type: "Membre Supérieur"
 readTime: "10 min"
 image: "/images/blog/epaule-conflit.jpg"
-excerpt: "Douleur en levant le bras ou en dormant dessus ? Le conflit sous-acromial est fréquent. Découvrez comment libérer votre épaule."
+excerpt: "Découvrez nos meilleurs exercices pour le syndrome d'impingement de l'épaule (conflit sous-acromial). Soulagez la douleur en levant le bras sans chirurgie."
 publishedAt: "28 Août 2025"
 ---
 

@@ -1,10 +1,10 @@
 ---
-title: "Entorse de cheville : comment bien récupérer pour éviter la récidive ?"
+title: "Entorse & Instabilité de Cheville : Quel Exercice Pratiquer ?"
 category: "Cheville"
 type: "Membre Inférieur"
 readTime: "5 min"
 image: "/images/blog/entorse-cheville.jpg"
-excerpt: "Une cheville qui tourne, ça arrive vite. Découvrez comment la soigner efficacement pour reprendre le sport sans appréhension."
+excerpt: "Une bonne rééducation empêche l'instabilité de la cheville. Découvrez notre protocole et chaque exercice pour éviter la récidive de votre entorse."
 publishedAt: "15 Juin 2025"
 ---
 
