@@ -57,7 +57,7 @@ export function generateLocalBusinessSchema(): StructuredDataLocalBusiness {
     name: 'Batignolles Kiné Sport',
     alternateName: 'BKS',
     image: 'https://batignolleskinesport.fr/images/logo.svg',
-    description: 'Cabinet de kinésithérapie du sport spécialisé en rééducation, post-opératoire et réathlétisation à Paris 17 (Batignolles). Équipe de 3 kinés avec approche science-based.',
+    description: 'Cabinet de kinésithérapie du sport spécialisé en rééducation, post-opératoire et réathlétisation à Paris 17 (Batignolles). Équipe de 5 kinés avec approche science-based.',
     address: {
       '@type': 'PostalAddress',
       streetAddress: '6 rue des Batignolles',

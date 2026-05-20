@@ -147,6 +147,19 @@ export const TEAM: TeamMember[] = [
       "Zero to pro - Maîtriser la préparation physique des sportifs blessés - Training thérapie (2024)",
       "Prise en charge des rachialgies aiguës - Accès formation (2025)"
     ]
+  },
+  {
+    id: 5,
+    name: "Balthazar INACIO",
+    title: "Kiné du Sport",
+    specialties: ["Traumatologie", "Kiné du sport", "Rééducation Fonctionnelle"],
+    sports: ["Tennis", "Crossfit", "Running", "Natation"],
+    bio: "Balthazar INACIO, kinésithérapeute du sport. Il accompagne les sportifs dans leur rééducation, la prévention des blessures et la réathlétisation pour un retour optimal au sport.",
+    image: "https://media.doctolib.com/image/upload/q_auto:eco,f_auto,dpr_2/w_400,h_400,c_fill,g_face/guo2wfdasv8xp6xbbknq",
+    doctolibUrl: "https://www.doctolib.fr/masseur-kinesitherapeute/paris/balthazar-inacio",
+    rpps: "10112088124",
+    diploma: "Diplôme d'État de Masseur-Kinésithérapeute - EUSES - Barcelone (2026)",
+    certifications: []
   }
 ];
 

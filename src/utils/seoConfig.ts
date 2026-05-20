@@ -948,7 +948,7 @@ export const SERVICES_SEO_CONFIG: Record<string, ServiceSEO> = {
   'kine-sport': {
     id: 'kine-sport',
     title: 'Kiné du Sport Paris 17 — Bilan et Suivi',
-    metaDescription: 'Blessure sportive ? 90% de retour terrain en 12 sem. Bilan complet, protocole personnalisé. ✓ 3 kinés spécialisés Paris Batignolles.',
+    metaDescription: 'Blessure sportive ? 90% de retour terrain en 12 sem. Bilan complet, protocole personnalisé. ✓ 5 kinés spécialisés Paris Batignolles.',
   },
   'reeducation-post-traumatique': {
     id: 'reeducation-post-traumatique',

@@ -20,7 +20,7 @@ Phone: +33962434961
 
 ### 3. **Titre et Meta Description optimisés**
 - **Titre** : "Batignolles Kiné Sport | Rééducation, Post-Op, Réathlétisation - Paris 17"
-- **Description** : "Rééducation fonctionnelle, post-op, sport-santé. Cabinet spécialisé Paris 17. Équipe 3 kinés. Prise en charge globale, résultats durables. Prendre RDV."
+- **Description** : "Rééducation fonctionnelle, post-op, sport-santé. Cabinet spécialisé Paris 17. Équipe 5 kinés. Prise en charge globale, résultats durables. Prendre RDV."
 
 ---
 
