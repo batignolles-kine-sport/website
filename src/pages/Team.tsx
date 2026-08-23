@@ -140,10 +140,11 @@ export const Team: React.FC = () => {
 
       {/* Hero Section */}
       <Section spacing="default" className="border-b border-slate-100">
-        <div className="space-y-8 mb-16">
-          <div className="max-w-4xl space-y-6">
-            <div className="inline-flex items-center gap-2 rounded-full border border-primary/10 bg-white px-3 py-1 text-sm font-semibold text-primary shadow-soft">
-              <span className="inline-block h-2 w-2 rounded-full bg-primary" />
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center mb-16">
+          {/* Left Text Column */}
+          <div className="lg:col-span-7 space-y-6">
+            <div className="inline-flex items-center gap-2 rounded-full border border-primary/10 bg-white px-3.5 py-1.5 text-sm font-semibold text-primary shadow-soft">
+              <span className="inline-block h-2 w-2 rounded-full bg-primary animate-pulse" />
               Notre équipe pluridisciplinaire
             </div>
             <h1 className="text-4xl font-bold leading-tight text-text-main sm:text-5xl lg:text-6xl">
@@ -153,7 +154,38 @@ export const Team: React.FC = () => {
             <p className="text-lg text-text-muted leading-relaxed">
               Nous combinons expertise scientifique, suivi individualisé et pédagogie pour vous accompagner du diagnostic à la reprise, que vous soyez sportif amateur ou athlète confirmé.
             </p>
+            <div className="pt-2 flex flex-wrap items-center gap-6 text-sm font-medium text-slate-600">
+              <div className="flex items-center gap-2">
+                <span className="h-2.5 w-2.5 rounded-full bg-emerald-500 shrink-0" />
+                5 Kinésithérapeutes Spécialisés
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="h-2.5 w-2.5 rounded-full bg-primary shrink-0" />
+                Cabinet Paris 17 (Batignolles)
+              </div>
+            </div>
           </div>
+
+          {/* Right Image Column */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="lg:col-span-5 relative"
+          >
+            <div className="relative rounded-3xl overflow-hidden shadow-card hover:shadow-2xl transition-all duration-500 border border-slate-100 group">
+              <img
+                src="/images/team/team.webp"
+                alt="L'équipe de Batignolles Kiné Sport Paris 17"
+                className="w-full h-[360px] sm:h-[420px] object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+              <div className="absolute bottom-4 left-4 right-4 p-4 rounded-2xl bg-white/90 backdrop-blur-md border border-white/20 shadow-lg">
+                <p className="text-sm font-bold text-slate-900">L'équipe Batignolles Kiné Sport</p>
+                <p className="text-xs text-slate-600">6 rue des Batignolles, 75017 Paris</p>
+              </div>
+            </div>
+          </motion.div>
         </div>
 
         {/* Team Grid — Full content exposed */}
@@ -168,8 +200,6 @@ export const Team: React.FC = () => {
             <TeamCard key={member.id} member={member} />
           ))}
         </motion.div>
-
-
       </Section>
 
       {/* CTA Section */}
